@@ -4,17 +4,14 @@
 
    `npm install`
 
-   \*\*Note we are using node 12.x in the production environment.
-
-2. Create the .env file and fillout the variables
-
-   `cp .env.sample .env`
-
-3. Start the server
+2. Start the server
 
    `npm start`
 
 4. Open a browser: http://localhost:3000
+
+
+[BELOW IS FROM PREVIOUS VERSION:]
 
 ### App structure
 
