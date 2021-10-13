@@ -1,0 +1,45 @@
+@import '../../../style/index.scss';
+
+
+.OnlyAsDecentral {
+    @include centeredcolumn;
+    width: 100%;
+    padding: 90px 0;
+    color: white;
+    &__quote {
+        max-width: 930px;
+        h1 {
+            font-size: 3.625rem;
+            line-height: 4.25rem;
+            color: white;
+        }
+        p, a {
+            @include sixteenpxfont;
+            font-weight: 200;
+        }
+    }
+    &__items {
+        @include centeredrow;
+        align-items: flex-start;
+        width: 100%;
+        margin: 40px 0 0 0;
+        div:first-child {
+            margin: 0 35px 0 0;
+        }
+        div {
+            margin: 0 35px;
+            max-width: 300px;
+            color: white;
+            h4 {
+                color: white;
+                font-size: 1.25rem;
+            }
+            p {
+                @include sixteenpxfont;
+            }
+            a {
+                @include sixteenpxfont;
+            }
+        }
+    }
+}

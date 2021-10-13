@@ -1,0 +1,59 @@
+@import '../../../style/index.scss';
+
+.Footer {
+    @include leftcolumn;
+    width: 100%;
+    .tidbits {
+      @include leftrow;
+      align-items: flex-start;
+      width: 100%;
+      margin: 50px 0 70px 0;
+      padding: 70px 0 65px 214px;
+      border-top: 1px solid rgba($color: #ffffff, $alpha: 0.5);
+      border-bottom: 1px solid #ffffff;
+      &__logo {
+        @include rightcolumn;
+        p {
+          font-family: 'Renogare Regular';
+          color: white;
+          text-align: right;
+          font-size: 1.375rem !important;
+          line-height: 1.75rem !important;
+          -webkit-user-select: none;  /* Chrome all / Safari all */
+          -moz-user-select: none;     /* Firefox all */
+          -ms-user-select: none;      /* IE 10+ */
+          user-select: none;
+        }
+        svg {
+          width: 24px;
+        }
+        .doanim {
+          animation: rotaterefresher 0.25s 1 linear;
+        }
+      }
+      &__logo:hover {
+        cursor: pointer;
+      }
+      &__txt {
+        max-width: 450px;
+        margin: 0 0 0 30px;
+        p {
+          @include sixteenpxfont;
+          color: white;
+          -webkit-user-select: none;  /* Chrome all / Safari all */
+          -moz-user-select: none;     /* Firefox all */
+          -ms-user-select: none;      /* IE 10+ */
+          user-select: none;
+        }
+      }
+    }
+  }
+
+  @keyframes rotaterefresher {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+}

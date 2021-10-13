@@ -1,0 +1,21 @@
+@import '../../../style/index.scss';
+
+.BountiesWrapper {
+    @include centeredcolumn;
+    width: 100%;
+    padding: 110px 180px;
+    background-color: white;
+    &__title {
+        @include centeredrow;
+        width: 100%;
+        margin: 0 0 40px 0;
+        h1 {   
+            font-size: 1.625rem;
+            margin: 4px 0 0 0;
+        }
+        svg {
+            width: 40px;
+            margin: 0 10px 0 16px;
+        }
+    }
+}
