@@ -1,10 +1,14 @@
 ### Development
 
-1. Install dependencies
+2. Go to folder 'frontend'
+
+   `cd frontend`
+
+2. Install dependencies
 
    `npm install`
 
-2. Start the server
+3. Start the server
 
    `npm start`
 
