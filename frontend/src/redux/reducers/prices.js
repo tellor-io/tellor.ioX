@@ -1,25 +1,27 @@
-import { GET_EXAMPLE_REQUEST, GET_EXAMPLE_SUCCESS, GET_EXAMPLE_FAILURE, } from '../actions';
+import { GET_PRICES_REQUEST, GET_PRICES_SUCCESS, GET_PRICES_FAILURE, } from '../actions';
 
+//price state
 const initialState = {
-  examples: [],
+  prices: [],
   isLoading: false,
   error: {},
 };
 
-const example = (state = initialState, action) => {
+//price reducer
+const prices = (state = initialState, action) => {
   switch (action.type) {
-    case GET_EXAMPLE_REQUEST:
+    case GET_PRICES_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
-    case GET_EXAMPLE_SUCCESS:
+    case GET_PRICES_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        examples: action.examples
+        prices: action.data
       };
-    case GET_EXAMPLE_FAILURE:
+    case GET_PRICES_FAILURE:
       return {
         ...state,
         isLoading: false,
@@ -30,4 +32,4 @@ const example = (state = initialState, action) => {
   }
 }
 
-export default example;
+export default prices;
