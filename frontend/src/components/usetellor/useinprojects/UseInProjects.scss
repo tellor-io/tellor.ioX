@@ -4,7 +4,8 @@
 .UseInProjects {
   @include leftcolumn;
   width: 100%;
-  padding: 50px 180px;
+  //padding: 50px 180px;
+  padding: 2.5% 12%;
   color: white;
   &__head {
     h1 {
