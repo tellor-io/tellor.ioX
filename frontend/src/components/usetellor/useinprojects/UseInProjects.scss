@@ -1,0 +1,25 @@
+@import '../../../style/index.scss';
+
+
+.UseInProjects {
+  @include leftcolumn;
+  width: 100%;
+  padding: 50px 180px;
+  color: white;
+  &__head {
+    h1 {
+      max-width: 600px;
+      font-size: 5.5rem;
+      line-height: 5rem;
+      color: white;
+    }
+  }
+  &__desc {
+    padding-top: 30px;
+    p{
+      max-width: 800px;
+      @include sixteenpxfont;
+      font-weight: 200;
+    }
+  }
+}
