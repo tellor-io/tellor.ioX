@@ -2,7 +2,7 @@ import { GET_PRICES_REQUEST, GET_PRICES_SUCCESS, GET_PRICES_FAILURE, } from '../
 
 //price state
 const initialState = {
-  prices: [],
+  data: [],
   isLoading: false,
   error: {},
 };
@@ -19,7 +19,7 @@ const prices = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        prices: action.data
+        data: action.data
       };
     case GET_PRICES_FAILURE:
       return {

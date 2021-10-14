@@ -23,7 +23,7 @@ const App = (props) => {
   const [disputesReady, setDisputesReady] = useState(false);
 
   const [currentUser] = useContext(UserContext);
-
+  //redux variables, thunk methods
   const { prices, startGetPrices } = props;
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const App = (props) => {
 
 //redux state variables
 const mapStateToProps = state => ({
-  prices: state.prices.prices
+  prices: state.prices.data
 });
 //redux thunk methods (api)
 const mapDispatchToProps = dispatch => ({
