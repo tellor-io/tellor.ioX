@@ -7,40 +7,28 @@ import HeaderNav from 'components/shared/HeaderNav/HeaderNav';
 import Footer from 'components/shared/Footer/Footer';
 import GraphFetch from 'components/shared/GraphFetch';
 import { NetworkContext } from 'contexts/Network';
-import { chains } from 'utils/chains';
 import { GET_ALL_EVENTS } from 'utils/queries';
 import { GET_VOTING } from 'utils/queries';
 
 import { UserContext } from 'contexts/User';
 
+import { connect } from 'react-redux';
+import { getPrices } from 'redux/thunks';
 
-const App = () => {
+const App = (props) => {
   const [events, setEvents] = useState();
   const [votes, setVotes] = useState();
     const [currentNetwork] = useContext(NetworkContext);
-  const [prices, setPrices] = useState(false);
   const [disputes, setDisputes] = useState();
   const [disputesReady, setDisputesReady] = useState(false);
 
   const [currentUser] = useContext(UserContext);
+  //redux variables, thunk methods
+  const { prices, startGetPrices } = props;
 
   useEffect(() => {
-    getPrices(setPrices, currentNetwork)
+    startGetPrices(currentNetwork);
   }, [currentNetwork])
-
-  const getPrices = async (setPrices, currentNetwork) => {
-    try {
-      fetch(chains[currentNetwork].apiURL + "/prices")
-        .then(response => response.json())
-        .then(data => {
-          setPrices(data)
-        }
-        );
-    } catch (e) {
-      console.error('error', e);
-    }
-  };
-
 
   useEffect(() => {
     if(votes && votes.disputes){
@@ -88,4 +76,13 @@ const App = () => {
   );
 };
 
-export default App;
+//redux state variables
+const mapStateToProps = state => ({
+  prices: state.prices.data
+});
+//redux thunk methods (api)
+const mapDispatchToProps = dispatch => ({
+  startGetPrices: network => dispatch(getPrices(network)) 
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
