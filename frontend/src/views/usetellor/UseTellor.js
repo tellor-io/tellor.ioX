@@ -16,7 +16,7 @@ const UseTellor = () => {
             */}
             <UseInProjects />
             <SampleUsing />
-            
+            <ForSmartContracts />
         </div>
     )
 }

@@ -1,11 +1,13 @@
 import React from 'react';
 import './SampleUsing.scss';
 import {ReactComponent as Github} from 'assets/Github.svg';
-import VideoPlaceholder from 'assets/video_placeholder.png';
+import videoplaceholder from 'assets/video_placeholder.png';
 
 const SampleUsing = () => {
-    const githubrepo = "tellor-io/TellorPlayground";
-    const docs = "http://docs.tellor.io";
+
+    const githubrepo = "tellor-io/usingtellor";
+    const docs = "https://docs.tellor.io/tellor/integration/usingtellor";
+
     return (
         <div className="SampleUsing">
             {/* 
@@ -22,7 +24,7 @@ const SampleUsing = () => {
                 </p>
             </div>
             <div className="SampleUsing__video">
-                <video poster={VideoPlaceholder}>
+                <video poster={videoplaceholder}>
                     {/* 
                         Todo: Insert mp4, webm, and video link
                     */}
