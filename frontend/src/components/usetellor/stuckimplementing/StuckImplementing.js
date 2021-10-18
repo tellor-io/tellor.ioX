@@ -1,11 +1,11 @@
  import React from 'react';
  import './StuckImplementing.scss';
 //  import { ReactComponent as Discord } from 'assets/Github.svg';
- import Discord from 'assets/discord_black2.jpeg';
+ import Discord from 'assets/Discord.svg';
 
  const StuckImplementing = () => {
     const askUrl = '';
-    const talkUrl = '';
+    const talkUrl = 'https://discord.com/invite/n7drGjh';
     return (
         <div className="StuckImplementing">
             <div className="StuckImplementing__intro">
