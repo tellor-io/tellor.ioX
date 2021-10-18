@@ -1,6 +1,5 @@
 import React from 'react';
 import './ForSmartContracts.scss';
-import codeblock from 'assets/forsmart_codeblock.png';
 
 const ForSmartContracts = () => {
 
@@ -13,30 +12,38 @@ const ForSmartContracts = () => {
                 <p> It takes 3 lines of code to integrate with Tellor for decentralized, trustless data in your smart contracts.</p>
             </div>
             <div className="ForSmart__code">
-                {/* <img src={codeblock} alt="code"/> */}
-                {/* <code>
-                    <pre>
+                <code>
+                    <pre className="code-import">
                         import './UsingTellor.sol';
-                        
                     </pre>
-                    <pre>
+                    <pre className="single-indent">
                         contract YourContract is UsingTellor{"{"}
                     </pre>
-                    <pre>    
-                            constructor(addresss _userContract) UsingTellor(_userContract) ublic {"{"}
+                    <pre className="double-indent">    
+                            constructor(addresss _userContract) UsingTellor(_userContract) public {"{"}
                     </pre>
+                    <pre className="double-indent">
                         {"}"}
-                    <pre>
+                    </pre>
+                    <pre className="code-function">
                         function getLastValue(uint256 _requestId) public view returns (bool ifRetrieve,)
                     </pre>
-                    <pre>
-                        
+                    <pre className="double-indent">
+                        uint256 value, uint256 _timestampeRetrieved) {"{"}
                     </pre>
-                    {"}"}
-                </code> */}
+                    <pre className="triple-indent">
+                        return getCurrentValue(_requestId);
+                    </pre>
+                    <pre className="double-indent">
+                        {"}"}
+                    </pre>
+                    <pre className="ending-brace">
+                        {"}"}
+                    </pre>
+                </code>
             </div>
             <div className="ForSmart__actions">
-                <button type="default" size="large" onClick={() => window.open(docs)}>
+                <button type="default" size="large" className="bigbutton  blackbutton fxw" onClick={() => window.open(docs)}>
                     read the docs 
                 </button>
             </div>

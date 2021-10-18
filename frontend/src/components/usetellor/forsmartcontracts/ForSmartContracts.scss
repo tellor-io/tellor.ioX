@@ -21,16 +21,34 @@
         }
     }
     &__code {
-        padding-top: 3.5%;
-        img {
-            max-width: 900px;
+        margin-top: 3.5%;
+        width: 900px;
+        background-color: #202020;
+        display: block;
+        padding: 20px;
+        .code-import{
+            padding: 30px 40px;
         }
-        // code {
-        //     width: 900px;
-        //     background-color: #202020;
-        //     display: block;
-        //     padding: 20px;
-        // }
+        .single-indent {
+            padding: 0 40px;
+            margin: 0px;
+        }
+        .double-indent {
+            padding: 0 40px 0 60px;
+            margin: 0px;
+        }
+        .triple-indent {
+            padding: 0 40px 0 80px;
+            margin: 0px;
+        }
+        .code-function {
+            padding: 20px 40px 0px 40px;
+            margin: 0px;
+        }
+        .ending-brace {
+            padding: 0 40px 30px 40px;
+            margin: 0px;
+        }
     }
     &__actions {
         padding-top: 4.5%;
@@ -43,9 +61,9 @@
             color: white;
             border: 1px solid white;
             border-bottom: 2px solid white;
-            height: 60px;
+            //height: 60px;
             border-radius: 0;
-            padding: 15px 100px;
+            //padding: 15px 100px;
             margin-right: 50px;
             cursor:pointer;
         }

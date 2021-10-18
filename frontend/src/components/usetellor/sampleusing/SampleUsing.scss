@@ -29,6 +29,12 @@
             height: 315px;
             cursor:pointer;
         }
+        @media (max-width: 767px) {
+            video {
+                width: 325px; 
+                height: 157.5px;
+            }
+        }
     }
     &__actions {
         padding-top: 0.5%;
@@ -41,11 +47,14 @@
             color: white;
             border: 1px solid white;
             border-bottom: 2px solid white;
-            height: 60px;
             border-radius: 0;
-            padding: 15px 100px;
             margin-right: 50px;
             cursor:pointer;
+        }
+        @media (max-aspect-ratio: 16/9) {
+            button {
+                padding: 15px 100px;
+            }
         }
         &__github {
             a {

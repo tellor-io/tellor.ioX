@@ -37,7 +37,7 @@ const SampleUsing = () => {
                 </video>
             </div>
             <div className="SampleUsing__actions">
-                <button type="default" size="large" onClick={() => window.open(docs)}>
+                <button type="default" size="large" className="bigbutton fxw" onClick={() => window.open(docs)}>
                     read the docs
                 </button>
                 <div className="SampleUsing__actions__github">

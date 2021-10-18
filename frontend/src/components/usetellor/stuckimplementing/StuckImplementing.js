@@ -1,7 +1,7 @@
  import React from 'react';
  import './StuckImplementing.scss';
 //  import { ReactComponent as Discord } from 'assets/Github.svg';
- import Discord from 'assets/Discord.svg';
+ import Discord from 'assets/Discord2.svg';
 
  const StuckImplementing = () => {
     const askUrl = '';
