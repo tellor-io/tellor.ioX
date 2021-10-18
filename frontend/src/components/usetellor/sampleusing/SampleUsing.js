@@ -1,6 +1,6 @@
 import React from 'react';
 import './SampleUsing.scss';
-import {ReactComponent as Github} from 'assets/Github.svg';
+import { ReactComponent as Github } from 'assets/Github.svg';
 import videoplaceholder from 'assets/video_placeholder.png';
 
 const SampleUsing = () => {

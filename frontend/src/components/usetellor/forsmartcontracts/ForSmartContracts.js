@@ -13,7 +13,7 @@ const ForSmartContracts = () => {
                 <p> It takes 3 lines of code to integrate with Tellor for decentralized, trustless data in your smart contracts.</p>
             </div>
             <div className="ForSmart__code">
-                <img src={codeblock} alt="code"/>
+                {/* <img src={codeblock} alt="code"/> */}
                 {/* <code>
                     <pre>
                         import './UsingTellor.sol';

@@ -8,15 +8,10 @@ import StuckImplementing from 'components/usetellor/stuckimplementing/StuckImple
 const UseTellor = () => {
     return (
         <div className="viewContainer">
-            {/* 
-                1. <UseInProject />
-                2. <SampleUsing />
-                3. <ForSmartContracts />
-                4. <StuckImplementing />
-            */}
             <UseInProjects />
             <SampleUsing />
             <ForSmartContracts />
+            <StuckImplementing />
         </div>
     )
 }
