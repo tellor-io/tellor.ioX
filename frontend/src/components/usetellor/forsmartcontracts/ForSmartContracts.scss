@@ -22,10 +22,12 @@
     }
     &__code {
         margin-top: 3.5%;
-        width: 900px;
-        background-color: #202020;
-        display: block;
-        padding: 20px;
+        code {
+            width: 900px;
+            background-color: #202020;
+            padding: 20px;
+            display: block;
+        }
         .code-import{
             padding: 30px 40px;
         }
@@ -49,6 +51,16 @@
             padding: 0 40px 30px 40px;
             margin: 0px;
         }
+        .highlight {
+            position: absolute;
+            background-color: #2DFC9F;
+            width: 3px;
+            height: 25px;
+            left: 12%;
+            // margin: 0;
+            // padding: 0;
+        }
+
     }
     &__actions {
         padding-top: 4.5%;
