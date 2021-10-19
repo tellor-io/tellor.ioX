@@ -3,7 +3,8 @@ import React from 'react';
 import TokenIntro from 'components/trb/tokenintro/TokenIntro';
 import TokenDescription from 'components/trb/tokendescription/TokenDescription';
 import GetTRB from 'components/trb/gettrb/GetTRB';
-import EarnTRB from 'components/trb/earntrb/EarnTRB';
+import BountiesWrapper from 'components/shared/Bounties/BountiesWrapper'
+
 
 
 const TRB = () => {
@@ -12,7 +13,7 @@ const TRB = () => {
             <TokenIntro />
             <TokenDescription />
             <GetTRB />
-            <EarnTRB />
+            <BountiesWrapper />
         </div>
     )
 }
