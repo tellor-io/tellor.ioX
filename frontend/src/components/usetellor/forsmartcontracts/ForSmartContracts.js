@@ -55,7 +55,7 @@ const ForSmartContracts = () => {
                 </code>
             </div>
             <div className="ForSmart__actions">
-                <button type="default" size="large" className="bigbutton  blackbutton fxw" onClick={() => window.open(docs)}>
+                <button type="default" size="large" className="bigbutton fxw" onClick={() => window.open(docs)}>
                     read the docs 
                 </button>
             </div>
