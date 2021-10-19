@@ -4,6 +4,8 @@
     @include centeredcolumn;
     background-color: white;
     padding: 8% 0 10% 0;
+    width: 100%;
+    min-width: 945px;
     &__actions {
         padding-top: 4%;
         button {
