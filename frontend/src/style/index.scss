@@ -531,3 +531,28 @@ button {
   }
 
 }
+
+
+// page display items (by Wallace)
+
+.page-header { 
+  max-width: 600px;
+  font-size: 5.5rem;
+  line-height: 5rem;
+  color: white;
+}
+.page-header-small {
+  max-width: 600px;
+  max-height: 70px;
+  line-height: 5rem;
+  color: white;
+}
+.page-text {
+  max-width: 800px;
+  @include sixteenpxfont;
+  font-weight: 200;
+  color: white;
+}
+.page-button {
+  
+}
