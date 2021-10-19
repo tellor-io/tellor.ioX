@@ -1,0 +1,70 @@
+@import '../../../style/index.scss';
+
+
+.SampleUsing {
+    @include leftcolumn;
+    width: 100%;
+    padding: 0.5% 12%;
+    color: white;
+    &__intro {
+        h2 {
+            max-width: 600px;
+            max-height: 70px;
+            line-height: 5rem;
+            color: white;
+            margin-bottom: 0%;
+        }
+        p {
+            margin-top: 0%;
+            max-width: 800px;
+            @include sixteenpxfont;
+            font-weight: 200;
+        }
+    }
+    &__video {
+        padding: 3.5% 0;
+        video {
+            box-shadow: 0 0 15px 2px #111;
+            width: 560px; 
+            height: 315px;
+            cursor:pointer;
+        }
+        @media (max-width: 767px) {
+            video {
+                width: 325px; 
+                height: 157.5px;
+            }
+        }
+    }
+    &__actions {
+        padding-top: 0.5%;
+        display: flex;
+        flex-direction: row;
+        @include centeredrow;
+        button {
+            background-color: $background;
+            font-size: 1rem;
+            color: white;
+            border: 1px solid white;
+            border-bottom: 2px solid white;
+            border-radius: 0;
+            margin-right: 50px;
+            cursor:pointer;
+        }
+        @media (max-aspect-ratio: 16/9) {
+            button {
+                padding: 15px 100px;
+            }
+        }
+        &__github {
+            a {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            span {
+                padding-left: 15px;
+            }
+        }
+    }
+}

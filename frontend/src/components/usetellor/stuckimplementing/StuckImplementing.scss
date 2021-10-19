@@ -1,0 +1,23 @@
+ @import '../../../style/index.scss';
+
+ .StuckImplementing {
+    @include centeredcolumn;
+    background-color: white;
+    padding: 8% 0 10% 0;
+    width: 100%;
+    min-width: 945px;
+    &__actions {
+        padding-top: 4%;
+        button {
+            background-color: white;
+            @include centeredrow;
+            cursor:pointer;
+            font-size: 1rem;
+            font-weight: 525;
+        }
+        img {
+            width: 20px;
+            margin-right: 15px;
+        }
+    }
+ }
