@@ -10,6 +10,10 @@ import './style/index.scss';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 // import AlertTemplate from 'react-alert-template-basic'
 
+import configureStore from './redux/configureStore';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react'
+
 const options = {
   position: positions.TOP_CENTER,
   timeout: 5000,
@@ -31,12 +35,18 @@ const AlertTemplate = ({ message, close }) => (
 )
 
 
+const store = configureStore().store;
+const persistor = configureStore().persistor;
 
 ReactDOM.render(
     <Network>
       <User>
         <AlertProvider template={AlertTemplate} {...options}>
-          <App />
+          <Provider store={store}> 
+            <PersistGate persistor={persistor}> 
+              <App />
+            </PersistGate> 
+          </Provider>
         </AlertProvider>
       </User>
     </Network>,
