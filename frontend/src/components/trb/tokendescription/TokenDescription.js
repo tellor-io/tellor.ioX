@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './TokenDescription.scss';
 import HeaderDesc from '../../shared/HeaderDesc/HeaderDesc';
 
@@ -28,9 +29,11 @@ const TokenDescription = () => {
     return (
         <div className="TokenDescription">
             <HeaderDesc title={content[0].title} description={content[0].description}/>
-            {/* <button type="default" size="large" className="bigbutton fxw" onClick={() => window.open(url)}>
-                become a data reporter
-            </button> */}
+            <div className="TokenDescription__action">
+                <button type="default" size="large" className="page-button" onClick={() => window.open(url)}>
+                    become a data reporter
+                </button>
+            </div>
             <HeaderDesc title={content[1].title} description={content[1].description}/>
             <HeaderDesc title={content[2].title} description={content[2].description}/>
             <HeaderDesc title={content[3].title} description={content[3].description}/>

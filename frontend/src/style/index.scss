@@ -554,5 +554,16 @@ button {
   color: white;
 }
 .page-button {
-  
+  min-width: 360px !important;
+  background-color: $background;
+  font-size: 1rem;
+  color: white;
+  border: 1px solid white;
+  border-bottom: 2px solid white;
+  border-radius: 0;
+  margin-right: 50px;
+  cursor:pointer;
+  height: 74px;
+  box-sizing: border-box;
+  padding: 27px 50px;
 }
