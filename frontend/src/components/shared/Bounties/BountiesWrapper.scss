@@ -1,7 +1,7 @@
 @import '../../../style/index.scss';
 
 .BountiesWrapper {
-    @include centeredcolumn;
+    @include leftcolumn;
     width: 100%;
     padding: 110px 180px;
     background-color: white;
@@ -16,6 +16,27 @@
         svg {
             width: 40px;
             margin: 0 10px 0 16px;
+        }
+    }
+    &__footer {
+        padding: 6% 0;
+        width: 100%;
+        p {
+            @include leftrow;
+            max-width: 700px;
+            margin: 0;
+            @include sixteenpxfont;
+            font-weight: 200;
+        }
+        a {
+            @include rightrow;
+            color: $background;
+        }
+        a:hover {
+            color: $real-tellor-green;
+        }
+        a:visited {
+            color: $background;
         }
     }
 }
