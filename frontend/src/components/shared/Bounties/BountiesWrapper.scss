@@ -18,8 +18,8 @@
             margin: 0 10px 0 16px;
         }
     }
-    &__footer {
-        padding: 6% 0;
+    &__desc {
+        padding: 6% 0 2% 0;
         width: 100%;
         p {
             @include leftrow;
@@ -37,6 +37,19 @@
         }
         a:visited {
             color: $background;
+        }
+    }
+    &__collapse {
+        background-color: $tellor-grey2;
+        //background-color: $background;
+        padding: 3%;
+        width: 100%;
+        p {
+            //color: $tellor-green;
+            @include leftrow;
+            margin: 0;
+            @include sixteenpxfont;
+            font-weight: 200;
         }
     }
 }
