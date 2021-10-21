@@ -24,7 +24,7 @@ const TokenDescription = () => {
         },
     ];
 
-    const url = '';
+    const url = 'https://discord.com/channels/461602746336935936/468503081844342784';
 
     return (
         <div className="TokenDescription">
