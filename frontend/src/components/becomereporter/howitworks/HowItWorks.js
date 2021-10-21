@@ -17,7 +17,6 @@ const HowItWorks = () => {
                     <li>An understanding of Tellor’s technical docs here</li>
                 </ul>
             </div>
-
         </div>
     )
 }

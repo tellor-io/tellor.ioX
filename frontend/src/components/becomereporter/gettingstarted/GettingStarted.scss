@@ -5,5 +5,24 @@
     @include leftcolumn;
     width: 100%;
     padding: 0.5% 12%;
-
+    &__intro {
+        p {
+            padding: 10px 0 0 0;
+        }
+    }
+    &__video {
+        padding: 3.5% 0;
+        video {
+            box-shadow: 0 0 15px 2px #111;
+            width: 560px; 
+            height: 315px;
+            cursor:pointer;
+        }
+        @media (max-width: 810px) {
+            video {
+                width: 325px; 
+                height: 157.5px;
+            }
+        }
+    }
 }
