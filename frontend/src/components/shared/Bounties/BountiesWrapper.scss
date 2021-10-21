@@ -3,7 +3,7 @@
 .BountiesWrapper {
     @include leftcolumn;
     width: 100%;
-    padding: 110px 180px;
+    padding: 6% 10%;
     background-color: white;
     &__title {
         @include centeredrow;
@@ -41,15 +41,14 @@
     }
     &__collapse {
         background-color: $tellor-grey2;
-        //background-color: $background;
         padding: 3%;
         width: 100%;
         p {
-            //color: $tellor-green;
             @include leftrow;
             margin: 0;
             @include sixteenpxfont;
             font-weight: 200;
         }
     }
+
 }

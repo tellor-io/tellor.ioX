@@ -567,3 +567,8 @@ button {
   box-sizing: border-box;
   padding: 27px 50px;
 }
+@media (max-width: 810px) {
+  .page-button {
+    min-width: 240px !important;
+  }
+}

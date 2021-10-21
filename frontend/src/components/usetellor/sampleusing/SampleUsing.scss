@@ -29,7 +29,7 @@
             height: 315px;
             cursor:pointer;
         }
-        @media (max-width: 767px) {
+        @media (max-width: 810px) {
             video {
                 width: 325px; 
                 height: 157.5px;
@@ -41,21 +41,6 @@
         display: flex;
         flex-direction: row;
         @include centeredrow;
-        button {
-            background-color: $background;
-            font-size: 1rem;
-            color: white;
-            border: 1px solid white;
-            border-bottom: 2px solid white;
-            border-radius: 0;
-            margin-right: 50px;
-            cursor:pointer;
-        }
-        @media (max-aspect-ratio: 16/9) {
-            button {
-                padding: 15px 100px;
-            }
-        }
         &__github {
             a {
                 display: flex;
