@@ -567,8 +567,28 @@ button {
   box-sizing: border-box;
   padding: 27px 50px;
 }
+.page-button-black {
+  @include centeredrow;
+  background-color: white;
+  min-width: 360px !important;
+  font-size: 1rem;
+  font-weight: 525;
+  color: $background;
+  border: 1px solid $background;
+  border-bottom: 2px solid $background;
+  border-radius: 0;
+  margin-right: 50px;
+  cursor:pointer;
+  height: 74px;
+  box-sizing: border-box;
+  padding: 27px 50px;
+}
+
 @media (max-width: 810px) {
   .page-button {
+    min-width: 240px !important;
+  }
+  .page-button-black {
     min-width: 240px !important;
   }
   .page-header {

@@ -4,7 +4,7 @@
 .GettingStarted {
     @include leftcolumn;
     width: 100%;
-    padding: 0.5% 12%;
+    padding: 0.5% 12% 8% 12%;
     &__intro {
         p {
             padding: 10px 0 0 0;
@@ -22,6 +22,16 @@
             video {
                 width: 325px; 
                 height: 157.5px;
+            }
+        }
+    }
+    &__actions {
+        img {
+            padding: 0 15px 0 0;
+        }
+        @media (max-width: 810px) {
+            button {
+                margin:20px 0;
             }
         }
     }

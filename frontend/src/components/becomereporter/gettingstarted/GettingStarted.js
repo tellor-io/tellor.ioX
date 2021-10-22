@@ -1,9 +1,13 @@
 import React from 'react';
 
 import './GettingStarted.scss';
-import videoplaceholder from 'assets/video_placeholder.png';
+import videoplaceholder from 'assets/video_placeholder.png'; 
+import Telliot from 'assets/Telliot_icon_v1.png';
+
 
 const GettingStarted = () => {
+
+    const downloadUrl = '';
 
     return (
         <div className="GettingStarted">
@@ -30,6 +34,15 @@ const GettingStarted = () => {
                         <a href="myVideo.mp4">link to the video</a> instead.
                     </p>
                 </video>
+            </div> 
+            <div className="GettingStarted__actions">
+                <button  size="large" className="page-button" onClick={() => window.open(downloadUrl)}>
+                    <img src={Telliot} alt="telliot"/>
+                    download Telliot v1.2.8
+                </button>
+                <a href="" target="_blank">
+                    read the docs
+                </a>
             </div>
         </div>
     )
