@@ -51,5 +51,18 @@
                 padding-left: 15px;
             }
         }
+        @media (max-width: 810px) {
+            @include centeredcolumn;
+            padding: 20px 0;
+            &__github  {
+                padding: 40px 0;
+                margin-left: 0px;
+            }
+            button {
+                margin-left: 20px;
+            }
+        }
     }
+
+
 }

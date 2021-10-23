@@ -10,7 +10,6 @@ import Discord from 'assets/Discord2.svg';
 const BecomeReporter = () => {
     return (
         <div className="viewContainer">
-            
             <Intro />
             <HowItWorks />
             <GettingStarted />
@@ -21,8 +20,7 @@ const BecomeReporter = () => {
                 leftBtnLink="https://discord.com/channels/461602746336935936/461602746336935938"
                 rightBtnLink="https://discord.com/channels/461602746336935936/695303398991462420"
                 rightIcon={Discord}
-            />
-           
+            />     
         </div>
     )
 }
