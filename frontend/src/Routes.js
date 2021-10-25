@@ -4,6 +4,7 @@ import Home from 'views/home/Home';
 import UseTellor from 'views/usetellor/UseTellor';
 import TRB from 'views/trb/TRB';
 import BecomeReporter from 'views/becomereporter/BecomeReporter';
+import RequestNew from 'views/requestnew/RequestNew';
 
 const Routes = () => (
   <Switch>
@@ -27,6 +28,11 @@ const Routes = () => (
       exact
       render={() => 
         <BecomeReporter />} />
+    <Route
+      path="/requestnew"
+      exact
+      render={() => 
+        <RequestNew />} />
   </Switch>
 );
 

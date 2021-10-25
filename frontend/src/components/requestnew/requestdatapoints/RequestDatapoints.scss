@@ -1,0 +1,30 @@
+@import '../../../style/index.scss';
+
+.RequestDatapoints {
+    @include leftcolumn;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8% 12% 0 4%;
+    p {
+        @include fourteenpxfont;
+        color: white;
+    }
+    a { 
+        @include fourteenpxfont;
+        font-weight: normal;
+    }
+    .Datapoints {
+        width: 716px;
+        box-sizing: border-box;
+        padding: 0 0 0 8.2vw;
+    }
+    .popular-points {
+        @include eighteenpxfont;
+        font-weight: 200;
+    }
+    .see-all {
+        margin-left: 9.5%;
+        @include sixteenpxfont;
+        font-weight: 500;
+    }
+}

@@ -565,7 +565,6 @@ button {
   cursor:pointer;
   height: 74px;
   box-sizing: border-box;
-  padding: 27px 50px;
 }
 .page-button-black {
   @include centeredrow;
@@ -581,7 +580,6 @@ button {
   cursor:pointer;
   height: 74px;
   box-sizing: border-box;
-  padding: 27px 50px;
 }
 
 @media (max-width: 810px) {
