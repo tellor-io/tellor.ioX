@@ -1,0 +1,25 @@
+@import '../../../style/index.scss';
+
+.RequestIntro {
+
+  @include leftcolumn;
+  width: 100%;
+  padding: 2.5% 12% 0 12%;
+    h1 {
+        max-width: 800px;
+    }
+  &__desc {
+    padding-top: 30px;
+    p {
+        padding-top: 10px;
+    }
+  }
+ 
+  &__actions {
+    @include centeredcolumn;
+        padding-top: 30px;
+        img {
+            margin-right: 20px;
+        }
+  }
+}
