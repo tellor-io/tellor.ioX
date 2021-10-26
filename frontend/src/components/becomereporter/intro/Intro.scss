@@ -1,0 +1,14 @@
+@import '../../../style/index.scss';
+
+
+.Intro {
+    @include leftcolumn;
+    width: 100%;
+    padding: 2.5% 12% 0 12%;
+    h1 {
+        max-width: 650px;
+    }
+    &__desc {
+        padding-top: 30px;
+    }
+}
