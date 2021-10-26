@@ -6,7 +6,7 @@ import Github from 'assets/Github.svg';
 
 const RequestIntro = () => {
 
-    const url = '';
+    const url = 'https://github.com/tellor-io/dataSpecs';
 
     return (
         <div className="RequestIntro">
