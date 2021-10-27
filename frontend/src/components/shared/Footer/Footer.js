@@ -77,13 +77,25 @@ const Footer = () => {
           </div>
           <p>&copy; 2021 tellor.io</p>
           <div className="Social__Container">
-            <a href="/">
+            <a
+              href="https://github.com/tellor-io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github />
             </a>
-            <a href="/">
+            <a
+              href="https://twitter.com/WeAreTellor/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Twitter />
             </a>
-            <a href="/">
+            <a
+              href="https://discord.com/channels/461602746336935936/826118829322797116"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Discord />
             </a>
           </div>
