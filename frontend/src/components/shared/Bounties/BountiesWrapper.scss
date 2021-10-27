@@ -1,9 +1,9 @@
 @import '../../../style/index.scss';
 
 .BountiesWrapper {
-    @include centeredcolumn;
+    @include leftcolumn;
     width: 100%;
-    padding: 110px 180px;
+    padding: 6% 10%;
     background-color: white;
     &__title {
         @include centeredrow;
@@ -18,4 +18,37 @@
             margin: 0 10px 0 16px;
         }
     }
+    &__desc {
+        padding: 6% 0 2% 0;
+        width: 100%;
+        p {
+            @include leftrow;
+            max-width: 700px;
+            margin: 0;
+            @include sixteenpxfont;
+            font-weight: 200;
+        }
+        a {
+            @include rightrow;
+            color: $background;
+        }
+        a:hover {
+            color: $real-tellor-green;
+        }
+        a:visited {
+            color: $background;
+        }
+    }
+    &__collapse {
+        background-color: $tellor-grey2;
+        padding: 3%;
+        width: 100%;
+        p {
+            @include leftrow;
+            margin: 0;
+            @include sixteenpxfont;
+            font-weight: 200;
+        }
+    }
+
 }

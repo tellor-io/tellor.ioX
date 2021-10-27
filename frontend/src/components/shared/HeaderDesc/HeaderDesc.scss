@@ -1,11 +1,7 @@
 @import '../../../style/index.scss';
 
-
-.UseInProjects {
-  @include leftcolumn;
+.HeaderDesc {
+@include leftcolumn;
   width: 100%;
   padding: 2.5% 12% 0 12%;
-  &__desc {
-    padding-top: 30px;
-  }
 }

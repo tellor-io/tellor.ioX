@@ -76,5 +76,11 @@
             cursor:pointer;
         }
     }
-    
+    @media (max-width: 810px) {
+        &__code {
+            code {
+                width: 300px;
+            }
+        }
+    }
 }

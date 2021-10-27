@@ -79,30 +79,30 @@ export default function Bounties() {
         },
       ];
     
-      const columns_mobile = [
-        {
-          title: "Title",
-          dataIndex: "title",
-          width: "70%",
+    const columns_mobile = [
+      {
+        title: "Title",
+        dataIndex: "title",
+        width: "70%",
+      },
+      {
+        title: "Reward",
+        dataIndex: "tributes",
+        width: "10%",
+        sorter: {
+          compare: (a, b) => a.tributes - b.tributes,
+          multiple: 1,
         },
-        {
-          title: "Reward",
-          dataIndex: "tributes",
-          width: "10%",
-          sorter: {
-            compare: (a, b) => a.tributes - b.tributes,
-            multiple: 1,
-          },
-          // render: tributes => tributes+" USD",
-          render: (tributes) => {
-            if (tributes === "Various") {
-              return tributes;
-            } else {
-              return tributes + " USD";
-            }
-          },
+        // render: tributes => tributes+" USD",
+        render: (tributes) => {
+          if (tributes === "Various") {
+            return tributes;
+          } else {
+            return tributes + " USD";
+          }
         },
-      ];
+      },
+    ];
 
 
 
