@@ -1,59 +1,117 @@
-@import '../../../style/index.scss';
+@import "../../../style/index.scss";
 
 .Footer {
-    @include leftcolumn;
+  @include leftcolumn;
+  width: 100%;
+  .tidbits {
+    @include leftrow;
+    align-items: flex-start;
     width: 100%;
-    .tidbits {
-      @include leftrow;
-      align-items: flex-start;
-      width: 100%;
-      margin: 50px 0 70px 0;
-      padding: 70px 0 65px 214px;
-      border-top: 1px solid rgba($color: #ffffff, $alpha: 0.5);
-      border-bottom: 1px solid #ffffff;
-      &__logo {
-        @include rightcolumn;
-        p {
-          font-family: 'Renogare Regular';
-          color: white;
-          text-align: right;
-          font-size: 1.375rem !important;
-          line-height: 1.75rem !important;
-          -webkit-user-select: none;  /* Chrome all / Safari all */
-          -moz-user-select: none;     /* Firefox all */
-          -ms-user-select: none;      /* IE 10+ */
-          user-select: none;
-        }
-        svg {
-          width: 24px;
-        }
-        .doanim {
-          animation: rotaterefresher 0.25s 1 linear;
-        }
+    margin: 50px 0 70px 0;
+    padding: 70px 0 65px 214px;
+    border-top: 1px solid rgba($color: #ffffff, $alpha: 0.5);
+    border-bottom: 1px solid #ffffff;
+    &__logo {
+      @include rightcolumn;
+      p {
+        font-family: "Renogare Regular";
+        color: white;
+        text-align: right;
+        font-size: 1.375rem !important;
+        line-height: 1.75rem !important;
+        -webkit-user-select: none; /* Chrome all / Safari all */
+        -moz-user-select: none; /* Firefox all */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none;
       }
-      &__logo:hover {
-        cursor: pointer;
+      svg {
+        width: 24px;
       }
-      &__txt {
-        max-width: 450px;
-        margin: 0 0 0 30px;
-        p {
-          @include sixteenpxfont;
-          color: white;
-          -webkit-user-select: none;  /* Chrome all / Safari all */
-          -moz-user-select: none;     /* Firefox all */
-          -ms-user-select: none;      /* IE 10+ */
-          user-select: none;
-        }
+      .doanim {
+        animation: rotaterefresher 0.25s 1 linear;
+      }
+    }
+    &__logo:hover {
+      cursor: pointer;
+    }
+    &__txt {
+      max-width: 450px;
+      margin: 0 0 0 30px;
+      p {
+        @include sixteenpxfont;
+        color: white;
+        -webkit-user-select: none; /* Chrome all / Safari all */
+        -moz-user-select: none; /* Firefox all */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none;
       }
     }
   }
 
-  @keyframes rotaterefresher {
-    0% {
-      transform: rotate(0deg);
+  .Footer__Bottom {
+    width: 100%;
+    height: 470px;
+    padding: 70px 60px 150px 120px;
+    color: white;
+    display: flex;
+
+    .Column__Big {
+      flex: 0.4;
+      .BrandLink {
+        padding: 0;
+        margin-bottom: 20px;
+        a {
+          @include leftrow;
+          align-items: flex-end;
+          color: white;
+          text-decoration: none;
+          .logo {
+            font-family: "Renogare Regular";
+            font-weight: normal;
+            font-size: 4.375rem;
+            line-height: 3.5rem;
+            margin: 0 32px 0 0;
+          }
+          .baseline {
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: normal;
+            line-height: 1.25rem;
+          }
+        }
+      }
+      p {
+        margin-bottom: 30px;
+        @include sixteenpxfont;
+      }
+      .Social__Container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 25%;
+      }
     }
-    100% {
-      transform: rotate(180deg);
+    .Column__Small {
+      display: flex;
+      flex-direction: column;
+      flex: 0.2;
+      h2 {
+        color: white;
+        margin-bottom: 20px;
+      }
+      a {
+        font-weight: 300;
+        margin-bottom: 10px;
+      }
     }
+  }
+}
+
+@keyframes rotaterefresher {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
 }
