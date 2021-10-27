@@ -547,6 +547,12 @@ button {
   line-height: 5rem;
   color: white;
 }
+.page-header-small-black {
+  max-width: 600px;
+  max-height: 70px;
+  line-height: 5rem;
+  color: $background;;
+}
 .page-text {
   max-width: 800px;
   @include sixteenpxfont;

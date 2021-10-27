@@ -5,6 +5,7 @@ import UseTellor from "views/usetellor/UseTellor";
 import TRB from "views/trb/TRB";
 import BecomeReporter from "views/becomereporter/BecomeReporter";
 import RequestNew from "views/requestnew/RequestNew";
+import AboutTellor from "views/abouttellor/AboutTellor";
 
 const Routes = () => (
   <Switch>
@@ -13,6 +14,7 @@ const Routes = () => (
     <Route path="/trb" exact render={() => <TRB />} />
     <Route path="/becomereporter" exact render={() => <BecomeReporter />} />
     <Route path="/requestnew" exact render={() => <RequestNew />} />
+    <Route path="/abouttellor" exact render={() => <AboutTellor />} />
   </Switch>
 );
 
