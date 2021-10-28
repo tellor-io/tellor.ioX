@@ -559,6 +559,12 @@ button {
   font-weight: 200;
   color: white;
 }
+.page-text-black {
+  max-width: 800px;
+  @include sixteenpxfont;
+  font-weight: 200;
+  color: $background;
+}
 .page-button {
   min-width: 360px !important;
   background-color: $background;
