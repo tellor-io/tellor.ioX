@@ -1,6 +1,23 @@
 @import '../../../style/index.scss';
 
 .InvolvedIntro {
-    width: 100%;
-    
+    .icon {
+        margin-right: 15px
+    }
+
+    &__intro {
+        padding: 2.5% 12% 0 12%;
+
+        button {
+            margin: 2% 0;
+        }
+    }
+
+
+    &__body {
+        @include leftcolumn;
+        button {
+            margin: 2% 12%;
+        }
+    }
 }
