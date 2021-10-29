@@ -4,16 +4,17 @@ import './InvolvedIntro.scss'
 import Github from 'assets/Github.svg';
 import Discord from 'assets/Discord_white.svg';
 import HeaderDesc from 'components/shared/HeaderDesc/HeaderDesc';
+import { Link } from 'react-router-dom';
 
 const InvolvedIntro = () => {    
 
     //urls
-    const joinDiscord = '';
-    const checkGithub = '';
-    const readDocs = '';
-    const becomeReporter = '';
-    const startStaking = '';
-    const readBlog = '';
+    const joinDiscord = 'https://discord.com/channels/461602746336935936/826118829322797116';
+    const checkGithub = 'https://github.com/tellor-io/';
+    const readDocs = 'https://docs.tellor.io/tellor/';
+    const becomeReporter = 'https://tellor-io.github.io/pytelliot/';
+    const startStaking = 'https://docs.tellor.io/tellor/whitepaper/tellor-oracle-overview/mining';
+    const readBlog = '/blog';
 
     //headers/descriptions
     const developers = ["Developers", "Contribute to building the oracle, participate in community governance and help us make a better Tellor."]
@@ -24,6 +25,7 @@ const InvolvedIntro = () => {
     
     return (
         <div className="InvolvedIntro">
+            {/* intro */}
             <div className="InvolvedIntro__intro">
                 <h1 className="page-header">Get involved</h1>
                 <p className="page-text">Tellor is open-source and structured as a decentralized autonomous organization. We are building Tellor as a community, we want you to join!</p>
@@ -35,6 +37,7 @@ const InvolvedIntro = () => {
                 </button>
                 
             </div>
+            {/* body */}
             <div className="InvolvedIntro__body">
 
                 {/* developers */}
@@ -68,10 +71,11 @@ const InvolvedIntro = () => {
 
                 {/* crypto curious */}
                 <HeaderDesc title={curiouis[0]} description={curiouis[1]}/>
-                <button  size="large" className="page-button" onClick={() => window.open(readBlog)}>
-                    read the blog
-                </button>
-
+                <Link to="/blog" className="button" >
+                    <button  size="large" className="page-button" >
+                        read the blog
+                    </button>
+                </Link>
             </div>
         </div>
     )

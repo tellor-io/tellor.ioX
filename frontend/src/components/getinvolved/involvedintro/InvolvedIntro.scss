@@ -19,5 +19,13 @@
         button {
             margin: 2% 12%;
         }
+        .button {
+            margin: 1.7% 9%;
+        }
+        @media (max-width: 810px) {
+            .button {
+                margin: 1.7% 4.2%;
+            }
+        }
     }
 }
