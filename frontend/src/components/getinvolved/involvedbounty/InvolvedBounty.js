@@ -2,6 +2,7 @@ import React from 'react'
 
 import './InvolvedBounty.scss'
 import HeaderDesc from 'components/shared/HeaderDesc/HeaderDesc'
+import BountiesWrapper from 'components/shared/Bounties/BountiesWrapper'
 
 const InvolvedBounty = () => {    
 
@@ -12,7 +13,12 @@ const InvolvedBounty = () => {
 
     return (
         <div className="InvolvedBounty">
-            <HeaderDesc title={bountyText[0]} description={bountyText[1]}/>
+            <HeaderDesc 
+                title={bountyText[0]} 
+                description={bountyText[1]}/>
+            <BountiesWrapper 
+                hideHeader={true} 
+                darkBackground={true} />
         </div>
     )
 }

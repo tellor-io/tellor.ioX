@@ -52,3 +52,56 @@
     }
 
 }
+
+.BountiesWrapperDark {
+    @include leftcolumn;
+    width: 100%;
+    padding: 1% 12%;
+    background-color: $background;
+    &__title {
+        @include centeredrow;
+        width: 100%;
+        margin: 0 0 40px 0;
+        h1 {   
+            font-size: 1.625rem;
+            margin: 4px 0 0 0;
+        }
+        svg {
+            width: 40px;
+            margin: 0 10px 0 16px;
+        }
+    }
+    &__desc {
+        padding: 6% 0 2% 0;
+        width: 100%;
+        p {
+            @include leftrow;
+            max-width: 700px;
+            margin: 0;
+            @include sixteenpxfont;
+            font-weight: 200;
+        }
+        a {
+            @include rightrow;
+            color: $background;
+        }
+        a:hover {
+            color: $real-tellor-green;
+        }
+        a:visited {
+            color: $background;
+        }
+    }
+    &__collapse {
+        background-color: $tellor-grey2;
+        padding: 3%;
+        width: 100%;
+        p {
+            @include leftrow;
+            margin: 0;
+            @include sixteenpxfont;
+            font-weight: 200;
+        }
+    }
+
+}

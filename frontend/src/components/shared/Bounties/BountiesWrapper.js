@@ -2,18 +2,26 @@ import React, { useState } from 'react'
 import Bounties from './Bounties'
 import './BountiesWrapper.scss'
 import {ReactComponent as Swoosh} from 'assets/Swoosh.svg';
+import PropTypes from 'prop-types';
 
-export default function BountiesWrapper() {
+export default function BountiesWrapper(props) {
 
     const [toggle, setToggle] = useState(false);
 
+    const {
+        hideHeader,
+        darkBackground
+    } = props;
+
     return (
-        <div className="BountiesWrapper">
-            <div className="BountiesWrapper__title">
-                <h1>Earn TRB</h1>
-                <Swoosh />
-                <h1>, grab a bounty!</h1>
-            </div>
+        <div className={darkBackground ? "BountiesWrapperDark" : "BountiesWrapper"}>
+            {!hideHeader && (
+                <div className="BountiesWrapper__title">
+                    <h1>Earn TRB</h1>
+                    <Swoosh />
+                    <h1>, grab a bounty!</h1>
+                </div>
+            )}
             <Bounties />
             <div className="BountiesWrapper__desc">
                 <p>The Tellor Bounties program is a way to reward developers who help us build out Tellor. We have a dev fund that's for developing Tellor and we plan to use it!</p>
@@ -27,4 +35,9 @@ export default function BountiesWrapper() {
             )}
         </div>
     )
+}
+
+BountiesWrapper.propTypes = {
+    hideHeader: PropTypes.bool,
+    darkBackground: PropTypes.bool,
 }
