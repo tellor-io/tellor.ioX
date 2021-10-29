@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './TokenDescription.scss';
-import HeaderDesc from '../../shared/HeaderDesc/HeaderDesc';
+import HeaderDesc from 'components/shared/HeaderDesc/HeaderDesc';
 
 const TokenDescription = () => {
 
