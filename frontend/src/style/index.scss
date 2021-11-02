@@ -547,11 +547,23 @@ button {
   line-height: 5rem;
   color: white;
 }
+.page-header-small-black {
+  max-width: 600px;
+  max-height: 70px;
+  line-height: 5rem;
+  color: $background;;
+}
 .page-text {
   max-width: 800px;
   @include sixteenpxfont;
   font-weight: 200;
   color: white;
+}
+.page-text-black {
+  max-width: 800px;
+  @include sixteenpxfont;
+  font-weight: 200;
+  color: $background;
 }
 .page-button {
   min-width: 360px !important;
@@ -565,7 +577,6 @@ button {
   cursor:pointer;
   height: 74px;
   box-sizing: border-box;
-  padding: 27px 50px;
 }
 .page-button-black {
   @include centeredrow;
@@ -581,7 +592,6 @@ button {
   cursor:pointer;
   height: 74px;
   box-sizing: border-box;
-  padding: 27px 50px;
 }
 
 @media (max-width: 810px) {

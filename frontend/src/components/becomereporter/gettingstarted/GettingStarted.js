@@ -7,7 +7,8 @@ import Telliot from 'assets/Telliot_icon_v1.png';
 
 const GettingStarted = () => {
 
-    const downloadUrl = '';
+    const downloadUrl = 'https://github.com/tellor-io/pytelliot ';
+    const docUrl = 'https://tellor-io.github.io/pytelliot/';
 
     return (
         <div className="GettingStarted">
@@ -40,7 +41,7 @@ const GettingStarted = () => {
                     <img src={Telliot} alt="telliot"/>
                     download Telliot v1.2.8
                 </button>
-                <a href="" target="_blank">
+                <a href={docUrl} target="_blank">
                     read the docs
                 </a>
             </div>
