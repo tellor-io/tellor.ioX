@@ -4,8 +4,18 @@ import './Bounties.scss'
 
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
+import PropTypes from 'prop-types';
 
-export default function Bounties() {
+export default function Bounties(props) {
+
+
+    const {
+      darkBackground
+    } = props;
+
+    //dynamic styling
+    const classType = darkBackground ? "BountiesDark" : "Bounties";
+
     const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
 
     const dummyData = [
@@ -108,129 +118,133 @@ export default function Bounties() {
 
 
     return (
-        <div className="Bounties">
-        <Table
-          pagination={false}
-          columns={isMobile ? columns_mobile : columns}
-          onRow={(record) => {
-            return {
-            //   onClick: () => {
-            //     setJobForm({
-            //       jobTitle: record.title,
-            //       jobType: record.jobType,
-            //     });
-            //   },
-            };
-          }}
-          expandable={{
-            expandedRowRender: (record, i) => {
-              return isMobile ? (
-                <div className="bountieExpanded">
-                  <div className="firstRow">
-                    <div>
-                      <p style={{ margin: 0 }}>
-                        {record.description ? record.description : "N/A"}
-                      </p>
-                      <div className="smallestMargin"></div>
-                      <p style={{ margin: 0 }}>
-                        <span className="bold">Availability:</span>{" "}
-                        {record.available ? record.available : "N/A"}
-                      </p>
-                      <p style={{ margin: 0 }}>
-                        <span className="bold">Type:</span>{" "}
-                        {record.jobType ? record.jobType : "N/A"}
-                      </p>
-                      <p style={{ margin: 0 }}>
-                        <span className="bold">Necessary Skill(s):</span>{" "}
-                        {record.skills ? record.skills : "N/A"}
-                      </p>
-                      {record.notes ? (
-                        <p style={{ margin: 0 }}>
-                          {" "}
-                          <span className="bold">Notes: </span>
-                          <a style={{ marginLeft: "5px" }} href={record.notes}>
-                            {record.notes}
-                          </a>
+        <div className={classType}>
+          <Table
+            pagination={false}
+            columns={isMobile ? columns_mobile : columns}
+            onRow={(record) => {
+              return {
+              //   onClick: () => {
+              //     setJobForm({
+              //       jobTitle: record.title,
+              //       jobType: record.jobType,
+              //     });
+              //   },
+              };
+            }}
+            expandable={{
+              expandedRowRender: (record, i) => {
+                return isMobile ? (
+                  <div className="bountieExpanded">
+                    <div className="firstRow">
+                      <div>
+                        <p style={{ margin: 0, }}>
+                          {record.description ? record.description : "N/A"}
                         </p>
-                      ) : null}
-                    </div>
-                    {/* <Button
-                      id="claimModalButton"
-                      onClick={() => addtoClaimerPanels(i)}
-                    >
-                      {claimerPanels.includes(i)
-                        ? "Close"
-                        : "Claim this bounty"}
-                    </Button> */}
-                  </div>
-
-                  {/* <div className="claimForm">
-                    <Collapse
-                      defaultActiveKey={["0"]}
-                      activeKey={claimerPanels}
-                    >
-                      <Panel header="Bracket panel" key={i}>
-                        <ClaimModal jobForm={jobForm} />
-                      </Panel>
-                    </Collapse>
-                  </div> */}
-                </div>
-              ) : (
-                <div className="bountieExpanded">
-                  <div className="firstRow">
-                    <div>
-                      <p style={{ margin: 0 }}>
-                        {record.description ? record.description : "N/A"}
-                      </p>
-                      <div className="smallestMargin"></div>
-                      <p style={{ margin: 0 }}>
-                        <span className="bold">Necessary Skill(s):</span>{" "}
-                        {record.skills ? record.skills : "N/A"}
-                      </p>
-                      {record.notes ? (
+                        <div className="smallestMargin"></div>
                         <p style={{ margin: 0 }}>
-                          {" "}
-                          <span className="bold">Notes: </span>
-                          <a style={{ marginLeft: "5px" }} href={record.notes}>
-                            {record.notes}
-                          </a>
+                          <span className="bold">Availability:</span>{" "}
+                          {record.available ? record.available : "N/A"}
                         </p>
-                      ) : null}
+                        <p style={{ margin: 0 }}>
+                          <span className="bold">Type:</span>{" "}
+                          {record.jobType ? record.jobType : "N/A"}
+                        </p>
+                        <p style={{ margin: 0 }}>
+                          <span className="bold">Necessary Skill(s):</span>{" "}
+                          {record.skills ? record.skills : "N/A"}
+                        </p>
+                        {record.notes ? (
+                          <p style={{ margin: 0 }}>
+                            {" "}
+                            <span className="bold">Notes: </span>
+                            <a style={{ marginLeft: "5px" }} href={record.notes}>
+                              {record.notes}
+                            </a>
+                          </p>
+                        ) : null}
+                      </div>
+                      {/* <Button
+                        id="claimModalButton"
+                        onClick={() => addtoClaimerPanels(i)}
+                      >
+                        {claimerPanels.includes(i)
+                          ? "Close"
+                          : "Claim this bounty"}
+                      </Button> */}
                     </div>
-                    {/* <Button
-                      id="claimModalButton"
-                      onClick={() => addtoClaimerPanels(i)}
-                    >
-                      {claimerPanels.includes(i)
-                        ? "Close"
-                        : "Claim this bounty"}
-                    </Button> */}
-                  </div>
 
-                  {/* <div className="claimForm">
-                    <Collapse
-                      defaultActiveKey={["0"]}
-                      activeKey={claimerPanels}
-                    >
-                      <Panel header="Bracket panel" key={i}>
-                        <ClaimModal jobForm={jobForm} />
-                      </Panel>
-                    </Collapse>
-                  </div> */}
-                </div>
-              );
-            },
-            expandIcon: ({ expanded, onExpand, record }) =>
-              expanded ? (
-                <MinusCircleOutlined onClick={(e) => onExpand(record, e)} />
-              ) : (
-                <PlusCircleOutlined onClick={(e) => onExpand(record, e)} />
-              ),
-            rowExpandable: (record) => record.builds !== "Not Expandable",
-          }}
-          expandIconColumnIndex={4}
-          dataSource={dummyData}
-        />
+                    {/* <div className="claimForm">
+                      <Collapse
+                        defaultActiveKey={["0"]}
+                        activeKey={claimerPanels}
+                      >
+                        <Panel header="Bracket panel" key={i}>
+                          <ClaimModal jobForm={jobForm} />
+                        </Panel>
+                      </Collapse>
+                    </div> */}
+                  </div>
+                ) : (
+                  <div className="bountieExpanded">
+                    <div className="firstRow">
+                      <div>
+                        <p style={{ margin: 0 }}>
+                          {record.description ? record.description : "N/A"}
+                        </p>
+                        <div className="smallestMargin"></div>
+                        <p style={{ margin: 0 }}>
+                          <span className="bold">Necessary Skill(s):</span>{" "}
+                          {record.skills ? record.skills : "N/A"}
+                        </p>
+                        {record.notes ? (
+                          <p style={{ margin: 0 }}>
+                            {" "}
+                            <span className="bold">Notes: </span>
+                            <a style={{ marginLeft: "5px" }} href={record.notes}>
+                              {record.notes}
+                            </a>
+                          </p>
+                        ) : null}
+                      </div>
+                      {/* <Button
+                        id="claimModalButton"
+                        onClick={() => addtoClaimerPanels(i)}
+                      >
+                        {claimerPanels.includes(i)
+                          ? "Close"
+                          : "Claim this bounty"}
+                      </Button> */}
+                    </div>
+
+                    {/* <div className="claimForm">
+                      <Collapse
+                        defaultActiveKey={["0"]}
+                        activeKey={claimerPanels}
+                      >
+                        <Panel header="Bracket panel" key={i}>
+                          <ClaimModal jobForm={jobForm} />
+                        </Panel>
+                      </Collapse>
+                    </div> */}
+                  </div>
+                );
+              },
+              expandIcon: ({ expanded, onExpand, record }) =>
+                expanded ? (
+                  <MinusCircleOutlined onClick={(e) => onExpand(record, e)} />
+                ) : (
+                  <PlusCircleOutlined onClick={(e) => onExpand(record, e)} />
+                ),
+              rowExpandable: (record) => record.builds !== "Not Expandable",
+            }}
+            expandIconColumnIndex={4}
+            dataSource={dummyData}
+          />
         </div>
     )
+}
+
+Bounties.propTypes = {
+  darkBackground: PropTypes.bool,
 }

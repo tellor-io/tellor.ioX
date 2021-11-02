@@ -6,6 +6,7 @@ import TRB from "views/trb/TRB";
 import BecomeReporter from "views/becomereporter/BecomeReporter";
 import RequestNew from "views/requestnew/RequestNew";
 import AboutTellor from "views/abouttellor/AboutTellor";
+import GetInvolved from "views/getinvolved/GetInvolved";
 
 const Routes = () => (
   <Switch>
@@ -15,6 +16,7 @@ const Routes = () => (
     <Route path="/becomereporter" exact render={() => <BecomeReporter />} />
     <Route path="/requestnew" exact render={() => <RequestNew />} />
     <Route path="/abouttellor" exact render={() => <AboutTellor />} />
+    <Route path="/getinvolved" exact render={() => <GetInvolved />} />
   </Switch>
 );
 
