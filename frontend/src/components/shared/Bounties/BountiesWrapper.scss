@@ -40,8 +40,8 @@
         }
     }
     &__collapse {
-        background-color: $tellor-grey2;
-        padding: 3%;
+        background-color: white;
+        padding: 3% 0;
         width: 100%;
         p {
             @include leftrow;
@@ -58,19 +58,6 @@
     width: 100%;
     padding: 1% 12%;
     background-color: $background;
-    &__title {
-        @include centeredrow;
-        width: 100%;
-        margin: 0 0 40px 0;
-        h1 {   
-            font-size: 1.625rem;
-            margin: 4px 0 0 0;
-        }
-        svg {
-            width: 40px;
-            margin: 0 10px 0 16px;
-        }
-    }
     &__desc {
         padding: 6% 0 2% 0;
         width: 100%;
@@ -80,10 +67,11 @@
             margin: 0;
             @include sixteenpxfont;
             font-weight: 200;
+            color: white;
         }
         a {
             @include rightrow;
-            color: $background;
+            color: white;
         }
         a:hover {
             color: $real-tellor-green;
@@ -93,14 +81,15 @@
         }
     }
     &__collapse {
-        background-color: $tellor-grey2;
-        padding: 3%;
+        background-color: $background;
+        padding: 3% 0;
         width: 100%;
         p {
             @include leftrow;
             margin: 0;
             @include sixteenpxfont;
             font-weight: 200;
+            color: white;
         }
     }
 
