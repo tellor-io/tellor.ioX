@@ -1,0 +1,39 @@
+@import '../../../style/index.scss';
+
+.Title {
+    padding: 2.5% 12% 0 12%;
+    h1 { 
+        max-width: 1000px;
+        margin-bottom: 150px;
+    }
+    .highlighted {
+        color: $tellor-green;
+    }
+    // .spacing {
+    //     height:200px;
+    // }
+    &__video {
+        padding: 7.5% 0;
+        video {
+            position: absolute;
+            bottom: -40px;
+            box-shadow: 0 0 15px 2px #111;
+            width: 560px; 
+            height: 315px;
+            cursor:pointer;
+        }
+        @media (max-width: 810px) {
+            padding: 0;
+            video {
+                width: 325px; 
+                height: 157.5px;
+            }
+            h1 { 
+                margin-bottom: 0;
+            }
+            video {
+                bottom: 50px;
+            }
+        }
+    }
+}

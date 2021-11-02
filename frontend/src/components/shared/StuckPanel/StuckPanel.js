@@ -2,6 +2,8 @@ import React from 'react';
 import './StuckPanel.scss'
 import PropTypes from 'prop-types';
 
+//displays white panel with header and two buttons
+
 const StuckPanel = (props) => {
 
     const {
@@ -13,10 +15,6 @@ const StuckPanel = (props) => {
         leftIcon,
         rightIcon,
     } = props;
-
-   const askUrl = '';
-   const talkUrl = '';
-
    return (
        <div className="StuckPanel">
            <div className="StuckPanel__intro">
