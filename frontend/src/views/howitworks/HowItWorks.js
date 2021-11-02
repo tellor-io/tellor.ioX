@@ -8,8 +8,6 @@ const HowItWorks = () => {
     return (
         <div className="viewContainer">
             {/* 
-              * 
-              *
               * <Videos />
               * <StuckPanel />
               * 

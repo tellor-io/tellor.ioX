@@ -18,13 +18,19 @@
             margin: 30px 50px 0 0 ;
             align-self: flex-start;
         }
+        .links {
+            margin-top: 20px;
+        }
         a, a:hover, a:active, a:focus  {
             margin-right: 20px;
             font-weight: 600;
             color: $background;
         }
     }
-
+    &__button {
+        margin-top: 5%;
+        @include centeredcolumn;
+    }
     @media (max-width: 810px) {
         padding: 20% 12% ;
         &__option {

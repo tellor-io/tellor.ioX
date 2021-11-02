@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import './Information.scss'
 import howitworks from 'assets/howitworks.png'; 
@@ -71,7 +72,7 @@ const Information = () => {
                 <div className="content">
                     <h2 className="page-header-small-black">TRB token</h2>
                     <p className="page-text-black">Tributes (TRB) are the native token for Tellor. Data reporters earn TRB for supplying good data to oracle users. TRB tokens are also used for voting on community initiatives and improvements to the Tellor project. TRB holders can stake, or lock up for a period of time, to earn rewards for voting on governance proposals.</p>
-                    <p className="page-text-black">Tellor’s TRB token is broadly used for:</p>
+                    <p className="page-text-black" >Tellor’s TRB token is broadly used for:</p>
                     <ul className="page-text-black">
                         <li>Mining rewards - incentive for data reporters to provide data to the oracle</li>
                         <li>Time-based rewards - rewards for data reporting events grow as time passes, and reset to zero after each reporting event is completed</li>
@@ -99,8 +100,11 @@ const Information = () => {
                     </div>
                 </div>
             </div>
-
-
+            <div className="Information__button"> 
+                <Link to="/live">
+                    <button className="page-button-black">see the network in action</button>
+                </Link>
+            </div>
 
         </div>
     )
