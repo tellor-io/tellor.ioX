@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Title from 'components/howitworks/title/Title';
+import Information from 'components/howitworks/information/Information';
 
 
 const HowItWorks = () => {
@@ -8,12 +9,13 @@ const HowItWorks = () => {
         <div className="viewContainer">
             {/* 
               * 
-              * <Information />
+              *
               * <Videos />
               * <StuckPanel />
               * 
             */}
-            <Title />
+            <Title /> 
+            <Information />
         </div>
     )
 }
