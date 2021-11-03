@@ -100,6 +100,7 @@ const Information = () => {
                     </div>
                 </div>
             </div>
+            
             <div className="Information__button"> 
                 <Link to="/live">
                     <button className="page-button-black">see the network in action</button>
