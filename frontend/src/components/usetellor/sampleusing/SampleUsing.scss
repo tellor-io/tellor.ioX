@@ -23,14 +23,14 @@
     }
     &__video {
         padding: 3.5% 0;
-        video {
+        iframe {
             box-shadow: 0 0 15px 2px #111;
             width: 560px; 
             height: 315px;
             cursor:pointer;
         }
         @media (max-width: 810px) {
-            video {
+            iframe {
                 width: 325px; 
                 height: 157.5px;
             }

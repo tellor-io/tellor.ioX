@@ -24,17 +24,7 @@ const SampleUsing = () => {
                 </p>
             </div>
             <div className="SampleUsing__video">
-                <video poster={videoplaceholder}>
-                    {/* 
-                        Todo: Insert mp4, webm, and video link
-                    */}
-                    <source src="myVideo.mp4" type="video/mp4" />
-                    <source src="myVideo.webm" type="video/webm" />
-                    <p>
-                        Your browser doesn't support HTML5 video. Here is a 
-                        <a href="myVideo.mp4">link to the video</a> instead.
-                    </p>
-                </video>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fNuAmpYzztg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div className="SampleUsing__actions">
                 <button type="default" size="large" className="page-button " onClick={() => window.open(docs)}>
