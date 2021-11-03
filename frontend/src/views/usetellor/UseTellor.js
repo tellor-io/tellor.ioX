@@ -3,7 +3,7 @@ import React from 'react';
 import UseInProjects from 'components/usetellor/useinprojects/UseInProjects';
 import SampleUsing from 'components/usetellor/sampleusing/SampleUsing';
 import ForSmartContracts from 'components/usetellor/forsmartcontracts/ForSmartContracts';
-import StuckPanel from 'components/shared/StuckPanel/StuckPanel';
+import WhiteButtonPanel from 'components/shared/WhiteButtonPanel/WhiteButtonPanel';
 
 import Discord from 'assets/Discord2.svg';
 
@@ -13,7 +13,7 @@ const UseTellor = () => {
             <UseInProjects />
             <SampleUsing />
             <ForSmartContracts />
-            <StuckPanel
+            <WhiteButtonPanel
                 title="Stuck implementing Tellor?"
                 leftBtnText="ask the community *"
                 rightBtnText="talk to the team"
