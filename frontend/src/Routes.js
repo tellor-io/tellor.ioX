@@ -8,6 +8,7 @@ import RequestNew from "views/requestnew/RequestNew";
 import AboutTellor from "views/abouttellor/AboutTellor";
 import GetInvolved from "views/getinvolved/GetInvolved";
 import HowItWorks from "views/howitworks/HowItWorks";
+import Live from "views/live/Live";
 
 const Routes = () => (
   <Switch>
@@ -19,6 +20,7 @@ const Routes = () => (
     <Route path="/abouttellor" exact render={() => <AboutTellor />} />
     <Route path="/getinvolved" exact render={() => <GetInvolved />} />
     <Route path="/howitworks" exact render={() => <HowItWorks />} />
+    <Route path="/live" exact render={() => <Live />} />
   </Switch>
 );
 

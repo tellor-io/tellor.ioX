@@ -2,45 +2,5 @@
 
 .Title {
     padding: 2.5% 12% 0 12%;
-    h1 { 
-        max-width: 1000px;
-        margin-bottom: 50px;
-    }
-    .highlighted {
-        color: $tellor-green;
-    }
 
-    &__video {
-        padding: 2.5% 0;
-        iframe {
-            margin-bottom: -60px;
-            box-shadow: 0 0 15px 2px #111;
-            width: 560px; 
-            height: 315px;
-            cursor:pointer;
-        }
-        video {
-            margin-bottom: -60px;
-            box-shadow: 0 0 15px 2px #111;
-            width: 560px; 
-            height: 315px;
-            cursor:pointer;
-        }
-        @media (max-width: 810px) {
-            padding: 0;
-            iframe {
-                width: 315px; 
-                height: 157.5px;
-            }
-            h1 { 
-                margin-bottom: 0;
-            }
-            img {
-                margin-bottom: -20px;
-            }
-            video {
-                margin-bottom: -60px;
-            }
-        }
-    }
 }
