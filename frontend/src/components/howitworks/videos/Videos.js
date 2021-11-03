@@ -19,7 +19,7 @@ const Videos = () => {
     return (
         <div className="Videos">
             <div className="Videos__header">
-                <h2 className="page-header-small">T-school’s most popular</h2>
+                <h3 className="page-header-small">T-school’s most popular</h3>
                 <a href={seeAll} target="_blank">
                     see all
                 </a>

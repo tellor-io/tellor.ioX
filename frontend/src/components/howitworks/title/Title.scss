@@ -12,7 +12,7 @@
 
     &__video {
         padding: 2.5% 0;
-        img {
+        iframe {
             margin-bottom: -60px;
             box-shadow: 0 0 15px 2px #111;
             width: 560px; 
@@ -28,8 +28,8 @@
         }
         @media (max-width: 810px) {
             padding: 0;
-            img {
-                width: 325px; 
+            iframe {
+                width: 315px; 
                 height: 157.5px;
             }
             h1 { 
