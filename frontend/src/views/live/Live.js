@@ -1,13 +1,14 @@
 import React from 'react'
 
 import LiveHeader from 'components/live/liveheader/LiveHeader'
+import VoteItems from 'components/live/voteitems/VoteItems'
 
 const HowItWorks = () => {
     return (
         <div className="viewContainer">
             {/* 
               * 
-              * <VoteItems />
+              * 
               * <Tables />
               *** <LiveDatapoints />
               *** <CurrentlyReporting />
@@ -15,6 +16,7 @@ const HowItWorks = () => {
               * 
             */}
             <LiveHeader />
+            <VoteItems />
         </div>
     )
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import './LiveHeader.scss'
 import DownCarrot from 'assets/down-carrot.svg';
-import { set } from 'lodash';
 
 const LiveHeader = () => {    
 

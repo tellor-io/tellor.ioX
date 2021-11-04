@@ -14,7 +14,7 @@
         padding-right: 10px;
     }
     &__dropdown {
-        padding-top: 20px;
+        padding: 20px 0 30px;
         .selection {
             background-color: $background;
             width: 125px;
@@ -37,6 +37,9 @@
             flex-direction: column;
             display: flex;
             align-items: flex-start;
+            position: absolute;
+            background-color: $background;
+            width: 125px;
         }
         ul {
             list-style: none;
