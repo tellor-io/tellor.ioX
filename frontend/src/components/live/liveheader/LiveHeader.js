@@ -6,7 +6,20 @@ import { set } from 'lodash';
 
 const LiveHeader = () => {    
 
-    const [toggle, setToggle] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [selection, setSelection] = useState('mainnet');
+
+    //toggle dropdown
+    const toggleDropdown = () => {
+        setOpen(!open);
+    }
+
+    //set text and close dropdown
+    const handleSelection = (text) => {
+        setSelection(text);
+        setOpen(false);
+    }
+    
 
     return (
         <div className="LiveHeader">
@@ -16,10 +29,23 @@ const LiveHeader = () => {
             </h2>
             {/* dropdown */}
             <div className="LiveHeader__dropdown">
-                <button className="page-text" onClick={ () => setToggle(!toggle)}>
-                    mainnet   
+                <button className="page-text selection" onClick={toggleDropdown}>
+                    {selection}   
                     <img src={DownCarrot} />  
                 </button>
+                {/*  open dropdown */}
+                {open && (
+                    <div className="dropdown"> 
+                        <ul>
+                            <li className="page-text" onClick={() => handleSelection('mainnet')}>
+                                mainnet
+                            </li>
+                            <li  className="page-text" onClick={() => handleSelection('rinkeby')}>
+                                rinkeby
+                            </li>
+                        </ul> 
+                    </div>
+                )}
             </div>
         </div>
     )
