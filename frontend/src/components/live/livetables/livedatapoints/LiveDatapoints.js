@@ -1,8 +1,11 @@
 import React from 'react'
 
 import './LiveDatapoints.scss'
+import Avatar from 'assets/Avatar.png';
+// import { ReactComponent as Avatar } from 'assets/Avatar.svg';
 
-import { Table, Pagination } from 'antd'
+
+import { Table } from 'antd'
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
 import PropTypes from 'prop-types';
@@ -45,13 +48,21 @@ const LiveDatapoints = () => {
             title: "latest report by",
             dataIndex: "latestReportBy",
             key: "latestReportBy",
+            //render: SamplePfp => <img alt={SamplePfp} src={SamplePfp} />,
+            width: 50,
+            maxWidth: 50,
+            render: (t, r) => ( 
+                <div className="reportby">
+                    <img src={r.avatar} />
+                    <p className="page-text-black">{r.latestReportBy}</p>
+                </div>),
             filters: [
                 { text: "E0x44pl...8879", value: "0x44pl...8879" },
                 { text: "0x87e6...987E", value: "B0x87e6...987E" },
                 { text: "0x44pl...8879", value: "0x44pl...8879" },
             ],
             onFilter: (value, record) => record.latestReportBy.includes(value),
-            width: "15%",
+            width: "20%",
         },
         {
             title: "value",
@@ -113,10 +124,7 @@ const LiveDatapoints = () => {
                 <Table 
                     dataSource={data} 
                     columns={isMobile ? columns_mobile : columns} 
-                    // pagination={<Pagination current={1} pageSize={5} />}
-                    pagination={{
-                        defaultPageSize: 5, showSizeChanger: true, pageSizeOptions: ['5', '10', '15']
-                    }}
+                    pagination={{ defaultPageSize: 5 }}
                     expandable={{
                         expandedRowRender: (record, i) => {
                             return isMobile ?  mobileExpandedRow() :  expandedRow() 
@@ -145,6 +153,7 @@ const data = [
         latestUpdate: "4 min ago",
         latestReportBy: "0x44pl...8879",
         value: "2920.01",
+        avatar: Avatar,
     },{
         key: 2,
         id: 2,
@@ -152,6 +161,7 @@ const data = [
         latestUpdate: "12 sec ago",
         latestReportBy: "0x87e6...987E",
         value: "42234.00",
+        avatar: Avatar,
     },{
         key: 3,
         id: 3,
@@ -159,6 +169,7 @@ const data = [
         latestUpdate: "444 sec ago",
         latestReportBy: "0x87e6...981B",
         value: "45636.824417",
+        avatar: Avatar,
     },{   
         key: 4,
         id: 4,
@@ -166,6 +177,7 @@ const data = [
         latestUpdate: "33 min ago",
         latestReportBy: "0x112q6...987E",
         value: "0.07008",
+        avatar: Avatar,
     },{
         key: 5,
         id: 5,
@@ -173,6 +185,7 @@ const data = [
         latestUpdate: "12 sec ago",
         latestReportBy: "0x87e6...987E",
         value: "42234.00",
+        avatar: Avatar,
     },{
         key: 6,
         id: 6,
@@ -180,6 +193,7 @@ const data = [
         latestUpdate: "4 min ago",
         latestReportBy: "0x44pl...8879",
         value: "359.555",
+        avatar: Avatar,
     },{   
         key: 7,
         id: 7,
@@ -187,6 +201,7 @@ const data = [
         latestUpdate: "4 min ago",
         latestReportBy: "0x44pl...8879",
         value: "2920.01",
+        avatar: Avatar,
     },{
         key: 8,
         id: 8,
@@ -194,6 +209,7 @@ const data = [
         latestUpdate: "12 sec ago",
         latestReportBy: "0x87e6...987E",
         value: "42234.00",
+        avatar: Avatar,
     },{
         key: 9,
         id: 9,
@@ -201,6 +217,7 @@ const data = [
         latestUpdate: "4 min ago",
         latestReportBy: "0x44pl...8879",
         value: "359.555",
+        avatar: Avatar,
     },
 ]
 
