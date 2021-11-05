@@ -1,6 +1,5 @@
-import { combineReducers } from "redux";
-import prices from "./prices";
-import strapiData from "./strapiData";
+import { combineReducers } from 'redux';
+import prices from './prices';
 
 //combine all reducers
-export default combineReducers({ prices, strapiData });
+export default combineReducers({ prices, });
