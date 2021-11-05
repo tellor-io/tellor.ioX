@@ -1,0 +1,26 @@
+@import '../../../style/index.scss';
+
+.Videos {
+    padding: 6% 14%;
+    &__header {
+        padding-bottom: 2%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__videorow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    @media (max-width: 810px) {
+        padding: 6% 4%;
+        &__videorow {
+            @include leftcolumn;
+        }
+    }
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import Intro from 'components/becomereporter/intro/Intro';
 import HowItWorks from 'components/becomereporter/howitworks/HowItWorks';
 import GettingStarted from 'components/becomereporter/gettingstarted/GettingStarted';
-import StuckPanel from 'components/shared/StuckPanel/StuckPanel';
+import WhiteButtonPanel from 'components/shared/WhiteButtonPanel/WhiteButtonPanel';
 
 import Discord from 'assets/Discord2.svg';
 
@@ -13,7 +13,7 @@ const BecomeReporter = () => {
             <Intro />
             <HowItWorks />
             <GettingStarted />
-            <StuckPanel
+            <WhiteButtonPanel
                 title="Stuck becoming a data reporter?"
                 leftBtnText="ask the community *"
                 rightBtnText="talk to the team"

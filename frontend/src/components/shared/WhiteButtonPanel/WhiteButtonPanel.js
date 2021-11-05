@@ -1,8 +1,10 @@
 import React from 'react';
-import './StuckPanel.scss'
+import './WhiteButtonPanel.scss'
 import PropTypes from 'prop-types';
 
-const StuckPanel = (props) => {
+//displays white panel with header and two buttons
+
+const WhiteButtonPanel = (props) => {
 
     const {
         title,
@@ -13,16 +15,12 @@ const StuckPanel = (props) => {
         leftIcon,
         rightIcon,
     } = props;
-
-   const askUrl = '';
-   const talkUrl = '';
-
    return (
-       <div className="StuckPanel">
-           <div className="StuckPanel__intro">
+       <div className="WhiteButtonPanel">
+           <div className="WhiteButtonPanel__intro">
                <h2>{ title }</h2>
            </div>
-           <div className="StuckPanel__actions button-container">
+           <div className="WhiteButtonPanel__actions button-container">
                <button  size="large" className="page-button-black" onClick={() => window.open(leftBtnLink)}>    
                     { leftIcon && (
                         <img src={leftIcon} alt="LeftIcon"/>
@@ -40,7 +38,7 @@ const StuckPanel = (props) => {
    )
 }
 
-StuckPanel.propTypes = {
+WhiteButtonPanel.propTypes = {
     title: PropTypes.string.isRequired,
     leftBtnText: PropTypes.string.isRequired,
     rightBtnText: PropTypes.string.isRequired,
@@ -50,4 +48,4 @@ StuckPanel.propTypes = {
     rightIcon: PropTypes.string,
 }
 
-export default StuckPanel;
+export default WhiteButtonPanel;

@@ -1,0 +1,49 @@
+@import '../../../style/index.scss';
+
+.Information {
+    padding: 8% 12% ;
+    background-color: white;
+    &__intro {
+        padding: 0 0 2% 0;
+    }
+    .graphic {
+        width: 100%;
+        margin: 2% 0 4% 0;
+    }
+    &__option {
+        padding-bottom: 5%;
+        @include leftrow;
+        img {
+            width: 80px;
+            margin: 30px 50px 0 0 ;
+            align-self: flex-start;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        a, a:hover, a:active, a:focus  {
+            margin-right: 20px;
+            font-weight: 600;
+            color: $background;
+        }
+    }
+    &__button {
+        margin-top: 5%;
+        @include centeredcolumn;
+    }
+    @media (max-width: 810px) {
+        padding: 20% 12% ;
+        &__option {
+            img {
+                width: 40px;
+                margin: 30px 20px 0 0 ;
+            }
+        }
+        .links {
+            @include leftcolumn;
+            a {
+                padding-bottom: 2%;
+            }
+        }
+    }
+}

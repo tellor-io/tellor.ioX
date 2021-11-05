@@ -1,0 +1,20 @@
+@import '../../../style/index.scss';
+
+.Video {
+    
+    @include leftcolumn;
+    iframe {
+        box-shadow: 0 0 15px 2px #111;
+        width: 320px; 
+        height: 180px;
+        cursor:pointer;
+    }
+    a {
+        padding: 8% 0 4% 0;
+        //font-size: 15.5rem;
+    }
+    h3 { 
+        color: white;
+        width: 300px;
+    }
+}
