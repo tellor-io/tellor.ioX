@@ -33,7 +33,6 @@ const CurrentlyReporting = () => {
             title: "reporter",
             dataIndex: "reporter",
             key: "reporter",
-            //render: SamplePfp => <img alt={SamplePfp} src={SamplePfp} />,
             width: 50,
             maxWidth: 50,
             render: (t, r) => ( 
@@ -68,41 +67,31 @@ const CurrentlyReporting = () => {
             title: "symbols",
             dataIndex: "symbols",
             key: "symbols",
-            filters: [
-                { text: "ETH/USD", value: "ETH/USD" },
-                { text: "BTC/USD", value: "BTC/USD" },
-                { text: "BNB/USD", value: "BNB/USD" },
-            ],
-            onFilter: (value, record) => record.symbols.includes(value),
+            sorter: {
+                compare: (a, b) => a.symbols.localeCompare(b.symbols),
+            },
         },
         {
-            title: "value",
-            dataIndex: "value",
-            key: "value",
-            sorter: {
-                compare: (a, b) => a.value - b.value
-            },
+            title: "reporter",
+            dataIndex: "reporter",
+            key: "reporter",
+            width: 50,
+            maxWidth: 50,
+            render: (t, r) => ( 
+                <div className="reportby">
+                    <img src={r.avatar} />
+                    <p className="page-text-black  latestReport">{r.reporter}</p>
+                </div>),
+            filters: [
+                { text: "E0x44pl...8879", value: "0x44pl...8879" },
+                { text: "0x87e6...987E", value: "B0x87e6...987E" },
+                { text: "0x44pl...8879", value: "0x44pl...8879" },
+            ],
+            onFilter: (value, record) => record.reporter.includes(value),
         }
     ];
 
     const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
-
-    //mobile dropdown row
-    const mobileExpandedRow = () => (
-        <div className="bountieExpanded">
-            <div className="firstRow">
-                
-            </div>
-        </div>
-    )
-    //dropdown row
-    const expandedRow = () => (
-        <div className="bountieExpanded">
-            <div className="firstRow">
-                
-            </div>
-        </div>
-    )
 
     return (
         <div className="CurrentlyReporting">

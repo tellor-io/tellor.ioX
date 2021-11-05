@@ -45,7 +45,6 @@ const LiveDatapoints = () => {
             title: "latest report by",
             dataIndex: "latestReportBy",
             key: "latestReportBy",
-            //render: SamplePfp => <img alt={SamplePfp} src={SamplePfp} />,
             width: 50,
             maxWidth: 50,
             render: (t, r) => ( 
