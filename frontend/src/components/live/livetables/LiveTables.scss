@@ -3,4 +3,39 @@
 .LiveTables {
     padding: 0 12% 4% 12%;
     background-color: white;
+    width: 100%;
+    .ant-table {
+        @include sixteenpxfont;
+        font-weight: 400;
+    }
+    .ant-table-tbody > tr > td {
+        border-bottom: 1px solid $background;
+    }
+    .ant-table-tbody > tr > td:nth-child(2) {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 26px;
+    }
+    .ant-table-tbody > tr > td:nth-child(5) {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 44px;
+        // line-height: 52px;
+        text-align: right;
+    }
+    .ant-table-thead > tr > th {
+        @include twelvepxfont;
+        background: none;
+        border: none !important;
+        text-transform: lowercase;
+        font-weight: 300;
+    }
+    .ant-table-thead > tr > th:first-child {
+        text-transform: uppercase;
+    }
+
+    .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+        display: none;
+   }
 }
