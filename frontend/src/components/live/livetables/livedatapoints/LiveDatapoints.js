@@ -2,13 +2,10 @@ import React from 'react'
 
 import './LiveDatapoints.scss'
 import Avatar from 'assets/Avatar.png';
-// import { ReactComponent as Avatar } from 'assets/Avatar.svg';
-
 
 import { Table } from 'antd'
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
-import PropTypes from 'prop-types';
 
 const LiveDatapoints = () => {
 
@@ -40,7 +37,7 @@ const LiveDatapoints = () => {
             dataIndex: "latestUpdate",
             key: "latestUpdate",
             sorter: {
-            compare: (a, b) => a.latestUpdate.localeCompare(b.latestUpdate),
+                compare: (a, b) => a.latestUpdate.localeCompare(b.latestUpdate),
             },
             width: "15%",
         },
@@ -54,7 +51,7 @@ const LiveDatapoints = () => {
             render: (t, r) => ( 
                 <div className="reportby">
                     <img src={r.avatar} />
-                    <p className="page-text-black">{r.latestReportBy}</p>
+                    <p className="page-text-black latestReport">{r.latestReportBy}</p>
                 </div>),
             filters: [
                 { text: "E0x44pl...8879", value: "0x44pl...8879" },
@@ -117,10 +114,10 @@ const LiveDatapoints = () => {
 
     return (
         <div className="LiveDatapoints">
-            <div className="LiveDatapointss__header">
+            <div className="LiveDatapoints__header">
                 <h3>Datapoints</h3>
             </div>
-            <div className="LiveDatapointss__table">
+            <div className="LiveDatapoints__table">
                 <Table 
                     dataSource={data} 
                     columns={isMobile ? columns_mobile : columns} 
