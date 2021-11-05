@@ -20,8 +20,7 @@ export const getStrapiData = () => (dispatch) => {
       .then((response) => response.json())
       .then((data) => {
         //dispatch success
-        console.log("THIS IS THE STRAPI BLOGPOSTS", data);
-        // dispatch(getBlogSuccess(data));
+        dispatch(getBlogSuccess(data));
       });
   } catch (e) {
     console.error("error", e);
@@ -38,8 +37,7 @@ export const getStrapiData = () => (dispatch) => {
       .then((response) => response.json())
       .then((data) => {
         //dispatch success
-        console.log("THIS IS THE STRAPI TIDBITS", data);
-        // dispatch(getTidbitsSuccess(data));
+        dispatch(getTidbitsSuccess(data));
       });
   } catch (e) {
     console.error("error", e);
@@ -56,8 +54,7 @@ export const getStrapiData = () => (dispatch) => {
       .then((response) => response.json())
       .then((data) => {
         //dispatch success
-        console.log("THIS IS THE STRAPI JOBS DATA", data);
-        // dispatch(getJobsSuccess(data));
+        dispatch(getJobsSuccess(data));
       });
   } catch (e) {
     console.error("error", e);
