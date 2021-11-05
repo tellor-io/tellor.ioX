@@ -96,7 +96,7 @@ const LiveDatapoints = () => {
 
     //mobile dropdown row
     const mobileExpandedRow = () => (
-        <div className="bountieExpanded">
+        <div >
             <div className="firstRow">
                 
             </div>
@@ -104,7 +104,7 @@ const LiveDatapoints = () => {
     )
     //dropdown row
     const expandedRow = () => (
-        <div className="bountieExpanded">
+        <div >
             <div className="firstRow">
                 
             </div>

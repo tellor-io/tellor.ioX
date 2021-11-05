@@ -9,87 +9,88 @@ import { useMediaQuery } from "react-responsive";
 
 const PastVoteItems = () => {
 
-
     const columns = [
         {
-            title: "symbols",
-            dataIndex: "symbols",
-            key: "symbols",
+            title: "ID",
+            dataIndex: "id",
+            key: "id",
             sorter: {
-                compare: (a, b) => a.symbols.localeCompare(b.symbols),
+                compare: (a, b) => a.id - b.id
             },
-            width: "25%",
+            width: "5%",
         },
         {
-            title: "value",
-            dataIndex: "value",
-            key: "value",
+            title: "type",
+            dataIndex: "type",
+            key: "type",
             sorter: {
-                compare: (a, b) => a.value.localeCompare(b.value),
+                compare: (a, b) => a.type.localeCompare(b.type),
             },
-            width: "20%",
+            width: "10%",
         },
         {
-            title: "reporter",
-            dataIndex: "reporter",
-            key: "reporter",
-            //render: SamplePfp => <img alt={SamplePfp} src={SamplePfp} />,
-            width: 50,
-            maxWidth: 50,
+            title: "description",
+            dataIndex: "description",
+            key: "description",
+            sorter: {
+                compare: (a, b) => a.description.localeCompare(b.description),
+            },
             render: (t, r) => ( 
-                <div className="reportby">
-                    <img src={r.avatar} />
-                    <p className="page-text-black  latestReport">{r.reporter}</p>
+                <div className="">
+                    <p className="page-text-black">{r.description}</p>
                 </div>),
-            filters: [
-                { text: "E0x44pl...8879", value: "0x44pl...8879" },
-                { text: "0x87e6...987E", value: "B0x87e6...987E" },
-                { text: "0x44pl...8879", value: "0x44pl...8879" },
-            ],
-            onFilter: (value, record) => record.reporter.includes(value),
-            width: "20%",
+            width: "60%",
         },
         {
-            title: "date",
-            dataIndex: "date",
-            key: "date",
+            title: "status",
+            dataIndex: "status",
+            key: "status",
             sorter: {
-                compare: (a, b) => a.date.localeCompare(b.date),
+                compare: (a, b) => a.status.localeCompare(b.status),
             },
-        },{
-            title: '',
-            key: 'dispute',
-            render: () => (  <div className="dispute-container"><button className="dispute-btn">dispute</button></div>  ),
+            render: (t, r) => ( 
+                <div className="">
+                    <p className="page-text-black">{r.status}</p>
+                </div>),
+        },
+        {
+            title: 'votes',
+            dataIndex: "votes",
+            key: 'votes',
+            sorter: {
+                compare: (a, b) => a.votes.localeCompare(b.votes),
+            },
           },
     ]
 
     const columns_mobile = [
         {
-            title: "symbols",
-            dataIndex: "symbols",
-            key: "symbols",
-            filters: [
-                { text: "ETH/USD", value: "ETH/USD" },
-                { text: "BTC/USD", value: "BTC/USD" },
-                { text: "BNB/USD", value: "BNB/USD" },
-            ],
-            onFilter: (value, record) => record.symbols.includes(value),
+            title: "type",
+            dataIndex: "type",
+            key: "type",
+            sorter: {
+                compare: (a, b) => a.type.localeCompare(b.type),
+            },
         },
         {
-            title: "value",
-            dataIndex: "value",
-            key: "value",
+            title: "description",
+            dataIndex: "description",
+            key: "description",
             sorter: {
-                compare: (a, b) => a.value - b.value
+                compare: (a, b) => a.description.localeCompare(b.description),
             },
-        }
+            render: () => (  
+                <div className="dispute-container">
+                    <button className="dispute-btn">dispute</button>
+                </div>  ),
+        },
     ];
 
     const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
 
     //mobile dropdown row
     const mobileExpandedRow = () => (
-        <div className="bountieExpanded">
+        <div >
             <div className="firstRow">
                 
             </div>
@@ -97,7 +98,7 @@ const PastVoteItems = () => {
     )
     //dropdown row
     const expandedRow = () => (
-        <div className="bountieExpanded">
+        <div >
             <div className="firstRow">
                 
             </div>
@@ -105,11 +106,11 @@ const PastVoteItems = () => {
     )
 
     return (
-        <div className="CurrentlyReporting">
-            <div className="CurrentlyReporting__header">
-                <h3>Currently reporting</h3>
+        <div className="PastVoteItems">
+            <div className="PastVoteItems__header">
+                <h3>Past vote items</h3>
             </div>
-            <div className="CurrentlyReporting__table">
+            <div className="PastVoteItems__table">
                 <Table 
                     dataSource={data} 
                     columns={isMobile ? columns_mobile : columns} 
@@ -126,7 +127,7 @@ const PastVoteItems = () => {
                             ),
                             rowExpandable: (record) => record.builds !== "Not Expandable",
                         }}
-                        expandIconColumnIndex={5}
+                        expandIconColumnIndex={7}
                     />
             </div>
         </div>
@@ -137,106 +138,100 @@ const PastVoteItems = () => {
 const data = [
     {   
         key: 1,
-        symbols: "BTC/USD 24h TWAP",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 1,
+        type: "Dispute",
+        description: "0x44pl...8879 submitted 9999.9 for BTC/USD",
+        status: "accepted",
+        votes: 23,
     },
     {   
         key: 2,
-        symbols: "ETH/USD",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 2,
+        type: "Dispute",
+        description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        status: "accepted",
+        votes: 123,
     },
     {   
         key: 3,
-        symbols: "BTC/USD",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 3,
+        type: "Dispute",
+        description: "0xFfL2...2231 disputes vote item 11",
+        status: "accepted",
+        votes: 88
     },
     {   
         key: 4,
-        symbols: "BNB/USD",
-        value: "4536.824417",
-        reporter: "0x44pl...8879",
-        date: "22/08/2021, 14:25:33",
-        avatar: Avatar,
-    },{   
+        id: 4,
+        type: "TIP",
+        description: "Tellor Improvement Plan v2.0.8",
+        status: "accepted",
+        votes: 93
+    },
+    {   
         key: 5,
-        symbols: "BTC/USD 24h TWAP",
-        value: "45636.82417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 5,
+        type: "Dispute",
+        description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        status: "rejected",
+        votes: 88
     },
     {   
         key: 6,
-        symbols: "ETH/USD",
-        value: "4566.824417",
-        reporter: "0x44pl...8879",
-        date: "22/10/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
+        id: 6,
+        type: "Treasury",
+        description: "Increase rate 0.07%",
+        status: "accepted",
+        votes: 93
+    },{   
         key: 7,
-        symbols: "BTC/USD",
-        value: "45636.82441",
-        reporter: "0x44pl...8879",
-        date: "21/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 7,
+        type: "Dispute",
+        description: "0x44pl...8879 submitted 9999.9 for BTC/USD",
+        status: "accepted",
+        votes: 23,
     },
     {   
         key: 8,
-        symbols: "BNB/USD",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        date: "24/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 8,
+        type: "Dispute",
+        description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        status: "accepted",
+        votes: 123,
     },
     {   
         key: 9,
-        symbols: "BNB/USD",
-        value: "456.824417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },{   
+        id: 9,
+        type: "Dispute",
+        description: "0xFfL2...2231 disputes vote item 11",
+        status: "accepted",
+        votes: 88
+    },
+    {   
         key: 10,
-        symbols: "BTC/USD 24h TWAP",
-        value: "45636.827",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 10,
+        type: "TIP",
+        description: "Tellor Improvement Plan v2.0.8",
+        status: "accepted",
+        votes: 93
     },
     {   
         key: 11,
-        symbols: "ETH/USD",
-        value: "536.824417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 11,
+        type: "Dispute",
+        description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        status: "rejected",
+        votes: 88
     },
     {   
         key: 12,
-        symbols: "BTC/USD",
-        value: "45636.8417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
+        id: 12,
+        type: "Treasury",
+        description: "Increase rate 0.07%",
+        status: "accepted",
+        votes: 93
     },
-    {   
-        key: 8,
-        symbols: "BNB/USD",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
+    
 ]
 
 export default PastVoteItems;

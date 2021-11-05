@@ -61,6 +61,7 @@ const CurrentlyReporting = () => {
             render: () => (  <div className="dispute-container"><button className="dispute-btn">dispute</button></div>  ),
           },
     ]
+    
 
     const columns_mobile = [
         {
