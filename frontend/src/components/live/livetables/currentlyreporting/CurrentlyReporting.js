@@ -42,7 +42,7 @@ const CurrentlyReporting = () => {
             filters: [
                 { text: "E0x44pl...8879", value: "0x44pl...8879" },
                 { text: "0x87e6...987E", value: "B0x87e6...987E" },
-                { text: "0x44pl...8879", value: "0x44pl...8879" },
+                { text: "0x44pxxl...8879", value: "0x44pxxl...8879" },
             ],
             onFilter: (value, record) => record.reporter.includes(value),
             width: "20%",
@@ -193,7 +193,7 @@ const data = [
         key: 11,
         symbols: "ETH/USD",
         value: "536.824417",
-        reporter: "0x44pl...8879",
+        reporter: "0x44pxxl...8879",
         date: "22/09/2021, 14:25:33",
         avatar: Avatar,
     },

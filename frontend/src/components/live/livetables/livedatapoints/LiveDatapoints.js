@@ -53,7 +53,7 @@ const LiveDatapoints = () => {
                     <p className="page-text-black latestReport">{r.latestReportBy}</p>
                 </div>),
             filters: [
-                { text: "E0x44pl...8879", value: "0x44pl...8879" },
+                { text: "E0x44pl...8879", value: "E0x44pl...8879" },
                 { text: "0x87e6...987E", value: "B0x87e6...987E" },
                 { text: "0x44pl...8879", value: "0x44pl...8879" },
             ],
@@ -195,7 +195,7 @@ const data = [
         id: 7,
         symbols: "ETH/USD",
         latestUpdate: "4 min ago",
-        latestReportBy: "0x44pl...8879",
+        latestReportBy: "E0x44pl...8879",
         value: "2920.01",
         avatar: Avatar,
     },{
