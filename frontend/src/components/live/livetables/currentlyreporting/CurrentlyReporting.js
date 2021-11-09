@@ -4,7 +4,6 @@ import './CurrentlyReporting.scss'
 import Avatar from 'assets/Avatar.png';
 
 import { Table } from 'antd'
-import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
 
 const CurrentlyReporting = () => {

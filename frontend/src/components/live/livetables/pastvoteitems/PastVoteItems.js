@@ -1,7 +1,8 @@
 import React from 'react'
 
 import './PastVoteItems.scss'
-import Avatar from 'assets/Avatar.png';
+import Check from 'assets/Check.png';
+import Rejected from 'assets/Rejected2.png';
 
 import { Table } from 'antd'
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
@@ -36,10 +37,11 @@ const PastVoteItems = () => {
                 compare: (a, b) => a.description.localeCompare(b.description),
             },
             render: (t, r) => ( 
-                <div className="">
-                    <p className="page-text-black">{r.description}</p>
+                <div className="desc-container">
+                    <div className="page-text-black desc item">{r.description}</div>
+                    <a className="page-text-black">more details</a>
                 </div>),
-            width: "60%",
+            width: "55%",
         },
         {
             title: "status",
@@ -49,8 +51,9 @@ const PastVoteItems = () => {
                 compare: (a, b) => a.status.localeCompare(b.status),
             },
             render: (t, r) => ( 
-                <div className="">
-                    <p className="page-text-black">{r.status}</p>
+                <div className="status-container">
+                    <img src={r.status == 'accepted' ? Check : Rejected} className={r.status == 'accepted' ? "" : "rejected-icon"}/>
+                    <div className="page-text-black item">{r.status}</div>
                 </div>),
         },
         {
@@ -64,6 +67,7 @@ const PastVoteItems = () => {
     ]
 
     const columns_mobile = [
+      
         {
             title: "type",
             dataIndex: "type",
@@ -71,6 +75,7 @@ const PastVoteItems = () => {
             sorter: {
                 compare: (a, b) => a.type.localeCompare(b.type),
             },
+            width: "10%",
         },
         {
             title: "description",
@@ -79,10 +84,12 @@ const PastVoteItems = () => {
             sorter: {
                 compare: (a, b) => a.description.localeCompare(b.description),
             },
-            render: () => (  
-                <div className="dispute-container">
-                    <button className="dispute-btn">dispute</button>
-                </div>  ),
+            render: (t, r) => ( 
+                <div className="desc-container">
+                    <p className="page-text-black desc">{r.description}</p>
+                    <a className="page-text-black">more details</a>
+                </div>),
+            width: "55%",
         },
     ];
 
@@ -114,7 +121,7 @@ const PastVoteItems = () => {
                 <Table 
                     dataSource={data} 
                     columns={isMobile ? columns_mobile : columns} 
-                    pagination={{ defaultPageSize: 8 }}
+                    pagination={{ defaultPageSize: 6 }}
                     expandable={{
                         expandedRowRender: (record, i) => {
                             return isMobile ?  mobileExpandedRow() :  expandedRow() 
