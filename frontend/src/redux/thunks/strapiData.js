@@ -10,6 +10,12 @@ import {
   getJobsFailure,
 } from "../actions";
 
+import {
+  sortDataByProperty,
+  dateFormatter,
+  urlFormatter,
+} from "./strapiDataHelpers";
+
 export const getStrapiData = () => (dispatch) => {
   //Getting Blog Posts
   try {
@@ -19,8 +25,18 @@ export const getStrapiData = () => (dispatch) => {
     fetch("http://167.172.156.209:1337/blog-posts")
       .then((response) => response.json())
       .then((data) => {
+        //data formatting
+        let order = 0;
+        let sorted = sortDataByProperty("publishDate", data);
+        let final = sorted.map((post) => {
+          post.order = order;
+          post.publishDate = dateFormatter(post.publishDate);
+          post.postUrl = urlFormatter(post.title);
+          order++;
+          return post;
+        });
         //dispatch success
-        dispatch(getBlogSuccess(data));
+        dispatch(getBlogSuccess(final));
       });
   } catch (e) {
     console.error("error", e);
