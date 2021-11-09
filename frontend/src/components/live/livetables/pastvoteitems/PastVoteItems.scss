@@ -13,6 +13,9 @@
     .ant-table-tbody > tr > td {
         border-bottom: 1px solid #C4C4C4;
     }
+    .ant-table-tbody > tr:first-child > td {
+        border-top: 1px solid #C4C4C4;
+    }
     .ant-table-thead > tr > th {
         @include twelvepxfont;
         background: none;
