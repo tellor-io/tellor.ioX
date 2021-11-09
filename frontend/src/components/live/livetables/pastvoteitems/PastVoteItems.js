@@ -33,14 +33,17 @@ const PastVoteItems = () => {
             title: "description",
             dataIndex: "description",
             key: "description",
-            sorter: {
-                compare: (a, b) => a.description.localeCompare(b.description),
-            },
             render: (t, r) => ( 
                 <div className="desc-container">
                     <div className="page-text-black desc item">{r.description}</div>
                     <a className="page-text-black">more details</a>
                 </div>),
+            filters: [
+                { text: "0x44pl...8879 submitted 9999.9 for BTC/USD", value: "0x44pl...8879 submitted 9999.9 for BTC/USD" },
+                { text: "0xFfL2...2231 submitted 77.9 for BNB/US", value: "0xFfL2...2231 submitted 77.9 for BNB/US" },
+                { text: "Increase rate 0.07%", value: "Increase rate 0.07%" },
+            ],
+            onFilter: (value, record) => record.description.includes(value),
             width: "55%",
         },
         {
@@ -61,7 +64,7 @@ const PastVoteItems = () => {
             dataIndex: "votes",
             key: 'votes',
             sorter: {
-                compare: (a, b) => a.votes.localeCompare(b.votes),
+                compare: (a, b) => a.votes - b.votes
             },
           },
     ]
