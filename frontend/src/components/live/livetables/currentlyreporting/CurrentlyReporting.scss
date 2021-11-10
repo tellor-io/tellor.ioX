@@ -1,0 +1,22 @@
+@import '../../../../style/index.scss';
+
+.CurrentlyReporting {
+    padding: 0 0 2.5% 0;
+    .dispute-btn {
+        background-color: white;
+        width: 90px;
+        height: 30px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .dispute-container {
+        @include rightcolumn;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .ant-table-tbody > tr > td:first-child {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+    }
+}

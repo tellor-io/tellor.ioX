@@ -8,8 +8,12 @@ import RequestNew from "views/requestnew/RequestNew";
 import AboutTellor from "views/abouttellor/AboutTellor";
 import GetInvolved from "views/getinvolved/GetInvolved";
 import HowItWorks from "views/howitworks/HowItWorks";
+<<<<<<< HEAD
 import Blog from "views/blog/Blog";
 import BlogPostView from "views/blogPost/BlogPostView";
+=======
+import Live from "views/live/Live";
+>>>>>>> 026-view-live
 
 const Routes = () => (
   <Switch>
@@ -21,8 +25,12 @@ const Routes = () => (
     <Route path="/abouttellor" exact render={() => <AboutTellor />} />
     <Route path="/getinvolved" exact render={() => <GetInvolved />} />
     <Route path="/howitworks" exact render={() => <HowItWorks />} />
+<<<<<<< HEAD
     <Route path="/blog" exact render={() => <Blog />} />
     <Route path="/blog/:path" exact render={() => <BlogPostView />} />
+=======
+    <Route path="/live" exact render={() => <Live />} />
+>>>>>>> 026-view-live
   </Switch>
 );
 

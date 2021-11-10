@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 
 const Video = (props) => {    
 
+    //individual video component
+
     const {
         iframe,
         linkText,
@@ -23,7 +25,7 @@ const Video = (props) => {
 }
 
 Video.propTypes = {
-    iframe: PropTypes.string.isRequired,
+    iframe: PropTypes.object.isRequired,
     linkText: PropTypes.string.isRequired,
     linkUrl: PropTypes.string.isRequired
 }
