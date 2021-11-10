@@ -57,7 +57,10 @@ const CurrentlyReporting = () => {
         },{
             title: '',
             key: 'dispute',
-            render: () => (  <div className="dispute-container"><button className="dispute-btn">dispute</button></div>  ),
+            render: () => (  
+                <div className="dispute-container">
+                    <button className="dispute-btn">dispute</button>
+                </div>  ),
           },
     ]
     
