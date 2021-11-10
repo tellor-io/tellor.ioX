@@ -3,8 +3,10 @@
 
 .SampleUsing {
     @include leftcolumn;
+    @include sidepaddings;
     width: 100%;
-    padding: 0.5% 12%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
     color: white;
     &__intro {
         h2 {
@@ -17,48 +19,45 @@
         p {
             margin-top: 0%;
             max-width: 800px; 
-            @include sixteenpxfont;
-            font-weight: 200;
         }
     }
     &__video {
-        padding: 3.5% 0;
+        padding: 3.5% 0 2% 0;
         iframe {
             box-shadow: 0 0 15px 2px #111;
             width: 560px; 
             height: 315px;
             cursor:pointer;
         }
-        @media (max-width: 810px) {
+        @media (max-width: 840px) {
             iframe {
-                width: 325px; 
-                height: 157.5px;
+                width: 275px; 
+                height: 154.5px;
             }
         }
     }
     &__actions {
-        padding-top: 0.5%;
-        display: flex;
-        flex-direction: row;
-        @include centeredrow;
+        @include page_text_actions;
         &__github {
+            @media (max-width: 840px) {
+                padding: 10px 0 30px 0;
+                margin: 0;
+            }
             a {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                margin: 0 0 30px 20px;
+                font-size: 1.25rem !important;
+                @media (max-width: 840px) {
+                    font-size: 0.875rem !important;
+                    line-height: 1.375rem !important;
+                    margin: 0;
+                }
+                
             }
             span {
                 padding-left: 15px;
-            }
-        }
-        @media (max-width: 810px) {
-            @include centeredcolumn;
-            padding: 20px 0;
-            &__github  {
-                padding: 40px 0;
-            }
-            button {
-                margin-left: 20px;
             }
         }
     }

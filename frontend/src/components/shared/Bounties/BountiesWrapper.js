@@ -3,11 +3,11 @@ import Bounties from './Bounties'
 import './BountiesWrapper.scss'
 import {ReactComponent as Swoosh} from 'assets/Swoosh.svg';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 
 export default function BountiesWrapper(props) {
-
+    const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
     const [toggle, setToggle] = useState(false);
-
     const {
         hideHeader,
         darkBackground
@@ -21,9 +21,12 @@ export default function BountiesWrapper(props) {
             {/* show or hide header */}
             {!hideHeader && (
                 <div className={`${classType}__title`}>
-                    <h1>Earn TRB</h1>
-                    <Swoosh />
-                    <h1>, grab a bounty!</h1>
+                    <div className="firstDiv">
+                        <h1>Earn TRB</h1>
+                        <Swoosh />
+                        {isMobileHeader?<h1>,</h1>:null}
+                    </div>
+                    <h1>{isMobileHeader?null:","} grab a bounty!</h1>
                 </div>
             )}
             <Bounties darkBackground={darkBackground} />

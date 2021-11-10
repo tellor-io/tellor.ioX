@@ -5,6 +5,10 @@
     width: 100%;
     padding: 6% 10%;
     background-color: white;
+    @media (max-width: 840px) {
+        padding: 70px 10%;
+    }
+
     &__title {
         @include centeredrow;
         width: 100%;
@@ -17,6 +21,16 @@
             width: 40px;
             margin: 0 10px 0 16px;
         }
+        .firstDiv {
+            @include centeredrow;
+
+        }
+    
+        @media (max-width: 840px) {
+            @include centeredcolumn;
+
+        }
+
     }
     &__desc {
         padding: 6% 0 2% 0;

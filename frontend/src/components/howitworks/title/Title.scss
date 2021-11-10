@@ -1,7 +1,8 @@
 @import '../../../style/index.scss';
 
 .Title {
-    padding: 2.5% 12% 0 12%;
+    @include sidepaddings;
+    padding-top: 2.5%;
     h1 { 
         max-width: 1000px;
         margin-bottom: 50px;
@@ -14,23 +15,24 @@
         padding: 2.5% 0;
         iframe {
             margin-bottom: -60px;
-            box-shadow: 0 0 15px 2px #111;
+            box-shadow: 0 0 15px 0px #111;
             width: 560px; 
             height: 315px;
             cursor:pointer;
         }
         video {
             margin-bottom: -60px;
-            box-shadow: 0 0 15px 2px #111;
+            box-shadow: 0 0 15px 0px #111;
             width: 560px; 
             height: 315px;
             cursor:pointer;
         }
-        @media (max-width: 810px) {
+        @media (max-width: 840px) {
             padding: 0;
             iframe {
-                width: 315px; 
-                height: 157.5px;
+                margin-bottom: -20px;
+                width: 275px; 
+                height: 154.5px;
             }
             h1 { 
                 margin-bottom: 0;

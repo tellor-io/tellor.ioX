@@ -6,10 +6,12 @@ import { ReactComponent as Refresher } from "assets/refresh.svg";
 import { ReactComponent as Github } from "../../../assets/Github.svg";
 import { ReactComponent as Twitter } from "../../../assets/Twitter.svg";
 import { ReactComponent as Discord } from "../../../assets/discord_icon_blue.svg";
+import { useMediaQuery } from 'react-responsive';
 
 const Footer = () => {
   const [refresherClass, setRefresherClass] = useState();
   const [nmbr, setNmbr] = useState(0);
+  const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
 
   // //// DUMMY ////
   const tidbits = [
@@ -42,6 +44,10 @@ const Footer = () => {
 
   return (
     <div className="Footer">
+      {isMobileHeader?
+      <p>mobile footer</p>
+      :
+      <>
       <div className="tidbits">
         <div className="tidbits__logo" onClick={() => getNew()}>
           <p>
@@ -139,6 +145,8 @@ const Footer = () => {
         <a href="http://tellor.io" alt="http://docs.tellor.io" target="_blank" rel="noopener noreferrer">tellor.io</a>
         <a href="http://docs.tellor.io" alt="http://docs.tellor.io" target="_blank" rel="noopener noreferrer">docs.tellor.io</a>
       </div> */}
+    </>
+    }
     </div>
   );
 };

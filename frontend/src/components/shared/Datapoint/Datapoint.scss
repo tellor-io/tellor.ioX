@@ -6,8 +6,20 @@
     width: 100%;
     margin: 0 0 20px 0;
     &__left {
+        color: white;
         p {
             margin: 0 0 7px 0;
+            @media (max-width: 840px) {
+                font-size: 0.625rem !important;
+                line-height: 0.675rem !important;
+            }
+        }
+        a {
+            margin: 0 0 7px 0;
+            @media (max-width: 840px) {
+                font-size: 0.625rem !important;
+                line-height: 0.675rem !important;
+            }
         }
         h4 {
             color: white;
@@ -15,6 +27,11 @@
             margin: 0;
             font-size: 1.25rem;
             line-height: 1.4375rem;
+            @media (max-width: 840px) {
+                font-size: 0.875rem !important;
+                line-height: 0.875rem !important;
+            }
+
         }
     }
     &__right {
@@ -26,6 +43,10 @@
             margin: 0;
             font-size: 2.75rem;
             line-height: 3.25rem;
+            @media (max-width: 840px) {
+                font-size: 2.125rem;
+                line-height: 2.5rem;
+            }
         }
     }
 }
