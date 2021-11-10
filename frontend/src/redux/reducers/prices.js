@@ -1,4 +1,8 @@
-import { GET_PRICES_REQUEST, GET_PRICES_SUCCESS, GET_PRICES_FAILURE, } from '../actions';
+import {
+  GET_PRICES_REQUEST,
+  GET_PRICES_SUCCESS,
+  GET_PRICES_FAILURE,
+} from "../actions";
 
 //price state
 const initialState = {
@@ -19,17 +23,17 @@ const prices = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.data
+        data: action.data,
       };
     case GET_PRICES_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.error
+        error: action.error,
       };
     default:
       return state;
   }
-}
+};
 
 export default prices;

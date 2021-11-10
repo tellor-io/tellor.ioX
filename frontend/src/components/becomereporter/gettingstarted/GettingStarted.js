@@ -23,7 +23,7 @@ const GettingStarted = () => {
                 </ol>
                 <p className="page-text">When data is requested, data reporters submit values to be put on-chain. Data reporters can also receive tips from users to update certain data points more frequently.</p>
             </div>
-            <div className="SampleUsing__video">
+            <div className="GettingStarted__video">
                 <video poster={videoplaceholder}>
                     {/* 
                         Todo: Insert mp4, webm, and video link

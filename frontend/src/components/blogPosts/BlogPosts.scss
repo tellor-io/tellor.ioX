@@ -12,18 +12,47 @@
   padding: 100px 145px 35px;
 }
 .dropdown {
-  display: flex;
+  @include centeredrow();
   margin-right: 30px;
+  width: auto;
+  height: 30px;
 
   img {
+    width: 15px;
+    height: 15px;
     margin-right: 10px;
+  }
+
+  h3 {
+    margin-bottom: 0px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    h3 {
+      text-decoration: underline;
+    }
   }
 }
 .search {
-  transition: 0.3s ease-in;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 30px;
+
   img {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
     &:hover {
       cursor: pointer;
+    }
+  }
+  input {
+    width: 150px;
+    height: 24px;
+    &:focus {
+      outline: none;
     }
   }
 }
@@ -39,6 +68,7 @@
   display: flex;
   flex-direction: column;
   width: 60%;
+  margin-bottom: 60px;
 
   img {
     width: 660px;
@@ -46,12 +76,14 @@
     border: 1px solid #c4c4c4;
     margin-bottom: 25px;
   }
-
   h5 {
     margin-bottom: 13px;
   }
   h1 {
     width: 85%;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -64,6 +96,7 @@
 
 .subhero__innerDivs {
   width: 430px;
+
   img {
     width: 430px;
     height: 129px;
@@ -71,7 +104,6 @@
     margin-bottom: 15px;
     object-fit: cover;
   }
-
   h5 {
     margin-bottom: 13px;
   }
@@ -79,21 +111,27 @@
     width: 85%;
     margin-bottom: 40px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .posts {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
 }
 
 .posts__innerDivs {
+  width: 30%;
+
   img {
     width: 363px;
     height: 202px;
     border: 1px solid #c4c4c4;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 15px;
   }
   h5 {
@@ -103,11 +141,30 @@
     width: 85%;
     margin-bottom: 40px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.Load__More {
+.LoadMore__Container {
   @include centeredrow();
-  h4 {
-    text-align: center;
+  padding: 90px 50px 160px;
+
+  .LoadMore__Button {
+    @include centeredrow();
+    width: 369px;
+    height: 74px;
+    border: 1px solid #262626;
+    border-bottom: 2px solid #262626;
+
+    h4 {
+      font-family: "Inconsolata";
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 0px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

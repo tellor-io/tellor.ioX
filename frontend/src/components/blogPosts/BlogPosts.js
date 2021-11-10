@@ -1,123 +1,108 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./BlogPosts.scss";
-import {
-  sortDataByProperty,
-  dateFormatter,
-  reverseData,
-} from "./blogPostsHelpers";
+//Helpers
+import { reverseData } from "./blogPostsHelpers";
+//Assets
 import dropdown from "../../assets/dropdown.svg";
-import search from "../../assets/search.svg";
+import searchIcon from "../../assets/search.svg";
+//Redux
+import { useSelector } from "react-redux";
+//Components
+import RegularView from "./RegularView.js";
+import SearchView from "./SearchView.js";
+
+//Context
+export const BlogContext = React.createContext();
+//Initial Form State
+const initialSearchState = {
+  search: "",
+};
 
 function BlogPosts() {
-  const heroRef = useRef();
-  const [allPosts, setAllPosts] = useState([]);
-  const [posts, setPosts] = useState([]);
+  //Component State
+  const [searchBar, setSearchBar] = useState(initialSearchState);
   const [hero, setHero] = useState([]);
   const [subhero, setSubhero] = useState([]);
-  const [blogLength, setBlogLength] = useState(0);
-  const [orderDirection, setOrderDirection] = useState(true);
+  const [posts, setPosts] = useState([]);
+  const [reversed, setReversed] = useState([]);
+  const [blogLength, setBlogLength] = useState(1);
+  //
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
+  const [orderDirection, setOrderDirection] = useState(true);
+  const [loadMoreClicks, setLoadMoreClicks] = useState(1);
+  const [loadMoreButton, setLoadMoreButton] = useState(true);
+  //Redux State
+  const blogPostsFromRedux = useSelector((state) => state.strapiData.blogPosts);
+  //Context
+  const blogContext = {
+    orderDirection: orderDirection,
+    reversed: reversed,
+    hero: hero,
+    subhero: subhero,
+    posts: posts,
+  };
+
+  //useEffect for creating reversed blog array on component render
+  useEffect(() => {
+    setReversed(reverseData("order", blogPostsFromRedux));
+    return () => {
+      setReversed([]);
+    };
+  }, []);
+
+  //useEffect to handle blog order direction
+  useEffect(() => {
+    if (orderDirection) {
+      setHero([blogPostsFromRedux[0]]);
+      setSubhero([blogPostsFromRedux[1], blogPostsFromRedux[2]]);
+      setPosts(blogPostsFromRedux.slice(3, 6));
+      setBlogLength(blogPostsFromRedux.length);
+      setLoadMoreClicks(1);
+      setLoadMoreButton(true);
+    } else if (!orderDirection) {
+      setHero([reversed[0]]);
+      setSubhero([reversed[1], reversed[2]]);
+      setPosts(reversed.slice(3, 6));
+      setBlogLength(reversed.length);
+      setLoadMoreClicks(1);
+      setLoadMoreButton(true);
+    }
+    return () => {
+      setHero([]);
+      setSubhero([]);
+      setPosts([]);
+      setBlogLength(0);
+      setLoadMoreClicks(1);
+      setLoadMoreButton(true);
+    };
+  }, [orderDirection]);
 
   const handleSearch = () => {
     setToggleSearchBar(!toggleSearchBar);
   };
 
-  useEffect(() => {
-    const credentials = {
-      email: "jsamaniego@tellor.io",
-      password: "wgZ8ucu6fDGhrnZ",
-    };
+  const handleSearchChange = (e) => {
+    setSearchBar({
+      search: e.target.value,
+    });
+  };
 
-    fetch("https://tellorstrapi.herokuapp.com/admin/login/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        fetch("https://tellorstrapi.herokuapp.com/blog-posts", {
-          headers: {
-            Authorization: `Bearer ${res.data.token}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((postsData) => console.log(postsData))
-          .catch((err) => console.log(err));
-      })
-      .catch((err) => console.log(err));
-
-    fetch("http://localhost:1337/blog-posts/")
-      .then((res) => res.json())
-      .then((postsData) => {
-        sortDataByProperty("publishDate", postsData);
-        let order = 0;
-        let array = [];
-        postsData.map((post) => {
-          post.publishDate = dateFormatter(post.publishDate);
-          post.order = order;
-          order++;
-        });
-
-        console.log("regular", postsData);
-        const reversed = postsData.sort((a, b) => b - a);
-        console.log("reversed", reversed);
-
-        setAllPosts(postsData);
-        array.push(postsData[1]);
-        array.push(postsData[2]);
-        setBlogLength(postsData.length);
-        setHero([postsData[0]]);
-        setSubhero(array);
-        setPosts(postsData.slice(3));
-      });
-    return () => {
-      setPosts([]);
-      setSubhero([]);
-      setHero([]);
-      setBlogLength(0);
-    };
-  }, []);
-
-  useEffect(() => {
-    console.log(allPosts);
-    if (orderDirection) {
-      setHero([allPosts[0]]);
-      setSubhero([allPosts[1], allPosts[2]]);
-      setPosts(allPosts.slice(3));
-    } else {
-      let arrayToUse = [];
-      let reversed = reverseData("order", allPosts);
-      let newHero = reversed[0];
-      arrayToUse.push(reversed[1]);
-      arrayToUse.push(reversed[2]);
-      setSubhero(arrayToUse);
-      setPosts(reversed.slice(3));
-      setHero([newHero]);
+  const handleLoadMore = () => {
+    setLoadMoreClicks(loadMoreClicks + 1);
+    let loads = Math.ceil((blogLength - 6) / 6);
+    let loadAmount = 6 + 6 * loadMoreClicks;
+    if (loadMoreClicks <= loads && orderDirection) {
+      setPosts(blogPostsFromRedux.slice(3, loadAmount));
+      if (loadMoreClicks === loads) {
+        setLoadMoreButton(false);
+      }
+    } else if (loadMoreClicks <= loads && !orderDirection) {
+      setPosts(reversed.slice(3, loadAmount));
+      if (loadMoreClicks === loads) {
+        setLoadMoreButton(false);
+      }
     }
-  }, [orderDirection]);
-
-  //   function useUpdateEffect(callback, dependencies) {
-  //     const firstRenderRef = useRef(true);
-
-  //     useEffect(() => {
-  //       if (firstRenderRef.current) {
-  //         firstRenderRef.current = false;
-  //         return;
-  //       }
-  //       return callback();
-  //     }, dependencies); //eslint-disable-line
-  //   }
-
-  //useUpdateEffect(() => alert(count), [count]);
-
-  //   console.log("posts", posts);
-  //   console.log("hero", hero);
-  //   console.log("subhero", subhero);
-  //   console.log(blogLength);
-
-  console.log(allPosts);
+  };
 
   return (
     <div className="BlogPosts__Container">
@@ -132,70 +117,30 @@ function BlogPosts() {
           <h3>{orderDirection ? "newest to oldest" : "oldest to newest"}</h3>
         </div>
         <div className="search">
-          <img src={search} onClick={handleSearch} alt="search icon" />
+          <img src={searchIcon} onClick={handleSearch} alt="search icon" />
           <input
             style={{
               display: toggleSearchBar ? "block" : "none",
             }}
             type="text"
+            name="searchBar"
+            placeholder="Search for a blog"
+            onChange={handleSearchChange}
+            value={searchBar.search}
           />
         </div>
       </div>
-      <div className="BlogPosts">
-        {hero[0] &&
-          hero.map((post) => {
-            return (
-              <div className="hero" ref={heroRef} key={post.id}>
-                <img
-                  src={
-                    "http://localhost:1337" + post.blogImage.formats.medium.url
-                  }
-                  alt={post.blogImage.name}
-                />
-                <h5>{post.publishDate}</h5>
-                <h1>{post.title}</h1>
-              </div>
-            );
-          })}
-        <div className="subhero">
-          {subhero[0] &&
-            subhero.map((post) => {
-              return (
-                <div className="subhero__innerDivs" key={post.id}>
-                  <img
-                    src={
-                      "http://localhost:1337" +
-                      post.blogImage.formats.medium.url
-                    }
-                    alt={post.blogImage.name}
-                  />
-                  <h5>{post.publishDate}</h5>
-                  <h1>{post.title}</h1>
-                </div>
-              );
-            })}
+      {searchBar.search.length > 0 ? (
+        <SearchView searchBar={searchBar} />
+      ) : (
+        <BlogContext.Provider value={blogContext}>
+          <RegularView />
+        </BlogContext.Provider>
+      )}
+      <div className="LoadMore__Container">
+        <div className="LoadMore__Button" onClick={() => handleLoadMore()}>
+          <h4>{loadMoreButton ? "load more" : "that's all folks!"}</h4>
         </div>
-        <div className="posts">
-          {posts[0] &&
-            posts.map((post) => {
-              return (
-                <div className="posts__innerDivs" key={post.id}>
-                  <img
-                    src={
-                      "http://localhost:1337" +
-                      post.blogImage.formats.medium.url
-                    }
-                    alt={post.blogImage.name}
-                  />
-                  <h5>{post.publishDate}</h5>
-                  <h1>{post.title}</h1>
-                </div>
-              );
-            })}
-        </div>
-      </div>
-      <div className="Load__More">
-        <h4>Load More Posts</h4>
       </div>
     </div>
   );
