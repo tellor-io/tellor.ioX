@@ -3,12 +3,13 @@
 
 .HowItWorks {
     @include leftcolumn;
+    @include sidepaddings;
     width: 100%;
-    padding: 2.5% 12% 0 12%;
+    padding-top: 60px;
+    @media (max-width: 840px) {
+        padding-top: 30px;
+    }
     &__list {
         padding: 10px 0 0 0;
-        p{
-            margin: 0;
-        }
     }
 }

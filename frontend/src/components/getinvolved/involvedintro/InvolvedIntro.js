@@ -42,40 +42,49 @@ const InvolvedIntro = () => {
 
                 {/* developers */}
                 <HeaderDesc title={developers[0]} description={developers[1]}/>
-                <button  size="large" className="page-button" onClick={() => window.open(checkGithub)}>
-                    <img src={Github} alt="check-git" className="icon"/>
-                    check out the Github
-                </button>
+                <div className="InvolvedIntro__body__btncontainer">
+                    <button  size="large" className="page-button" onClick={() => window.open(checkGithub)}>
+                        <img src={Github} alt="check-git" className="icon"/>
+                        check out the Github
+                    </button>
+                </div>
 
 
                 {/* defi proejects */}
                 <HeaderDesc title={projects[0]} description={projects[1]}/>
-                <button  size="large" className="page-button" onClick={() => window.open(readDocs)}>
-                    read the docs
-                </button>
+                <div className="InvolvedIntro__body__btncontainer">
+                    <button  size="large" className="page-button" onClick={() => window.open(readDocs)}>
+                        read the docs
+                    </button>
+                </div>
 
 
                 {/* data reporters */}
                 <HeaderDesc title={reporters[0]} description={reporters[1]}/>
-                <button  size="large" className="page-button" onClick={() => window.open(becomeReporter)}>
-                    become a reporter
-                </button>
-
+                <div className="InvolvedIntro__body__btncontainer">
+                    <button  size="large" className="page-button" onClick={() => window.open(becomeReporter)}>
+                        become a reporter
+                    </button>
+                </div>
 
                 {/* trb holders */}
                 <HeaderDesc title={holders[0]} description={holders[1]}/>
-                <button  size="large" className="page-button" onClick={() => window.open(startStaking)}>
-                    start staking
-                </button>
+                <div className="InvolvedIntro__body__btncontainer">
+                    <button  size="large" className="page-button" onClick={() => window.open(startStaking)}>
+                        start staking
+                    </button>
+                </div>
 
 
                 {/* crypto curious */}
                 <HeaderDesc title={curiouis[0]} description={curiouis[1]}/>
-                <Link to="/blog" className="button" >
-                    <button  size="large" className="page-button" >
-                        read the blog
-                    </button>
-                </Link>
+                <div className="InvolvedIntro__body__btncontainer">
+                    <Link to="/blog" className="button" >
+                        <button  size="large" className="page-button" >
+                            read the blog
+                        </button>
+                    </Link>
+                </div>
             </div>
         </div>
     )

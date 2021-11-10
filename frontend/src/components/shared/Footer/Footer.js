@@ -48,10 +48,10 @@ const Footer = () => {
 
   return (
     <div className="Footer">
-      {isMobileHeader?
+      {/* {isMobileHeader?
       <p>mobile footer</p>
       :
-      <>
+      <> */}
       <div className="tidbits">
         <div className="tidbits__logo" onClick={() => getNew()}>
           <p>
@@ -66,91 +66,87 @@ const Footer = () => {
           <Refresher className={refresherClass} />
         </div>
         <div className="tidbits__txt">
-          <p>{tidbits[nmbr]}</p>
+          {/* <p>{tidbits[nmbr]}</p> */}
+          <p>
+          Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is dat het uit een min of meer normale verdeling van letters bestaat.
+          </p>
         </div>
       </div>
       <div className="Footer__Bottom">
         <div className="Column__Big">
-          <div className="BrandLink">
-            <Link to="/">
-              <div>
-                <span className="logo">tellor</span>
-              </div>
-              <div>
-                <span className="baseline">
-                  unstoppable
-                  <br />
-                  oracle
-                </span>
-              </div>
-            </Link>
+        <div className="BrandLink_and_Socials__Container">
+        <div className="BrandLink__Container">
+            <div className="BrandLink">
+              <Link to="/">
+                <div>
+                  <span className="logo">tellor</span>
+                </div>
+                <div className="baseline">
+                  <span>
+                    unstoppable
+                  </span>
+                  <span>
+                    oracle
+                  </span>
+                </div>
+              </Link>
+            </div>
+            <p>&copy; 2021 tellor.io</p>
+            </div>
+            <div className="Social__Container">
+              <a
+                href="https://github.com/tellor-io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github />
+              </a>
+              <a
+                href="https://twitter.com/WeAreTellor/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter />
+              </a>
+              <a
+                href="https://discord.com/channels/461602746336935936/826118829322797116"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Discord />
+              </a>
+            </div>
           </div>
-          <p>&copy; 2021 tellor.io</p>
-          <div className="Social__Container">
-            <a
-              href="https://github.com/tellor-io/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github />
-            </a>
-            <a
-              href="https://twitter.com/WeAreTellor/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter />
-            </a>
-            <a
-              href="https://discord.com/channels/461602746336935936/826118829322797116"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Discord />
-            </a>
-          </div>
-        </div>
-        <div className="Column__Small">
-          <h2>suscipit semid</h2>
-          <a href="/">lorem</a>
-          <a href="/">ipsum dolor</a>
-          <a href="/">sit amet</a>
-          <a href="/">varius</a>
-          <a href="/">posuere turpis</a>
-        </div>
-        <div className="Column__Small">
-          <h2>pharetra</h2>
-          <a href="/">praesent imperdient</a>
-          <a href="/">lectus</a>
-          <a href="/">placerat sit amet</a>
-          <a href="/">ultricies lectus</a>
-        </div>
-        <div className="Column__Small">
-          <h2>aliquam erat</h2>
-          <a href="/">volutpat</a>
-          <a href="/">pellentesque</a>
-          <a href="/">ullamcorper</a>
-          <a href="/">tincidunt quam </a>
-          <a href="/">vellectus</a>
-        </div>
-      </div>
 
-      {/* <div>
-        <Link to="/">
-          <Swoosh />
-        </Link>
-        <Link to="/">
-          <TellorLogoWhite />
-        </Link>
-        <p>&copy; 2021 Tellor</p>
+        </div>
+        <div className="Columns__Small">
+          <div className="Column__Small">
+            <h2>suscipit semid</h2>
+            <a href="/">lorem</a>
+            <a href="/">ipsum dolor</a>
+            <a href="/">sit amet</a>
+            <a href="/">varius</a>
+            <a href="/">posuere turpis</a>
+          </div>
+          <div className="Column__Small">
+            <h2>pharetra</h2>
+            <a href="/">praesent imperdient</a>
+            <a href="/">lectus</a>
+            <a href="/">placerat sit amet</a>
+            <a href="/">ultricies lectus</a>
+          </div>
+          <div className="Column__Small">
+            <h2>aliquam erat</h2>
+            <a href="/">volutpat</a>
+            <a href="/">pellentesque</a>
+            <a href="/">ullamcorper</a>
+            <a href="/">tincidunt quam </a>
+            <a href="/">vellectus</a>
+          </div>
+        </div>
       </div>
-      <div>
-        <p>Links</p>
-        <a href="http://tellor.io" alt="http://docs.tellor.io" target="_blank" rel="noopener noreferrer">tellor.io</a>
-        <a href="http://docs.tellor.io" alt="http://docs.tellor.io" target="_blank" rel="noopener noreferrer">docs.tellor.io</a>
-      </div> */}
-    </>
-    }
+    {/* </>
+    } */}
     </div>
   );
 };

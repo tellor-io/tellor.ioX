@@ -5,23 +5,35 @@
   width: 100%;
   .tidbits {
     @include leftrow;
+    @include sidepaddings;
+
     align-items: flex-start;
     width: 100%;
     margin: 50px 0 70px 0;
-    padding: 70px 0 65px 214px;
+    
+    padding-top: 70px;
+    padding-bottom: 65px;
+
     border-top: 1px solid rgba($color: #ffffff, $alpha: 0.5);
     border-bottom: 1px solid #ffffff;
+    @media (max-width: 840px) {
+      margin: 40px 0 0 0;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
     &__logo {
       @include rightcolumn;
+      width: 10%;
+      min-width: 70px;
       p {
         font-family: "Renogare Regular";
         color: white;
         text-align: right;
         font-size: 1.375rem !important;
         line-height: 1.75rem !important;
-        -webkit-user-select: none; /* Chrome all / Safari all */
-        -moz-user-select: none; /* Firefox all */
-        -ms-user-select: none; /* IE 10+ */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
       }
       svg {
@@ -44,64 +56,128 @@
         -moz-user-select: none; /* Firefox all */
         -ms-user-select: none; /* IE 10+ */
         user-select: none;
+        @media (max-width: 840px) {
+          font-size: 0.875rem !important;
+          line-height: 1.375rem;
+        }
       }
     }
   }
 
   .Footer__Bottom {
     width: 100%;
-    height: 470px;
+    min-height: 470px;
     padding: 70px 60px 150px 120px;
     color: white;
     display: flex;
-
+    flex-wrap: wrap;
+    @media (max-width: 840px) {
+      padding: 40px 40px 90px 40px;
+    }
     .Column__Big {
-      flex: 0.4;
-      .BrandLink {
-        padding: 0;
-        margin-bottom: 20px;
-        a {
+      flex: 1;
+      margin: 0 0 70px 0;
+      @media (max-width: 840px) {
+        margin: 0 0 20px 0;
+      }
+      .BrandLink_and_Socials__Container {
+        @include leftcolumn;
+        @media (max-width: 840px) {
           @include leftrow;
-          align-items: flex-end;
-          color: white;
-          text-decoration: none;
-          .logo {
-            font-family: "Renogare Regular";
-            font-weight: normal;
-            font-size: 4.375rem;
-            line-height: 3.5rem;
-            margin: 0 32px 0 0;
+          align-items: flex-start;
+        }
+        .BrandLink__Container {
+          .BrandLink {
+            padding: 0;
+            margin-bottom: 20px;
+            @media (max-width: 840px) {
+              @include leftcolumn;
+              margin-bottom: 6px;
+            }
+            a {
+              @include leftrow;
+              align-items: flex-end;
+              color: white;
+              text-decoration: none;
+              .logo {
+                font-family: "Renogare Regular";
+                font-weight: normal;
+                font-size: 4.375rem;
+                line-height: 3.5rem;
+                margin: 0 32px 0 0;
+                @media (max-width: 840px) {
+                  font-size: 2.25rem;
+                  line-height: 2.625rem;
+                  margin: 0 14px 0 0;
+                }
+              }
+              .baseline {
+                @include leftcolumn;
+                font-size: 1.125rem;
+                font-weight: normal;
+                line-height: 1.25rem;
+                @media (max-width: 840px) {
+                  margin: 0 0 6px 0;
+                  font-size: 0.625rem;
+                  font-weight: normal;
+                  line-height: 0.875rem;     
+                }
+                span {
+                  margin: 0 0 6px 0;
+                  @media (max-width: 840px) {
+                    margin: 0;
+                  }
+                }
+              }
+            }
           }
-          .baseline {
-            margin: 0;
-            font-size: 1.125rem;
-            font-weight: normal;
-            line-height: 1.25rem;
+          p {
+            margin-bottom: 30px;
+            @include sixteenpxfont;
+            @media (max-width: 840px) {
+              font-size: 0.5rem !important;
+            }
+          }
+        }
+        .Social__Container {
+          display: flex;
+          align-items: center;
+          svg {
+            margin: 0 25px 0 0;
+            @media (max-width: 840px) {
+              width: 20px;
+              margin: 0 0 0 20px;
+            }
           }
         }
       }
-      p {
-        margin-bottom: 30px;
-        @include sixteenpxfont;
-      }
-      .Social__Container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 25%;
-      }
+
     }
-    .Column__Small {
-      display: flex;
-      flex-direction: column;
-      flex: 0.2;
-      h2 {
-        color: white;
-        margin-bottom: 20px;
-      }
-      a {
-        font-weight: 300;
-        margin-bottom: 10px;
+    .Columns__Small {
+      @include leftrow;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      .Column__Small {
+        display: flex;
+        flex-direction: column;
+        min-width: 240px;
+        margin-bottom: 50px;
+        h2 {
+          color: white;
+          margin-bottom: 20px;
+          @media (max-width: 840px) {
+            font-size: 0.875rem !important;
+            line-height: 1.375rem;
+          }
+        }
+        a {
+          font-weight: 300;
+          margin-bottom: 10px;
+          @media (max-width: 840px) {
+            font-size: 0.75rem !important;
+            line-height: 1.625rem;
+          }
+        }
       }
     }
   }

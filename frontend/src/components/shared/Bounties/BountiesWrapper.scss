@@ -73,7 +73,12 @@
     padding: 1% 12%;
     background-color: $background;
     &__desc {
-        padding: 6% 0 2% 0;
+        padding-top: 70px;
+        padding-bottom: 0;
+        @media (max-width: 840px) {
+            padding-top: 50px;
+            padding-bottom: 30px;
+          }
         width: 100%;
         p {
             @include leftrow;
