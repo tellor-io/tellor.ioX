@@ -1,6 +1,7 @@
 import React from 'react'
 import {ReactComponent as Github} from 'assets/Github.svg';
 import {ReactComponent as Twitter} from 'assets/Twitter.svg';
+import './Tellorfeeds.scss'
 
 export default function Tellorfeeds() {
     const githubrepo = "tellor-io/TellorPlayground"

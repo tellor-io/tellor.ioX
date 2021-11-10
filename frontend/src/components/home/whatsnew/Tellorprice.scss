@@ -1,0 +1,30 @@
+@import '../../../style/index.scss';
+
+
+.Tellorprice {
+    @include centeredcolumn;
+    width: 182px;
+    height: 187px;
+    margin: 0 64px 0 45px;
+    border: 1px solid $real-tellor-green;
+    p {
+        @include eighteenpxfont;
+        color: $real-tellor-green;
+        margin: 0;
+    }
+    a {
+        @include eighteenpxfont;
+        color: $real-tellor-green;
+        text-decoration: underline;
+    }
+    a:hover {
+        @include eighteenpxfont;
+        color: $real-tellor-green;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    svg {
+        width: 50px;
+        margin: 12px 0 27px 0;
+    }
+}

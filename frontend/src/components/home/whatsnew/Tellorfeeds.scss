@@ -1,0 +1,42 @@
+@import '../../../style/index.scss';
+
+.Tellorfeeds {
+    @include leftcolumn;
+    height: 100%;
+    width: 352px;
+}
+.Tellorfeed {
+    @include leftrow;
+    align-items: flex-start;
+    max-width: 360px;
+    &__icon {
+        margin: 5px 0 0 0;
+        svg {
+            width: 25px;
+            height: auto;
+        }
+    }
+    &__txt {
+        @include leftcolumn;
+        justify-content: flex-start;
+        width: 100%;
+        margin: 0 0 0 30px;
+        a {
+            @include sixteenpxfont;
+            color: white;
+        }
+        p {
+            color: white;
+            @include sixteenpxfont;
+            margin: 0;
+        }
+    }
+    
+    /* specific margins for each feed */
+    &__github {
+        margin: 0;
+    }
+    &__twitter {
+        margin: 25px 0 0 0;
+    }
+}

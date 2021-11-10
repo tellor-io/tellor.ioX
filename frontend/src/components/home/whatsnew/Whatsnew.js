@@ -1,6 +1,6 @@
 import React from 'react'
 import './Whatsnew.scss'
-import Blogpost from './Blogpost'
+import Blogpost from './HomeBlogpost'
 import Tellorprice from './Tellorprice'
 import Tellorfeeds from './Tellorfeeds'
 

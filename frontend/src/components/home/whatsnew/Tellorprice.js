@@ -1,5 +1,6 @@
 import React from 'react'
 import {ReactComponent as Swoosh} from 'assets/Swoosh.svg';
+import './Tellorprice.scss'
 
 export default function Tellorprice() {
     const price = "$45.54";
