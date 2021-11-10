@@ -7,19 +7,19 @@ import { ReactComponent as Github } from "../../../assets/Github.svg";
 import { ReactComponent as Twitter } from "../../../assets/Twitter.svg";
 import { ReactComponent as Discord } from "../../../assets/discord_icon_blue.svg";
 import { useMediaQuery } from 'react-responsive';
+import { useSelector } from "react-redux";
 
 const Footer = () => {
   const [refresherClass, setRefresherClass] = useState();
   const [nmbr, setNmbr] = useState(0);
   const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
 
-  // //// DUMMY ////
-  const tidbits = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit massa nec tempus egestas. Nunc nec ipsum porta massa pretium fermentum ut ut ipsum.",
-    "Suspendisse mauris ante, pulvinar eget justo tempor, faucibus varius libero. In diam ligula, suscipit maximus blandit eu, molestie at est. Nunc sit amet scelerisque urna.",
-    "Vitae interdum ante. Praesent dapibus, eros in mattis mattis, magna diam vehicula ex, vel pharetra leo metus a mi. Curabitur eget blandit nibh, ac ornare dolor.",
-    "Aliquam ornare libero at fringilla sagittis. Nulla ultricies orci eu ligula blandit auctor. Etiam sed nunc sed mi auctor convallis quis a erat.",
-  ];
+  const tidbits = [];
+  //Redux
+  const tidbitsActual = useSelector((state) => state.strapiData.tidbits);
+  tidbitsActual.forEach((tidbit) => {
+    tidbits.push(tidbit.tidbit);
+  });
 
   const getNew = () => {
     if (tidbits) {
@@ -29,7 +29,11 @@ const Footer = () => {
           debugger;
           setNmbr(newnbmr - 1);
         } else {
-          setNmbr(newnbmr + 1);
+          if (newnbmr < tidbits.length - 1) {
+            setNmbr(newnbmr + 1);
+          } else {
+            setNmbr(newnbmr);
+          }
         }
       } else {
         setNmbr(newnbmr);
