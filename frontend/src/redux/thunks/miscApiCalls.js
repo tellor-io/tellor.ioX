@@ -2,6 +2,9 @@ import {
   getCoinGecko,
   getCoinGeckoSuccess,
   getCoinGeckoFailure,
+  getGithub,
+  getGithubSuccess,
+  getGithubFailure,
 } from "../actions";
 
 export const getCoinGeckoPrice = () => (dispatch) => {
@@ -20,5 +23,23 @@ export const getCoinGeckoPrice = () => (dispatch) => {
     console.error("error", e);
     //dispatch error
     dispatch(getCoinGeckoFailure(e));
+  }
+};
+export const getGithubInfo = () => (dispatch) => {
+  try {
+    //dispatch request
+    dispatch(getGithub());
+    //fetch data
+    fetch("https://api.github.com/orgs/tellor-io/events")
+      .then((response) => response.json())
+      .then((data) => {
+        //dispatch success
+        //console.log("GITHUB", data);
+        dispatch(getGithubSuccess(data[0]));
+      });
+  } catch (e) {
+    console.error("error", e);
+    //dispatch error
+    dispatch(getGithubFailure(e));
   }
 };

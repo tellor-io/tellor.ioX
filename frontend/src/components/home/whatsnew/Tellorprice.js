@@ -14,7 +14,12 @@ export default function Tellorprice() {
       >
         Tellor (TRB)
       </a>
-      <p>{`$${price}`}</p>
+      <p>
+        {new Intl.NumberFormat("en-EN", {
+          style: "currency",
+          currency: "USD",
+        }).format(price)}
+      </p>
     </div>
   );
 }
