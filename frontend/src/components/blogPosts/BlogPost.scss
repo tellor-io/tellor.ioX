@@ -1,1 +1,126 @@
 @import "../../style/index.scss";
+
+.BlogPost__Container {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 320px 35px;
+
+  img {
+    width: 800px;
+    height: 445px;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 50px;
+  }
+  h1 {
+    width: 100%;
+    height: auto;
+    font-size: 44px;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h5 {
+    @include sixteenpxfont();
+    font-weight: 300;
+    margin-bottom: 50px;
+  }
+  .Blog__Body {
+    padding-bottom: 100px;
+    border-bottom: 1px solid #000000;
+
+    h2 {
+      text-align: center;
+    }
+    h3 {
+      font-size: 28px;
+    }
+    h4 {
+      font-size: 24px;
+    }
+    h5 {
+      font-size: 20px !important;
+      font-weight: 600;
+      line-height: 24px !important;
+      margin: 0;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 20px !important;
+      font-weight: 300;
+      line-height: 24px !important;
+    }
+    a {
+      color: #262626;
+      font-size: 20px !important;
+      font-weight: 600;
+      line-height: 24px !important;
+      &:hover {
+        color: #555555;
+      }
+    }
+    ul {
+      font-size: 20px !important;
+      font-weight: 300;
+      line-height: 24px !important;
+      margin: 0;
+    }
+    ol {
+      font-size: 20px !important;
+      font-weight: 300;
+      line-height: 24px !important;
+    }
+    strong {
+      font-weight: 600;
+    }
+    blockquote {
+      p {
+        margin: 0;
+      }
+      font-size: 18px !important;
+      font-weight: 300;
+      line-height: 22px !important;
+      padding: 5px 0px 5px 50px;
+      margin: 30px 0px 30px 40px;
+      border-left: 3px solid #2dfc9f;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.Go__Back {
+  color: #262626;
+  margin-bottom: 40px;
+  width: fit-content;
+
+  &:hover {
+    color: #555555;
+  }
+}
+
+.Blog__Footer {
+  display: flex;
+  justify-content: space-between;
+
+  h5 {
+    margin-top: 30px;
+    margin-bottom: 200px;
+    font-weight: 300;
+  }
+}
+
+.Go__Home {
+  color: #262626;
+  margin-top: 30px;
+  margin-bottom: 200px;
+
+  &:hover {
+    color: #555555;
+  }
+}
