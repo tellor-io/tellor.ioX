@@ -35,7 +35,7 @@ export const getGithubInfo = () => (dispatch) => {
       .then((data) => {
         //dispatch success
         //console.log("GITHUB", data);
-        dispatch(getGithubSuccess(data[0]));
+        dispatch(getGithubSuccess(data));
       });
   } catch (e) {
     console.error("error", e);

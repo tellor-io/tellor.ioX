@@ -10,7 +10,9 @@ export default function Tellorfeeds() {
   const mostRecentGithubEvent = useSelector(
     (state) => state.miscApiCalls.githubData
   );
-  const githubrepo = mostRecentGithubEvent && mostRecentGithubEvent.repo.name;
+  console.log(mostRecentGithubEvent);
+  const githubrepo =
+    mostRecentGithubEvent.length > 1 && mostRecentGithubEvent[0].repo.name;
 
   return (
     <div className="Tellorfeeds">
@@ -33,37 +35,37 @@ export default function Tellorfeeds() {
             {githubrepo}
           </a>
           <p className="bold">
-            {mostRecentGithubEvent &&
+            {mostRecentGithubEvent.length > 1 &&
               `
-            ${mostRecentGithubEvent.actor.login} -
-            ${formatDate(mostRecentGithubEvent.created_at)}`}
+            ${mostRecentGithubEvent[0].actor.login} -
+            ${formatDate(mostRecentGithubEvent[0].created_at)}`}
           </p>
           <p>
-            {mostRecentGithubEvent &&
+            {mostRecentGithubEvent.length > 1 &&
               `${
-                mostRecentGithubEvent.payload.action
-                  ? mostRecentGithubEvent.payload.action
+                mostRecentGithubEvent[0].payload.action
+                  ? mostRecentGithubEvent[0].payload.action
                       .charAt(0)
                       .toUpperCase() +
-                    mostRecentGithubEvent.payload.action.slice(1)
+                    mostRecentGithubEvent[0].payload.action.slice(1)
                   : ""
-              } ${formatEvent(mostRecentGithubEvent.type)} ${
-                mostRecentGithubEvent.payload.ref_type
+              } ${formatEvent(mostRecentGithubEvent[0].type)} ${
+                mostRecentGithubEvent[0].payload.ref_type
                   ? `- ${
-                      mostRecentGithubEvent.payload.ref
+                      mostRecentGithubEvent[0].payload.ref
                         .charAt(0)
                         .toUpperCase() +
-                      mostRecentGithubEvent.payload.ref.slice(1)
+                      mostRecentGithubEvent[0].payload.ref.slice(1)
                     } ${
-                      mostRecentGithubEvent.payload.ref_type
+                      mostRecentGithubEvent[0].payload.ref_type
                         .charAt(0)
                         .toUpperCase() +
-                      mostRecentGithubEvent.payload.ref_type.slice(1)
+                      mostRecentGithubEvent[0].payload.ref_type.slice(1)
                     }`
                   : ""
               } ${
-                mostRecentGithubEvent.payload.pull_request
-                  ? `#${mostRecentGithubEvent.payload.pull_request.number} from ${mostRecentGithubEvent.payload.pull_request.user.login}`
+                mostRecentGithubEvent[0].payload.pull_request
+                  ? `#${mostRecentGithubEvent[0].payload.pull_request.number} from ${mostRecentGithubEvent[0].payload.pull_request.user.login}`
                   : ""
               }`}
           </p>
