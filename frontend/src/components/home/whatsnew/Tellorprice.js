@@ -1,30 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ReactComponent as Swoosh } from "assets/Swoosh.svg";
 import { useSelector } from "react-redux";
-import { usePrevious } from "./whatsnewhelpers";
+import { useDebounce, usePrevious } from "./whatsnewhelpers";
 
 export default function Tellorprice() {
   //Redux State
   const priceFromRedux = useSelector(
     (state) => state.miscApiCalls.coinGeckoData
   );
+  //Component State
+  const [currPrice, prevPrice] = usePrevious(priceFromRedux);
   //Component Refs
   const effectRef = useRef();
   const priceRef = useRef();
-  const stablePriceRef = useRef();
-  stablePriceRef.current = priceFromRedux;
-  //Component State
-  const [tempPrice, setTempPrice] = useState();
-  const [currPrice, prevPrice] = usePrevious(priceFromRedux);
 
-  useEffect(() => {
-    setTempPrice(priceFromRedux);
-  }, []);
-
-  useEffect(() => {
+  let priceUpdater = useEffect(() => {
     //Starts transition effect
     effectRef.current.classList.add("UpdateTransitionEffect");
-    console.log("tempPrice inside useEff", tempPrice);
     console.log("priceFromRedux inside useEff", priceFromRedux);
     console.log("currPrice inside useEff", currPrice);
     console.log("prevPrice inside useEff", prevPrice);
@@ -36,7 +28,6 @@ export default function Tellorprice() {
         style: "currency",
         currency: "USD",
       }).format(currPrice)}`;
-      console.log("tempPrice inside Timeout", tempPrice);
       console.log("priceFromRedux inside Timeout", priceFromRedux);
       console.log("currPrice inside Timeout", currPrice);
       console.log("prevPrice inside Timeout", prevPrice);
@@ -47,7 +38,8 @@ export default function Tellorprice() {
     }, 3050);
   }, [priceFromRedux]);
 
-  console.log("tempPrice", tempPrice);
+  useDebounce(priceUpdater, 1000, [priceFromRedux]);
+
   console.log("priceFromRedux", priceFromRedux);
   console.log("currPrice", currPrice);
   console.log("prevPrice", prevPrice);
@@ -66,7 +58,7 @@ export default function Tellorprice() {
         {new Intl.NumberFormat("en-EN", {
           style: "currency",
           currency: "USD",
-        }).format(currPrice)}
+        }).format(prevPrice)}
       </p>
     </div>
   );
