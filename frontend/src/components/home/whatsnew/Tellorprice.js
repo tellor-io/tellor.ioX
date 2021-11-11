@@ -8,6 +8,7 @@ export default function Tellorprice() {
   const priceFromRedux = useSelector(
     (state) => state.miscApiCalls.coinGeckoData
   );
+  console.log("priceFromRedux right under useSelector", priceFromRedux);
   //Component State
   const [currPrice, prevPrice] = usePrevious(priceFromRedux);
   //Component Refs
