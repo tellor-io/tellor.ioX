@@ -11,7 +11,7 @@ export default function Tellorprice() {
   console.log(priceFromRedux);
   //Component State
   const [currPrice, prevPrice] = usePrevious(
-    priceFromRedux != 0 ? priceFromRedux : null
+    priceFromRedux != 0 ? priceFromRedux : prevPrice
   );
   //Component Refs
   const effectRef = useRef();
