@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -11,41 +11,6 @@ export const formatEvent = (eventString) => {
   const newEventString = eventArray.join(" ");
   return newEventString;
 };
-
-function useSpecificTimeout(callback, delay) {
-  const callbackRef = useRef(callback);
-  const timeoutRef = useRef();
-
-  useEffect(() => {
-    callbackRef.current = callback;
-  }, [callback]);
-
-  const set = useCallback(() => {
-    timeoutRef.current = setTimeout(() => callbackRef.current(), delay);
-  }, [delay]);
-
-  const clear = useCallback(() => {
-    timeoutRef.current && clearTimeout(timeoutRef.current);
-  }, []);
-
-  useEffect(() => {
-    set();
-    return clear;
-  }, [delay, set, clear]);
-
-  const reset = useCallback(() => {
-    clear();
-    set();
-  }, [clear, set]);
-
-  return { reset, clear };
-}
-
-export function useDebounce(callback, delay, dependencies) {
-  const { reset, clear } = useSpecificTimeout(callback, delay);
-  useEffect(reset, [...dependencies, reset]);
-  useEffect(clear, []); //eslint-disable-line
-}
 
 export function usePrevious(value) {
   const currentRef = useRef(value);

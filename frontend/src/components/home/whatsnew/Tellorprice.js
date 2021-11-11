@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { ReactComponent as Swoosh } from "assets/Swoosh.svg";
 import { useSelector } from "react-redux";
-import { useDebounce, usePrevious } from "./whatsnewhelpers";
+import { usePrevious } from "./whatsnewhelpers";
 
 export default function Tellorprice() {
   //Redux State
@@ -14,7 +14,7 @@ export default function Tellorprice() {
   const effectRef = useRef();
   const priceRef = useRef();
 
-  let priceUpdater = useEffect(() => {
+  useEffect(() => {
     //Starts transition effect
     effectRef.current.classList.add("UpdateTransitionEffect");
     console.log("priceFromRedux inside useEff", priceFromRedux);
@@ -37,8 +37,6 @@ export default function Tellorprice() {
       }, 1000);
     }, 3050);
   }, [priceFromRedux]);
-
-  useDebounce(priceUpdater, 1000, [priceFromRedux]);
 
   console.log("priceFromRedux", priceFromRedux);
   console.log("currPrice", currPrice);
