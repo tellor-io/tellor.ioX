@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 export const formatDate = (dateString) => {
   const date = new Date(dateString);
   const dateArr = date.toString().split(" ");
@@ -9,3 +11,16 @@ export const formatEvent = (eventString) => {
   const newEventString = eventArray.join(" ");
   return newEventString;
 };
+
+export function usePrevious(value) {
+  const currentRef = useRef(value);
+  const previousRef = useRef();
+
+  if (currentRef.current !== value) {
+    previousRef.current = currentRef.current;
+    currentRef.current = value;
+  } else {
+    previousRef.current = currentRef.current;
+  }
+  return [currentRef.current, previousRef.current];
+}
