@@ -8,14 +8,14 @@ export default function Tellorprice() {
   const priceFromRedux = useSelector(
     (state) => state.miscApiCalls.coinGeckoData
   );
-  //Component State
-  const [tempPrice, setTempPrice] = useState();
-  const [currPrice, prevPrice] = usePrevious(
-    priceFromRedux != 0 ? priceFromRedux : tempPrice
-  );
   //Component Refs
   const effectRef = useRef();
   const priceRef = useRef();
+  const stablePriceRef = useRef();
+  stablePriceRef.current = priceFromRedux;
+  //Component State
+  const [tempPrice, setTempPrice] = useState();
+  const [currPrice, prevPrice] = usePrevious(priceFromRedux);
 
   useEffect(() => {
     setTempPrice(priceFromRedux);
@@ -66,7 +66,7 @@ export default function Tellorprice() {
         {new Intl.NumberFormat("en-EN", {
           style: "currency",
           currency: "USD",
-        }).format(prevPrice)}
+        }).format(currPrice)}
       </p>
     </div>
   );
