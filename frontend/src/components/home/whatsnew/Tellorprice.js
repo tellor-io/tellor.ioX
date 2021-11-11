@@ -17,6 +17,9 @@ export default function Tellorprice() {
   useEffect(() => {
     //Starts transition effect
     effectRef.current.classList.add("UpdateTransitionEffect");
+    console.log("priceFromRedux inside useEffect", priceFromRedux);
+    console.log("currPrice inside useEffect", currPrice);
+    console.log("prevPrice inside useEffect", prevPrice);
     setTimeout(() => {
       //1 second fade-in class
       priceRef.current.classList.add("UpdateData");
@@ -31,6 +34,10 @@ export default function Tellorprice() {
       }, 1000);
     }, 3050);
   }, [priceFromRedux]);
+
+  console.log("priceFromRedux", priceFromRedux);
+  console.log("currPrice", currPrice);
+  console.log("prevPrice", prevPrice);
 
   return (
     <div ref={effectRef} className="Tellorprice">
