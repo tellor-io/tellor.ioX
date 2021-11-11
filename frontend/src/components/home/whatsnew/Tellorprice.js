@@ -8,15 +8,11 @@ export default function Tellorprice() {
   const priceFromRedux = useSelector(
     (state) => state.miscApiCalls.coinGeckoData
   );
+  //Component State
+  const [currPrice, prevPrice] = usePrevious(priceFromRedux);
   //Component Refs
   const effectRef = useRef();
   const priceRef = useRef();
-  const stablePriceRef = useRef(priceFromRedux);
-  console.log(stablePriceRef.current);
-  //Component State
-  const [currPrice, prevPrice] = usePrevious(
-    priceFromRedux != 0 ? priceFromRedux : stablePriceRef.current
-  );
 
   useEffect(() => {
     //Starts transition effect
