@@ -10,7 +10,7 @@ export default function Tellorfeeds() {
   const mostRecentGithubEvent = useSelector(
     (state) => state.miscApiCalls.githubData
   );
-  console.log(mostRecentGithubEvent);
+  //console.log("GITHUB EVENTS FROM TELLORFEEDS.JS", mostRecentGithubEvent);
   const githubrepo =
     mostRecentGithubEvent.length > 1 && mostRecentGithubEvent[0].repo.name;
 
