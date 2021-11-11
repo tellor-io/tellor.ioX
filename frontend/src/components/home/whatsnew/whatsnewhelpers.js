@@ -13,8 +13,10 @@ export const formatEvent = (eventString) => {
 };
 
 export function usePrevious(value) {
+  console.log(value);
   const currentRef = useRef(value);
   const previousRef = useRef();
+  console.log(currentRef.current);
 
   if (currentRef.current !== value && value != 0) {
     previousRef.current = currentRef.current;
