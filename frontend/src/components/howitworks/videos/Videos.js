@@ -12,9 +12,9 @@ const Videos = () => {
     const automatingTips = "https://www.youtube.com/watch?v=KJgXGm8n6tM&ab_channel=Tellor";
 
     // iframe 
-    const tellorMiningFrame = <iframe width="560" height="315" src="https://www.youtube.com/embed/8hAtNXL9avU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>;
-    const usingFellowshipFrame = <iframe width="560" height="315" src="https://www.youtube.com/embed/-AlIJKX-zBg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>;
-    const automatingTipsFrame = <iframe width="560" height="315" src="https://www.youtube.com/embed/KJgXGm8n6tM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>;
+    const tellorMiningFrame = <iframe width="560" height="315" src="https://www.youtube.com/embed/8hAtNXL9avU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>;
+    const usingFellowshipFrame = <iframe width="560" height="315" src="https://www.youtube.com/embed/-AlIJKX-zBg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>;
+    const automatingTipsFrame = <iframe width="560" height="315" src="https://www.youtube.com/embed/KJgXGm8n6tM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>;
 
     return (
         <div className="Videos">
