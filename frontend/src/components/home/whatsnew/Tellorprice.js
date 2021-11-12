@@ -59,10 +59,7 @@ export default function Tellorprice() {
               style: "currency",
               currency: "USD",
             }).format(prevPrice)
-          : new Intl.NumberFormat("en-EN", {
-              style: "currency",
-              currency: "USD",
-            }).format(currPrice)}
+          : "Loading..."}
       </p>
     </div>
   );
