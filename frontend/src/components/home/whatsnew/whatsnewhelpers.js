@@ -18,7 +18,7 @@ export function usePrevious(value) {
   const previousRef = useRef();
   console.log(currentRef.current);
 
-  if (currentRef.current !== value && value != 0) {
+  if (currentRef.current !== value && value !== 0) {
     previousRef.current = currentRef.current;
     currentRef.current = value;
   } else {
