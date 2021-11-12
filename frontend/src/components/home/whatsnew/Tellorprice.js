@@ -54,7 +54,7 @@ export default function Tellorprice() {
         Tellor (TRB)
       </a>
       <p ref={priceRef}>
-        {prevPrice && prevPrice != 0
+        {prevPrice && currPrice != 0
           ? new Intl.NumberFormat("en-EN", {
               style: "currency",
               currency: "USD",

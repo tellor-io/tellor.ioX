@@ -21,8 +21,6 @@ export function usePrevious(value) {
   if (currentRef.current !== value && value != 0) {
     previousRef.current = currentRef.current;
     currentRef.current = value;
-  } else {
-    previousRef.current = currentRef.current;
   }
 
   return [currentRef.current, previousRef.current];
