@@ -21,10 +21,6 @@ export function usePrevious(value) {
   if (currentRef.current !== value && value !== 0) {
     previousRef.current = currentRef.current;
     currentRef.current = value;
-  } else if (currentRef.current !== value && currentRef.current === 0) {
-    console.log("here");
-    previousRef.current = value;
-    currentRef.current = value;
   }
 
   return [currentRef.current, previousRef.current];
