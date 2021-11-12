@@ -25,10 +25,10 @@ export const getCoinGeckoPrice = () => (dispatch) => {
         .then((response) => response.json())
         .then((data) => {
           //dispatch success
-          //console.log("COIN GECKO", data.market_data.current_price.usd);
+          console.log("COIN GECKO", data.market_data.current_price.usd);
           dispatch(getCoinGeckoSuccess(data.market_data.current_price.usd));
         });
-    }, 60000);
+    }, 20000);
   } catch (e) {
     console.error("error", e);
     //dispatch error
