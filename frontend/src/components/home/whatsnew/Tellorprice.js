@@ -31,10 +31,6 @@ export default function Tellorprice() {
           currency: "USD",
         }).format(currPrice)}`;
       }
-      priceRef.current.innerHTML = `${new Intl.NumberFormat("en-EN", {
-        style: "currency",
-        currency: "USD",
-      }).format(currPrice)}`;
       console.log("priceFromRedux inside Timeout", priceFromRedux);
       console.log("currPrice inside Timeout", currPrice);
       console.log("prevPrice inside Timeout", prevPrice);
