@@ -25,6 +25,12 @@ export default function Tellorprice() {
       //1 second fade-in class
       priceRef.current.classList.add("UpdateData");
       //Updates to current price after transition effect
+      if (currPrice != 0) {
+        priceRef.current.innerHTML = `${new Intl.NumberFormat("en-EN", {
+          style: "currency",
+          currency: "USD",
+        }).format(currPrice)}`;
+      }
       priceRef.current.innerHTML = `${new Intl.NumberFormat("en-EN", {
         style: "currency",
         currency: "USD",
@@ -54,7 +60,7 @@ export default function Tellorprice() {
         Tellor (TRB)
       </a>
       <p ref={priceRef}>
-        {prevPrice && currPrice != 0
+        {prevPrice && prevPrice != 0
           ? new Intl.NumberFormat("en-EN", {
               style: "currency",
               currency: "USD",
