@@ -71,7 +71,9 @@ export default function Tellorfeeds() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {prevGithubEvent ? prevGithubEvent.githubRepo : "Loading..."}
+            {Object.keys(prevGithubEvent) > 1
+              ? prevGithubEvent.githubRepo
+              : "Loading..."}
           </a>
           <p ref={actorAndDateRef} className="bold">
             {prevGithubEvent ? prevGithubEvent.actorAndDate : "Please Wait."}
