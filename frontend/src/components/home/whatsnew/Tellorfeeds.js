@@ -1,25 +1,61 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { ReactComponent as Github } from "assets/Github.svg";
 import { ReactComponent as Twitter } from "assets/Twitter.svg";
 //Redux
 import { useSelector } from "react-redux";
 //Helpers
-import { formatDate, formatEvent } from "./whatsnewhelpers";
+import { usePrevious } from "./whatsnewhelpers";
 
 export default function Tellorfeeds() {
+  //Redux State
   const mostRecentGithubEvent = useSelector(
     (state) => state.miscApiCalls.githubData
   );
-  //console.log("GITHUB EVENTS FROM TELLORFEEDS.JS", mostRecentGithubEvent);
-  const githubrepo =
-    mostRecentGithubEvent.length > 1 && mostRecentGithubEvent[0].repo.name;
+
+  //Component State
+  const [currGithubEvent, prevGithubEvent] = usePrevious(mostRecentGithubEvent);
+  //Component Refs
+  const effectRef = useRef();
+  const githubRepoRef = useRef();
+  const actorAndDateRef = useRef();
+  const eventInfoRef = useRef();
+
+  useEffect(() => {
+    if (currGithubEvent && prevGithubEvent) {
+      if (
+        currGithubEvent.githubRepo != prevGithubEvent.githubRepo ||
+        currGithubEvent.actorAndDate != prevGithubEvent.actorAndDate ||
+        currGithubEvent.eventInfo != prevGithubEvent.eventInfo
+      ) {
+        //Starts transition effect
+        effectRef.current.classList.add("UpdateTransitionEffect");
+        //Waits for transition effect before updating currPrice
+        setTimeout(() => {
+          //1 second fade-in class
+          githubRepoRef.current.classList.add("UpdateData");
+          actorAndDateRef.current.classList.add("UpdateData");
+          eventInfoRef.current.classList.add("UpdateData");
+          //Updates to current price after transition effect
+          githubRepoRef.current.innerHTML = currGithubEvent.githubRepo;
+          actorAndDateRef.current.innerHTML = currGithubEvent.actorAndDate;
+          eventInfoRef.current.innerHTML = currGithubEvent.eventInfo;
+          setTimeout(() => {
+            eventInfoRef.current.classList.remove("UpdateData");
+            actorAndDateRef.current.classList.remove("UpdateData");
+            githubRepoRef.current.classList.remove("UpdateData");
+            effectRef.current.classList.remove("UpdateTransitionEffect");
+          }, 1000);
+        }, 3050);
+      }
+    }
+  }, [mostRecentGithubEvent]);
 
   return (
     <div className="Tellorfeeds">
-      <div className="Tellorfeed Tellorfeed__github">
+      <div ref={effectRef} className="Tellorfeed Tellorfeed__github">
         <div className="Tellorfeed__icon">
           <a
-            href={"http://github.com/" + githubrepo}
+            href={"http://github.com/" + mostRecentGithubEvent.githubRepo}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,46 +64,18 @@ export default function Tellorfeeds() {
         </div>
         <div className="Tellorfeed__txt">
           <a
-            href={"http://github.com/" + githubrepo}
+            ref={githubRepoRef}
+            href={"http://github.com/" + mostRecentGithubEvent.githubRepo}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {githubrepo}
+            {prevGithubEvent ? prevGithubEvent.githubRepo : "Loading..."}
           </a>
-          <p className="bold">
-            {mostRecentGithubEvent.length > 1 &&
-              `
-            ${mostRecentGithubEvent[0].actor.login} -
-            ${formatDate(mostRecentGithubEvent[0].created_at)}`}
+          <p ref={actorAndDateRef} className="bold">
+            {prevGithubEvent ? prevGithubEvent.actorAndDate : "Please Wait."}
           </p>
-          <p>
-            {mostRecentGithubEvent.length > 1 &&
-              `${
-                mostRecentGithubEvent[0].payload.action
-                  ? mostRecentGithubEvent[0].payload.action
-                      .charAt(0)
-                      .toUpperCase() +
-                    mostRecentGithubEvent[0].payload.action.slice(1)
-                  : ""
-              } ${formatEvent(mostRecentGithubEvent[0].type)} ${
-                mostRecentGithubEvent[0].payload.ref_type
-                  ? `- ${
-                      mostRecentGithubEvent[0].payload.ref
-                        .charAt(0)
-                        .toUpperCase() +
-                      mostRecentGithubEvent[0].payload.ref.slice(1)
-                    } ${
-                      mostRecentGithubEvent[0].payload.ref_type
-                        .charAt(0)
-                        .toUpperCase() +
-                      mostRecentGithubEvent[0].payload.ref_type.slice(1)
-                    }`
-                  : ""
-              } ${
-                mostRecentGithubEvent[0].payload.pull_request
-                  ? `#${mostRecentGithubEvent[0].payload.pull_request.number} from ${mostRecentGithubEvent[0].payload.pull_request.user.login}`
-                  : ""
-              }`}
+          <p ref={eventInfoRef}>
+            {prevGithubEvent ? prevGithubEvent.eventInfo : ""}
           </p>
         </div>
       </div>

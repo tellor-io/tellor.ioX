@@ -15,7 +15,7 @@ const initialState = {
   coinGeckoData: 0,
   coinGeckoIsLoading: false,
   coinGeckoError: {},
-  githubData: [],
+  githubData: {},
   githubIsLoading: false,
   githubError: {},
   twitterData: [],
