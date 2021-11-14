@@ -73,13 +73,17 @@ export default function Tellorfeeds() {
           >
             {prevGithubEvent && Object.keys(prevGithubEvent) > 1
               ? prevGithubEvent.githubRepo
-              : "Loading..."}
+              : ""}
           </a>
           <p ref={actorAndDateRef} className="bold">
-            {prevGithubEvent ? prevGithubEvent.actorAndDate : ""}
+            {prevGithubEvent && Object.keys(prevGithubEvent) > 1
+              ? prevGithubEvent.actorAndDate
+              : "Loading..."}
           </p>
           <p ref={eventInfoRef}>
-            {prevGithubEvent ? prevGithubEvent.eventInfo : ""}
+            {prevGithubEvent && Object.keys(prevGithubEvent) > 1
+              ? prevGithubEvent.eventInfo
+              : ""}
           </p>
         </div>
       </div>
