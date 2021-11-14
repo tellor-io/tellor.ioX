@@ -14,6 +14,8 @@ export default function Tellorfeeds() {
 
   //Component State
   const [currGithubEvent, prevGithubEvent] = usePrevious(mostRecentGithubEvent);
+  console.log("currGithubEvent", currGithubEvent);
+  console.log("prevGithubEvent", prevGithubEvent);
   //Component Refs
   const effectRef = useRef();
   const githubRepoRef = useRef();
