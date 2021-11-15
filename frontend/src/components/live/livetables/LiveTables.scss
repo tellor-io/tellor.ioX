@@ -30,4 +30,14 @@
     .latestReport {
         margin: 0 0 0 14px;
     }
+    a {
+        @include rightrow;
+        color: $background;
+     }
+    a:hover {
+        color: $real-tellor-green;
+      }
+    a:visited {
+        color: $background;
+    }
 }

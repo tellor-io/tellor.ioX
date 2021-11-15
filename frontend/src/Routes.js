@@ -11,6 +11,7 @@ import HowItWorks from "views/howitworks/HowItWorks";
 import Blog from "views/blog/Blog";
 import BlogPostView from "views/blogPost/BlogPostView";
 import Live from "views/live/Live";
+import Account from "views/account/Account";
 
 const Routes = () => (
   <Switch>
@@ -25,6 +26,7 @@ const Routes = () => (
     <Route path="/blog" exact render={() => <Blog />} />
     <Route path="/blog/:path" exact render={() => <BlogPostView />} />
     <Route path="/live" exact render={() => <Live />} />
+    <Route path="/account/address/:address" exact render={() => <Account />} />
   </Switch>
 );
 
