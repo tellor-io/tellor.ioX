@@ -105,11 +105,10 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr, record }) {
 
   //Chain of functions that run when user hits the submit button
   const handleFormSubmit = (e, formData, i) => {
-    console.log(formData);
     e.preventDefault();
 
     //String template literal that's responsible for making the message that's posted in the tellor-bounties chat on Telegram.
-    const text = `${formData.firstName} ${
+    const text = `@here ${formData.firstName} ${
       formData.lastName
     } wants to claim the ${formData.jobTitle} bounty, under ${
       formData.jobType
@@ -119,10 +118,23 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr, record }) {
       formData.telegram ? formData.telegram : "N/A"
     }. Additional comments: ${formData.comments ? formData.comments : "N/A"}`;
 
-    //HTTP POST request to Telegram's Bot API with environment variable credentials
+    //HTTP POST request to Discord's Webhook API with environment variable credentials
+
+    /* IMPORTANT */
+    //This fetch URL needs to be put in a .env file, it houses the the apikey and chat_id and can't be public facing!
+    //This is the structure of the post url, btw: /webhooks/{webhook.id}/{webhook.token}
+    //For future reference: https://discord.com/developers/docs/resources/webhook#webhook-resource
+    /* IMPORTANT */
+
     fetch(
-      `https://api.telegram.org/bot${process.env.REACT_APP_TOKEN}/sendMessage?chat_id=${process.env.REACT_APP_CHAT_ID}&text=${text}`,
-      { method: "POST" }
+      "https://discord.com/api/webhooks/909857169086750730/9BlbliHvoLeraVxzb9r-KmB6zmwWtdZVJlXU7zlCMan9ZCrA6waSvWfcDYnqbZ8NSnjp",
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          content: text,
+        }),
+      }
     );
 
     //Setting formValues back to normal
