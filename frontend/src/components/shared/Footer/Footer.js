@@ -105,27 +105,24 @@ const Footer = () => {
           </div>
         </div>
         <div className="Column__Small">
-          <h2>suscipit semid</h2>
-          <a href="/">lorem</a>
-          <a href="/">ipsum dolor</a>
-          <a href="/">sit amet</a>
-          <a href="/">varius</a>
-          <a href="/">posuere turpis</a>
+          <h2>Get Started</h2>
+          <a href="/usetellor">use tellor</a>
+          <a href="/howitworks">how the oracle works</a>
+          <a href="/requestnew">find data points</a>
+          <a href="/live">live on tellorscan</a>
         </div>
         <div className="Column__Small">
-          <h2>pharetra</h2>
-          <a href="/">praesent imperdient</a>
-          <a href="/">lectus</a>
-          <a href="/">placerat sit amet</a>
-          <a href="/">ultricies lectus</a>
+          <h2>Get Involved</h2>
+          <a href="/becomereporter">become a data reporter</a>
+          <a href="/getinvolved">join the community</a>
+          <a href="/trb">TRB token</a>
+          <a href="/live">connect &amp; vote</a>
         </div>
         <div className="Column__Small">
-          <h2>aliquam erat</h2>
-          <a href="/">volutpat</a>
-          <a href="/">pellentesque</a>
-          <a href="/">ullamcorper</a>
-          <a href="/">tincidunt quam </a>
-          <a href="/">vellectus</a>
+          <h2>About Tellor</h2>
+          <a href="/abouttellor">our story</a>
+          <a href="/abouttellor/#jobs">careers</a>
+          <a href="/blog">blog</a>
         </div>
       </div>
 
