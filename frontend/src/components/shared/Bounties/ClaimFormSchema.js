@@ -11,7 +11,7 @@ const formSchema = yup.object().shape({
     )
     .required("Email is required."),
   discord: yup.string().optional(),
-  telgram: yup.string().optional(),
+  telegram: yup.string().optional(),
   comments: yup.string().optional(),
 });
 

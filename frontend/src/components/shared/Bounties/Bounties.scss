@@ -2,6 +2,136 @@
 
 .Bounties {
   width: 100%;
+  .bountieExpanded {
+    .firstRow {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      div {
+        p {
+          @include fourteenpxfont;
+        }
+      }
+    }
+    #claimModalButton {
+      &:hover {
+        background-color: $real-tellor-green;
+        color: white;
+      }
+      &:focus {
+        background-color: #2dfc9f;
+        color: white;
+      }
+    }
+    .claimFormExpanded {
+      margin-top: 10px;
+      border-radius: 0;
+      padding: 2%;
+      border: none;
+    }
+    .Claim {
+      @include centeredcolumn;
+      .Claim__Form {
+        width: 80%;
+        .nondisplay {
+          display: none;
+        }
+        .CF__Double__Container {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+        .CF__Input__Container {
+          flex: 0.48;
+          display: flex;
+          flex-direction: column;
+          label {
+            @include fourteenpxfont;
+            margin-right: 1%;
+            color: $background;
+          }
+          input {
+            border: 1px solid rgba(#999999, 0.4);
+            width: 100%;
+            height: 42px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 0;
+            padding-left: 10px;
+            color: $background;
+
+            &:focus {
+              outline: none;
+              border: 1px solid $darkestgrey;
+            }
+          }
+        }
+        .CF__Error {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          padding-top: 5px;
+        }
+        .CF__Error h5 {
+          color: red;
+        }
+        .CF__Long__Input {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            @include fourteenpxfont;
+            color: $background;
+          }
+          input {
+            border: 1px solid rgba(#999999, 0.4);
+            width: 100%;
+            height: 42px;
+            border-radius: 0;
+            padding-left: 10px;
+            color: $background;
+
+            &:focus {
+              outline: none;
+              border: 1px solid $darkestgrey;
+            }
+          }
+          textarea {
+            border: 1px solid rgba(#999999, 0.4);
+            width: 100%;
+            height: 100px;
+            border-radius: 0;
+            padding: 10px;
+            resize: none;
+            color: $background;
+
+            &:focus {
+              outline: none;
+              border: 1px solid $darkestgrey;
+            }
+          }
+        }
+        .marginTop {
+          margin-top: 1.5%;
+        }
+        .Claim__Button {
+          margin-top: 5%;
+          &:hover,
+          &:focus {
+            cursor: pointer;
+            text-decoration: none;
+            background-color: $real-tellor-green;
+            color: white;
+          }
+          &:hover:disabled {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
   .ant-table {
     @include sixteenpxfont;
     font-weight: 400;
@@ -37,13 +167,148 @@
 
 .BountiesDark {
   width: 100%;
-  padding: 0 12% 0 0%;
+  .bountieExpanded {
+    .firstRow {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      div {
+        p {
+          @include fourteenpxfont;
+        }
+      }
+    }
+    .claimFormExpanded {
+      margin-top: 10px;
+      border-radius: 0;
+      padding: 2%;
+      border: none;
+      background-color: $background;
+    }
+    .Claim {
+      @include centeredcolumn;
+      .Claim__Form {
+        width: 80%;
+        .nondisplay {
+          display: none;
+        }
+        .CF__Double__Container {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+        .CF__Input__Container {
+          flex: 0.48;
+          display: flex;
+          flex-direction: column;
+          label {
+            @include fourteenpxfont;
+            margin-right: 1%;
+            color: white;
+          }
+          input {
+            border: 1px solid white;
+            border-bottom: 2px solid white;
+            width: 100%;
+            height: 42px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 0;
+            padding-left: 10px;
+            color: white;
+            background-color: $background;
+
+            &:focus {
+              outline: none;
+              border: 2px solid $darkestgrey;
+            }
+            &::placeholder {
+              color: white;
+            }
+          }
+        }
+        .CF__Error {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          padding-top: 5px;
+        }
+        .CF__Error h5 {
+          color: red;
+        }
+        .CF__Long__Input {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            @include fourteenpxfont;
+            color: white;
+          }
+          input {
+            border: 1px solid white;
+            border-bottom: 2px solid white;
+            width: 100%;
+            height: 42px;
+            border-radius: 0;
+            padding-left: 10px;
+            color: white;
+            background-color: $background;
+
+            &:focus {
+              outline: none;
+              border: 1px solid $darkestgrey;
+            }
+            &::placeholder {
+              color: white;
+            }
+          }
+          textarea {
+            border: 1px solid white;
+            border-bottom: 2px solid white;
+            width: 100%;
+            height: 100px;
+            border-radius: 0;
+            padding: 10px;
+            resize: none;
+            color: white;
+            background-color: $background;
+
+            &:focus {
+              outline: none;
+              border: 1px solid $darkestgrey;
+            }
+            &::placeholder {
+              color: white;
+            }
+          }
+        }
+        .marginTop {
+          margin-top: 1.5%;
+        }
+        .Claim__Button {
+          margin-top: 5%;
+          &:hover,
+          &:focus {
+            cursor: pointer;
+            text-decoration: none;
+          }
+          &:hover:disabled {
+            cursor: not-allowed;
+          }
+        }
+        .ant-btn:disabled {
+          background-color: $background;
+        }
+      }
+    }
+  }
   .ant-table {
     @include sixteenpxfont;
     font-weight: 400;
     background-color: $background;
   }
-
   .ant-table-tbody > tr > td {
     border-bottom: 1px solid white;
     color: white;
@@ -65,6 +330,14 @@
     > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
     display: none;
   }
+
+  button.ant-pagination-item-link {
+    color: white;
+  }
+  li.ant-pagination-item > a {
+    color: white;
+  }
+
   //    .ant-table-column-sorter-up, .ant-table-column-sorter-down {
   //        font-size: 10px;
   //    }
@@ -72,4 +345,8 @@
   //         margin: -6px -8px -4px 4px;
   //         font-size: 11px;
   //     }
+}
+
+.ant-btn:disabled {
+  background: $background;
 }

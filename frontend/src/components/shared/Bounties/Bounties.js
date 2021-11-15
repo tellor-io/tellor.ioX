@@ -18,7 +18,6 @@ export default function Bounties(props) {
     jobType: "",
   };
 
-  const [rawData, setRawData] = useState();
   const [bountiesData, setBountiesData] = useState();
   const [jobForm, setJobForm] = useState(initialJobForm);
   const [claimerPanels, setPanelsArr] = useState([]);
@@ -34,7 +33,6 @@ export default function Bounties(props) {
     fetch(bountiesUrl)
       .then((response) => response.json())
       .then((result) => {
-        setRawData(result.bounties);
         dataHelper(result.bounties);
       });
   }, []);
@@ -212,10 +210,20 @@ export default function Bounties(props) {
                 </div>
 
                 <div className="claimForm">
-                  <Collapse defaultActiveKey={["0"]} activeKey={claimerPanels}>
-                    <Panel header="Bracket panel" key={i}>
-                      <ClaimForm jobForm={jobForm} />
-                    </Panel>
+                  <Collapse
+                    defaultActiveKey={["0"]}
+                    activeKey={claimerPanels}
+                    className="claimFormExpanded"
+                    style={{
+                      display: claimerPanels.includes(i) ? "block" : "none",
+                    }}
+                  >
+                    <ClaimForm
+                      jobForm={jobForm}
+                      claimerPanels={claimerPanels}
+                      indexKey={i}
+                      setPanelsArr={setPanelsArr}
+                    />
                   </Collapse>
                 </div>
               </div>
@@ -248,12 +256,21 @@ export default function Bounties(props) {
                     {claimerPanels.includes(i) ? "Close" : "Claim this bounty"}
                   </Button>
                 </div>
-
                 <div className="claimForm">
-                  <Collapse defaultActiveKey={["0"]} activeKey={claimerPanels}>
-                    <Panel header="Bracket panel" key={i}>
-                      <ClaimForm jobForm={jobForm} />
-                    </Panel>
+                  <Collapse
+                    defaultActiveKey={["0"]}
+                    activeKey={claimerPanels}
+                    className="claimFormExpanded"
+                    style={{
+                      display: claimerPanels.includes(i) ? "block" : "none",
+                    }}
+                  >
+                    <ClaimForm
+                      jobForm={jobForm}
+                      claimerPanels={claimerPanels}
+                      indexKey={i}
+                      setPanelsArr={setPanelsArr}
+                    />
                   </Collapse>
                 </div>
               </div>

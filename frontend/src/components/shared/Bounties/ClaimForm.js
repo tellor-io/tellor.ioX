@@ -3,7 +3,7 @@ import { Button } from "antd";
 import * as yup from "yup";
 import formSchema from "./ClaimFormSchema.js";
 
-function ClaimForm({ jobForm }) {
+function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
   let initialFormValues = {
     jobTitle: jobForm.jobTitle,
     jobType: jobForm.jobType,
@@ -72,7 +72,7 @@ function ClaimForm({ jobForm }) {
   };
 
   //Chain of functions that run when user hits the submit button
-  const handleFormSubmit = (e, formData) => {
+  const handleFormSubmit = (e, formData, i) => {
     e.preventDefault();
 
     //String template literal that's responsible for making the message that's posted in the tellor-bounties chat on Telegram.
@@ -94,6 +94,9 @@ function ClaimForm({ jobForm }) {
 
     //Setting formValues back to normal
     setFormValues(initialFormValues);
+    if (claimerPanels.includes(i)) {
+      setPanelsArr(claimerPanels.filter((panel) => panel != i));
+    }
   };
 
   return (
@@ -183,7 +186,7 @@ function ClaimForm({ jobForm }) {
             />
           </div>
         </div>
-        <div className="CF__Long__Input">
+        <div className="CF__Long__Input marginTop">
           <label htmlFor="comments">Additional Comments</label>
           <textarea
             onChange={handleFormChange}
@@ -195,7 +198,7 @@ function ClaimForm({ jobForm }) {
           />
         </div>
         <Button
-          onClick={(e) => handleFormSubmit(e, formValues)}
+          onClick={(e) => handleFormSubmit(e, formValues, indexKey)}
           className="Claim__Button"
           disabled={buttonDisabled}
         >
