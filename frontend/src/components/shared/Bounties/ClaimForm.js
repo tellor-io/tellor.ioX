@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 import * as yup from "yup";
-import formSchema from "./ClaimFormSchema.js";
+import { formSchema, suggestABountyFormSchema } from "./ClaimFormSchema.js";
 
-function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
+function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr, record }) {
   let initialFormValues = {
     jobTitle: jobForm.jobTitle,
     jobType: jobForm.jobType,
@@ -19,32 +19,58 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
     lastName: "",
     email: "",
   };
+  let initialSuggestErrorValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    comments: "",
+  };
 
   //Setting Form Values to include jobTitle and jobType from previous screen.
   const [formValues, setFormValues] = useState(initialFormValues);
   //Setting Form Errors
   const [errors, setErrors] = useState(initialErrorValues);
+  //Setting Suggest A Bounty Form Errors
+  const [suggestErrors, setSuggestErrors] = useState(initialSuggestErrorValues);
   //Setting the button to be disabled until formSchema are met.
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   //yup validation for when user updates the form's values
   const validateFormChange = (e) => {
     e.persist();
-    yup
-      .reach(formSchema, e.target.name)
-      .validate(e.target.value)
-      .then(() => {
-        setErrors({
-          ...errors,
-          [e.target.name]: "",
+    if (record.key === 1000) {
+      yup
+        .reach(suggestABountyFormSchema, e.target.name)
+        .validate(e.target.value)
+        .then(() => {
+          setSuggestErrors({
+            ...suggestErrors,
+            [e.target.name]: "",
+          });
+        })
+        .catch((err) => {
+          setSuggestErrors({
+            ...suggestErrors,
+            [e.target.name]: err.errors[0],
+          });
         });
-      })
-      .catch((err) => {
-        setErrors({
-          ...errors,
-          [e.target.name]: err.errors[0],
+    } else {
+      yup
+        .reach(formSchema, e.target.name)
+        .validate(e.target.value)
+        .then(() => {
+          setErrors({
+            ...errors,
+            [e.target.name]: "",
+          });
+        })
+        .catch((err) => {
+          setErrors({
+            ...errors,
+            [e.target.name]: err.errors[0],
+          });
         });
-      });
+    }
   };
 
   //Setting Claim Modal Form Values upon first render
@@ -58,8 +84,14 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
   //If formValues are NOT meeting yup validation requirements, valid is equal to FALSE,
   //and we setButtonDisabled to be the opposite (TRUE), and then the button will be disabled.
   useEffect(() => {
-    formSchema.isValid(formValues).then((valid) => setButtonDisabled(!valid));
-  }, [formValues]);
+    if (record.key === 1000) {
+      suggestABountyFormSchema
+        .isValid(formValues)
+        .then((valid) => setButtonDisabled(!valid));
+    } else {
+      formSchema.isValid(formValues).then((valid) => setButtonDisabled(!valid));
+    }
+  }, [record.key, formValues]);
 
   //Handles changing input from the user
   //Also compares user input to yup formSchema validation.
@@ -73,6 +105,7 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
 
   //Chain of functions that run when user hits the submit button
   const handleFormSubmit = (e, formData, i) => {
+    console.log(formData);
     e.preventDefault();
 
     //String template literal that's responsible for making the message that's posted in the tellor-bounties chat on Telegram.
@@ -133,7 +166,11 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
               placeholder="Required"
             />
             <div className="CF__Error">
-              <h5>{errors.firstName}</h5>
+              <h5>
+                {record.key === 1000
+                  ? suggestErrors.firstName
+                  : errors.firstName}
+              </h5>
             </div>
           </div>
           <div className="CF__Input__Container">
@@ -146,7 +183,9 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
               placeholder="Required"
             />
             <div className="CF__Error">
-              <h5>{errors.lastName}</h5>
+              <h5>
+                {record.key === 1000 ? suggestErrors.lastName : errors.lastName}
+              </h5>
             </div>
           </div>
         </div>
@@ -162,7 +201,7 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
           />
         </div>
         <div className="CF__Error">
-          <h5>{errors.email}</h5>
+          <h5>{record.key === 1000 ? suggestErrors.email : errors.email}</h5>
         </div>
         <div className="CF__Double__Container">
           <div className="CF__Input__Container">
@@ -194,8 +233,15 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr }) {
             type="text"
             name="comments"
             className="Claim__Modal__Input"
-            placeholder="Optional"
+            placeholder={
+              record.key === 1000
+                ? "Please give a description of your idea for a bounty here!"
+                : "Optional"
+            }
           />
+        </div>
+        <div className="CF__Error">
+          <h5>{suggestErrors.comments}</h5>
         </div>
         <Button
           onClick={(e) => handleFormSubmit(e, formValues, indexKey)}

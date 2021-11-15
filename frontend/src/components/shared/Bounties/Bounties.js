@@ -9,8 +9,6 @@ import PropTypes from "prop-types";
 //Components
 import ClaimForm from "./ClaimForm";
 
-const { Panel } = Collapse;
-
 export default function Bounties(props) {
   //Component State
   let initialJobForm = {
@@ -41,7 +39,7 @@ export default function Bounties(props) {
   const dataHelper = (unformattedData) => {
     let dataArray = [];
     let randomBountyObj = {
-      key: 100,
+      key: 1000,
       title: "Suggest A Bounty",
       jobType: "Various",
       tributes: "Various",
@@ -223,6 +221,7 @@ export default function Bounties(props) {
                       claimerPanels={claimerPanels}
                       indexKey={i}
                       setPanelsArr={setPanelsArr}
+                      record={record}
                     />
                   </Collapse>
                 </div>
@@ -270,6 +269,7 @@ export default function Bounties(props) {
                       claimerPanels={claimerPanels}
                       indexKey={i}
                       setPanelsArr={setPanelsArr}
+                      record={record}
                     />
                   </Collapse>
                 </div>
