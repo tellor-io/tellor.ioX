@@ -11,6 +11,7 @@
       div {
         p {
           @include fourteenpxfont;
+          padding-right: 10px;
         }
       }
     }
@@ -185,6 +186,7 @@
       justify-content: space-between;
       align-items: center;
       div {
+        width: 75%;
         p {
           @include fourteenpxfont;
         }
