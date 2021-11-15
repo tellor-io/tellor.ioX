@@ -11,15 +11,20 @@ export default function Tellorfeeds() {
   const mostRecentGithubEvent = useSelector(
     (state) => state.miscApiCalls.githubData
   );
+  const mostRecentTweet = useSelector(
+    (state) => state.miscApiCalls.twitterData
+  );
+
+  console.log(JSON.parse(JSON.stringify(mostRecentTweet[0].text)));
 
   //Component State
   const [currGithubEvent, prevGithubEvent] = usePrevious(mostRecentGithubEvent);
-  console.log("currGithubEvent", currGithubEvent);
-  console.log("prevGithubEvent", prevGithubEvent);
-  console.log(
-    "new",
-    prevGithubEvent && Object.keys(prevGithubEvent).length > 1
-  );
+  // console.log("currGithubEvent", currGithubEvent);
+  // console.log("prevGithubEvent", prevGithubEvent);
+  // console.log(
+  //   "new",
+  //   prevGithubEvent && Object.keys(prevGithubEvent).length > 1
+  // );
   //Component Refs
   const effectRef = useRef();
   const githubRepoRef = useRef();
@@ -109,10 +114,10 @@ export default function Tellorfeeds() {
               rel="noopener noreferrer"
             >
               @WeAreTellor
-            </a>{" "}
-            - 6 sept
+            </a>
+            {mostRecentTweet && ` - ${mostRecentTweet[0].formattedDate}`}
           </p>
-          <p>gm tellor community🌞, ...</p>
+          <p>{mostRecentTweet && mostRecentTweet[0].text}</p>
         </div>
       </div>
     </div>

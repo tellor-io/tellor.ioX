@@ -18,6 +18,7 @@ import {
   getStrapiData,
   getCoinGeckoPrice,
   getGithubInfo,
+  getTwitterInfo,
 } from "redux/thunks";
 
 const App = (props) => {
@@ -35,6 +36,7 @@ const App = (props) => {
     startStrapiData,
     startCoinGecko,
     startGitHub,
+    startTwitter,
   } = props;
 
   useEffect(() => {
@@ -42,6 +44,7 @@ const App = (props) => {
     startStrapiData();
     startCoinGecko();
     startGitHub();
+    startTwitter();
   }, [currentNetwork]);
 
   useEffect(() => {
@@ -95,6 +98,7 @@ const mapDispatchToProps = (dispatch) => ({
   startStrapiData: () => dispatch(getStrapiData()),
   startCoinGecko: () => dispatch(getCoinGeckoPrice()),
   startGitHub: () => dispatch(getGithubInfo()),
+  startTwitter: () => dispatch(getTwitterInfo()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
