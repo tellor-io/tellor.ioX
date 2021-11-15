@@ -1,13 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom";
 
-// Connected import  from 'components/address/connected/Connected'
-// Unconnected  from 'components/address/unconnected/Unconnected'
+import Connected from 'components/account/connected/Connected'
+import Unconnected  from 'components/account/unconnected/Unconnected'
 
 const Account = () => {
+    // TODO: sett up with redux variables when available
+    const [ isConnected, setIsConnected ] = useState(false);
+    const [ userAccount, setUserAccount ] = useState('');
+    //reads from url
+    const accountClicked = useParams().address;
+    //Makes page load at top
+    window.scrollTo(0, 0);
 
+    useEffect(() => {
+        //should be defined from redux
+        setUserAccount("0x87e6987E");
+        if (userAccount === accountClicked) {
+            setIsConnected(true);
+        }
+        console.log('userAccount = ', userAccount);
+        console.log('accountClicked = ', accountClicked);
+    }, [userAccount])
+    
     /*
      * - "/live" onClick on open Address with url param 
-     * - components - not connected : user (not connected), reporting on, activity feed (see case for empty), reporting history (with and without data)
+     * - components - not connected : user (not connected), currently reporting , activity feed (see case for empty), reporting history (with and without data)
      * - components - connected :  user (connected), intro message box, activity feed, reporting history (not reported yet),
      * 
      * cases
@@ -20,7 +38,10 @@ const Account = () => {
 
     return (
         <div className="viewContainer">
-            HELLOOOO THEREEEE
+            { isConnected 
+                ? <Connected />
+                : <Unconnected />
+            }
         </div>
     )
 }
