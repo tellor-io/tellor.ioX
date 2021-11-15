@@ -16,6 +16,10 @@ export default function Tellorfeeds() {
   const [currGithubEvent, prevGithubEvent] = usePrevious(mostRecentGithubEvent);
   console.log("currGithubEvent", currGithubEvent);
   console.log("prevGithubEvent", prevGithubEvent);
+  console.log(
+    "new",
+    prevGithubEvent && Object.keys(prevGithubEvent).length > 1
+  );
   //Component Refs
   const effectRef = useRef();
   const githubRepoRef = useRef();
@@ -71,17 +75,17 @@ export default function Tellorfeeds() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {prevGithubEvent && Object.keys(prevGithubEvent) > 1
+            {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
               ? prevGithubEvent.githubRepo
               : "Loading..."}
           </a>
           <p ref={actorAndDateRef} className="bold">
-            {prevGithubEvent && Object.keys(prevGithubEvent) > 1
+            {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
               ? prevGithubEvent.actorAndDate
               : ""}
           </p>
           <p ref={eventInfoRef}>
-            {prevGithubEvent && Object.keys(prevGithubEvent) > 1
+            {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
               ? prevGithubEvent.eventInfo
               : ""}
           </p>
