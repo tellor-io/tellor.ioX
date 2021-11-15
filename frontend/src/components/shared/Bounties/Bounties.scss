@@ -117,7 +117,7 @@
           margin-top: 1.5%;
         }
         .Claim__Button {
-          margin-top: 5%;
+          margin-top: 3%;
           &:hover,
           &:focus {
             cursor: pointer;
@@ -151,10 +151,21 @@
     > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
     display: none;
   }
-
   .ant-btn {
     background-color: $tellor-green;
   }
+
+  // div.ant-table-filter-dropdown-btns
+  //   > button.ant-btn.ant-btn-primary.ant-btn-sm {
+  //   background-color: white;
+  //   border-color: $darkestgrey;
+  //   color: $darkestgrey;
+  // }
+  // button.ant-btn.ant-btn-primary.ant-btn-sm {
+  //   background-color: white;
+  //   border-color: $darkestgrey;
+  //   color: $darkestgrey;
+  // }
 
   //    .ant-table-column-sorter-up, .ant-table-column-sorter-down {
   //        font-size: 10px;
@@ -288,7 +299,7 @@
           margin-top: 1.5%;
         }
         .Claim__Button {
-          margin-top: 5%;
+          margin-top: 3%;
           &:hover,
           &:focus {
             cursor: pointer;
@@ -338,6 +349,22 @@
     color: white;
   }
 
+  // div.ant-dropdown.ant-dropdown-placement-bottomRight > div {
+  //   background-color: black;
+  // }
+
+  // button.ant-btn.ant-btn-link.ant-btn-sm {
+  //   background-color: white;
+  //   border-color: $darkestgrey;
+  //   border-right: none;
+  //   color: $darkestgrey;
+  // }
+  // button.ant-btn.ant-btn-primary.ant-btn-sm {
+  //   background-color: white;
+  //   border-color: $darkestgrey;
+  //   color: $darkestgrey;
+  // }
+
   //    .ant-table-column-sorter-up, .ant-table-column-sorter-down {
   //        font-size: 10px;
   //    }
@@ -347,6 +374,16 @@
   //     }
 }
 
-.ant-btn:disabled {
-  background: $background;
+//General Ant-D Table Overrides Specific to Bounties.js
+//Shouldn't be overriding anything else
+button.ant-btn.ant-btn-link.ant-btn-sm {
+  background-color: white;
+  border-color: $darkestgrey;
+  border-right: none;
+  color: $darkestgrey;
+}
+button.ant-btn.ant-btn-primary.ant-btn-sm {
+  background-color: white;
+  border-color: $darkestgrey;
+  color: $darkestgrey;
 }
