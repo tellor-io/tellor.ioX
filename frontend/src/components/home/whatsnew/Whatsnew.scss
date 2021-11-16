@@ -133,6 +133,20 @@
       margin: 0;
     }
   }
+  .Twitter__LinkAndDate {
+    display: flex;
+  }
+  &__specialLink {
+    font-weight: 400;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      font-weight: 400;
+    }
+    &:focus {
+      font-weight: 400;
+    }
+  }
 
   /* specific margins for each feed */
   &__github {

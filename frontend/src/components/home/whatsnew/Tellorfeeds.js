@@ -4,9 +4,11 @@ import { ReactComponent as Twitter } from "assets/Twitter.svg";
 //Redux
 import { useSelector } from "react-redux";
 //Helpers
-import { usePrevious } from "./whatsnewhelpers";
+import { usePreviousFeeds } from "./whatsnewhelpers";
 
 export default function Tellorfeeds() {
+  //Globals
+  const indexer = 0;
   //Redux State
   const mostRecentGithubEvent = useSelector(
     (state) => state.miscApiCalls.githubData
@@ -14,20 +16,25 @@ export default function Tellorfeeds() {
   const mostRecentTweet = useSelector(
     (state) => state.miscApiCalls.twitterData
   );
-
   //Component State
-  const [currGithubEvent, prevGithubEvent] = usePrevious(mostRecentGithubEvent);
+  const [currGithubEvent, prevGithubEvent] = usePreviousFeeds(
+    mostRecentGithubEvent
+  );
   // console.log("currGithubEvent", currGithubEvent);
   // console.log("prevGithubEvent", prevGithubEvent);
-  // console.log(
-  //   "new",
-  //   prevGithubEvent && Object.keys(prevGithubEvent).length > 1
-  // );
+  const [currTweet, prevTweet] = usePreviousFeeds(mostRecentTweet[indexer]);
+  // console.log("currTweet", currTweet);
+  // console.log("prevTweet", prevTweet);
   //Component Refs
-  const effectRef = useRef();
+  //////Github
+  const githubEffectRef = useRef();
   const githubRepoRef = useRef();
   const actorAndDateRef = useRef();
   const eventInfoRef = useRef();
+  //////Twitter
+  const twitterEffectRef = useRef();
+  const twitterDateRef = useRef();
+  const twitterTextRef = useRef();
 
   useEffect(() => {
     if (currGithubEvent && prevGithubEvent) {
@@ -37,14 +44,14 @@ export default function Tellorfeeds() {
         currGithubEvent.eventInfo != prevGithubEvent.eventInfo
       ) {
         //Starts transition effect
-        effectRef.current.classList.add("UpdateTransitionEffect");
+        githubEffectRef.current.classList.add("UpdateTransitionEffect");
         //Waits for transition effect before updating currPrice
         setTimeout(() => {
           //1 second fade-in class
           githubRepoRef.current.classList.add("UpdateData");
           actorAndDateRef.current.classList.add("UpdateData");
           eventInfoRef.current.classList.add("UpdateData");
-          //Updates to current price after transition effect
+          //Updates to current data after transition effect
           githubRepoRef.current.innerHTML = currGithubEvent.githubRepo;
           actorAndDateRef.current.innerHTML = currGithubEvent.actorAndDate;
           eventInfoRef.current.innerHTML = currGithubEvent.eventInfo;
@@ -52,16 +59,43 @@ export default function Tellorfeeds() {
             eventInfoRef.current.classList.remove("UpdateData");
             actorAndDateRef.current.classList.remove("UpdateData");
             githubRepoRef.current.classList.remove("UpdateData");
-            effectRef.current.classList.remove("UpdateTransitionEffect");
+            githubEffectRef.current.classList.remove("UpdateTransitionEffect");
           }, 1000);
         }, 3050);
       }
     }
   }, [mostRecentGithubEvent]);
 
+  useEffect(() => {
+    if (currTweet && prevTweet) {
+      if (
+        currTweet.id != prevTweet.id ||
+        currTweet.formattedDate != prevTweet.formattedDate ||
+        currTweet.text != prevTweet.text
+      ) {
+        //Starts transition effect
+        twitterEffectRef.current.classList.add("UpdateTransitionEffect");
+        //Waits for transition effect before updating currPrice
+        setTimeout(() => {
+          //1 second fade-in class
+          twitterDateRef.current.classList.add("UpdateData");
+          twitterTextRef.current.classList.add("UpdateData");
+          //Updates to current data after transition effect
+          twitterDateRef.current.innerHTML = `\u00A0- ${currTweet.formattedDate}`;
+          twitterTextRef.current.innerHTML = currTweet.text;
+          setTimeout(() => {
+            twitterTextRef.current.classList.remove("UpdateData");
+            twitterDateRef.current.classList.remove("UpdateData");
+            twitterEffectRef.current.classList.remove("UpdateTransitionEffect");
+          }, 1000);
+        }, 3050);
+      }
+    }
+  }, [mostRecentTweet]);
+
   return (
     <div className="Tellorfeeds">
-      <div ref={effectRef} className="Tellorfeed Tellorfeed__github">
+      <div ref={githubEffectRef} className="Tellorfeed Tellorfeed__github">
         <div className="Tellorfeed__icon">
           <a
             href={"http://github.com/" + mostRecentGithubEvent.githubRepo}
@@ -94,7 +128,7 @@ export default function Tellorfeeds() {
           </p>
         </div>
       </div>
-      <div className="Tellorfeed Tellorfeed__twitter">
+      <div ref={twitterEffectRef} className="Tellorfeed Tellorfeed__twitter">
         <div className="Tellorfeed__icon">
           <a
             href="http://twitter.com/wearetellor"
@@ -105,7 +139,7 @@ export default function Tellorfeeds() {
           </a>
         </div>
         <div className="Tellorfeed__txt">
-          <p>
+          <div className="Twitter__LinkAndDate">
             <a
               href="http://twitter.com/wearetellor"
               target="_blank"
@@ -113,9 +147,21 @@ export default function Tellorfeeds() {
             >
               @WeAreTellor
             </a>
-            {mostRecentTweet[0] && ` - ${mostRecentTweet[0].formattedDate}`}
-          </p>
-          <p>{mostRecentTweet[0] && mostRecentTweet[0].text}</p>
+            <p ref={twitterDateRef}>
+              {prevTweet && `\u00A0- ${prevTweet.formattedDate}`}
+            </p>
+          </div>
+          <a
+            ref={twitterTextRef}
+            href={`http://twitter.com/wearetellor/status/${
+              mostRecentTweet[indexer] && mostRecentTweet[indexer].id
+            }`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="Tellorfeed__specialLink"
+          >
+            {prevTweet && prevTweet.text}
+          </a>
         </div>
       </div>
     </div>

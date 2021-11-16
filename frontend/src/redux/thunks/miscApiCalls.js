@@ -49,7 +49,6 @@ export const getGithubInfo = () => (dispatch) => {
       fetch("https://api.github.com/orgs/tellor-io/events")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           //dispatch success
           const repoIndexer = 0;
           const githubRepo = data[repoIndexer].repo.name;
@@ -89,7 +88,7 @@ export const getGithubInfo = () => (dispatch) => {
     //GITHUB has data call restrictions
     //CHECK TO SEE IF THIS WILL BREAK CURRENT SETUP
     // setInterval(() => {
-    //   // console.log("60 Seconds Later in Github");
+    //   console.log("60 Seconds Later in Github");
     //   githubDataFetch();
     // }, 60000);
   } catch (e) {
@@ -98,48 +97,39 @@ export const getGithubInfo = () => (dispatch) => {
     dispatch(getGithubFailure(e));
   }
 };
-
 export const getTwitterInfo = () => (dispatch) => {
   try {
     //dispatch request
     dispatch(getTwitter());
     //fetch data
-    const BearerToken =
-      "AAAAAAAAAAAAAAAAAAAAAJVKVwEAAAAALPrFnnSRuix1mOxOe9BtNNqWxz8%3DS9QYWFCSToAO3wObfVy23bGiL8JBlzPGIG5ay27Qn8IDA4GDgz";
     const twitterUrl =
       "/2/users/1113767494177755136/tweets?tweet.fields=created_at";
-    fetch(twitterUrl, {
-      credentials: "include",
-      headers: {
-        Authorization: "Bearer " + BearerToken,
-        "Content-Type": "Application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        //dispatch success
-        console.log("TWITTER DATA", data.data);
-        const formatted = data.data.map((tweet) => {
-          let date = formatDate(tweet.created_at);
-          tweet.formattedDate = date.split(" @")[0];
-          console.log(tweet.text);
-          let urls = tweet.text.match(
-            /([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm
-          );
-          console.log(urls);
-          return tweet;
+    const twitterDataFetch = () =>
+      fetch(twitterUrl, {
+        credentials: "include",
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_TWITTER_BEARER_TOKEN,
+          "Content-Type": "Application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          //dispatch success
+          // console.log("TWITTER DATA", data.data);
+          const formatted = data.data.map((tweet) => {
+            tweet.formattedDate = formatDate(tweet.created_at);
+            if (tweet.text.length > 70) {
+              tweet.text = tweet.text.substring(0, 60) + " ...";
+            }
+            return tweet;
+          });
+          dispatch(getTwitterSuccess(formatted));
         });
-        dispatch(getTwitterSuccess(formatted));
-      });
+    twitterDataFetch();
     //fetching data every 60 secs to update home page
     // setInterval(() => {
-    //   fetch("https://api.coingecko.com/api/v3/coins/tellor")
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       //dispatch success
-    //       //console.log("COIN GECKO", data.market_data.current_price.usd);
-    //       dispatch(getCoinGeckoSuccess(data.market_data.current_price.usd));
-    //     });
+    //   // console.log("60 Seconds Later in Twitter");
+    //   twitterDataFetch();
     // }, 60000);
   } catch (e) {
     console.error("error", e);
