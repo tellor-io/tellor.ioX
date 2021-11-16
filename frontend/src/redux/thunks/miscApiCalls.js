@@ -123,6 +123,10 @@ export const getTwitterInfo = () => (dispatch) => {
           let date = formatDate(tweet.created_at);
           tweet.formattedDate = date.split(" @")[0];
           console.log(tweet.text);
+          let urls = tweet.text.match(
+            /([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm
+          );
+          console.log(urls);
           return tweet;
         });
         dispatch(getTwitterSuccess(formatted));

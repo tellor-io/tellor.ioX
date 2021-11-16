@@ -15,8 +15,6 @@ export default function Tellorfeeds() {
     (state) => state.miscApiCalls.twitterData
   );
 
-  console.log(JSON.parse(JSON.stringify(mostRecentTweet[0].text)));
-
   //Component State
   const [currGithubEvent, prevGithubEvent] = usePrevious(mostRecentGithubEvent);
   // console.log("currGithubEvent", currGithubEvent);
@@ -115,9 +113,9 @@ export default function Tellorfeeds() {
             >
               @WeAreTellor
             </a>
-            {mostRecentTweet && ` - ${mostRecentTweet[0].formattedDate}`}
+            {mostRecentTweet[0] && ` - ${mostRecentTweet[0].formattedDate}`}
           </p>
-          <p>{mostRecentTweet && mostRecentTweet[0].text}</p>
+          <p>{mostRecentTweet[0] && mostRecentTweet[0].text}</p>
         </div>
       </div>
     </div>
