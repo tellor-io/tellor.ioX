@@ -3,11 +3,11 @@ import * as yup from "yup";
 export const formSchema = yup.object().shape({
   firstName: yup
     .string()
-    .min(3, "First name is required. Must be more than 3 characters.")
+    .min(3, "First name is required. Must be at least 3 characters.")
     .required(),
   lastName: yup
     .string()
-    .min(3, "Last name is required. Must be more than 3 characters.")
+    .min(3, "Last name is required. Must be at least 3 characters.")
     .required(),
   email: yup
     .string()
@@ -24,11 +24,11 @@ export const formSchema = yup.object().shape({
 export const suggestABountyFormSchema = yup.object().shape({
   firstName: yup
     .string()
-    .min(3, "First name is required. Must be more than 3 characters.")
+    .min(3, "First name is required. Must be at least 3 characters.")
     .required(),
   lastName: yup
     .string()
-    .min(3, "Last name is required. Must be more than 3 characters.")
+    .min(3, "Last name is required. Must be at least 3 characters.")
     .required(),
   email: yup
     .string()
