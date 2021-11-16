@@ -2,4 +2,9 @@
 
 .Unconnected {
     width: 100%;
+    padding: 4% 12%;
+    
+    @media (max-width: 810px) {
+        padding: 1% 8%;
+    }
 }

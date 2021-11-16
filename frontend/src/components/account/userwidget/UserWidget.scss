@@ -2,4 +2,48 @@
 
 .UserWidget {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    &__left {
+        @include leftrow;
+        img {
+            width: 42px;
+        }
+        &__address {
+            @include leftcolumn;
+            margin-left: 30px;
+            p {
+                height: 8px;   
+            }
+        }
+    }
+    .address { 
+        font-weight: bold;
+    }
+    &__right {
+        p {
+            // font-style: normal;
+            // font-weight: bold;
+            // font-size: 100em;
+            color: white;
+            font-size: 2.125rem !important;
+            line-height: 1.75rem !important;
+            font-weight: bold;
+            height: 6px;   
+        }
+    }
+    @media (max-width: 810px) {
+        &__left {
+            &__address {
+                margin-left: 10px;
+            }
+        }
+        &__right {
+            p {
+                width: 50px;
+            }
+        }
+     }
 }
