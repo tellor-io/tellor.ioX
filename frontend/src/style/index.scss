@@ -1,25 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;700&display=swap");
 
 @font-face {
-  font-family: 'Renogare Regular';
+  font-family: "Renogare Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Renogare Regular'), url('../assets/Renogare-Regular.woff') format('woff');
-  }
+  src: local("Renogare Regular"),
+    url("../assets/Renogare-Regular.woff") format("woff");
+}
 
 $background: #262626;
-$tellor-grey1: #F2F2F2;
-$tellor-grey2: #F0F0F0;
+$tellor-grey1: #f2f2f2;
+$tellor-grey2: #f0f0f0;
 $darkestgrey: #555555;
-$tellor-green: #2DFC9F;
-$real-tellor-green: #20F092;
-
-
+$tellor-green: #2dfc9f;
+$real-tellor-green: #20f092;
 
 /* gradient mixins */
 @mixin greenshine {
   background: $tellor-green;
-  background: linear-gradient(90deg, #2DFC9F 0%, #00FB89 100%);
+  background: linear-gradient(90deg, #2dfc9f 0%, #00fb89 100%);
 }
 
 /* font mixins */
@@ -124,10 +123,13 @@ $real-tellor-green: #20F092;
 body {
   background-color: $background;
   color: black;
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
 }
 
-a, a:hover, a:active, a:focus {
+a,
+a:hover,
+a:active,
+a:focus {
   @include sixteenpxfont;
   color: white;
   text-decoration: underline;
@@ -145,11 +147,11 @@ p {
 h2,
 h3,
 h4 {
-  font-family: 'Renogare Regular';
+  font-family: "Renogare Regular";
 }
 
 h1 {
-  font-family: 'Renogare Regular';
+  font-family: "Renogare Regular";
   font-size: 1.75em;
 }
 
@@ -184,8 +186,6 @@ h6 {
   }
 }
 
-
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -197,10 +197,7 @@ h6 {
   }
 }
 
-
-
 // --- Ant Overrides ---
-
 
 // Buttons
 
@@ -226,13 +223,12 @@ button {
   span {
     line-height: 1.1725rem;
   }
-  
+
   @media (max-width: 965px) {
     padding: 12px 30px;
     height: 40px;
     @include fourteenpxfont;
   }
-
 
   &:disabled {
     @include greenshine;
@@ -252,7 +248,7 @@ button {
   }
 
   &:active {
-    transform: scale(0.995)
+    transform: scale(0.995);
   }
 }
 
@@ -283,7 +279,6 @@ button {
     color: $darkestgrey !important;
   }
 }
-
 
 // Dropdown Menu
 
@@ -323,16 +318,13 @@ button {
     background: none;
     border: none;
     border-radius: 50%;
-
   }
 
   &-item-active {
     background: none;
     border: 1px solid $tellor-green;
   }
-
 }
-
 
 .ant-pagination-item a {
   color: $darkestgrey;
@@ -342,13 +334,11 @@ button {
   }
 }
 
-
 .ant-pagination-prev .ant-pagination-item-link,
 .ant-pagination-next .ant-pagination-item-link {
   border: none;
   background: none;
   color: $darkestgrey;
-
 }
 
 /* Button extra's */
@@ -396,21 +386,6 @@ button {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Migration specifics (by Bennisan)
 
@@ -475,11 +450,11 @@ button {
     max-width: 685px;
   }
 
-  .ant-collapse>.ant-collapse-item {
+  .ant-collapse > .ant-collapse-item {
     border: none;
   }
 
-  .ant-collapse>.ant-collapse-item>.ant-collapse-header {
+  .ant-collapse > .ant-collapse-item > .ant-collapse-header {
     text-decoration: underline;
   }
 
@@ -517,7 +492,6 @@ button {
     margin: 30px 0 0 0;
   }
 
-
   .connected span {
     font-weight: bold;
     // color: white;
@@ -530,7 +504,6 @@ button {
     align-items: flex-end;
     margin: 25px 0 20px 0;
   }
-
 
   .Balance {
     display: flex;
@@ -556,7 +529,6 @@ button {
   .fullop {
     opacity: 1;
   }
-
 
   .Success {
     width: 100%;
@@ -584,13 +556,11 @@ button {
     cursor: pointer;
     color: var(--color-heading);
   }
-
 }
-
 
 // page display items (by Wallace)
 
-.page-header { 
+.page-header {
   max-width: 600px;
   font-size: 5.5rem;
   line-height: 5rem;
@@ -613,7 +583,7 @@ button {
   max-width: 600px;
   max-height: 70px;
   line-height: 5rem;
-  color: $background;;
+  color: $background;
 }
 .page-text {
   max-width: 800px;

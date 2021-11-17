@@ -1,0 +1,39 @@
+@import '../../../style/index.scss';
+
+.VoteItems {
+    padding: 3.5% 12%;
+    background-color: white;
+    &__header {
+        @include leftrow;
+        p { 
+            @include centeredcolumn;
+            margin-left: 10px;
+            margin-top: 5px;
+            background-color: #C4C4C4;
+            width: 20px;
+            height: 20px;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+
+    &__message {
+        border-bottom: 1px solid #C4C4C4;
+        margin: 5px 0 10px 0;
+    }
+
+    &__link {
+        @include rightrow;
+        a, a:hover, a:active, a:focus  {
+            margin-right: 20px;
+            font-weight: 600;
+            color: $background;
+        }
+    }
+
+    @media (max-width: 810px) {
+        padding: 12% 6% ;
+    }
+}

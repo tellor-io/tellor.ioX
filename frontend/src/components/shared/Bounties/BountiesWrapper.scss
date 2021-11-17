@@ -1,9 +1,45 @@
-@import '../../../style/index.scss';
+@import "../../../style/index.scss";
 
 .BountiesWrapper {
-    @include leftcolumn;
+  @include leftcolumn;
+  width: 100%;
+  padding: 6% 10%;
+  background-color: white;
+  &__title {
+    @include centeredrow;
     width: 100%;
-    padding: 6% 10%;
+    margin: 0 0 40px 0;
+    h1 {
+      font-size: 1.625rem;
+      margin: 4px 0 0 0;
+    }
+    svg {
+      width: 40px;
+      margin: 0 10px 0 16px;
+    }
+  }
+  &__desc {
+    padding: 6% 0 2% 0;
+    width: 100%;
+    p {
+      @include leftrow;
+      max-width: 700px;
+      margin: 0;
+      @include sixteenpxfont;
+      font-weight: 200;
+    }
+    a {
+      @include rightrow;
+      color: $background;
+    }
+    a:hover {
+      color: $real-tellor-green;
+    }
+    a:visited {
+      color: $background;
+    }
+  }
+  &__collapse {
     background-color: white;
     @media (max-width: 840px) {
         padding: 70px 10%;
@@ -64,13 +100,48 @@
             font-weight: 200;
         }
     }
-
+    p {
+      margin: 0;
+      @include sixteenpxfont;
+      font-weight: 200;
+    }
+    a {
+      color: $background;
+      &:hover {
+        color: $real-tellor-green;
+      }
+    }
+  }
 }
 
 .BountiesWrapperDark {
-    @include leftcolumn;
+  @include leftcolumn;
+  width: 100%;
+  padding: 1% 12%;
+  background-color: $background;
+  &__desc {
+    padding: 6% 0 2% 0;
     width: 100%;
-    padding: 1% 12%;
+    p {
+      @include leftrow;
+      max-width: 700px;
+      margin: 0;
+      @include sixteenpxfont;
+      font-weight: 200;
+      color: white;
+    }
+    a {
+      @include rightrow;
+      color: white;
+    }
+    a:hover {
+      color: $real-tellor-green;
+    }
+    a:visited {
+      color: $background;
+    }
+  }
+  &__collapse {
     background-color: $background;
     &__desc {
         padding-top: 70px;
@@ -111,5 +182,21 @@
             color: white;
         }
     }
-
+    h3 {
+      color: white;
+      margin-top: 10px;
+    }
+    p {
+      margin: 0;
+      @include sixteenpxfont;
+      font-weight: 200;
+      color: white;
+    }
+    a {
+      color: white;
+      &:hover {
+        color: $real-tellor-green;
+      }
+    }
+  }
 }

@@ -10,6 +10,7 @@ import GetInvolved from "views/getinvolved/GetInvolved";
 import HowItWorks from "views/howitworks/HowItWorks";
 import Blog from "views/blog/Blog";
 import BlogPostView from "views/blogPost/BlogPostView";
+import Live from "views/live/Live";
 
 const Routes = () => (
   <Switch>
@@ -23,6 +24,7 @@ const Routes = () => (
     <Route path="/howitworks" exact render={() => <HowItWorks />} />
     <Route path="/blog" exact render={() => <Blog />} />
     <Route path="/blog/:path" exact render={() => <BlogPostView />} />
+    <Route path="/live" exact render={() => <Live />} />
   </Switch>
 );
 
