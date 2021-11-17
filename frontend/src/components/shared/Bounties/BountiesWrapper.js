@@ -20,8 +20,6 @@ export default function BountiesWrapper(props) {
       {/* show or hide header */}
       {!hideHeader && (
         <div className={`${classType}__title`}>
-          <h1>Earn TRB</h1>
-          <Swoosh />
           <div className="firstDiv">
               <h1>Earn TRB</h1>
               <Swoosh />

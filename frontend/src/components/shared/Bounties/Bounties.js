@@ -155,7 +155,7 @@ export default function Bounties(props) {
   return (
     <div className={classType}>
       <Table
-        pagination={{ pageSize: 5 }}
+        pagination={{ pageSize: 5, showLessItems: true }}
         columns={isMobile ? columns_mobile : columns}
         onRow={(record) => {
           return {

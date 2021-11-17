@@ -325,13 +325,31 @@ button {
     border: 1px solid $tellor-green;
   }
 }
-
+.ant-pagination-item {
+  @include centeredrow;
+  border-radius: 0;
+}
+.ant-pagination-item-active {
+  border: 1px solid $background;
+}
 .ant-pagination-item a {
-  color: $darkestgrey;
-
+  @include sixteenpxfont;
+  font-family: "Inconsolata", monospace;
+  color: $background;
+  text-decoration: none;
   &:hover {
     color: $tellor-green;
   }
+}
+.ant-pagination-item-active:focus-visible, .ant-pagination-item-active:hover {
+  border-color: $background;
+}
+
+.ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
+  @include twelvepxfont;
+  font-family: "Inconsolata", monospace;
+  color: $background;
+  margin: 12px 0 0 0;
 }
 
 .ant-pagination-prev .ant-pagination-item-link,
