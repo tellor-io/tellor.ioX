@@ -25,6 +25,7 @@ export default function Tellorfeeds() {
   const [currTweet, prevTweet] = usePreviousFeeds(mostRecentTweet[indexer]);
   // console.log("currTweet", currTweet);
   // console.log("prevTweet", prevTweet);
+
   //Component Refs
   //////Github
   const githubEffectRef = useRef();
@@ -148,7 +149,9 @@ export default function Tellorfeeds() {
               @WeAreTellor
             </a>
             <p ref={twitterDateRef}>
-              {prevTweet && `\u00A0- ${prevTweet.formattedDate}`}
+              {prevTweet
+                ? `\u00A0- ${prevTweet.formattedDate}`
+                : "\u00A0 Loading..."}
             </p>
           </div>
           <a

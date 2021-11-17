@@ -46,7 +46,11 @@ export const getGithubInfo = () => (dispatch) => {
     dispatch(getGithub());
     //fetch data
     const githubDataFetch = () =>
-      fetch("https://api.github.com/orgs/tellor-io/events")
+      fetch("https://api.github.com/orgs/tellor-io/events", {
+        headers: {
+          Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
+        },
+      })
         .then((response) => response.json())
         .then((data) => {
           //dispatch success
@@ -84,13 +88,10 @@ export const getGithubInfo = () => (dispatch) => {
         });
     githubDataFetch();
     //fetching data every 60 secs to update home page
-    //**** NOTE ****
-    //GITHUB has data call restrictions
-    //CHECK TO SEE IF THIS WILL BREAK CURRENT SETUP
-    // setInterval(() => {
-    //   console.log("60 Seconds Later in Github");
-    //   githubDataFetch();
-    // }, 60000);
+    setInterval(() => {
+      //console.log("60 Seconds Later in Github");
+      githubDataFetch();
+    }, 60000);
   } catch (e) {
     console.error("error", e);
     //dispatch error
@@ -109,7 +110,6 @@ export const getTwitterInfo = () => (dispatch) => {
         credentials: "include",
         headers: {
           Authorization: "Bearer " + process.env.REACT_APP_TWITTER_BEARER_TOKEN,
-          "Content-Type": "Application/json",
         },
       })
         .then((response) => response.json())
@@ -127,10 +127,10 @@ export const getTwitterInfo = () => (dispatch) => {
         });
     twitterDataFetch();
     //fetching data every 60 secs to update home page
-    // setInterval(() => {
-    //   // console.log("60 Seconds Later in Twitter");
-    //   twitterDataFetch();
-    // }, 60000);
+    setInterval(() => {
+      //console.log("60 Seconds Later in Twitter");
+      twitterDataFetch();
+    }, 60000);
   } catch (e) {
     console.error("error", e);
     //dispatch error
