@@ -116,29 +116,29 @@ const Footer = () => {
           </div>
 
         </div>
-        <div className="Column__Small">
-          <h2>Get Started</h2>
-          <a href="/usetellor">use tellor</a>
-          <a href="/howitworks">how the oracle works</a>
-          <a href="/requestnew">find data points</a>
-          <a href="/live">live on tellorscan</a>
-        </div>
-        <div className="Column__Small">
-          <h2>Get Involved</h2>
-          <a href="/becomereporter">become a data reporter</a>
-          <a href="/getinvolved">join the community</a>
-          <a href="/trb">TRB token</a>
-          <a href="/live">connect &amp; vote</a>
-        </div>
-        <div className="Column__Small">
-          <h2>About Tellor</h2>
-          <a href="/abouttellor">our story</a>
-          <a href="/abouttellor/#jobs">careers</a>
-          <a href="/blog">blog</a>
+        <div className="Columns__Small">
+          <div className="Column__Small">
+            <h2>Get Started</h2>
+            <a href="/usetellor">use tellor</a>
+            <a href="/howitworks">how the oracle works</a>
+            <a href="/requestnew">find data points</a>
+            <a href="/live">live on tellorscan</a>
+          </div>
+          <div className="Column__Small">
+            <h2>Get Involved</h2>
+            <a href="/becomereporter">become a data reporter</a>
+            <a href="/getinvolved">join the community</a>
+            <a href="/trb">TRB token</a>
+            <a href="/live">connect &amp; vote</a>
+          </div>
+          <div className="Column__Small">
+            <h2>About Tellor</h2>
+            <a href="/abouttellor">our story</a>
+            <a href="/abouttellor/#jobs">careers</a>
+            <a href="/blog">blog</a>
+          </div>
         </div>
       </div>
-    {/* </>
-    } */}
     </div>
   );
 };
