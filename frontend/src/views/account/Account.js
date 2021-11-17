@@ -173,11 +173,11 @@ const Account = () => {
      * components
      *  - DONE ----- UserWidget: connected vs unconnected display 
      *  - DONE ----- CurrentlyReportingOn: isReporter vs is not reporter
-     *  - Activity Feed:  data, no data
-     *  - Reporting History:  data, no data
-     *  - ** Add conditionas for Unconnected use cases
+     *  - DONE ----- Activity Feed:  data, no data
+     *  - DONE ----- Reporting History:  data, no data
+     *  - ** Add conditions for Unconnected use cases
      *  - Message Box
-     *  - ** Add conditionas for Connected use cases
+     *  - ** Add conditions for Connected use cases
      */
 
     return (
