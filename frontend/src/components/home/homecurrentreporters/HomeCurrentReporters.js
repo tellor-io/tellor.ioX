@@ -1,6 +1,7 @@
 import React from 'react'
 import './HomeCurrentReporters.scss'
 import HomeCurrentReporter from '../homecurrentreporters/HomeCurrentReporter';
+import { useMediaQuery } from 'react-responsive';
 
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
@@ -8,6 +9,7 @@ import {ReactComponent as Chains} from 'assets/Chains.svg';
 
 
 export default function HomeCurrentReporters() {
+    const isSmallestSize = useMediaQuery({query: '(max-width: 669px)'});
 
     // //// DUUMY ////
     const testdata = {
@@ -39,11 +41,22 @@ export default function HomeCurrentReporters() {
                             <div className="slider"></div>
                         </div>
                     </div>
-                    <Link to="/becomereporter">reporters</Link>
+                    {isSmallestSize?
+                        null
+                    :
+                        <Link to="/becomereporter">reporters</Link>
+                    }
                 </div>
                 <div className="chains">
                     <Chains />
+                    {isSmallestSize?
+                        <div className="chains__twolinks">
+                            <Link to="/becomereporter">reporters</Link>
+                            <Link to="/howitworks">chains</Link>
+                        </div>
+                    :
                     <Link to="/howitworks">chains</Link>
+                    }
                 </div>
             </div>
             <div className="horizontal_btns">

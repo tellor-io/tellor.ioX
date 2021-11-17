@@ -6,29 +6,57 @@
     width: 100%;
     padding: 90px 0;
     color: white;
+    @media (max-width: 500px) {
+        padding: 90px 60px 0 60px;
+    }
     &__quote {
-        max-width: 930px;
+        width: 88vw;
+        max-width: 1068px;
+        padding: 0 0 0 30px;
+        @media (max-width: 1024px) {
+            padding: 0;
+        }
+        @media (max-width: 880px) {
+            width: 100%;
+            max-width: 568px;
+        }
         h1 {
             font-size: 3.625rem;
             line-height: 4.25rem;
             color: white;
+            @media (max-width: 500px) {
+                font-size: 2rem;
+                line-height: 2.375rem;
+            }
         }
         p, a {
             @include sixteenpxfont;
             font-weight: 200;
+            @media (max-width: 500px) {
+                font-size: 0.875rem !important;
+                line-height: 1.375rem !important;
+            }
         }
     }
     &__items {
         @include centeredrow;
         align-items: flex-start;
-        width: 100%;
+        width: 88vw;
+        max-width: 1068px;
         margin: 40px 0 0 0;
+        @media (max-width: 880px) {
+            width: 100%;
+            max-width: 568px;
+            @include leftcolumn;
+        }
         div:first-child {
             margin: 0 35px 0 0;
+            @media (max-width: 880px) {
+                margin: 0 0 60px 0;
+            }
         }
         div {
             margin: 0 35px;
-            max-width: 300px;
             color: white;
             h4 {
                 color: white;
@@ -40,6 +68,10 @@
             a {
                 @include sixteenpxfont;
             }
+            @media (max-width: 880px) {
+                margin: 0 0 60px 0;
+            }
         }
+        
     }
 }

@@ -3,8 +3,14 @@
 
 .GettingStarted {
     @include leftcolumn;
+    @include sidepaddings;
     width: 100%;
-    padding: 0.5% 12% 8% 12%;
+    padding-top: 60px;
+    padding-bottom: 80px;
+
+    @media (max-width: 840px) {
+        padding-top: 30px;
+    }
     &__intro {
         p {
             padding: 10px 0 0 0;
@@ -19,9 +25,9 @@
             height: 315px;
             cursor:pointer;
         }
-        @media (max-width: 810px) {
+        @media (max-width: 840px) {
             video {
-                width: 325px; 
+                width: 275px; 
                 height: 157.5px;
             }
         }
@@ -30,9 +36,13 @@
         img {
             padding: 0 15px 0 0;
         }
-        @media (max-width: 810px) {
+        @media (max-width: 840px) {
+            @include centeredcolumn;
+            width: 100%;
+
             button {
-                margin:20px 0;
+                width: 100%;
+                margin: 35px 0;
             }
         }
     }

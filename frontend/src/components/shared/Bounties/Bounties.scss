@@ -8,10 +8,20 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      @media (max-width:700px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
       div {
+        margin: 0;
         p {
           @include fourteenpxfont;
           padding-right: 10px;
+        }
+        @media (max-width:700px) {
+          margin-bottom: 20px;
         }
       }
     }
@@ -155,6 +165,11 @@
   .ant-btn {
     background-color: $tellor-green;
   }
+
+  .ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
+    padding: 10px !important;
+  }
+
 
   // div.ant-table-filter-dropdown-btns
   //   > button.ant-btn.ant-btn-primary.ant-btn-sm {

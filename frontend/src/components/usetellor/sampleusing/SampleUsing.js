@@ -17,8 +17,8 @@ const SampleUsing = () => {
                 4. button and github link
             */}
             <div className="SampleUsing__intro">
-                <h2>sampleUsingTellor</h2>
-                <p>
+                <h2 className="page-header-small">sampleUsingTellor</h2>
+                <p className="page-text">
                     Lorem ipsum solor sit amet, consectetur adipiscing elit. Nullam semper efficitur cursus. Nam pellentesque ac sem a tempor. 
                     Nunc lorem lorem, sollicitudin vel cursus quis, maximus et metus. Nulla faucibus pellentesque blandit.
                 </p>

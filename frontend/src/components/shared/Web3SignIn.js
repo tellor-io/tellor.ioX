@@ -9,6 +9,7 @@ import { truncateAddr } from 'utils/helpers';
 import { fromWei } from 'utils/helpers';
 import { Jazzicon } from '@ukstv/jazzicon-react';
 
+import './HeaderNav/HeaderNav.scss';
 
 export const Web3SignIn = ({activeDisputesCount}) => {
   const [currentUser, setCurrentUser] = useContext(UserContext);

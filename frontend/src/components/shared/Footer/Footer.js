@@ -6,12 +6,14 @@ import { ReactComponent as Refresher } from "assets/refresh.svg";
 import { ReactComponent as Github } from "../../../assets/Github.svg";
 import { ReactComponent as Twitter } from "../../../assets/Twitter.svg";
 import { ReactComponent as Discord } from "../../../assets/discord_icon_blue.svg";
-//Redux
+import { useMediaQuery } from 'react-responsive';
 import { useSelector } from "react-redux";
 
 const Footer = () => {
   const [refresherClass, setRefresherClass] = useState();
   const [nmbr, setNmbr] = useState(0);
+  const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
+
   const tidbits = [];
   //Redux
   const tidbitsActual = useSelector((state) => state.strapiData.tidbits);
@@ -46,6 +48,10 @@ const Footer = () => {
 
   return (
     <div className="Footer">
+      {/* {isMobileHeader?
+      <p>mobile footer</p>
+      :
+      <> */}
       <div className="tidbits">
         <div className="tidbits__logo" onClick={() => getNew()}>
           <p>
@@ -65,81 +71,74 @@ const Footer = () => {
       </div>
       <div className="Footer__Bottom">
         <div className="Column__Big">
-          <div className="BrandLink">
-            <Link to="/">
-              <div>
-                <span className="logo">tellor</span>
-              </div>
-              <div>
-                <span className="baseline">
-                  unstoppable
-                  <br />
-                  oracle
-                </span>
-              </div>
-            </Link>
+        <div className="BrandLink_and_Socials__Container">
+        <div className="BrandLink__Container">
+            <div className="BrandLink">
+              <Link to="/">
+                <div>
+                  <span className="logo">tellor</span>
+                </div>
+                <div className="baseline">
+                  <span>
+                    unstoppable
+                  </span>
+                  <span>
+                    oracle
+                  </span>
+                </div>
+              </Link>
+            </div>
+            <p>&copy; 2021 tellor.io</p>
+            </div>
+            <div className="Social__Container">
+              <a
+                href="https://github.com/tellor-io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github />
+              </a>
+              <a
+                href="https://twitter.com/WeAreTellor/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter />
+              </a>
+              <a
+                href="https://discord.com/channels/461602746336935936/826118829322797116"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Discord />
+              </a>
+            </div>
           </div>
-          <p>&copy; 2021 tellor.io</p>
-          <div className="Social__Container">
-            <a
-              href="https://github.com/tellor-io/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github />
-            </a>
-            <a
-              href="https://twitter.com/WeAreTellor/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twitter />
-            </a>
-            <a
-              href="https://discord.com/channels/461602746336935936/826118829322797116"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Discord />
-            </a>
-          </div>
-        </div>
-        <div className="Column__Small">
-          <h2>Get Started</h2>
-          <a href="/usetellor">use tellor</a>
-          <a href="/howitworks">how the oracle works</a>
-          <a href="/requestnew">find data points</a>
-          <a href="/live">live on tellorscan</a>
-        </div>
-        <div className="Column__Small">
-          <h2>Get Involved</h2>
-          <a href="/becomereporter">become a data reporter</a>
-          <a href="/getinvolved">join the community</a>
-          <a href="/trb">TRB token</a>
-          <a href="/live">connect &amp; vote</a>
-        </div>
-        <div className="Column__Small">
-          <h2>About Tellor</h2>
-          <a href="/abouttellor">our story</a>
-          <a href="/abouttellor/#jobs">careers</a>
-          <a href="/blog">blog</a>
-        </div>
-      </div>
 
-      {/* <div>
-        <Link to="/">
-          <Swoosh />
-        </Link>
-        <Link to="/">
-          <TellorLogoWhite />
-        </Link>
-        <p>&copy; 2021 Tellor</p>
+        </div>
+        <div className="Columns__Small">
+          <div className="Column__Small">
+            <h2>Get Started</h2>
+            <a href="/usetellor">use tellor</a>
+            <a href="/howitworks">how the oracle works</a>
+            <a href="/requestnew">find data points</a>
+            <a href="/live">live on tellorscan</a>
+          </div>
+          <div className="Column__Small">
+            <h2>Get Involved</h2>
+            <a href="/becomereporter">become a data reporter</a>
+            <a href="/getinvolved">join the community</a>
+            <a href="/trb">TRB token</a>
+            <a href="/live">connect &amp; vote</a>
+          </div>
+          <div className="Column__Small">
+            <h2>About Tellor</h2>
+            <a href="/abouttellor">our story</a>
+            <a href="/abouttellor/#jobs">careers</a>
+            <a href="/blog">blog</a>
+          </div>
+        </div>
       </div>
-      <div>
-        <p>Links</p>
-        <a href="http://tellor.io" alt="http://docs.tellor.io" target="_blank" rel="noopener noreferrer">tellor.io</a>
-        <a href="http://docs.tellor.io" alt="http://docs.tellor.io" target="_blank" rel="noopener noreferrer">docs.tellor.io</a>
-      </div> */}
     </div>
   );
 };

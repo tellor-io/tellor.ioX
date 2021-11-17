@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import { slide as Menu } from 'react-burger-menu';
 
 const HeaderNav = () => {
-  // const isMobileHeader = useMediaQuery({query: '(max-width: 680px)'});
+  const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const history = useHistory();
@@ -60,16 +60,17 @@ const HeaderNav = () => {
       <div className="Header">
         <div className="Header__Nav">
           <Link to="/live" className={activeVoteItems>0? "counter hasitems" :  "counter noitems"}>
-          {/* <div className={activeVoteItems>0? "counter hasitems" :  "counter noitems"} > */}
             <p>{activeVoteItems}</p>
-          {/* </div> */}
           </Link>
           <Web3SignIn/>
         </div>
         <div className="BrandLink">
           <Link to="/">
             <div><span className="logo">tellor</span></div>
-            <div><span className="baseline">unstoppable<br />oracle</span></div>
+            {isMobileHeader?
+              null :
+              <div><span className="baseline">unstoppable<br />oracle</span></div>
+            }
           </Link>
         </div>
       </div>

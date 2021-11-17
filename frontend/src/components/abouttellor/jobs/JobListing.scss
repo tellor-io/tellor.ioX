@@ -3,9 +3,12 @@
 .JobListing {
     @include leftcolumn;
     width: 100%;
-    margin: 4% 0 2% 0;
-    padding: 0.5% 5% ;
+    margin: 35px 0 35px 0;
+    padding: 0 40px;
     border-left: 1px solid #262626;
+    @media (max-width: 840px) {
+        padding: 0 20px;
+    }
     h3 {
         padding: 0 0 10px 0; 
      }
@@ -29,6 +32,9 @@
         }
     }
     &__outro {
-        padding: 10px 0; 
+        padding: 10px 0 0 0;
+        p {
+            margin: 0;
+        }
     }
 }

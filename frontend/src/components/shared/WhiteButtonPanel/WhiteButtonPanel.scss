@@ -20,10 +20,15 @@
     }
  }
 
- @media (max-width: 810px) {
+ @media (max-width: 840px) {
     .WhiteButtonPanel {
-        padding: 6% 6% 6% 12%;
+        padding: 70px 50px 90px 50px;
         width: 100%;
+        h2 {
+            text-align: center;
+            font-size: 1.25rem;
+            line-height: 1.375rem;
+        }
         &__actions {
             padding-top: 4%;
             img {
@@ -32,12 +37,12 @@
             }
             button {
                 margin-top: 10px;
-                width: 260px;
             }
         }
         .button-container {
             @include centeredcolumn;
-      
+            width: 100%;
+
         }
     }
  }

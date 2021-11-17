@@ -1,0 +1,72 @@
+@import '../../../style/index.scss';
+
+
+.Tellorprice {
+    @include centeredcolumn;
+    max-width: 182px;
+    min-width: 162px;
+    height: 187px;
+    margin: 0 64px 0 45px;
+    border: 1px solid $real-tellor-green;
+    text-align: center;
+    padding: 0;
+    @media (max-width: 1024px) {
+        height: 240px;
+        margin: 0 30px 0 30px;
+    }
+    @media (max-width: 768px) {
+        @include leftrow;
+        height: 90px;
+        margin: 0 0 40px 0;
+        text-align: left;
+        max-width: none;
+        flex: 1;
+        padding: 20px;
+    }
+    @media (max-width: 500px) {
+        @include leftrow;
+        margin: 0 20px 0 0;
+        text-align: left;
+        max-width: none;
+        flex: 1;
+        padding: 10px;
+    }
+    p {
+        @include eighteenpxfont;
+        color: $real-tellor-green;
+        margin: 0;
+        @media (max-width: 500px) {
+            @include fourteenpxfont;
+        }
+    }
+    a {
+        @include eighteenpxfont;
+        color: $real-tellor-green;
+        text-decoration: underline;
+        @media (max-width: 500px) {
+            @include fourteenpxfont;
+        }
+    }
+    a:hover {
+        @include eighteenpxfont;
+        color: $real-tellor-green;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    svg {
+        width: 50px;
+        margin: 12px 0 27px 0;
+        @media (max-width: 1024px) {
+            margin: 12px 0 60px 0;
+        }
+        @media (max-width: 768px) {
+            width: 40px;
+            margin: 0 25px 0 10px;
+        }
+
+        @media (max-width: 500px) {
+            width: 25px;
+            margin: 0 15px 0 10px;
+        }
+    }
+}

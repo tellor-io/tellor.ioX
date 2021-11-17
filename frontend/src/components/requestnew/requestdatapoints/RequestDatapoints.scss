@@ -2,29 +2,46 @@
 
 .RequestDatapoints {
     @include leftcolumn;
+    @include sidepaddings;
     width: 100%;
     box-sizing: border-box;
-    padding: 8% 12% 0 4%;
-    p {
-        @include fourteenpxfont;
-        color: white;
+    padding-top: 50px;
+    padding-bottom: 70px;
+
+    @media (max-width: 840px) {
+        padding-top: 50px;
+        padding-right: 30px;
+        padding-left: 30px;
+        padding-bottom: 50px;
     }
-    a { 
-        @include fourteenpxfont;
-        font-weight: normal;
-    }
+
     .Datapoints {
-        width: 716px;
+        width: 100%;
+        max-width: 716px;
         box-sizing: border-box;
-        padding: 0 0 0 8.2vw;
+        padding: 0;
     }
     .popular-points {
         @include eighteenpxfont;
-        font-weight: 200;
+        color:white;
+        text-align: left;
+        @media (max-width: 840px) {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.875rem !important;
+            line-height: 1.375rem !important;
+        }
     }
     .see-all {
-        margin-left: 9.5%;
+        width: 100%;
         @include sixteenpxfont;
         font-weight: 500;
+        text-align: left;
+        @media (max-width: 840px) {
+            text-align: center;
+            font-size: 0.875rem !important;
+            line-height: 1.375rem !important;
+        }
     }
 }

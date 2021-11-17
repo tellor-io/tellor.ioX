@@ -5,6 +5,13 @@
     width: 100%;
     box-sizing: border-box;
     padding: 96px 0 112px 0;
+    @media (max-width: 1024px) {
+        @include centeredcolumn;
+        padding: 60px 10vw 30px 10vw;
+    }
+    @media (max-width: 500px) {
+        padding: 60px 30px 70px 30px;
+    }
     p {
         @include fourteenpxfont;
         color: white;
@@ -15,20 +22,55 @@
         font-weight: normal;
     }
     .Datapoints {
-        width: 716px;
+        width: 100%;
+        max-width: 710px;
         box-sizing: border-box;
-        padding: 0 0 0 8.2vw;
+        padding: 0 0 0 100px;
+        @media (max-width: 1024px) {
+            max-width: none;
+            padding: 0;
+        }
     }
     .btns {
         flex: 1;
         @include centeredcolumn;
+        @media (max-width: 1024px) {
+            @include centeredrow;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            @include centeredcolumn;
+            width: 100%;
+        }
+        a {
+            @media (max-width: 768px) {
+                width: 100%;
+                max-width: 468px !important;
+            }
+        }
         Button {
             margin: 0 0 15px 0;
+            @media (max-width: 1024px) {
+                margin: 0 5px 0 5px;
+            }
+            @media (max-width: 768px) {
+                width: 100%;
+                max-width: 468px !important;
+                margin: 0 0 15px 0;
+            }
         }
         .linktotal {
             font-weight: bold;
             @include sixteenpxfont;
             margin: 30px 0 0 0;
+            @media (max-width: 1024px) {
+                margin: 0 0 0 30px;
+            }
+            @media (max-width: 768px) {
+                text-align: center;
+                margin: 30px 0 0 0;
+            }
+            
         }
     }
 }
