@@ -93,20 +93,33 @@ const ReportingHistory = (props) => {
     ];
 
     const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
-
+    //table
+    if (data.length > 0) {
+        return (
+            <div className="ReportingHistory">
+                <div className="ReportingHistory__header">
+                    <h3 className="page-header-small">Reporting history</h3>
+                </div>
+                <div className="ReportingHistory__table">
+                    <Table 
+                        dataSource={data} 
+                        columns={isMobile ? columns_mobile : columns} 
+                        pagination={{ defaultPageSize: 3 }}  />
+                </div>
+            </div>
+        );
+    }
+    //empty data
     return (
         <div className="ReportingHistory">
-            <div className="ReportingHistory__header">
-                <h3 className="page-header-small">Reporting history</h3>
-            </div>
-            <div className="ReportingHistory__table">
-                <Table 
-                    dataSource={data} 
-                    columns={isMobile ? columns_mobile : columns} 
-                    pagination={{ defaultPageSize: 3 }}  />
+             <div className="ReportingHistory__header">
+                <div className="empty-container">
+                    <h3 className="dark">Reporting History</h3>
+                    <p className="page-text dark">No reporting history yet</p>
+                </div>
             </div>
         </div>
-    );
+    ); 
 };
 
 ReportingHistory.propTypes = {

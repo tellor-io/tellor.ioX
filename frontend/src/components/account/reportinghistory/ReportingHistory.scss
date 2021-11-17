@@ -63,4 +63,14 @@
     .ant-empty-description {
         color: white;
     }
+
+
+    .dark {
+        color: $darkestgrey;
+    }
+    .empty-container{
+        margin: 4% 0;
+        width: 100%;
+        border-bottom: 1px solid $darkestgrey;
+    }
 }

@@ -7,7 +7,6 @@ import { useMediaQuery } from "react-responsive";
 
 const ActivityFeed = (props) => {
     const { data } = props;
-    
     const columns = [
         {
             title: "action",
@@ -83,17 +82,30 @@ const ActivityFeed = (props) => {
     ];
 
     const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
-
+    //table 
+    if (data.length > 0) {
+        return (
+            <div className="ActivityFeed">
+                <div className="ActivityFeed__header">
+                    <h3 className="page-header-small">Activity feed</h3>
+                </div>
+                <div className="ActivityFeed__table">
+                    <Table 
+                        dataSource={data} 
+                        columns={isMobile ? columns_mobile : columns} 
+                        pagination={{ defaultPageSize: 3 }} />
+                </div>
+            </div>
+        ); 
+    }
+    //empty data
     return (
         <div className="ActivityFeed">
              <div className="ActivityFeed__header">
-                <h3 className="page-header-small">Activity feed</h3>
-            </div>
-            <div className="ActivityFeed__table">
-                <Table 
-                    dataSource={data} 
-                    columns={isMobile ? columns_mobile : columns} 
-                    pagination={{ defaultPageSize: 3 }} />
+                <div className="empty-container">
+                    <h3 className="empty">Activity feed</h3>
+                    <p className="page-text empty">No activity yet</p>
+                </div>
             </div>
         </div>
     ); 

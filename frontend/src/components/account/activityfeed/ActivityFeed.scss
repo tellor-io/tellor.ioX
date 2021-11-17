@@ -18,22 +18,7 @@
             width: 95px;
             justify-content: flex-end;
         }
-    }    
-    // .desc-link-container {
-    //     @include leftrow;
-    //     a {
-    //         @include rightrow;
-    //         color: $background;
-    //         padding-right: 5px;
-    //         margin-left: 0;
-    //     }
-    //     a:hover {
-    //         color: $real-tellor-green;
-    //     }
-    //     a:visited {
-    //         color: $background;
-    //     }
-    // }
+    } 
 
     .ant-table {
         @include sixteenpxfont;
@@ -70,5 +55,14 @@
     }
     .ant-empty-description {
         color: white;
+    }
+
+    .empty {
+        color: white;
+    }
+    .empty-container{
+        margin: 6% 0;
+        width: 100%;
+        border-bottom: 1px solid white;
     }
 } 

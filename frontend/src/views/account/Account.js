@@ -13,7 +13,7 @@ const Account = () => {
 
     // TODO: replace variables with redux data
     const isConnected = false;
-    const isReporter = false;
+    const isReporter = true;
     const userAccount = {
         address: '0x87e6987E',
         avatar: Avatar,
@@ -172,7 +172,7 @@ const Account = () => {
      *
      * components
      *  - DONE ----- UserWidget: connected vs unconnected display 
-     *  - CurrentlyReportingOn: isReporter vs is not reporter
+     *  - DONE ----- CurrentlyReportingOn: isReporter vs is not reporter
      *  - Activity Feed:  data, no data
      *  - Reporting History:  data, no data
      *  - ** Add conditionas for Unconnected use cases
