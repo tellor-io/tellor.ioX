@@ -28,112 +28,131 @@ const Account = () => {
         total: 88,
         lastReported: "4 days ago"
     }
-    const history = [{   
-        key: 1,
-        symbols: "BTC/USD 24h TWAP",
-        value: "45636.824417",
-        reporter: "0x112q6...987E",
-        accountID: "0x112q6987E",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 2,
-        symbols: "ETH/USD",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 3,
-        symbols: "BTC/USD",
-        value: "45636.824417",
-        reporter: "0x112q6...987E",
-        accountID: "0x112q6987E",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 4,
-        symbols: "BNB/USD",
-        value: "4536.824417",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "22/08/2021, 14:25:33",
-        avatar: Avatar,
-    },{   
-        key: 5,
-        symbols: "BTC/USD 24h TWAP",
-        value: "45636.82417",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 6,
-        symbols: "ETH/USD",
-        value: "4566.824417",
-        reporter: "0x87e6...981B",
-        accountID: "0x87e6981B",
-        date: "22/10/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 7,
-        symbols: "BTC/USD",
-        value: "45636.82441",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "21/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 8,
-        symbols: "BNB/USD",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "24/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 9,
-        symbols: "BNB/USD",
-        value: "456.824417",
-        reporter: "0x87e6...981B",
-        accountID: "0x87e6981B",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },{   
-        key: 10,
-        symbols: "BTC/USD 24h TWAP",
-        value: "45636.827",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 11,
-        symbols: "ETH/USD",
-        value: "536.824417",
-        reporter: "0x44pxxl...8879",
-        accountID: "0x44pl8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
-    {   
-        key: 12,
-        symbols: "BTC/USD",
-        value: "45636.8417",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },]
+    const history = [
+        {   
+            key: 1,
+            symbols: "BTC/USD 24h TWAP",
+            value: "45636.824417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "22/09/2021, 14:25:33",
+            avatar: Avatar,
+        },
+        {   
+            key: 2,
+            symbols: "ETH/USD",
+            value: "45636.824417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "22/09/2021, 14:25:33",
+            avatar: Avatar,
+        },
+        {   
+            key: 3,
+            symbols: "BTC/USD",
+            value: "45636.824417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "22/09/2021, 14:25:33",
+            avatar: Avatar,
+        },
+        {   
+            key: 4,
+            symbols: "BNB/USD",
+            value: "4536.824417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "22/08/2021, 14:25:33",
+            avatar: Avatar,
+        },{   
+            key: 5,
+            symbols: "BTC/USD 24h TWAP",
+            value: "45636.82417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "22/09/2021, 14:25:33",
+            avatar: Avatar,
+        },
+        {   
+            key: 6,
+            symbols: "ETH/USD",
+            value: "4566.824417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "22/10/2021, 14:25:33",
+            avatar: Avatar,
+        },
+        {   
+            key: 7,
+            symbols: "BTC/USD",
+            value: "45636.82441",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "21/09/2021, 14:25:33",
+            avatar: Avatar,
+        },
+        {   
+            key: 8,
+            symbols: "BNB/USD",
+            value: "45636.824417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "24/09/2021, 14:25:33",
+            avatar: Avatar,
+        },
+        {   
+            key: 9,
+            symbols: "BNB/USD",
+            value: "456.824417",
+            reporter: "0x87e6...981B",
+            accountID: "0x87e6981B",
+            date: "22/09/2021, 14:25:33",
+            avatar: Avatar,
+        }
+    ]
+    const activities = [
+        {   
+            key: 1,
+            action: "vote on dispute",
+            description: "0x2024...8f52 supported dispute id 44",
+            date: "22/09/2021, 14:25:33",
+            txhash: "0x5d6b...32b4",
+        },
+        {   
+            key: 2,
+            action: "dispute value",
+            description: "0x2024...8f52 disputed 99.99 for BTC/USD by 0x88p0F...D1Xc",
+            date: "23/09/2021, 14:25:33",
+            txhash: "0x5d6b...32b4",
+        },
+        {   
+            key: 3,
+            action: "vote on TIP",
+            description: "0x2024...8f52 supported TIP id 12",
+            date: "24/11/2021, 14:25:33",
+            txhash: "0x5d6b...32b4",
+        },
+        {   
+            key: 4,
+            action: "vote on dispute",
+            description: "0x2024...8f52 supported dispute id 44",
+            date: "22/09/2021, 14:25:33",
+            txhash: "0x5d6b...32b4",
+        },{   
+            key: 5,
+            action: "dispute value",
+            description: "0x2024...8f52 disputed 99.99 for BTC/USD by 0x88p0F...D1Xc",
+            date: "23/09/2021, 14:25:33",
+            txhash: "0x5d6b...32b4",
+        },
+        {   
+            key: 6,
+            action: "vote on TIP",
+            description: "0x2024...8f52 supported TIP id 12",
+            date: "24/11/2021, 14:25:33",
+            txhash: "0x5d6b...32b4",
+        },
+    ]
 
 
 
@@ -166,7 +185,8 @@ const Account = () => {
                     userAccount={userAccount} 
                     clickedAccount={clickedAccount} 
                     reporting={reporting}
-                    history={history}/>
+                    history={history}
+                    activities={activities}/>
             }
         </div>
     )

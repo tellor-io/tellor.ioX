@@ -3,7 +3,6 @@ import "./ReportingHistory.scss";
 import PropTypes from 'prop-types'
 import { Table } from 'antd'
 import { useMediaQuery } from "react-responsive";
-import Avatar from 'assets/AvatarDark.png';
 
 const ReportingHistory = (props) => {
     const { data } = props;
@@ -104,8 +103,7 @@ const ReportingHistory = (props) => {
                 <Table 
                     dataSource={data} 
                     columns={isMobile ? columns_mobile : columns} 
-                    pagination={{ defaultPageSize: 3 }}
-                    />
+                    pagination={{ defaultPageSize: 3 }}  />
             </div>
         </div>
     );
