@@ -126,16 +126,13 @@ function ClaimForm({ jobForm, claimerPanels, indexKey, setPanelsArr, record }) {
     //For future reference: https://discord.com/developers/docs/resources/webhook#webhook-resource
     /* IMPORTANT */
 
-    fetch(
-      "https://discord.com/api/webhooks/909857169086750730/9BlbliHvoLeraVxzb9r-KmB6zmwWtdZVJlXU7zlCMan9ZCrA6waSvWfcDYnqbZ8NSnjp",
-      {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          content: text,
-        }),
-      }
-    );
+    fetch(process.env.REACT_APP_DISCORD_URL, {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        content: text,
+      }),
+    });
 
     //Setting formValues back to normal
     setFormValues(initialFormValues);
