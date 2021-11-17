@@ -16,12 +16,13 @@ const Unconnected = (props) => {
         reporting,
         history,
         activities, 
+        isReporter
     } = props;
 
     return (
         <div className="Unconnected">
             <UserWidget isConnected={false} account={clickedAccount}/>
-            <CurrentlyReportingOn data={reporting} />
+            <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
             <ReportingHistory data={history}/>
             <ActivityFeed data={activities} />
         </div> 
@@ -34,6 +35,7 @@ Unconnected.propTypes = {
     reporting: PropTypes.object,
     history: PropTypes.array,
     activities: PropTypes.array,
+    isReporter: PropTypes.bool,
 }
 
 export default Unconnected;

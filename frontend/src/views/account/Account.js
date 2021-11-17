@@ -13,6 +13,7 @@ const Account = () => {
 
     // TODO: replace variables with redux data
     const isConnected = false;
+    const isReporter = false;
     const userAccount = {
         address: '0x87e6987E',
         avatar: Avatar,
@@ -24,6 +25,7 @@ const Account = () => {
         trb: 0,
     };
     const reporting = {
+        earned: 102,
         current: "ETH/USD",
         total: 88,
         lastReported: "4 days ago"
@@ -127,16 +129,16 @@ const Account = () => {
         },
         {   
             key: 3,
-            action: "vote on TIP",
-            description: "0x2024...8f52 supported TIP id 12",
-            date: "24/11/2021, 14:25:33",
+            action: "vote on dispute",
+            description: "0x2024...8f52 supported dispute id 44",
+            date: "22/09/2021, 14:25:33",
             txhash: "0x5d6b...32b4",
         },
         {   
             key: 4,
-            action: "vote on dispute",
-            description: "0x2024...8f52 supported dispute id 44",
-            date: "22/09/2021, 14:25:33",
+            action: "vote on TIP",
+            description: "0x2024...8f52 supported TIP id 12",
+            date: "24/11/2021, 14:25:33",
             txhash: "0x5d6b...32b4",
         },{   
             key: 5,
@@ -169,10 +171,13 @@ const Account = () => {
      *  - Connected, user is active and reporter: 1. user (connected) 2. Activity Feed
      *
      * components
-     *  - UserWidget: connected vs unconnected display
-     *  - CurrentlyReporting: shown vs hidden
-     *  - Activity Feed:  data, no data,
-     *  -
+     *  - DONE ----- UserWidget: connected vs unconnected display 
+     *  - CurrentlyReportingOn: isReporter vs is not reporter
+     *  - Activity Feed:  data, no data
+     *  - Reporting History:  data, no data
+     *  - ** Add conditionas for Unconnected use cases
+     *  - Message Box
+     *  - ** Add conditionas for Connected use cases
      */
 
     return (
@@ -186,7 +191,8 @@ const Account = () => {
                     clickedAccount={clickedAccount} 
                     reporting={reporting}
                     history={history}
-                    activities={activities}/>
+                    activities={activities}
+                    isReporter={isReporter}/>
             }
         </div>
     )

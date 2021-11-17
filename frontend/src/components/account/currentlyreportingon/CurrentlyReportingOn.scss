@@ -1,13 +1,17 @@
 @import '../../../style/index.scss';
 
 .CurrentlyReportingOn {
-    width: 60%;
+    width: 80%;
     padding: 2% 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
+    @include leftcolumn;
+    &__metrics {
+        width: 100%;
+        padding: 2% 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
     .container {
         height: 10px;
     }
@@ -23,5 +27,21 @@
         .container {
             margin: 20% 0;
         }
+    }
+    .data-header {
+        color: #FFFFFF;
+        margin-bottom: 20px;
+    }
+    .dark {
+        color: $darkestgrey;
+    }
+    .lock-container {
+        @include leftrow;
+    }
+    .lock-icon{
+        width: 25px;
+    }
+    .lock-text{
+        margin: 5px 0 0 10px;
     }
 } 
