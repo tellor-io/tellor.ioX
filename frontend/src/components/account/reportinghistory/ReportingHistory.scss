@@ -2,4 +2,62 @@
 
 .ReportingHistory {
     width: 100%;
+    padding: 10% 0 0 0;
+
+    .dispute-btn {
+        background-color: $background;
+        width: 90px;
+        height: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        border: 1px solid white;
+    }
+    .dispute-container {
+        @include rightcolumn;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .reportby {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+     }
+    .avatar {
+        width: 20px;
+        margin-right: 10px;
+    }
+    .ant-table {
+        @include sixteenpxfont;
+        font-weight: 400;
+        background-color: $background;
+    }
+    .ant-table-tbody > tr > td {
+        border-bottom: 1px solid white;
+        color: white;
+        background-color: $background;
+    }
+    .ant-table-tbody > tr:hover > td {
+        background-color: #3a3a3a;
+    }
+    .ant-table-thead > tr > th {
+        @include twelvepxfont;
+        background: none;
+        border: none !important;
+        text-transform: lowercase;
+        font-weight: 300;
+        color: white;
+    }
+    .ant-table-thead
+    > tr
+    > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+        display: none;
+    }
+
+    button.ant-pagination-item-link {
+        color: white;
+    }
+    li.ant-pagination-item > a {
+        color: white;
+    }
 }

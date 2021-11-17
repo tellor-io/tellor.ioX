@@ -17,4 +17,11 @@
         font-weight: bold;
         color: #FFFFFF;
     }
+    @media (max-width: 810px) {
+        padding: 0 0 12% 0;
+        @include leftcolumn;
+        .container {
+            margin: 20% 0;
+        }
+    }
 } 

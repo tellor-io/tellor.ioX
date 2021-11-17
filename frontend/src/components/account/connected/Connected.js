@@ -24,6 +24,7 @@ const Connected = (props) => {
 Connected.propTypes = {
     userAccount: PropTypes.object.isRequired,
     clickedAccount: PropTypes.object.isRequired,
+    history: PropTypes.object,
 }
 
 export default Connected;

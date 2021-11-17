@@ -11,27 +11,132 @@ const Account = () => {
     //Makes page load at top
     window.scrollTo(0, 0);
 
-    // TODO: setup with redux variables when available
+    // TODO: replace variables with redux data
     const isConnected = false;
     const userAccount = {
         address: '0x87e6987E',
         avatar: Avatar,
         trb: 127,
     };
-
-    //TODO: add to redux for data in /live when added (account in url)
     const clickedAccount = {
         address: useParams().address,
         avatar: Avatar,
         trb: 0,
     };
-
-    //TODO: add to redux 
     const reporting = {
         current: "ETH/USD",
         total: 88,
         lastReported: "4 days ago"
     }
+    const history = [{   
+        key: 1,
+        symbols: "BTC/USD 24h TWAP",
+        value: "45636.824417",
+        reporter: "0x112q6...987E",
+        accountID: "0x112q6987E",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 2,
+        symbols: "ETH/USD",
+        value: "45636.824417",
+        reporter: "0x44pl...8879",
+        accountID: "0x44pl8879",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 3,
+        symbols: "BTC/USD",
+        value: "45636.824417",
+        reporter: "0x112q6...987E",
+        accountID: "0x112q6987E",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 4,
+        symbols: "BNB/USD",
+        value: "4536.824417",
+        reporter: "0x44pl...8879",
+        accountID: "0x44pl8879",
+        date: "22/08/2021, 14:25:33",
+        avatar: Avatar,
+    },{   
+        key: 5,
+        symbols: "BTC/USD 24h TWAP",
+        value: "45636.82417",
+        reporter: "0x44pl...8879",
+        accountID: "0x44pl8879",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 6,
+        symbols: "ETH/USD",
+        value: "4566.824417",
+        reporter: "0x87e6...981B",
+        accountID: "0x87e6981B",
+        date: "22/10/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 7,
+        symbols: "BTC/USD",
+        value: "45636.82441",
+        reporter: "0x44pl...8879",
+        accountID: "0x44pl8879",
+        date: "21/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 8,
+        symbols: "BNB/USD",
+        value: "45636.824417",
+        reporter: "0x44pl...8879",
+        accountID: "0x44pl8879",
+        date: "24/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 9,
+        symbols: "BNB/USD",
+        value: "456.824417",
+        reporter: "0x87e6...981B",
+        accountID: "0x87e6981B",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },{   
+        key: 10,
+        symbols: "BTC/USD 24h TWAP",
+        value: "45636.827",
+        reporter: "0x44pl...8879",
+        accountID: "0x44pl8879",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 11,
+        symbols: "ETH/USD",
+        value: "536.824417",
+        reporter: "0x44pxxl...8879",
+        accountID: "0x44pl8879",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },
+    {   
+        key: 12,
+        symbols: "BTC/USD",
+        value: "45636.8417",
+        reporter: "0x44pl...8879",
+        accountID: "0x44pl8879",
+        date: "22/09/2021, 14:25:33",
+        avatar: Avatar,
+    },]
+
+
+
     /*
      * - "/live" onClick on open Address with url param
      * - components - not connected :  activity feed (see case for empty), reporting history (with and without data)
@@ -60,7 +165,8 @@ const Account = () => {
                 : <Unconnected 
                     userAccount={userAccount} 
                     clickedAccount={clickedAccount} 
-                    reporting={reporting}/>
+                    reporting={reporting}
+                    history={history}/>
             }
         </div>
     )

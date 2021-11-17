@@ -223,15 +223,6 @@ const data = [
         date: "22/09/2021, 14:25:33",
         avatar: Avatar,
     },
-    {   
-        key: 8,
-        symbols: "BNB/USD",
-        value: "45636.824417",
-        reporter: "0x44pl...8879",
-        accountID: "0x44pl8879",
-        date: "22/09/2021, 14:25:33",
-        avatar: Avatar,
-    },
 ]
 
 export default CurrentlyReporting;
