@@ -56,7 +56,8 @@
     "styled-components": "^4.3.2",
     "web3": "^1.2.7",
     "web3modal": "^1.6.3",
-    "webpack": "^4.44.2"
+    "webpack": "^4.44.2",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-app-rewired start",
