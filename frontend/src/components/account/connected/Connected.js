@@ -2,7 +2,7 @@ import React from "react"
 
 import "./Connected.scss"
 import UserWidget from 'components/account/userwidget/UserWidget'
-import CurrentlyReportingOn from 'components/account/currentlyreportingon/CurrentlyReportingOn'
+// import CurrentlyReportingOn from 'components/account/currentlyreportingon/CurrentlyReportingOn'
 
 import PropTypes from 'prop-types'
 
@@ -16,7 +16,7 @@ const Connected = (props) => {
     return (
         <div className="Connected">
             <UserWidget isConnected={true} account={userAccount}/>
-            <CurrentlyReportingOn />
+            {/* <CurrentlyReportingOn /> */}
         </div>
     );
 };

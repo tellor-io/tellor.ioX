@@ -12,7 +12,7 @@ const Account = () => {
     window.scrollTo(0, 0);
 
     // TODO: setup with redux variables when available
-    const isConnected = true;
+    const isConnected = false;
     const userAccount = {
         address: '0x87e6987E',
         avatar: Avatar,
@@ -25,8 +25,13 @@ const Account = () => {
         avatar: Avatar,
         trb: 0,
     };
-   
 
+    //TODO: add to redux 
+    const reporting = {
+        current: "ETH/USD",
+        total: 88,
+        lastReported: "4 days ago"
+    }
     /*
      * - "/live" onClick on open Address with url param
      * - components - not connected :  activity feed (see case for empty), reporting history (with and without data)
@@ -49,8 +54,13 @@ const Account = () => {
     return (
         <div className="viewContainer">
             { isConnected
-                ? <Connected userAccount={userAccount} clickedAccount={clickedAccount} />
-                : <Unconnected userAccount={userAccount} clickedAccount={clickedAccount} />
+                ? <Connected 
+                    userAccount={userAccount} 
+                    clickedAccount={clickedAccount} />
+                : <Unconnected 
+                    userAccount={userAccount} 
+                    clickedAccount={clickedAccount} 
+                    reporting={reporting}/>
             }
         </div>
     )

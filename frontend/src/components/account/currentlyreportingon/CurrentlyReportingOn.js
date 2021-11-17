@@ -1,32 +1,37 @@
 import React from "react";
-
 import "./CurrentlyReportingOn.scss";
-
 import PropTypes from 'prop-types'
 
-const CurrentlyReportingOn = () => {
+const CurrentlyReportingOn = (props) => {
 
+    const { 
+        data 
+    } = props; 
+
+    //displays user reporting metrics
     return (
         <div className="CurrentlyReportingOn">
+            {/* current report */}
             <div className="container">
                 <h3 className="page-header-small">Currently reporting on</h3>
-                <p className="data">ETH/USD</p>
+                <p className="data">{data.current}</p>
             </div>
+            {/*  total reports */}
             <div className="container">
                 <h3 className="page-header-small">Total report events</h3>
-                <p className="data">88</p>
+                <p className="data">{data.total}</p>
             </div>
+            {/*  last reported */}
             <div className="container">
                 <h3 className="page-header-small">Last report event</h3>
-                <p className="data">4 days ago</p>
+                <p className="data">{data.lastReported}</p>
             </div>
         </div>
     );
     };
 
 CurrentlyReportingOn.propTypes = {
-    isConnected: PropTypes.bool.isRequired,
-    account: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired,
 }
 
 export default CurrentlyReportingOn; 
