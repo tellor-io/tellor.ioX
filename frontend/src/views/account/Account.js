@@ -18,8 +18,8 @@ const Account = () => {
         avatar: Avatar,
         trb: 127,
     };
-    
-    //account in url, TODO: add to redux for data in /live when added
+
+    //TODO: add to redux for data in /live when added (account in url)
     const clickedAccount = {
         address: useParams().address,
         avatar: Avatar,

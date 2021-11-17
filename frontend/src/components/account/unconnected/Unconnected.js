@@ -18,6 +18,7 @@ const Unconnected = (props) => {
     return (
         <div className="Connected">
             <UserWidget isConnected={false} account={clickedAccount}/>
+            <CurrentlyReportingOn />
         </div> 
     );
 };
