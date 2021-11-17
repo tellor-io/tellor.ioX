@@ -7,8 +7,10 @@ export default function Tellorprice() {
     return (
         <div className="Tellorprice">
           <Swoosh />
-          <a href="https://coinmarketcap.com/currencies/tellor/" target="_blank" rel="noopener noreferrer">Tellor (TRB)</a>
-          <p>{price}</p>
+          <div className="Tellorprice__txt">
+            <a href="https://coinmarketcap.com/currencies/tellor/" target="_blank" rel="noopener noreferrer">Tellor (TRB)</a>
+            <p>{price}</p>
+          </div>
         </div>
     )
 }

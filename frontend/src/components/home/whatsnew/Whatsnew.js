@@ -8,8 +8,10 @@ export default function Whatsnew() {
     return (
         <div className="Whatsnew">
             <Blogpost />
-            <Tellorprice />
-            <Tellorfeeds />
+            <div  className="Whatsnew__secondline">
+                <Tellorprice />
+                <Tellorfeeds />
+            </div>
         </div>
     )
 }

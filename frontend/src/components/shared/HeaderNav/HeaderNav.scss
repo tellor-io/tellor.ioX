@@ -98,6 +98,9 @@
           }
       }
     }
+    .gotNoAddress {
+      @include centeredrow;
+    }
   
     .BrandLink {
       padding: 0;

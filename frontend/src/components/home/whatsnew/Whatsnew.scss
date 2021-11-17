@@ -5,4 +5,26 @@
     width: 100%;
     padding: 0;
     align-items: center;
+    @media (max-width: 1024px) {
+        align-items: flex-start;
+    }
+    @media (max-width: 500px) {
+        padding: 20px 0 0 0;
+        @include leftcolumn;
+    }
+    &__secondline {
+        @include leftrow;
+        @media (max-width: 768px) {
+            @include leftcolumn;
+            flex: 1;
+            padding: 0 40px 0 40px;
+        }
+        @media (max-width: 500px) {
+            @include leftrow;
+            align-items: flex-start;
+            width: 100%;
+            padding: 25px 25px 0 25px;
+        }
+    }
+
 }

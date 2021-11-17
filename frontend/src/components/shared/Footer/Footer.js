@@ -66,10 +66,7 @@ const Footer = () => {
           <Refresher className={refresherClass} />
         </div>
         <div className="tidbits__txt">
-          {/* <p>{tidbits[nmbr]}</p> */}
-          <p>
-          Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is dat het uit een min of meer normale verdeling van letters bestaat.
-          </p>
+          <p>{tidbits[nmbr]}</p>
         </div>
       </div>
       <div className="Footer__Bottom">

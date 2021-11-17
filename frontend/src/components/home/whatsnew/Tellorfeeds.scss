@@ -3,17 +3,23 @@
 .Tellorfeeds {
     @include leftcolumn;
     height: 100%;
-    width: 352px;
+    max-width: 360px;
+    @media (max-width: 768px) {
+        max-width: none;
+        flex: 1;
+    }
 }
 .Tellorfeed {
     @include leftrow;
     align-items: flex-start;
-    max-width: 360px;
     &__icon {
         margin: 5px 0 0 0;
         svg {
             width: 25px;
             height: auto;
+            @media (max-width: 768px) {
+                width: 18px;
+            }
         }
     }
     &__txt {
@@ -21,14 +27,23 @@
         justify-content: flex-start;
         width: 100%;
         margin: 0 0 0 30px;
+        @media (max-width: 768px) {
+            margin: 0 0 0 15px;
+        }
         a {
             @include sixteenpxfont;
             color: white;
+            @media (max-width: 500px) {
+                @include fourteenpxfont;
+            }
         }
         p {
             color: white;
             @include sixteenpxfont;
             margin: 0;
+            @media (max-width: 500px) {
+                @include fourteenpxfont;
+            }
         }
     }
     
@@ -38,5 +53,8 @@
     }
     &__twitter {
         margin: 25px 0 0 0;
+        @media (max-width: 500px) {
+            margin: 10px 0 0 0;
+        }
     }
 }

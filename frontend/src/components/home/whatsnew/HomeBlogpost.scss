@@ -1,27 +1,27 @@
 @import '../../../style/index.scss';
 
+
 .HomeBlogpost {
     @include leftrow;
     align-items: flex-start;
     flex: 1;
     height: 187px;
     background-color: #1F1F1F;
+    max-width: 716px;
     @media (max-width: 1024px) {
         @include leftcolumn;
-        height: 440px;
+        justify-content: flex-start;
+        height: 240px;
+        width: 345px;
+        flex: none;
     }
 
-    :hover {
-        cursor: pointer;
-    }
     &__image {
-        @include centeredrow;
         height: 100%;
-        flex: 1;
         overflow:hidden;
+        @include centeredrow;
         @media (max-width: 1024px) {
-            height: 232px;
-            border: 4px solid green;
+            height: 130px;
         }
         img {
             width: 100%;
@@ -32,12 +32,11 @@
         height: 100%;
         flex: 1;
         padding: 32px 25px 0 38px;
+        min-width: 292px;
         @media (max-width: 1024px) {
             width: 100%;
             height: 208px;
             padding: 20px 20px 0 30px;
-            border: 4px solid blueviolet;
-
         }
         p {
             color: white;
@@ -56,5 +55,5 @@
             }
         }
     }
-
 }
+

@@ -28,7 +28,7 @@ const App = (props) => {
 
   useEffect(() => {
     startGetPrices(currentNetwork);
-    // startStrapiData();
+    startStrapiData();
   }, [currentNetwork]);
 
   useEffect(() => {
