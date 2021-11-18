@@ -13,7 +13,13 @@ import { GET_VOTING } from "utils/queries";
 import { UserContext } from "contexts/User";
 
 import { connect } from "react-redux";
-import { getPrices, getStrapiData } from "redux/thunks";
+import {
+  getPrices,
+  getStrapiData,
+  getCoinGeckoPrice,
+  getGithubInfo,
+  getTwitterInfo,
+} from "redux/thunks";
 
 const App = (props) => {
   const [events, setEvents] = useState();
@@ -24,11 +30,21 @@ const App = (props) => {
 
   const [currentUser] = useContext(UserContext);
   //redux variables, thunk methods
-  const { prices, startGetPrices, startStrapiData } = props;
+  const {
+    prices,
+    startGetPrices,
+    startStrapiData,
+    startCoinGecko,
+    startGitHub,
+    startTwitter,
+  } = props;
 
   useEffect(() => {
     startGetPrices(currentNetwork);
     startStrapiData();
+    startCoinGecko();
+    startGitHub();
+    startTwitter();
   }, [currentNetwork]);
 
   useEffect(() => {
@@ -80,6 +96,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   startGetPrices: (network) => dispatch(getPrices(network)),
   startStrapiData: () => dispatch(getStrapiData()),
+  startCoinGecko: () => dispatch(getCoinGeckoPrice()),
+  startGitHub: () => dispatch(getGithubInfo()),
+  startTwitter: () => dispatch(getTwitterInfo()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

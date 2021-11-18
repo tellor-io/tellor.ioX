@@ -1,4 +1,4 @@
-import monthMapping from "./monthMapping.json";
+import monthMapping from "../../utils/monthMapping.json";
 
 export const sortDataByProperty = (prop, arr) => {
   arr.sort(function (a, b) {

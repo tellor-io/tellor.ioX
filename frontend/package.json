@@ -24,6 +24,7 @@
     "graphql": "^15.0.0",
     "graphql-tag": "^2.11.0",
     "history": "^4.9.0",
+    "http-proxy-middleware": "^2.0.1",
     "javascript-time-ago": "^2.3.9",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
