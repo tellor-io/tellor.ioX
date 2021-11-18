@@ -1,5 +1,12 @@
 @import "../../../style/index.scss";
 
+.no-padding {
+  padding: 0 0;
+}
+.padding {
+  padding: 1% 12%;
+}
+
 .BountiesWrapper {
   @include leftcolumn;
   width: 100%;
@@ -60,10 +67,12 @@
   }
 }
 
+
 .BountiesWrapperDark {
   @include leftcolumn;
   width: 100%;
-  padding: 1% 12%;
+  //padding: 1% 12%;
+ 
   background-color: $background;
   &__desc {
     padding: 6% 0 2% 0;

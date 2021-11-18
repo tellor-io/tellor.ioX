@@ -2,4 +2,92 @@
 
 .MessageBox {
     width: 100%;
-}
+    margin: 4% 0;
+    .messagebox-container {
+        padding: 4%;
+    }
+    .container-new {
+        border: 1px solid #5865F2;
+    } 
+    .container-active {
+        border: 1px solid #FFCC81;
+    } 
+    .messagebox-header {
+        color: white;
+        margin-bottom: 1%;
+    }
+    .messagebox-text {
+        height: 5px;
+    }
+    .bold {
+       font-weight: 500;
+    }
+    .messagebox-actions {
+        padding: 5% 0 0 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        // align-items: center;
+
+    }
+    .messagebox-buttons {
+        //@include leftrow;
+        button {
+            min-width: 280px !important;
+            background-color: $background;
+            font-size: 1rem;
+            color: white;
+            border: 1px solid white;
+            border-bottom: 2px solid white;
+            border-radius: 0;
+            margin-right: 50px;
+            cursor: pointer;
+            height: 74px;
+            box-sizing: border-box;
+        }
+    }
+    .close-msg {
+        align-self: flex-end;
+        font-weight: bold;
+        &:hover {
+            color: $real-tellor-green;
+        }
+    }
+    
+    .showinfo-container {
+        //padding: 2% 0;
+        ul {
+            @include sixteenpxfont;
+            font-weight: 200;
+            color: white;
+        }
+        li {
+            padding-top: 3%;
+        }
+        a {
+            padding-left: 1%
+        }
+    }
+    .toggle-bounties {
+        padding-top: 4%;
+    }
+    @media (max-width: 810px) {
+        .messagebox-text {
+            padding: 10% 0 ;
+        }
+        .showinfo-container {
+            padding: 20% 0;
+        }
+        .messagebox-actions {
+            padding: 10% 0 5% 0;
+        }
+        .messagebox-buttons {
+            button {
+                margin-top: 5%;
+            }
+        }
+        .toggle-bounties {
+            padding-top: 2%;
+        }
+    }
+} 

@@ -9,9 +9,8 @@ import ActivityFeed from 'components/account/activityfeed/ActivityFeed'
 import PropTypes from 'prop-types'
 
 const Unconnected = (props) => {
-    //props
+    //component props
     const { 
-        userAccount,
         clickedAccount,
         reporting,
         history,
@@ -22,7 +21,7 @@ const Unconnected = (props) => {
     //returns layout based on conditions
     const Display = () => {
         if (isReporter) {
-            //clicked account is not reporter
+            //clicked account is reporter
             return (
                 <>
                     <UserWidget isConnected={false} account={clickedAccount}/>
@@ -32,19 +31,20 @@ const Unconnected = (props) => {
                 </>
             )
         } else {
-            //clicked account is reporter
+            //clicked account is not reporter
             return (
                 <>
                     <UserWidget isConnected={false} account={clickedAccount}/>
                     <ActivityFeed data={activities} />
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
-                    <ReportingHistory data={[]}/>
+                    <ReportingHistory data={history}/>
                 </>
             )
         }
 
     }
     
+    //returned view
     return (
         <div className="Unconnected">
             <Display />
@@ -53,7 +53,6 @@ const Unconnected = (props) => {
 };
 
 Unconnected.propTypes = {
-    userAccount: PropTypes.object.isRequired,
     clickedAccount: PropTypes.object.isRequired,
     reporting: PropTypes.object,
     history: PropTypes.array,

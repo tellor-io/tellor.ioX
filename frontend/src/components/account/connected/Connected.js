@@ -10,7 +10,7 @@ import ActivityFeed from 'components/account/activityfeed/ActivityFeed'
 import PropTypes from 'prop-types'
 
 const Connected = (props) => {
-    //props
+    //component props
     const { 
         userAccount,
         clickedAddress,
@@ -22,24 +22,27 @@ const Connected = (props) => {
 
     //returns layout based on conditions
     const Display = () => {
-        if (!isReporter && activities.length === 0) {
+        //user is new if there are no activities
+        const isNew = activities.length > 0 ? false : true;
+
+        if (!isReporter && isNew) {
             //not active, not a reporter
             return (
                 <>
-                    <MessageBox />
+                    <MessageBox isNew={isNew} account={userAccount}/>
                     <UserWidget isConnected={true} account={userAccount}/>
                     <ActivityFeed data={activities} />
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
                 </>
             )
-        } else if (!isReporter && activities.length > 0) {
+        } else if (!isReporter && !isNew) {
             //active, not a report
             return (
                 <>
                     <UserWidget isConnected={true} account={userAccount}/>
                     <ActivityFeed data={activities} />
-                    <MessageBox />
+                    <MessageBox isNew={isNew} account={userAccount}/>
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
                 </>
@@ -58,6 +61,7 @@ const Connected = (props) => {
 
     }
 
+    //returned view
     return (
         <div className="Connected">
             <Display />

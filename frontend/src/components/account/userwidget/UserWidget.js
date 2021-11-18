@@ -19,7 +19,7 @@ const UserWidget = (props) => {
                     {isConnected && (
                         <p className="page-text">You're connected as</p>
                     )}
-                    <p className="page-text address">{account.address}</p>
+                    <p className="page-text address">{account.addressHidden}</p>
                 </div>
             </div>
             {/* trb count if connected */}
