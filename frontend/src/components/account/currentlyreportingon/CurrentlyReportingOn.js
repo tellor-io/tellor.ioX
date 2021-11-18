@@ -23,10 +23,10 @@ const CurrentlyReportingOn = (props) => {
             )}
             <div className="CurrentlyReportingOn__metrics">
                 {/* current report */}
-                <div className="container">
+                {/* <div className="container">
                     <h3 className={`data-header ${dark}`}>Earned as reporter</h3>
                     <p className={`data ${dark}`}>{data.earned} TRB</p>
-                </div>
+                </div> */}
                 {/* current report */}
                 <div className="container">
                     <h3 className={`data-header ${dark}`}>Currently reporting on</h3>

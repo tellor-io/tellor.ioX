@@ -9,7 +9,7 @@ import ActivityFeed from 'components/account/activityfeed/ActivityFeed'
 import PropTypes from 'prop-types'
 
 const Unconnected = (props) => {
-
+    //props
     const { 
         userAccount,
         clickedAccount,
@@ -19,27 +19,35 @@ const Unconnected = (props) => {
         isReporter
     } = props;
 
+    //returns layout based on conditions
+    const Display = () => {
+        if (isReporter) {
+            //clicked account is not reporter
+            return (
+                <>
+                    <UserWidget isConnected={false} account={clickedAccount}/>
+                    <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
+                    <ReportingHistory data={history}/>
+                    <ActivityFeed data={activities} />
+                </>
+            )
+        } else {
+            //clicked account is reporter
+            return (
+                <>
+                    <UserWidget isConnected={false} account={clickedAccount}/>
+                    <ActivityFeed data={activities} />
+                    <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
+                    <ReportingHistory data={[]}/>
+                </>
+            )
+        }
+
+    }
+    
     return (
         <div className="Unconnected">
-            {isReporter 
-                ? (
-                    <>
-                        <UserWidget isConnected={false} account={clickedAccount}/>
-                        <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
-                        <ReportingHistory data={history}/>
-                        <ActivityFeed data={activities} />
-                    </>
-                ) : (
-                    <>
-                        <UserWidget isConnected={false} account={clickedAccount}/>
-                        <ActivityFeed data={activities} />
-                        <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
-                        <ReportingHistory data={history}/>
-                    </>
-                )
-
-            }
-            
+            <Display />
         </div> 
     );
 };

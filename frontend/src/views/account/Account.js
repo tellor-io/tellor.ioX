@@ -12,8 +12,9 @@ const Account = () => {
     window.scrollTo(0, 0);
 
     // TODO: replace variables with redux data
-    const isConnected = false;
+    const isConnected = true;
     const isReporter = true;
+    
     const userAccount = {
         address: '0x87e6987E',
         avatar: Avatar,
@@ -185,7 +186,11 @@ const Account = () => {
             { isConnected
                 ? <Connected 
                     userAccount={userAccount} 
-                    clickedAccount={clickedAccount} />
+                    clickedAccount={clickedAccount} 
+                    reporting={reporting}
+                    history={history}
+                    activities={activities}
+                    isReporter={isReporter} />
                 : <Unconnected 
                     userAccount={userAccount} 
                     clickedAccount={clickedAccount} 
