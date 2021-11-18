@@ -191,6 +191,5 @@ export default function Tellorfeeds() {
         }
         </div>
       </div>
-    </div>
   );
 }
