@@ -2,8 +2,8 @@ import React, { useRef, useEffect } from "react";
 import { ReactComponent as Github } from "assets/Github.svg";
 import { ReactComponent as Twitter } from "assets/Twitter.svg";
 
-import './Tellorfeeds.scss'
-import { useMediaQuery } from 'react-responsive';
+import "./Tellorfeeds.scss";
+import { useMediaQuery } from "react-responsive";
 
 //Redux
 import { useSelector } from "react-redux";
@@ -11,11 +11,6 @@ import { useSelector } from "react-redux";
 import { usePreviousFeeds } from "./whatsnewhelpers";
 
 export default function Tellorfeeds() {
-  
-  const isMobileHeader = useMediaQuery({query: '(max-width: 600px)'});
-  const latestcommit = "Last commit 42min ago";
-  const latesttweet = "Last tweet 2 days ago";
-  
   //Globals
   const indexer = 0;
   //Redux State
@@ -45,6 +40,11 @@ export default function Tellorfeeds() {
   const twitterEffectRef = useRef();
   const twitterDateRef = useRef();
   const twitterTextRef = useRef();
+  //Media Query
+  const isMobileHeader = useMediaQuery({ query: "(max-width: 600px)" });
+  const commitHelper = mostRecentGithubEvent.actorAndDate.split(" - ");
+  const latestCommit = `Last commit ${commitHelper[1]}`;
+  const latestTweet = `Last tweet ${mostRecentTweet[indexer].formattedDate}`;
 
   useEffect(() => {
     if (currGithubEvent && prevGithubEvent) {
@@ -116,12 +116,17 @@ export default function Tellorfeeds() {
           </a>
         </div>
 
-
-        {isMobileHeader?
+        {isMobileHeader ? (
           <div className="Tellorfeed__txt">
-              <a href={"http://github.com/"+githubrepo} target="_blank" rel="noopener noreferrer" >{latestcommit}</a>
+            <a
+              href={"http://github.com/" + mostRecentGithubEvent.githubRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {latestCommit}
+            </a>
           </div>
-          :          
+        ) : (
           <div className="Tellorfeed__txt">
             <a
               ref={githubRepoRef}
@@ -144,7 +149,7 @@ export default function Tellorfeeds() {
                 : ""}
             </p>
           </div>
-        }
+        )}
       </div>
       <div ref={twitterEffectRef} className="Tellorfeed Tellorfeed__twitter">
         <div className="Tellorfeed__icon">
@@ -156,11 +161,17 @@ export default function Tellorfeeds() {
             <Twitter />
           </a>
         </div>
-        {isMobileHeader?
+        {isMobileHeader ? (
           <div className="Tellorfeed__txt">
-              <a href={"http://github.com/"+githubrepo} target="_blank" rel="noopener noreferrer" >{latesttweet}</a>
+            <a
+              href="http://twitter.com/wearetellor"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {latestTweet}
+            </a>
           </div>
-        : 
+        ) : (
           <div className="Tellorfeed__txt">
             <div className="Twitter__LinkAndDate">
               <a
@@ -188,8 +199,8 @@ export default function Tellorfeeds() {
               {prevTweet && prevTweet.text}
             </a>
           </div>
-        }
-        </div>
+        )}
       </div>
+    </div>
   );
 }
