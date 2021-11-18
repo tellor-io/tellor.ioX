@@ -1,12 +1,21 @@
 import React, { useRef, useEffect } from "react";
 import { ReactComponent as Github } from "assets/Github.svg";
 import { ReactComponent as Twitter } from "assets/Twitter.svg";
+
+import './Tellorfeeds.scss'
+import { useMediaQuery } from 'react-responsive';
+
 //Redux
 import { useSelector } from "react-redux";
 //Helpers
 import { usePreviousFeeds } from "./whatsnewhelpers";
 
 export default function Tellorfeeds() {
+  
+  const isMobileHeader = useMediaQuery({query: '(max-width: 600px)'});
+  const latestcommit = "Last commit 42min ago";
+  const latesttweet = "Last tweet 2 days ago";
+  
   //Globals
   const indexer = 0;
   //Redux State
@@ -106,28 +115,36 @@ export default function Tellorfeeds() {
             <Github />
           </a>
         </div>
-        <div className="Tellorfeed__txt">
-          <a
-            ref={githubRepoRef}
-            href={"http://github.com/" + mostRecentGithubEvent.githubRepo}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
-              ? prevGithubEvent.githubRepo
-              : "Loading..."}
-          </a>
-          <p ref={actorAndDateRef} className="bold">
-            {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
-              ? prevGithubEvent.actorAndDate
-              : ""}
-          </p>
-          <p ref={eventInfoRef}>
-            {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
-              ? prevGithubEvent.eventInfo
-              : ""}
-          </p>
-        </div>
+
+
+        {isMobileHeader?
+          <div className="Tellorfeed__txt">
+              <a href={"http://github.com/"+githubrepo} target="_blank" rel="noopener noreferrer" >{latestcommit}</a>
+          </div>
+          :          
+          <div className="Tellorfeed__txt">
+            <a
+              ref={githubRepoRef}
+              href={"http://github.com/" + mostRecentGithubEvent.githubRepo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
+                ? prevGithubEvent.githubRepo
+                : "Loading..."}
+            </a>
+            <p ref={actorAndDateRef} className="bold">
+              {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
+                ? prevGithubEvent.actorAndDate
+                : ""}
+            </p>
+            <p ref={eventInfoRef}>
+              {prevGithubEvent && Object.keys(prevGithubEvent).length > 1
+                ? prevGithubEvent.eventInfo
+                : ""}
+            </p>
+          </div>
+        }
       </div>
       <div ref={twitterEffectRef} className="Tellorfeed Tellorfeed__twitter">
         <div className="Tellorfeed__icon">
@@ -139,32 +156,39 @@ export default function Tellorfeeds() {
             <Twitter />
           </a>
         </div>
-        <div className="Tellorfeed__txt">
-          <div className="Twitter__LinkAndDate">
+        {isMobileHeader?
+          <div className="Tellorfeed__txt">
+              <a href={"http://github.com/"+githubrepo} target="_blank" rel="noopener noreferrer" >{latesttweet}</a>
+          </div>
+        : 
+          <div className="Tellorfeed__txt">
+            <div className="Twitter__LinkAndDate">
+              <a
+                href="http://twitter.com/wearetellor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @WeAreTellor
+              </a>
+              <p ref={twitterDateRef}>
+                {prevTweet
+                  ? `\u00A0- ${prevTweet.formattedDate}`
+                  : "\u00A0 Loading..."}
+              </p>
+            </div>
             <a
-              href="http://twitter.com/wearetellor"
+              ref={twitterTextRef}
+              href={`http://twitter.com/wearetellor/status/${
+                mostRecentTweet[indexer] && mostRecentTweet[indexer].id
+              }`}
               target="_blank"
               rel="noopener noreferrer"
+              className="Tellorfeed__specialLink"
             >
-              @WeAreTellor
+              {prevTweet && prevTweet.text}
             </a>
-            <p ref={twitterDateRef}>
-              {prevTweet
-                ? `\u00A0- ${prevTweet.formattedDate}`
-                : "\u00A0 Loading..."}
-            </p>
           </div>
-          <a
-            ref={twitterTextRef}
-            href={`http://twitter.com/wearetellor/status/${
-              mostRecentTweet[indexer] && mostRecentTweet[indexer].id
-            }`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="Tellorfeed__specialLink"
-          >
-            {prevTweet && prevTweet.text}
-          </a>
+        }
         </div>
       </div>
     </div>

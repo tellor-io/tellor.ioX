@@ -1,7 +1,9 @@
 @import '../../../style/index.scss';
 
 .HeaderDesc {
-@include leftcolumn;
+  @include leftcolumn;
+  @include sidepaddings;
   width: 100%;
-  padding: 2.5% 12% 0 12%;
+  padding-top: 40px;
+  padding-bottom: 0;
 }

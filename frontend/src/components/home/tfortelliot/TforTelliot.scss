@@ -5,41 +5,101 @@
     @include leftrow;
     align-items: flex-start;
     width: 100%;
+    @media (max-width: 700px) {
+        @include leftcolumn;
+    }
     &__illustration {
         @include rightcolumn;
         width: 590px;
         background: url(../../../assets/Telliot_bg.png) no-repeat;
+        @media (max-width: 1152px) {
+            width: 489px;
+            background-size: 372px;
+        }
+        @media (max-width: 890px) {
+            width: 352px;
+            background-size: 268px;
+        }
         img {
         margin-top: -70px;
+        @media (max-width: 1152px) {
+            width: 357px;
+        }
+        @media (max-width: 890px) {
+            width: 289px;
+            margin-top: -42px;
+        }
         }
     }
     &__txt__andcta {
         @include leftcolumn;
         padding: 108px 0 0 74px;
+        @media (max-width: 1152px) {
+            max-width: 45vw;
+        }
+
+        @media (max-width: 1152px) {
+            padding: 108px 0 0 40px;
+        }
+        @media (max-width: 890px) {
+            padding: 80px 0 0 40px;
+        }
+        @media (max-width: 700px) {
+            padding: 40px 0 0 60px;
+            max-width: unset;
+            width: 100%;
+        }
         h2 {
             color: white;
-            font-size: 32px;
+            font-size: 2rem;
             max-width: 500px;
-
+            @media (max-width: 890px) {
+                font-size: 1.5rem;
+                max-width: 45vw;
+            }
+            @media (max-width: 700px) {
+                max-width: unset;
+                width: 100%;
+            }
         }
         p {
             @include sixteenpxfont;
             color: white;
             max-width: 500px;
-
+            @media (max-width: 890px) {
+                font-size: 0.875rem !important;
+                line-height: 1.375rem !important;
+                max-width: 45vw;
+            }
+            @media (max-width: 700px) {
+                max-width: unset;
+                width: 88%;
+            }
         }
     }
     &__cta {
         @include leftrow;
         margin: 50px 0 0 0;
+        @media (max-width: 1152px) {
+            @include centeredcolumn;
+            margin: 30px 0 0 0;
+        }
         Button {
             width: 345px;
             margin: 0 45px 0 0;
+            @media (max-width: 1152px) {
+                width: auto;
+                margin: 0 0 30px 0;
+            }
+
             svg {
                 width: 20px;
                 height: 20px;
                 margin: 0 15px -4px 0;
             }
+        }
+        a {
+            margin: 0;
         }
     }
 }

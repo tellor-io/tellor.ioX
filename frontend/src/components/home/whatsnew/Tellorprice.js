@@ -38,21 +38,24 @@ export default function Tellorprice() {
   return (
     <div ref={effectRef} className="Tellorprice">
       <Swoosh />
-      <a
-        href="https://www.coingecko.com/en/coins/tellor"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Tellor (TRB)
-      </a>
-      <p ref={priceRef}>
-        {prevPrice && prevPrice != 0
-          ? new Intl.NumberFormat("en-EN", {
-              style: "currency",
-              currency: "USD",
-            }).format(prevPrice)
-          : "Loading..."}
-      </p>
+        <div className="Tellorprice__txt">
+
+          <a
+            href="https://www.coingecko.com/en/coins/tellor"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tellor (TRB)
+          </a>
+          <p ref={priceRef}>
+            {prevPrice && prevPrice != 0
+              ? new Intl.NumberFormat("en-EN", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(prevPrice)
+              : "Loading..."}
+          </p>
+        </div>
     </div>
   );
 }

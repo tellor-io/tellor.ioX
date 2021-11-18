@@ -8,8 +8,8 @@ const ForSmartContracts = () => {
     return (
         <div className="ForSmart">
             <div className="ForSmart__intro">
-                <h2>Tellor for smart contracts</h2>
-                <p> It takes 3 lines of code to integrate with Tellor for decentralized, trustless data in your smart contracts.</p>
+                <h2 className="page-header-small">Tellor for smart contracts</h2>
+                <p className="page-text"> It takes 3 lines of code to integrate with Tellor for decentralized, trustless data in your smart contracts.</p>
             </div>
             <div className="ForSmart__code">
                 <code>
