@@ -1,0 +1,52 @@
+@import '../../../style/index.scss';
+
+.CurrentlyReportingOn {
+    width: 60%;
+    padding: 2% 0;
+    @include leftcolumn;
+    &__metrics {
+        width: 100%;
+        padding: 2% 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .container { 
+        height: 10px;
+    }
+    .data {
+        font-size: 1.75rem !important;
+        line-height: 0.25rem !important;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+    .data-header {
+        color: #FFFFFF;
+        margin-bottom: 20px;
+    }
+    .dark {
+        color: $darkestgrey;
+    }
+    .lock-container {
+        margin-top: 3%;
+        @include leftrow;
+    }
+    .lock-icon{
+        width: 25px;
+    }
+    .lock-text{
+        margin: 5px 0 0 10px;
+    }
+    
+    @media (max-width: 810px) {
+        padding: 0 0 12% 0;
+        @include leftcolumn;
+        .container {
+            margin: 20% 0;
+        }
+        &__metrics {
+            @include leftcolumn;
+        }
+    }
+} 

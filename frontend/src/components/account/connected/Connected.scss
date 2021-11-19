@@ -1,0 +1,10 @@
+@import '../../../style/index.scss';
+
+.Connected {
+    width: 100%;
+    padding: 2% 12% 6% 12%;
+    
+    @media (max-width: 810px) {
+        padding: 1% 8%;
+    }
+}

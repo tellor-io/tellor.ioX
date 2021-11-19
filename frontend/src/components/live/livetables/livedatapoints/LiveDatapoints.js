@@ -6,6 +6,7 @@ import Avatar from 'assets/Avatar.png';
 import { Table } from 'antd'
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 
 const LiveDatapoints = () => {
 
@@ -49,8 +50,10 @@ const LiveDatapoints = () => {
             maxWidth: 50,
             render: (t, r) => ( 
                 <div className="reportby">
-                    <img src={r.avatar} />
-                    <p className="page-text-black latestReport">{r.latestReportBy}</p>
+                <img src={r.avatar} />
+                    <Link to={{ pathname: `/account/address/${r.accountID}`}} className="link-black latestReport">
+                        {r.latestReportBy}
+                    </Link>
                 </div>),
             filters: [
                 { text: "E0x44pl...8879", value: "E0x44pl...8879" },
@@ -148,6 +151,7 @@ const data = [
         symbols: "ETH/USD",
         latestUpdate: "4 min ago",
         latestReportBy: "0x44pl...8879",
+        accountID: "0x44pl8879",
         value: "2920.01",
         avatar: Avatar,
     },{
@@ -156,6 +160,7 @@ const data = [
         symbols: "BTC/USD",
         latestUpdate: "12 sec ago",
         latestReportBy: "0x87e6...987E",
+        accountID: "0x87e6987E",
         value: "42234.00",
         avatar: Avatar,
     },{
@@ -164,6 +169,7 @@ const data = [
         symbols: "BTC/USD 24h TWAP",
         latestUpdate: "444 sec ago",
         latestReportBy: "0x87e6...981B",
+        accountID: "0x87e6981B",
         value: "45636.824417",
         avatar: Avatar,
     },{   
@@ -172,6 +178,7 @@ const data = [
         symbols: "ETH/BTC",
         latestUpdate: "33 min ago",
         latestReportBy: "0x112q6...987E",
+        accountID: "0x112q6987E",
         value: "0.07008",
         avatar: Avatar,
     },{
@@ -180,6 +187,7 @@ const data = [
         symbols: "BTC/USD",
         latestUpdate: "12 sec ago",
         latestReportBy: "0x87e6...987E",
+        accountID: "0x87e6987E",
         value: "42234.00",
         avatar: Avatar,
     },{
@@ -188,6 +196,7 @@ const data = [
         symbols: "BNB/USD",
         latestUpdate: "4 min ago",
         latestReportBy: "0x44pl...8879",
+        accountID: "0x44pl8879",
         value: "359.555",
         avatar: Avatar,
     },{   
@@ -196,6 +205,7 @@ const data = [
         symbols: "ETH/USD",
         latestUpdate: "4 min ago",
         latestReportBy: "E0x44pl...8879",
+        accountID: "E0x44pl8879",
         value: "2920.01",
         avatar: Avatar,
     },{
@@ -204,6 +214,7 @@ const data = [
         symbols: "BTC/USD",
         latestUpdate: "12 sec ago",
         latestReportBy: "0x87e6...987E",
+        accountID: "0x87e6987E",
         value: "42234.00",
         avatar: Avatar,
     },{
@@ -212,6 +223,7 @@ const data = [
         symbols: "BNB/USD",
         latestUpdate: "4 min ago",
         latestReportBy: "0x44pl...8879",
+        accountID: "0x44pl8879",
         value: "359.555",
         avatar: Avatar,
     },

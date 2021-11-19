@@ -7,6 +7,7 @@ import Rejected from 'assets/Rejected2.png';
 import { Table } from 'antd'
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 
 const PastVoteItems = () => {
 
@@ -35,7 +36,14 @@ const PastVoteItems = () => {
             key: "description",
             render: (t, r) => ( 
                 <div className="desc-container">
-                    <div className="page-text-black desc item">{r.description}</div>
+                    <div className="desc-link-container">
+                        { r.accountID && (
+                            <Link to={{ pathname: `/account/address/${r.accountID}` }} className="link-black latestReport">
+                                {r.hiddenID}
+                            </Link>
+                        )}
+                        <div className="page-text-black desc item">{r.description}</div>
+                    </div>
                     <a className="page-text-black">more details</a>
                 </div>),
             filters: [
@@ -47,7 +55,7 @@ const PastVoteItems = () => {
             width: "55%",
         },
         {
-            title: "status",
+            title: "status", 
             dataIndex: "status",
             key: "status",
             sorter: {
@@ -150,7 +158,9 @@ const data = [
         key: 1,
         id: 1,
         type: "Dispute",
-        description: "0x44pl...8879 submitted 9999.9 for BTC/USD",
+        description: "submitted 9999.9 for BTC/USD",
+        accountID: "0x44pl8879",
+        hiddenID: "0x44pl...8879",
         status: "accepted",
         votes: 23,
     },
@@ -158,7 +168,9 @@ const data = [
         key: 2,
         id: 2,
         type: "Dispute",
-        description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        description: "submitted 77.9 for BNB/USD",
+        accountID: "0xFfL22231",
+        hiddenID: "0xFfL2...2231",
         status: "accepted",
         votes: 123,
     },
@@ -166,7 +178,9 @@ const data = [
         key: 3,
         id: 3,
         type: "Dispute",
-        description: "0xFfL2...2231 disputes vote item 11",
+        description: "disputes vote item 11",
+        accountID: "0xFfL22231",
+        hiddenID: "0xFfL2...2231",
         status: "accepted",
         votes: 88
     },
@@ -175,6 +189,8 @@ const data = [
         id: 4,
         type: "TIP",
         description: "Tellor Improvement Plan v2.0.8",
+        accountID: "",
+        hiddenID: "",
         status: "accepted",
         votes: 93
     },
@@ -183,6 +199,8 @@ const data = [
         id: 5,
         type: "Dispute",
         description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        accountID: "0xFfL22231",
+        hiddenID: "0xFfL2...2231",
         status: "rejected",
         votes: 88
     },
@@ -191,13 +209,17 @@ const data = [
         id: 6,
         type: "Treasury",
         description: "Increase rate 0.07%",
+        accountID: "",
+        hiddenID: "",
         status: "accepted",
         votes: 93
     },{   
         key: 7,
         id: 7,
         type: "Dispute",
-        description: "0x44pl...8879 submitted 9999.9 for BTC/USD",
+        description: "submitted 9999.9 for BTC/USD",
+        accountID: "0x44pl8879",
+        hiddenID: "0x44pl...8879",
         status: "accepted",
         votes: 23,
     },
@@ -205,7 +227,9 @@ const data = [
         key: 8,
         id: 8,
         type: "Dispute",
-        description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        description: "submitted 77.9 for BNB/USD",
+        accountID: "0xFfL2231",
+        hiddenID: "0xFfL2...2231",
         status: "accepted",
         votes: 123,
     },
@@ -213,7 +237,9 @@ const data = [
         key: 9,
         id: 9,
         type: "Dispute",
-        description: "0xFfL2...2231 disputes vote item 11",
+        description: "disputes vote item 11",
+        accountID: "0xFfL22231 ",
+        hiddenID: "0xFfL2...2231 ",
         status: "accepted",
         votes: 88
     },
@@ -229,7 +255,9 @@ const data = [
         key: 11,
         id: 11,
         type: "Dispute",
-        description: "0xFfL2...2231 submitted 77.9 for BNB/USD",
+        description: "submitted 77.9 for BNB/USD",
+        accountID: "0xFfL22231 ",
+        hiddenID: "0xFfL2...2231 ",
         status: "rejected",
         votes: 88
     },
@@ -238,6 +266,8 @@ const data = [
         id: 12,
         type: "Treasury",
         description: "Increase rate 0.07%",
+        accountID: "0x44pl8879",
+        hiddenID: "",
         status: "accepted",
         votes: 93
     },

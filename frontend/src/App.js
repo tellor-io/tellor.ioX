@@ -41,10 +41,14 @@ const App = (props) => {
 
   useEffect(() => {
     startGetPrices(currentNetwork);
+<<<<<<< HEAD
     startStrapiData();
     startCoinGecko();
     startGitHub();
     startTwitter();
+=======
+    //startStrapiData();
+>>>>>>> 042-view-account
   }, [currentNetwork]);
 
   useEffect(() => {
