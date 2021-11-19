@@ -38,8 +38,8 @@ const PastVoteItems = () => {
                 <div className="desc-container">
                     <div className="desc-link-container">
                         { r.accountID && (
-                            <Link to={{ pathname: `/account/address/${r.accountID}` }}>
-                                <a className="link-black latestReport">{r.hiddenID}</a>
+                            <Link to={{ pathname: `/account/address/${r.accountID}` }} className="link-black latestReport">
+                                {r.hiddenID}
                             </Link>
                         )}
                         <div className="page-text-black desc item">{r.description}</div>

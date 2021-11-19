@@ -51,8 +51,8 @@ const LiveDatapoints = () => {
             render: (t, r) => ( 
                 <div className="reportby">
                 <img src={r.avatar} />
-                    <Link to={{ pathname: `/account/address/${r.accountID}`}}>
-                        <a className="link-black latestReport">{r.latestReportBy}</a>
+                    <Link to={{ pathname: `/account/address/${r.accountID}`}} className="link-black latestReport">
+                        {r.latestReportBy}
                     </Link>
                 </div>),
             filters: [

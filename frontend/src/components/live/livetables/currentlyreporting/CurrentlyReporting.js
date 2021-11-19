@@ -38,8 +38,8 @@ const CurrentlyReporting = () => {
             render: (t, r) => ( 
                 <div className="reportby">
                     <img src={r.avatar} />
-                    <Link to={{ pathname: `/account/address/${r.accountID}`}}>
-                        <a className="link-black latestReport">{r.reporter}</a>
+                    <Link to={{ pathname: `/account/address/${r.accountID}`}} className="link-black latestReport">
+                        {r.reporter}
                     </Link>
                 </div>),
             filters: [
