@@ -15,7 +15,12 @@ const Account = () => {
 
     const [currentUser, setCurrentUser] = useContext(UserContext);
 
-    const [account, setAccount] = useState();
+    const [account, setAccount] = useState({
+        address: '',
+        addressHidden: '',
+        avatar: Avatar,
+        trb: 0,
+    });
     const [showConnected, setShowConnected] = useState(false);
     const [isReporter, setIsReporter] = useState(false);
     const [reporting, setReporting] = useState({});
@@ -42,9 +47,9 @@ const Account = () => {
                 if (balance < 100) {
                     setReporting({
                         earned: balance,
-                        current: "",
+                        current: "ETH/USD",
                         total: 0,
-                        lastReported: ""
+                        lastReported: "4 days ago"
                     });
                     //TODO : set History if any
                     //setHistory();
@@ -61,32 +66,29 @@ const Account = () => {
             })
         } else {
             //else set up unconnected display
+            //TODO: add clicked account
+            setAccount({
+                address: urlAddress,
+                addressHidden: (urlAddress.substring(0,6) + '...' + urlAddress.substring(urlAddress.length - 4)),//truncateAddr(urlAddress),
+                avatar: Avatar,
+                trb: 0,
+            })
+            //TODO : set reporter data
+            setIsReporter(false);
+            setReporting({
+                earned: 102,
+                current: "ETH/USD",
+                total: 88,
+                lastReported: "4 days ago"
+            });
+            //TODO : add real history
+            //setHistory(sampleHistory);
+            //TODO: use real data
+            setActivities(sampleActivities);
 
         }
-    },[currentUser])
+    },[urlAddress])
 
-    // TODO: replace variables with redux data
-    // const showConnected = true;
-    // const isReporter = true;
-    
-    const userAccount = {
-        address: '0x87e6987E',
-        addressHidden: '0x87e...6987E',
-        avatar: Avatar,
-        trb: 127,
-    };
-    const clickedAccount = {
-        address: urlAddress,
-        addressHidden: (urlAddress.substring(0,6) + '...' + urlAddress.substring(urlAddress.length - 4)),
-        avatar: Avatar,
-        trb: 0,
-    };
-    const sampleReporting = {
-        earned: 102,
-        current: "ETH/USD",
-        total: 88,
-        lastReported: "4 days ago"
-    }
     const sampleHistory = [
         {   
             key: 1,
@@ -228,8 +230,8 @@ const Account = () => {
                     activities={activities}
                     isReporter={isReporter} />
                 : <Unconnected 
-                    userAccount={userAccount} 
-                    clickedAccount={clickedAccount} 
+                    userAccount={account} 
+                    clickedAccount={account} 
                     reporting={reporting}
                     history={history}
                     activities={activities}
