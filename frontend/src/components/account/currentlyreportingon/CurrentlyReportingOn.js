@@ -22,11 +22,11 @@ const CurrentlyReportingOn = (props) => {
                 </div>
             )}
             <div className="CurrentlyReportingOn__metrics">
-                {/* current report */}
-                {/* <div className="container">
+                {/* earned */}
+                <div className="container">
                     <h3 className={`data-header ${dark}`}>Earned as reporter</h3>
-                    <p className={`data ${dark}`}>{data.earned} TRB</p>
-                </div> */}
+                    <p className={`data ${dark}`}>{isReporter ? data.earned : 0} TRB</p>
+                </div>
                 {/* current report */}
                 <div className="container">
                     <h3 className={`data-header ${dark}`}>Currently reporting on</h3>
@@ -48,7 +48,7 @@ const CurrentlyReportingOn = (props) => {
     };
 
 CurrentlyReportingOn.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.object,
     isReporter: PropTypes.bool
 }
 
