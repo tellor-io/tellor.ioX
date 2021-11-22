@@ -1,0 +1,68 @@
+@import '../../../style/index.scss';
+
+.ActivityFeed {
+    width: 100%;
+    
+    .desc-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        p {
+            font-size: 1rem !important;
+        }
+        a {
+            @include rightrow;
+            font-size: 0.75rem !important;
+            width: 95px;
+            justify-content: flex-end;
+        }
+    } 
+
+    .ant-table {
+        @include sixteenpxfont;
+        font-weight: 400;
+        background-color: $background;
+    }
+    .ant-table-tbody > tr > td {
+        border-bottom: 1px solid white;
+        color: white;
+        background-color: $background;
+    }
+    .ant-table-tbody > tr:hover > td {
+        background-color: #3a3a3a;
+    }
+    .ant-table-thead > tr > th {
+        @include twelvepxfont;
+        background: none;
+        border: none !important;
+        text-transform: lowercase;
+        font-weight: 300;
+        color: white;
+    }
+    .ant-table-thead
+    > tr
+    > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+        display: none;
+    }
+
+    button.ant-pagination-item-link {
+        color: white;
+    }
+    li.ant-pagination-item > a {
+        color: white;
+    }
+    .ant-empty-description {
+        color: white;
+    }
+
+    .empty {
+        color: white;
+    }
+    .empty-container{
+        margin: 6% 0;
+        width: 100%;
+        border-bottom: 1px solid white;
+    }
+} 

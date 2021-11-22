@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8a310695.chunk.css",
+    "main.js": "/static/js/main.79bd822c.chunk.js",
+    "main.js.map": "/static/js/main.79bd822c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7b8a6c02.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7b8a6c02.js.map",
+    "static/css/2.f7155be4.chunk.css": "/static/css/2.f7155be4.chunk.css",
+    "static/js/2.e483757c.chunk.js": "/static/js/2.e483757c.chunk.js",
+    "static/js/2.e483757c.chunk.js.map": "/static/js/2.e483757c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f7155be4.chunk.css.map": "/static/css/2.f7155be4.chunk.css.map",
+    "static/css/main.8a310695.chunk.css.map": "/static/css/main.8a310695.chunk.css.map",
+    "static/js/2.e483757c.chunk.js.LICENSE.txt": "/static/js/2.e483757c.chunk.js.LICENSE.txt",
+    "static/media/Chains.0de37a63.svg": "/static/media/Chains.0de37a63.svg",
+    "static/media/Discord2.0ca36482.svg": "/static/media/Discord2.0ca36482.svg",
+    "static/media/Discord_white.983fa433.svg": "/static/media/Discord_white.983fa433.svg",
+    "static/media/Github.1e013e5a.svg": "/static/media/Github.1e013e5a.svg",
+    "static/media/index.scss": "/static/media/Renogare-Regular.156af8ed.woff",
+    "static/media/Swoosh.78d8a402.svg": "/static/media/Swoosh.78d8a402.svg",
+    "static/media/TforTelliot.scss": "/static/media/Telliot_bg.feecb0b7.png",
+    "static/media/Telliot_solo.c9ba6648.png": "/static/media/Telliot_solo.c9ba6648.png",
+    "static/media/Twitter.647f21e0.svg": "/static/media/Twitter.647f21e0.svg",
+    "static/media/discord_icon_blue.6ceea1a5.svg": "/static/media/discord_icon_blue.6ceea1a5.svg",
+    "static/media/down-carrot.16f2d6af.svg": "/static/media/down-carrot.16f2d6af.svg",
+    "static/media/dropdown.17bd7be1.svg": "/static/media/dropdown.17bd7be1.svg",
+    "static/media/howitworks.31f56eff.png": "/static/media/howitworks.31f56eff.png",
+    "static/media/refresh.8e6b29c7.svg": "/static/media/refresh.8e6b29c7.svg",
+    "static/media/search.a301a522.svg": "/static/media/search.a301a522.svg",
+    "static/media/telliot.c6abdf82.svg": "/static/media/telliot.c6abdf82.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7b8a6c02.js",
+    "static/css/2.f7155be4.chunk.css",
+    "static/js/2.e483757c.chunk.js",
+    "static/css/main.8a310695.chunk.css",
+    "static/js/main.79bd822c.chunk.js"
+  ]
+}

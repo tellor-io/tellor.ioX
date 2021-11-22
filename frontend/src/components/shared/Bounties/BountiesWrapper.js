@@ -10,13 +10,18 @@ export default function BountiesWrapper(props) {
   const [toggle, setToggle] = useState(false);
   const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
 
-  const { hideHeader, darkBackground } = props;
+  const { 
+    hideHeader,
+    darkBackground,
+    hidePadding 
+  } = props;
 
   //dynamic className
   const classType = darkBackground ? "BountiesWrapperDark" : "BountiesWrapper";
+  const padding = hidePadding ? "no-padding" : "padding";
 
   return (
-    <div className={classType}>
+    <div className={`${classType}  ${padding}`}>
       {/* show or hide header */}
       {!hideHeader && (
         <div className={`${classType}__title`}>
@@ -91,4 +96,5 @@ export default function BountiesWrapper(props) {
 BountiesWrapper.propTypes = {
   hideHeader: PropTypes.bool,
   darkBackground: PropTypes.bool,
+  hidePadding: PropTypes.bool
 };
