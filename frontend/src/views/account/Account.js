@@ -230,8 +230,7 @@ const Account = () => {
                     activities={activities}
                     isReporter={isReporter} />
                 : <Unconnected 
-                    userAccount={account} 
-                    clickedAccount={account} 
+                    account={account} 
                     reporting={reporting}
                     history={history}
                     activities={activities}

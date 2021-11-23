@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 const Unconnected = (props) => {
     //component props
     const { 
-        clickedAccount,
+        account,
         reporting,
         history,
         activities, 
@@ -24,7 +24,7 @@ const Unconnected = (props) => {
             //clicked account is reporter
             return (
                 <>
-                    <UserWidget isConnected={false} account={clickedAccount}/>
+                    <UserWidget isConnected={false} account={account}/>
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
                     <ActivityFeed data={activities} />
@@ -34,7 +34,7 @@ const Unconnected = (props) => {
             //clicked account is not reporter
             return (
                 <>
-                    <UserWidget isConnected={false} account={clickedAccount}/>
+                    <UserWidget isConnected={false} account={account}/>
                     <ActivityFeed data={activities} />
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
@@ -53,7 +53,7 @@ const Unconnected = (props) => {
 };
 
 Unconnected.propTypes = {
-    clickedAccount: PropTypes.object.isRequired,
+    account: PropTypes.object.isRequired,
     reporting: PropTypes.object,
     history: PropTypes.array,
     activities: PropTypes.array,
