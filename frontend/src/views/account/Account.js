@@ -21,6 +21,7 @@ const Account = () => {
         avatar: Avatar,
         trb: 0,
     });
+
     const [showConnected, setShowConnected] = useState(false);
     const [isReporter, setIsReporter] = useState(false);
     const [reporting, setReporting] = useState({});
@@ -223,8 +224,7 @@ const Account = () => {
         <div className="viewContainer">
             { showConnected
                 ? <Connected 
-                    userAccount={account} 
-                    clickedAccount={account} 
+                    account={account} 
                     reporting={reporting}
                     history={history}
                     activities={activities}

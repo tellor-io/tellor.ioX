@@ -12,8 +12,7 @@ import PropTypes from 'prop-types'
 const Connected = (props) => {
     //component props
     const { 
-        userAccount,
-        clickedAddress,
+        account,
         reporting,
         history,
         activities,
@@ -29,8 +28,8 @@ const Connected = (props) => {
             //not active, not a reporter
             return (
                 <>
-                    <MessageBox isNew={isNew} account={userAccount}/>
-                    <UserWidget isConnected={true} account={userAccount}/>
+                    <MessageBox isNew={isNew} account={account}/>
+                    <UserWidget isConnected={true} account={account}/>
                     <ActivityFeed data={activities} />
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
@@ -40,9 +39,9 @@ const Connected = (props) => {
             //active, not a report
             return (
                 <>
-                    <UserWidget isConnected={true} account={userAccount}/>
+                    <UserWidget isConnected={true} account={account}/>
                     <ActivityFeed data={activities} />
-                    <MessageBox isNew={isNew} account={userAccount}/>
+                    <MessageBox isNew={isNew} account={account}/>
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
                 </>
@@ -51,7 +50,7 @@ const Connected = (props) => {
             //active, is reporter
             return ( 
                 <>
-                    <UserWidget isConnected={true} account={userAccount}/>
+                    <UserWidget isConnected={true} account={account}/>
                     <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
                     <ActivityFeed data={activities} />
@@ -70,7 +69,7 @@ const Connected = (props) => {
 };
 
 Connected.propTypes = {
-    userAccount: PropTypes.object.isRequired,
+    account: PropTypes.object.isRequired,
     clickedAccount: PropTypes.object.isRequired,
     reporting: PropTypes.object,
     history: PropTypes.array,
