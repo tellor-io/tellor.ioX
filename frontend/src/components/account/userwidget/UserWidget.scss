@@ -33,14 +33,23 @@
         }
     }
     @media (max-width: 810px) {
+        padding: 8% 4%;
         &__left {
+            img {
+                width: 35px;
+            }
             &__address {
                 margin-left: 10px;
+                p {
+                    height: 4px;   
+                    font-size: 12px !important;
+                }
             }
         }
         &__right {
             p {
-                width: 50px;
+                width: 50px; 
+                font-size: 1.25rem !important;
             }
         }
      }
