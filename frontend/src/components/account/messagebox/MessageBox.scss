@@ -19,6 +19,9 @@
     .messagebox-text {
         height: 5px;
     }
+    .main-description {
+        max-width: 900px;
+    }
     .bold {
        font-weight: 500;
     }
@@ -27,13 +30,11 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        // align-items: center;
 
     }
     .messagebox-buttons {
-        //@include leftrow;
         button {
-            min-width: 280px !important;
+            min-width: 280px;
             background-color: $background;
             font-size: 1rem;
             color: white;
@@ -51,6 +52,10 @@
         font-weight: bold;
         &:hover {
             color: $real-tellor-green;
+        }
+        @media (max-width: 810px) {
+            margin-top: 30px;
+            align-self: center;
         }
     }
     
@@ -72,22 +77,47 @@
         padding-top: 4%;
     }
     @media (max-width: 810px) {
-        .messagebox-text {
-            padding: 10% 0 ;
-        }
         .showinfo-container {
             padding: 20% 0;
-        }
-        .messagebox-actions {
-            padding: 10% 0 5% 0;
-        }
-        .messagebox-buttons {
-            button {
-                margin-top: 5%;
-            }
         }
         .toggle-bounties {
             padding-top: 2%;
         }
+        .messagebox-header {
+            padding-top:15px;
+            padding-left:15px;
+            //@include centeredcolumn;
+        }
+        .messagebox-text {
+            padding: 30px 15px 0 15px;
+            min-height: 40px;
+            @include centeredcolumn;
+        }
+        .main-description {
+            margin-top:10px;
+        }
+        .messagebox-actions {  
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // padding-top: 20px;
+            padding: 20px 15px;
+        }
+        .messagebox-buttons {  
+            @include centeredcolumn;
+            //align-self: center;
+            button {
+                align-self: flex-end;
+                margin-top: 10px;
+                height: 60px;
+                min-width: 250px;
+            }
+        }   
+    }
+    @media (max-width: 400px) { 
+        .messagebox-buttons {  
+            align-self: flex-start;
+        }   
     }
 } 

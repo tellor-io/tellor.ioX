@@ -65,6 +65,7 @@ const Account = () => {
             //set activity fields
             //TODO: use real data
             //setActivities(sampleActivities);
+            setActivities([]);
             setShowConnected(true);
         } else {
             //else set up unconnected display
@@ -87,9 +88,9 @@ const Account = () => {
             //setHistory(sampleHistory);
             //TODO: use real data
             setActivities(sampleActivities);
-
+            
         }
-    },[urlAddress])
+    },[currentUser])
 
     const sampleHistory = [
         {   
