@@ -23,7 +23,7 @@ const Connected = (props) => {
     const Display = () => {
         //user is new if there are no activities
         const isNew = activities.length > 0 ? false : true;
-        console.log('isNew, ', activities.length)
+
         if (!isReporter && isNew) {
             //not active, not a reporter
             return (

@@ -7,7 +7,7 @@ const CurrentlyReportingOn = (props) => {
     const { 
         data,
         account,
-        isReporter,
+        isReporter, 
         isConnected 
     } = props; 
 
@@ -48,7 +48,7 @@ const CurrentlyReportingOn = (props) => {
                     <p className={`data ${dark}`}>{isReporter ? data.total : 0}</p>
                 </div>
                 {/*  last reported */}
-                <div className="container">
+                <div className="container container-last">
                     <h3 className={`data-header ${dark}`}>Last report event</h3>
                     <p className={`data ${dark}`}>{isReporter ? data.lastReported : "N/a"}</p>
                 </div>

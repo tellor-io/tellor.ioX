@@ -12,7 +12,7 @@ import Avatar from 'assets/AvatarDark.png';
 const Account = () => {
     //Makes page load at top
     window.scrollTo(0, 0);
-
+    const urlAddress = useParams().address;
     const [currentUser, setCurrentUser] = useContext(UserContext);
 
     const [account, setAccount] = useState({
@@ -27,10 +27,9 @@ const Account = () => {
     const [reporting, setReporting] = useState({});
     const [history, setHistory] = useState([]);
     const [activities, setActivities] = useState([]);
-
-    const urlAddress = useParams().address;
-
+ 
     useEffect(() => {
+        console.log('urlAddress: ', urlAddress)
         //if logged in and address matches url then send to connected
         if (currentUser && currentUser.address == urlAddress) {
             currentUser.contracts.balanceOf(currentUser.address).then(result => {
@@ -90,7 +89,7 @@ const Account = () => {
             setActivities(sampleActivities);
             
         }
-    },[currentUser])
+    },[currentUser, urlAddress])
 
     const sampleHistory = [
         {   

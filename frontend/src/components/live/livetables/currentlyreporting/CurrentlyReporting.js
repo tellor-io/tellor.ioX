@@ -86,7 +86,9 @@ const CurrentlyReporting = () => {
             render: (t, r) => ( 
                 <div className="reportby">
                     <img src={r.avatar} />
-                    <p className="page-text-black  latestReport">{r.reporter}</p>
+                    <Link to={{ pathname: `/account/address/${r.accountID}`}} className="link-black latestReport">
+                        {r.reporter}
+                    </Link>
                 </div>),
             filters: [
                 { text: "E0x44pl...8879", value: "0x44pl...8879" },

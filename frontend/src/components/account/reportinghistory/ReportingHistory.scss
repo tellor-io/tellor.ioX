@@ -73,4 +73,7 @@
         width: 100%;
         border-bottom: 1px solid $darkestgrey;
     }
+    @media (max-width: 810px) { 
+        padding-bottom: 10%;
+    }
 }
