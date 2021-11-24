@@ -3,18 +3,21 @@ import "./HomeDatapoints.scss";
 import Datapoint from "../../shared/Datapoint/Datapoint";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function HomeDatapoints({ events }) {
+export default function HomeDatapoints() {
   //Component State
   const [homeDataPoints, setHomeDataPoints] = useState([]);
   const [dataPointsTotal, setDataPointsTotal] = useState(0);
+  const eventsFromRedux = useSelector((state) => state.graphEvents.eventsData);
+  console.log("FROM COMPONENT", eventsFromRedux);
 
   useEffect(() => {
-    if (events) {
-      setHomeDataPoints(events.slice(0, 5));
-      setDataPointsTotal(events.length);
+    if (eventsFromRedux) {
+      setHomeDataPoints(eventsFromRedux.slice(0, 5));
+      setDataPointsTotal(eventsFromRedux.length);
     }
-  }, [events]);
+  }, [eventsFromRedux]);
 
   return (
     <div className="HomeDatapoints">

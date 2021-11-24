@@ -8,7 +8,6 @@ TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 export default function Datapoint({ data }) {
-  console.log(data);
   const timeToUse = data._time ? data._time : data.timestamp;
   //Globals
   const time = timeAgo.format(new Date(timeToUse * 1000), "round");

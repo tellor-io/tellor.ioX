@@ -123,7 +123,7 @@ query {
 ////NEW GRAPHQL QUERIES
 
 export const GET_ALL_REPORTER_EVENTS = gql`
-  query {
+  {
     reportEntities(orderBy: _time, orderDirection: desc) {
       id
       _nonce
