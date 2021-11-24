@@ -6,7 +6,9 @@ const CurrentlyReportingOn = (props) => {
 
     const { 
         data,
-        isReporter 
+        account,
+        isReporter,
+        isConnected 
     } = props; 
 
     //used to display empty data styles
@@ -15,10 +17,18 @@ const CurrentlyReportingOn = (props) => {
     //displays user reporting metrics 
     return (
         <div className="CurrentlyReportingOn">
-            {!isReporter && (
+            {/* lock icon for user looking at account */}
+            {(!isReporter && isConnected) && (
                 <div className="lock-container">
                     <img src={LockIcon} className="lock-icon"/>
                     <p className="page-text lock-text">You need 100 TRB to become a reporter.</p>
+                </div>
+            )}
+            {/* lock icon for user not looking at account */}
+            {(!isReporter && !isConnected) && (
+                <div className="lock-container">
+                    <img src={LockIcon} className="lock-icon"/>
+                    <p className="page-text lock-text">${account.addressHidden} has not reported yet.</p>
                 </div>
             )}
             <div className="CurrentlyReportingOn__metrics">
@@ -49,7 +59,9 @@ const CurrentlyReportingOn = (props) => {
 
 CurrentlyReportingOn.propTypes = {
     data: PropTypes.object,
-    isReporter: PropTypes.bool
+    account: PropTypes.object,
+    isReporter: PropTypes.bool,
+    isConnected: PropTypes.bool
 }
 
 export default CurrentlyReportingOn; 

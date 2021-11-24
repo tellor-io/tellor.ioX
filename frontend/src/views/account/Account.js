@@ -42,10 +42,9 @@ const Account = () => {
                     avatar: Avatar,
                     trb: balance,
                 })
-                setShowConnected(true);
-                //set reporting fields
-                //TODO: set total report events if any 
+                //if user is not a reporter
                 if (balance < 100) {
+                    //TODO: set total report events if any 
                     setReporting({
                         earned: balance,
                         current: "ETH/USD",
@@ -56,15 +55,17 @@ const Account = () => {
                     //setHistory();
                     
                 } else {
-                    //if reporting 
+                    //if user is a reporter 
                     setIsReporter(true);
                     //TODO : add real history
                     setHistory(sampleHistory);
                 }
-                //set activity fields
-                //TODO: use real data
-                setActivities(sampleActivities);
             })
+
+            //set activity fields
+            //TODO: use real data
+            //setActivities(sampleActivities);
+            setShowConnected(true);
         } else {
             //else set up unconnected display
             //TODO: add clicked account

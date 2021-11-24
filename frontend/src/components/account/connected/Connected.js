@@ -23,7 +23,7 @@ const Connected = (props) => {
     const Display = () => {
         //user is new if there are no activities
         const isNew = activities.length > 0 ? false : true;
-
+        console.log('isNew, ', activities.length)
         if (!isReporter && isNew) {
             //not active, not a reporter
             return (
@@ -31,7 +31,7 @@ const Connected = (props) => {
                     <MessageBox isNew={isNew} account={account}/>
                     <UserWidget isConnected={true} account={account}/>
                     <ActivityFeed data={activities} />
-                    <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
+                    <CurrentlyReportingOn data={reporting} isReporter={isReporter} isConnected={true} />
                     <ReportingHistory data={history}/>
                 </>
             )
@@ -42,7 +42,7 @@ const Connected = (props) => {
                     <UserWidget isConnected={true} account={account}/>
                     <ActivityFeed data={activities} />
                     <MessageBox isNew={isNew} account={account}/>
-                    <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
+                    <CurrentlyReportingOn data={reporting} isReporter={isReporter} isConnected={true} />
                     <ReportingHistory data={history}/>
                 </>
             )
@@ -51,7 +51,7 @@ const Connected = (props) => {
             return ( 
                 <>
                     <UserWidget isConnected={true} account={account}/>
-                    <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
+                    <CurrentlyReportingOn data={reporting} isReporter={isReporter} isConnected={true} />
                     <ReportingHistory data={history}/>
                     <ActivityFeed data={activities} />
                 </> 
@@ -70,7 +70,6 @@ const Connected = (props) => {
 
 Connected.propTypes = {
     account: PropTypes.object.isRequired,
-    clickedAccount: PropTypes.object.isRequired,
     reporting: PropTypes.object,
     history: PropTypes.array,
     activities: PropTypes.array,

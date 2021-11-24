@@ -25,7 +25,7 @@ const Unconnected = (props) => {
             return (
                 <>
                     <UserWidget isConnected={false} account={account}/>
-                    <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
+                    <CurrentlyReportingOn data={reporting} account={account} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
                     <ActivityFeed data={activities} />
                 </>
@@ -36,7 +36,7 @@ const Unconnected = (props) => {
                 <>
                     <UserWidget isConnected={false} account={account}/>
                     <ActivityFeed data={activities} />
-                    <CurrentlyReportingOn data={reporting} isReporter={isReporter}/>
+                    <CurrentlyReportingOn data={reporting} account={account} isReporter={isReporter}/>
                     <ReportingHistory data={history}/>
                 </>
             )
