@@ -8,6 +8,7 @@ import { chains } from 'utils/chains';
 import { truncateAddr } from 'utils/helpers';
 import { fromWei } from 'utils/helpers';
 import { Jazzicon } from '@ukstv/jazzicon-react';
+import { Link } from "react-router-dom";
 
 import './HeaderNav/HeaderNav.scss';
 
@@ -41,17 +42,26 @@ export const Web3SignIn = ({activeDisputesCount}) => {
   
   return (
     (currentUser) ? 
-    <Dropdown
-    overlay={headerdropdown}
-    trigger={['click']}
-    >  
+    // <Dropdown
+    // overlay={headerdropdown}
+    // trigger={['click']}
+    // >  
+    //   <Button className="gotAddress">
+    //     <div className="avatar">
+    //       <Jazzicon address={currentUser.address} />
+    //     </div>
+    //     {truncateAddr(currentUser.address)}
+    //   </Button>
+    // </Dropdown>
+
+    <Link to={{ pathname: `/account/address/${currentUser.address}`}} className="no-underline">
       <Button className="gotAddress">
-        <div className="avatar">
-          <Jazzicon address={currentUser.address} />
-        </div>
-        {truncateAddr(currentUser.address)}
-      </Button>
-    </Dropdown>
+          <div className="avatar">
+            <Jazzicon address={currentUser.address} />
+          </div>
+          {truncateAddr(currentUser.address)}
+        </Button>
+    </Link> 
     : (
       <Button
         type="default"

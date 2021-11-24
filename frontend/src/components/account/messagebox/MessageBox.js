@@ -48,7 +48,7 @@ const MessageBox = (props) => {
                 <div className={`messagebox-container container-${display.style}`}>
                     {/* intro content */}
                     <h3 className="messagebox-header">{display.header}</h3>
-                    <p className="page-text messagebox-text">{display.mainDescription}</p>
+                    <p className="page-text messagebox-text main-description">{display.mainDescription}</p>
                     
                     {/* expandable content */}
                     {showInfo && (
@@ -80,17 +80,17 @@ const MessageBox = (props) => {
                         </div>
                     )}
 
-                    <p className="page-text messagebox-text bold">{display.subDescription}</p>
+                    <p className="page-text messagebox-text bold sub-description">{display.subDescription}</p>
                     {/* action items */}
                     <div className="messagebox-actions">
                         <div className="messagebox-buttons">
-                            <button onClick={ () => setShowInfo(!showInfo) }>
+                            <button className="messagebox-button" onClick={ () => setShowInfo(!showInfo) }>
                                 {!showInfo 
                                     ? "tell me more" 
                                     : "hide info"
                                 }
                             </button>
-                            <button onClick={ () => setShowBounties(!showBounties) }>
+                            <button className="messagebox-button" onClick={ () => setShowBounties(!showBounties) }>
                                 {!showBounties 
                                     ? "show Tellor bounties" 
                                     : "hide Tellor bounties"
