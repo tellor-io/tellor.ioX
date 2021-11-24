@@ -1,4 +1,6 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
+
+////LEGACY GRAPHQL QUERIES FROM TELLORSCAN
 
 export const GET_LATEST_MINER_VALUES = gql`
   query {
@@ -32,7 +34,6 @@ const eventFields = `
     values
   }
 `;
-
 
 export function GET_LATEST_EVENTS_BY_ID(id) {
   return gql`
@@ -117,4 +118,21 @@ query {
     ${voteFields}
   }
 }
+`;
+
+////NEW GRAPHQL QUERIES
+
+export const GET_ALL_REPORTER_EVENTS = gql`
+  query {
+    reportEntities(orderBy: _time, orderDirection: desc) {
+      id
+      _nonce
+      _queryData
+      _queryId
+      _reward
+      _time
+      _value
+      _reporter
+    }
+  }
 `;

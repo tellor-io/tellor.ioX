@@ -12,13 +12,17 @@ import Blog from "views/blog/Blog";
 import BlogPostView from "views/blogPost/BlogPostView";
 import Live from "views/live/Live";
 
-const Routes = () => (
+const Routes = ({ events }) => (
   <Switch>
-    <Route path="/" exact render={() => <Home />} />
+    <Route path="/" exact render={() => <Home events={events} />} />
     <Route path="/usetellor" exact render={() => <UseTellor />} />
     <Route path="/trb" exact render={() => <TRB />} />
     <Route path="/becomereporter" exact render={() => <BecomeReporter />} />
-    <Route path="/requestnew" exact render={() => <RequestNew />} />
+    <Route
+      path="/requestnew"
+      exact
+      render={() => <RequestNew events={events} />}
+    />
     <Route path="/abouttellor" exact render={() => <AboutTellor />} />
     <Route path="/getinvolved" exact render={() => <GetInvolved />} />
     <Route path="/howitworks" exact render={() => <HowItWorks />} />

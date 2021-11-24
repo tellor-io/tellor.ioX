@@ -7,7 +7,7 @@ import HeaderNav from "components/shared/HeaderNav/HeaderNav";
 import Footer from "components/shared/Footer/Footer";
 import GraphFetch from "components/shared/GraphFetch";
 import { NetworkContext } from "contexts/Network";
-import { GET_ALL_EVENTS } from "utils/queries";
+import { GET_ALL_REPORTER_EVENTS } from "utils/queries";
 import { GET_VOTING } from "utils/queries";
 
 import { UserContext } from "contexts/User";
@@ -40,8 +40,9 @@ const App = (props) => {
   } = props;
 
   useEffect(() => {
+    console.log(currentNetwork);
     startGetPrices(currentNetwork);
-    startStrapiData();
+    // startStrapiData();
     startCoinGecko();
     startGitHub();
     startTwitter();
@@ -63,8 +64,8 @@ const App = (props) => {
   }, [votes, currentUser]);
 
   console.log("events:::", events);
-  console.log("prices:::", prices);
-  console.log("disputes:::", disputes);
+  // console.log("prices:::", prices);
+  // console.log("disputes:::", disputes);
 
   return (
     <>
@@ -74,16 +75,16 @@ const App = (props) => {
         </Helmet>
         <Router>
           <HeaderNav />
-          <Routes />
+          <Routes events={events} />
           <Footer />
         </Router>
       </Fragment>
-      <GraphFetch query={GET_ALL_EVENTS} setRecords={setEvents} />
-      <GraphFetch
+      <GraphFetch query={GET_ALL_REPORTER_EVENTS} setRecords={setEvents} />
+      {/* <GraphFetch
         query={GET_VOTING}
         setRecords={setVotes}
         suppressLoading={true}
-      />
+      /> */}
     </>
   );
 };

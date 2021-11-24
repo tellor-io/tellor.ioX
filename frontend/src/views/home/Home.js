@@ -7,14 +7,14 @@ import TforTelliot from "components/home/tfortelliot/TforTelliot";
 import OnlyAsDecentral from "components/home/onlyasdecentral/OnlyAsDecentral";
 import BountiesWrapper from "components/shared/Bounties/BountiesWrapper";
 
-export default function Home() {
+export default function Home({ events }) {
   return (
     <div className="viewContainer">
       <Whatsnew />
-      <HomeDatapoints />
+      <HomeDatapoints events={events} />
       <HomeCurrentReporters />
-     <TforTelliot />
-      <OnlyAsDecentral /> 
+      <TforTelliot />
+      <OnlyAsDecentral />
       <BountiesWrapper />
     </div>
   );

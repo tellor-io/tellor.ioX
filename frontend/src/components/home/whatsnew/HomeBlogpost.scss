@@ -1,59 +1,60 @@
-@import '../../../style/index.scss';
-
+@import "../../../style/index.scss";
 
 .HomeBlogpost {
-    @include leftrow;
-    align-items: flex-start;
-    flex: 1;
-    height: 187px;
-    background-color: #1F1F1F;
-    max-width: 716px;
+  @include leftrow;
+  align-items: flex-start;
+  flex: 1;
+  height: 187px;
+  background-color: #1f1f1f;
+  max-width: 716px;
+  @media (max-width: 1024px) {
+    @include leftcolumn;
+    justify-content: flex-start;
+    height: 240px;
+    width: 345px;
+    flex: none;
+  }
+
+  &__image {
+    height: 100%;
+    overflow: hidden;
+    @include centeredrow;
     @media (max-width: 1024px) {
-        @include leftcolumn;
-        justify-content: flex-start;
-        height: 240px;
-        width: 345px;
-        flex: none;
+      height: 130px;
     }
-
-    &__image {
-        height: 100%;
-        overflow:hidden;
-        @include centeredrow;
-        @media (max-width: 1024px) {
-            height: 130px;
-        }
-        img {
-            width: 100%;
-        }
+    img {
+      width: 100%;
     }
-    &__txt {
-        width: 58%;
-        height: 100%;
-        flex: 1;
-        padding: 32px 25px 0 38px;
-        min-width: 292px;
-        @media (max-width: 1024px) {
-            width: 100%;
-            height: 208px;
-            padding: 20px 20px 0 30px;
-        }
-        p {
-            color: white;
-            @media (max-width: 1024px) {
-                font-size: 0.75rem !important;
-                margin: 0;
-            }
-        }
-        h4 {
-            color: white;
-            font-family: 'Renogare Regular';
-            font-size: 1.25rem;
-            @media (max-width: 1024px) {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
+  }
+  &__txt {
+    width: 58%;
+    height: 100%;
+    flex: 1;
+    padding: 32px 25px 0 38px;
+    min-width: 292px;
+    @media (max-width: 1024px) {
+      width: 100%;
+      height: 208px;
+      padding: 20px 20px 0 30px;
     }
+    p {
+      color: white;
+      @media (max-width: 1024px) {
+        font-size: 0.75rem !important;
+        margin: 0;
+      }
+    }
+    h4 {
+      color: white;
+      font-family: "Renogare Regular";
+      font-size: 1.25rem;
+      @media (max-width: 1024px) {
+        font-size: 1rem;
+        line-height: 1.375rem;
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
-
