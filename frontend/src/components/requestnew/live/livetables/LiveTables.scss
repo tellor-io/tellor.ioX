@@ -1,0 +1,43 @@
+@import '../../../style/index.scss';
+
+.LiveTables {
+    padding: 0 12% 4% 12%;
+    background-color: white;
+    width: 100%;
+    .ant-table {
+        @include sixteenpxfont;
+        font-weight: 400;
+    }
+    .ant-table-tbody > tr > td {
+        border-bottom: 1px solid $background;
+    }
+    
+    .ant-table-thead > tr > th {
+        @include twelvepxfont;
+        background: none;
+        border: none !important;
+        text-transform: lowercase;
+        font-weight: 300;
+    }
+
+    .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+        display: none;
+   }
+
+   .reportby {
+        @include leftrow;
+    }
+    .latestReport {
+        margin: 0 0 0 14px;
+    }
+    a {
+        @include rightrow;
+        color: $background;
+     }
+    a:hover {
+        color: $real-tellor-green;
+      }
+    a:visited {
+        color: $background;
+    }
+}

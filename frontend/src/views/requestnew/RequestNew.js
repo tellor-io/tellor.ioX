@@ -8,7 +8,7 @@ const RequestNew = () => {
     return (
         <div className="viewContainer">
             <RequestIntro />
-            <RequestDatapoints />
+            {/* <RequestDatapoints /> */}
         </div>
     )
 }

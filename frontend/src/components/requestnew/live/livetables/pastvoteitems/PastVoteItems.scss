@@ -1,0 +1,68 @@
+@import '../../../../style/index.scss';
+
+.PastVoteItems {
+    padding: 0 0 2.5% 0;
+    
+    .ant-table-tbody td:first-child {
+        border-left: 1px solid #C4C4C4;
+    }
+    .ant-table-tbody td:last-child {
+        border-right: 1px solid #C4C4C4;
+    }
+     
+    .ant-table-tbody > tr > td {
+        border-bottom: 1px solid #C4C4C4;
+    }
+    .ant-table-tbody > tr:first-child > td {
+        border-top: 1px solid #C4C4C4;
+    }
+    .ant-table-thead > tr > th {
+        @include twelvepxfont;
+        background: none;
+        border: none !important;
+        text-transform: lowercase;
+        font-weight: 300;
+        border-bottom: 1px solid #C4C4C4;
+    }
+
+    a, a:hover, a:active, a:focus  {
+        color: $background;
+    }
+    
+    .desc-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        align-items: center;
+        height: 100%;
+    }        
+    .desc {
+        font-weight: 500;
+    }
+    .desc-link-container {
+        @include leftrow;
+        a {
+            @include rightrow;
+            color: $background;
+            padding-right: 5px;
+            margin-left: 0;
+        }
+        a:hover {
+            color: $real-tellor-green;
+        }
+        a:visited {
+            color: $background;
+        }
+    }
+    .status-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }  
+    .rejected-icon {
+        width: 15px;
+    } 
+}

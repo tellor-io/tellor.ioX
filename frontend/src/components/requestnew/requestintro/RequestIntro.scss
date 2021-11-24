@@ -19,13 +19,17 @@
   }
  
   &__actions {
-    @include centeredcolumn;
-        padding-top: 30px;
-        @media (max-width: 840px) {
-          width: 100%;
-        }
-        img {
-            margin-right: 20px;
-        }
+    @include centeredrow;
+    padding-top: 30px;
+    @media (max-width: 840px) {
+      width: 100%;
+      @include centeredcolumn;
+    }
+    img {
+        margin-right: 20px;
+    }
+  }
+  .request-text-container {
+    padding-top: 40px;
   }
 }
