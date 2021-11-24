@@ -21,12 +21,10 @@ const GraphFetch = ({ query, setRecords, variables, suppressLoading }) => {
   const web3 = new Web3(window.ethereum);
   const [currentNetwork] = useContext(NetworkContext);
   //Make sure you're on the right network before
-  //
+  //flipping out about 'Error: Query doesn't have
+  //reportEntities' etc....
   console.log(currentNetwork);
   const { loading, error, data } = useQuery(query, {
-    ///////////////////////////////////////////////////////////
-    //CHANGE THIS BACK TO clientM ONCE WE GO TO PRODUCTION!!!//
-    ///////////////////////////////////////////////////////////
     client: +currentNetwork === 1 ? clientM : clientR,
     variables,
     fetchPolicy: "network-only",
@@ -37,7 +35,6 @@ const GraphFetch = ({ query, setRecords, variables, suppressLoading }) => {
     if (data && data.reportEntities) {
       let newEvents = data.reportEntities.map((event) => {
         let clone = JSON.parse(JSON.stringify(event));
-        console.log(clone.queryData);
         clone.realValue = parseInt(Number(event._value), 10);
         clone.queryData = JSON.parse(JSON.stringify(clone._queryData));
         clone._reporter = web3.utils.toChecksumAddress(clone._reporter);
