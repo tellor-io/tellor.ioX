@@ -66,7 +66,7 @@ const App = (props) => {
     startTwitter();
     console.log("DATA IN USE EFFECT", data);
     startGetEvents(loading, error, data);
-  }, [currentNetwork]);
+  }, [currentNetwork, data]);
 
   useEffect(() => {
     if (votes && votes.disputes) {
