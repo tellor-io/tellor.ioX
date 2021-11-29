@@ -13,7 +13,7 @@ import BlogPostView from "views/blogPost/BlogPostView";
 import Live from "views/live/Live";
 import Account from "views/account/Account";
 
-const Routes = () => (
+const Routes = ({ events }) => (
   <Switch>
     <Route path="/" exact render={() => <Home />} />
     <Route path="/usetellor" exact render={() => <UseTellor />} />

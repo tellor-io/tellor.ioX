@@ -7,10 +7,11 @@ import HeaderNav from "components/shared/HeaderNav/HeaderNav";
 import Footer from "components/shared/Footer/Footer";
 import GraphFetch from "components/shared/GraphFetch";
 import { NetworkContext } from "contexts/Network";
-import { GET_ALL_EVENTS } from "utils/queries";
-import { GET_VOTING } from "utils/queries";
-
 import { UserContext } from "contexts/User";
+import { GET_ALL_REPORTER_EVENTS } from "utils/queries";
+import { ApolloClient, useQuery } from "@apollo/client";
+import { cache } from "utils/cache";
+import { chains } from "utils/chains";
 
 import { connect } from "react-redux";
 import {
@@ -19,7 +20,17 @@ import {
   getCoinGeckoPrice,
   getGithubInfo,
   getTwitterInfo,
+  getEvents,
 } from "redux/thunks";
+
+let clientM = new ApolloClient({
+  uri: chains[1].subgraphURL,
+  cache: cache,
+});
+let clientR = new ApolloClient({
+  uri: chains[4].subgraphURL,
+  cache: cache,
+});
 
 const App = (props) => {
   const [events, setEvents] = useState();
@@ -29,6 +40,13 @@ const App = (props) => {
   const [disputesReady, setDisputesReady] = useState(false);
 
   const [currentUser] = useContext(UserContext);
+
+  const { loading, error, data } = useQuery(GET_ALL_REPORTER_EVENTS, {
+    client: +currentNetwork === 1 ? clientM : clientR,
+    fetchPolicy: "network-only",
+    pollInterval: 5000,
+  });
+
   //redux variables, thunk methods
   const {
     prices,
@@ -37,6 +55,7 @@ const App = (props) => {
     startCoinGecko,
     startGitHub,
     startTwitter,
+    startGetEvents,
   } = props;
 
   useEffect(() => {
@@ -45,6 +64,8 @@ const App = (props) => {
     startCoinGecko();
     startGitHub();
     startTwitter();
+    console.log("DATA IN USE EFFECT", data);
+    startGetEvents(loading, error, data);
   }, [currentNetwork]);
 
   useEffect(() => {
@@ -62,9 +83,9 @@ const App = (props) => {
     }
   }, [votes, currentUser]);
 
-  console.log("events:::", events);
-  console.log("prices:::", prices);
-  console.log("disputes:::", disputes);
+  // console.log("events:::", events);
+  // console.log("prices:::", prices);
+  // console.log("disputes:::", disputes);
 
   return (
     <>
@@ -78,12 +99,12 @@ const App = (props) => {
           <Footer />
         </Router>
       </Fragment>
-      <GraphFetch query={GET_ALL_EVENTS} setRecords={setEvents} />
-      <GraphFetch
+      {/* <GraphFetch query={GET_ALL_REPORTER_EVENTS} setRecords={setEvents} /> */}
+      {/* <GraphFetch
         query={GET_VOTING}
         setRecords={setVotes}
         suppressLoading={true}
-      />
+      /> */}
     </>
   );
 };
@@ -99,6 +120,8 @@ const mapDispatchToProps = (dispatch) => ({
   startCoinGecko: () => dispatch(getCoinGeckoPrice()),
   startGitHub: () => dispatch(getGithubInfo()),
   startTwitter: () => dispatch(getTwitterInfo()),
+  startGetEvents: (loading, error, data) =>
+    dispatch(getEvents(loading, error, data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

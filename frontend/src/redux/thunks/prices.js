@@ -11,7 +11,7 @@ export const getPrices = (network) => (dispatch) => {
     //dispatch request
     dispatch(getPricesRequest());
     //fetch data
-    fetch(chains[network].apiURL + "/prices")
+    fetch(chains[network].subgraphURL)
       .then((response) => response.json())
       .then((data) => {
         //dispatch success

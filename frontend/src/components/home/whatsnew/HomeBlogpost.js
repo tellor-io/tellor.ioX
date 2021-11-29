@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import './HomeBlogpost.scss'
+import "./HomeBlogpost.scss";
 
 export default function HomeBlogpost() {
   const history = useHistory();
@@ -9,7 +9,6 @@ export default function HomeBlogpost() {
   const mostRecent = allBlogs[0];
 
   return (
-    
     <div className="HomeBlogpost" onClick={() => history.push("/blog")}>
       <div className="HomeBlogpost__image">
         <img src={"http://167.172.156.209:1337" + mostRecent.blogImage.url} />
@@ -20,6 +19,5 @@ export default function HomeBlogpost() {
         <h4>{mostRecent.title}</h4>
       </div>
     </div>
-
   );
 }
