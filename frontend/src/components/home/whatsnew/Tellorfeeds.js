@@ -42,9 +42,9 @@ export default function Tellorfeeds() {
   const twitterTextRef = useRef();
   //Media Query
   const isMobileHeader = useMediaQuery({ query: "(max-width: 600px)" });
-  const commitHelper = mostRecentGithubEvent.actorAndDate.split(" - ");
+  const commitHelper = Object.keys(mostRecentGithubEvent).length>1 && mostRecentGithubEvent.actorAndDate.split(" - ");
   const latestCommit = `Last commit ${commitHelper[1]}`;
-  const latestTweet = `Last tweet ${mostRecentTweet[indexer].formattedDate}`;
+  const latestTweet = `Last tweet ${mostRecentTweet.length>1 && mostRecentTweet[indexer].formattedDate}`;
 
   useEffect(() => {
     if (currGithubEvent && prevGithubEvent) {

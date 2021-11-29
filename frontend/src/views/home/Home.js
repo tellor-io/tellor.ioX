@@ -13,8 +13,8 @@ export default function Home() {
       <Whatsnew />
       <HomeDatapoints />
       <HomeCurrentReporters />
-     <TforTelliot />
-      <OnlyAsDecentral /> 
+      <TforTelliot />
+      <OnlyAsDecentral />
       <BountiesWrapper />
     </div>
   );

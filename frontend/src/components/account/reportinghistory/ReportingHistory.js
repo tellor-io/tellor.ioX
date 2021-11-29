@@ -94,7 +94,7 @@ const ReportingHistory = (props) => {
 
     const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
     //table
-    if (data.length > 0) {
+    if (data && data.length > 0) {
         return (
             <div className="ReportingHistory">
                 <div className="ReportingHistory__header">
