@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import './Information.scss'
-import howitworks from 'assets/howitworks.png'; 
+import howitworks from 'assets/howitworks.png';
+import howitworks_mobile from 'assets/howitworks_mobile.png'; 
 import reporters from 'assets/Reporters.png'; 
 import tipping from 'assets/Tipping.png'; 
 import disputes from 'assets/Disputes.png'; 
@@ -10,6 +12,8 @@ import trb from 'assets/TRB.png';
 import telliot from 'assets/Telliot.png'; 
 
 const Information = () => {    
+    const isSmallestSize = useMediaQuery({query: '(max-width: 669px)'});
+
     return (
         <div className="Information">
             
@@ -22,7 +26,11 @@ const Information = () => {
             </div>
 
             {/*  graphic */}
-            <img src={howitworks} alt="how it works" className="graphic" />
+            {isSmallestSize?
+                <img src={howitworks_mobile} alt="how it works" className="graphic" />
+            :
+                <img src={howitworks} alt="how it works" className="graphic" />
+            }
 
             {/*  Data reporters  */}
             <div className="Information__option">
