@@ -11,12 +11,12 @@ export const getPrices = (network) => (dispatch) => {
     //dispatch request
     dispatch(getPricesRequest());
     //fetch data
-    fetch(chains[network].subgraphURL)
-      .then((response) => response.json())
-      .then((data) => {
-        //dispatch success
-        dispatch(getPricesSuccess(data));
-      });
+    // fetch(chains[network].apiURL + "/prices")
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     //dispatch success
+    //     dispatch(getPricesSuccess(data));
+    //   });
   } catch (e) {
     console.error("error", e);
     //dispatch error
