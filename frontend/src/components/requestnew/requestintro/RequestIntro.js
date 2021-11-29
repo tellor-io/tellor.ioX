@@ -10,8 +10,8 @@ const RequestIntro = () => {
 
     return (
         <div className="RequestIntro">
-            <h1 className="page-header">We put data on blockchains. Any data.</h1>
-            <p className="page-text">Smart contracts have their own unique data needs that they ask oracles to provide for them - these needs will only broaden as our industry grows. That is why we built Tellor to be able to answer any data query and put that data on-chain, on demand.</p>
+        <h1 className="page-header">We put data on blockchains. Any data.</h1>
+        <p className="page-text request-description">Smart contracts have their own unique data needs that they ask oracles to provide for them - these needs will only broaden as our industry grows. That is why we built Tellor to be able to answer any data query and put that data on-chain, on demand.</p>
         {/* common data queries */}
         <div className="request-text-container">
             <h2 className="page-header-small">Common data queries</h2>

@@ -7,9 +7,14 @@
   padding-top: 60px;
   @media (max-width: 840px) {
     padding-top: 30px;
+    .request-description {
+      padding-top: 20px;
+    }
   }
     h1 {
         max-width: 800px;
+        font-size: 2.9rem;
+        line-height: 3rem;
     }
   &__desc {
     padding-top: 30px;
