@@ -30,7 +30,7 @@ const HeaderNav = () => {
     {cat:"usetellor",title:"Use Tellor"},
     {cat:"howitworks",title:"How it works"},
     {cat:"requestnew",title:"Request a new datapoint"},
-    {cat:"live",title:"Live on Tellor"},
+    // {cat:"live",title:"Live on Tellor"},
     {cat:"trb",title:"TRB, Tellor’s native token"},
     {cat:"becomereporter",title:"Becoming a data reporter"},
     {cat:"getinvolved",title:"Get involved"},
