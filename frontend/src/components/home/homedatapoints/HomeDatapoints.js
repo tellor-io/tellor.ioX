@@ -38,9 +38,9 @@ export default function HomeDatapoints() {
             request new datapoint
           </Button>
         </Link>
-        <Link to="/live" className="linktotal">
+        {/* <Link to="/live" className="linktotal">
           see all datapoints ({dataPointsTotal})
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

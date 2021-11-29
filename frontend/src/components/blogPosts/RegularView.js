@@ -12,6 +12,7 @@ function RegularView() {
 
   return (
     <div className="BlogPosts">
+      <div className="topRow">
       {blogContext.hero[0] &&
         blogContext.hero.map((post) => {
           return (
@@ -25,10 +26,12 @@ function RegularView() {
                 },
               }}
             >
-              <img
-                src={"http://167.172.156.209:1337" + post.blogImage.url}
-                alt={post.blogImage.name}
-              />
+              <div className="hero__imgholder">
+                <img
+                  src={"http://167.172.156.209:1337" + post.blogImage.url}
+                  alt={post.blogImage.name}
+                />
+              </div>
               <h5>{post.publishDate}</h5>
               <h1>{titleFormatter(post.title)}</h1>
             </Link>
@@ -48,15 +51,18 @@ function RegularView() {
                   },
                 }}
               >
-                <img
-                  src={"http://167.172.156.209:1337" + post.blogImage.url}
-                  alt={post.blogImage.name}
-                />
+                <div className="subhero__innerDivs__imgholder">
+                  <img
+                    src={"http://167.172.156.209:1337" + post.blogImage.url}
+                    alt={post.blogImage.name}
+                  />
+                </div>
                 <h5>{post.publishDate}</h5>
                 <h1>{titleFormatter(post.title)}</h1>
               </Link>
             );
           })}
+      </div>
       </div>
       <div className="posts">
         {blogContext.posts[0] &&

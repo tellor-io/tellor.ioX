@@ -3,7 +3,7 @@
 .BlogPosts__Container {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: white;
 }
 .filters {
   display: flex;
@@ -12,7 +12,7 @@
   padding: 100px 145px 35px;
 }
 .dropdown {
-  @include centeredrow();
+  @include centeredrow;
   margin-right: 30px;
   width: auto;
   height: 30px;
@@ -58,23 +58,30 @@
 }
 
 .BlogPosts {
-  padding: 0px 145px;
+  padding: 0px 10vw;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
+.topRow {
+  @include leftrow;
+  align-items: flex-start;
+  width: 100%;
 .hero {
   display: flex;
   flex-direction: column;
-  width: 60%;
   margin-bottom: 60px;
-
-  img {
-    width: 660px;
+  flex: 1;
+  &__imgholder {
+    max-width: 660px;
     height: 442px;
     border: 1px solid #c4c4c4;
     margin-bottom: 25px;
+    overflow:hidden;
+    @include centeredrow;
+    img {
+      height: 100%;
+    }
   }
   h5 {
     margin-bottom: 13px;
@@ -88,7 +95,6 @@
 }
 
 .subhero {
-  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -97,12 +103,16 @@
 .subhero__innerDivs {
   width: 430px;
 
-  img {
+  &__imgholder {
     width: 430px;
     height: 129px;
     border: 1px solid #c4c4c4;
     margin-bottom: 15px;
-    object-fit: cover;
+    overflow: hidden;
+    @include centeredrow;
+    img {
+      width: 100%;
+    }
   }
   h5 {
     margin-bottom: 13px;
@@ -110,18 +120,23 @@
   h1 {
     width: 85%;
     margin-bottom: 40px;
+    line-height: 36px;
   }
   &:hover {
     cursor: pointer;
   }
 }
+}
 
 .posts {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  @media (max-width: 669px) {
+    flex-direction: column;
+  }
+
 }
 
 .posts__innerDivs {
@@ -140,6 +155,7 @@
   h1 {
     width: 85%;
     margin-bottom: 40px;
+    line-height: 36px;
   }
   &:hover {
     cursor: pointer;
@@ -151,7 +167,7 @@
   padding: 90px 50px 160px;
 
   .LoadMore__Button {
-    @include centeredrow();
+    @include centeredrow;
     width: 369px;
     height: 74px;
     border: 1px solid #262626;
