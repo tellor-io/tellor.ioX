@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { ReactComponent as Swoosh } from "assets/Swoosh.svg";
 import { useSelector } from "react-redux";
 import { usePrevious } from "./whatsnewhelpers";
+import "./Tellorprice.scss";
 
 export default function Tellorprice() {
   //Redux State
