@@ -1,0 +1,29 @@
+@import '../../../style/index.scss';
+
+.AccountHeader {
+    @include sidepaddings;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    &__left {
+        @include leftrow;
+        width: 100%;
+        &__avatar,  &__avatar div {
+            width: 42px;
+            height: 42px;
+        }
+        &__address {
+            flex:1;
+            @include leftcolumn;
+            margin:0 0 0 30px !important;
+            p {
+                @include fourteenpxfont;
+                margin: 0 !important;
+            }
+            .address {
+                @include eighteenpxfont;
+                font-weight: 600;
+                margin: 0 !important;
+            }
+        }
+    }
+}
