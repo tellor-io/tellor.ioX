@@ -49,8 +49,15 @@
                 @include fourteenpxfont;
             }
         }
+        .Twitter__LinkAndDate {
+            @include leftrow;
+            flex-wrap: wrap;
+        }
     }
-    
+    &__specialLink {
+        text-decoration: none !important;
+    }
+
     /* specific margins for each feed */
     &__github {
         margin: 0;
