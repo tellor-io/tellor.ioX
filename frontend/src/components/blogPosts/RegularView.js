@@ -12,6 +12,7 @@ function RegularView() {
 
   return (
     <div className="BlogPosts">
+      <div className="topRow">
       {blogContext.hero[0] &&
         blogContext.hero.map((post) => {
           return (
@@ -57,6 +58,7 @@ function RegularView() {
               </Link>
             );
           })}
+      </div>
       </div>
       <div className="posts">
         {blogContext.posts[0] &&

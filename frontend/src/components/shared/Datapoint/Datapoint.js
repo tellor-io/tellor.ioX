@@ -3,6 +3,7 @@ import "./Datapoint.scss";
 import { truncateAddr } from "utils/helpers";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
+import { Link } from 'react-router-dom';
 
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
@@ -19,13 +20,14 @@ export default function Datapoint({ data }) {
           <div className="Datapoint__left">
             <p>
               {time} • by{" "}
-              <a
+              {/* <a
                 href={"https://etherscan.io/address/" + data._reporter}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {truncateAddr(data._reporter)}
-              </a>
+              </a> */}
+              <Link to={"account/address/"+data._reporter}>{truncateAddr(data._reporter)}</Link>
             </p>
             <h4>
               {data.realQueryData.type === "LegacyRequest"

@@ -23,11 +23,10 @@ const GettingStarted = () => {
                 </ol>
                 <p className="page-text">When data is requested, data reporters submit values to be put on-chain. Data reporters can also receive tips from users to update certain data points more frequently.</p>
             </div>
+            {/*
+            VIDEO TO BE INSERTED HERE
             <div className="GettingStarted__video">
                 <video poster={videoplaceholder}>
-                    {/* 
-                        Todo: Insert mp4, webm, and video link
-                    */}
                     <source src="myVideo.mp4" type="video/mp4" />
                     <source src="myVideo.webm" type="video/webm" />
                     <p>
@@ -35,7 +34,7 @@ const GettingStarted = () => {
                         <a href="myVideo.mp4">link to the video</a> instead.
                     </p>
                 </video>
-            </div> 
+            </div>  */}
             <div className="GettingStarted__actions">
                 <button  size="large" className="page-button" onClick={() => window.open(downloadUrl)}>
                     <img src={Telliot} alt="telliot"/>

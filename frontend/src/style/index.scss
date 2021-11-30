@@ -197,6 +197,18 @@ h6 {
   }
 }
 
+.NotFound {
+  @include sidepaddings;
+  padding-bottom: 60px;
+  h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    margin-top: 40px;
+    color: rgba(#ffffff, 0.2);
+  }
+}
+
+
 // --- Ant Overrides ---
 
 // Buttons

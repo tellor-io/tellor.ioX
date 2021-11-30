@@ -32,7 +32,7 @@
         }
 
         .currentReporter__top {
-            width: 200px;
+            width: 290px;
             height: 70px;
             position: absolute;
             top: 0;
@@ -50,7 +50,7 @@
         }
 
         .currentReporter__bottom {
-            width: 200px;
+            width: 290px;
             height: 70px;
             position: absolute;
             top: 33px;
@@ -192,7 +192,10 @@
         }
     }
     .horizontal_btns {
-        width: 254px;
+        width: auto;
+        @media (max-width: 669px) {
+            width: 254px;
+        }
     }
 }
 
