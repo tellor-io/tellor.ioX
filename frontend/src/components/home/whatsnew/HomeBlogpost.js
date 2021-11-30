@@ -11,7 +11,7 @@ export default function HomeBlogpost() {
   return (
     <div className="HomeBlogpost" onClick={() => history.push("/blog")}>
       <div className="HomeBlogpost__image">
-        <img src={"http://167.172.156.209:1337" + mostRecent.blogImage.url} />
+        <img src={"https://strapi.tellor.io" + mostRecent.blogImage.url} />
         {/* <img src="https://i.pinimg.com/564x/77/a8/c0/77a8c06b4c278d029b45bc73cb6666af.jpg" /> */}
       </div>
       <div className="HomeBlogpost__txt">

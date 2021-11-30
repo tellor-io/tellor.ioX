@@ -23,7 +23,7 @@ function BlogPost() {
         view all blog posts
       </Link>
       <img
-        src={"http://167.172.156.209:1337" + post.blogImage.url}
+        src={"https://strapi.tellor.io" + post.blogImage.url}
         alt="blog image"
       />
       <h1>{post.title}</h1>

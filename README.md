@@ -4,16 +4,15 @@
 
    `cd frontend`
 
-2. Install dependencies
+3. Install dependencies
 
    `npm install`
 
-3. Start the server
+4. Start the server
 
    `npm start`
 
-4. Open a browser: http://localhost:3000
-
+5. Open a browser: http://localhost:3000
 
 [BELOW IS FROM PREVIOUS VERSION:]
 
