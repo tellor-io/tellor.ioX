@@ -1,4 +1,4 @@
-FROM node:14.17.4-buster-slim
+FROM node:16.10
 
 COPY --chown=node . /app/
 
