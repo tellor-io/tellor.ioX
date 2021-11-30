@@ -16,7 +16,7 @@ export default function HomeCurrentReporter({data}) {
                 </div>
                 <div className="HomeCurrentReporter__txt">
                     {/* <a href={"https://etherscan.io/address/"+data.reporter} target="_blank" rel="noopener noreferrer">{truncateAddr(data.reporter)}</a> */}
-                    <Link to={"/address/"+data.reporter}>{truncateAddr(data.reporter)}</Link>
+                    <Link to={"account/address/"+data.reporter}>{truncateAddr(data.reporter)}</Link>
                     <h4>{data.symbols}</h4>
                 </div>
             </div>

@@ -26,7 +26,9 @@ const AccountHeader = (props) => {
                     {IsCurrentUser && (
                         <p className="page-text">You're connected as</p>
                     )}
-                    <p className="page-text address">{truncateAddr(account.address)}</p>
+                    
+                    <a className="page-text address" href={"https://etherscan.io/address/"+account.address} target="_blank" rel="noopener noreferrer">{truncateAddr(account.address)}</a>
+                    {/* <p className="page-text address">{truncateAddr(account.address)}</p> */}
                 </div>
             </div>
         </div>
