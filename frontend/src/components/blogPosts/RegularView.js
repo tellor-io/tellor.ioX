@@ -26,7 +26,7 @@ function RegularView() {
               }}
             >
               <img
-                src={"http://167.172.156.209:1337" + post.blogImage.url}
+                src={"https://strapi.tellor.io" + post.blogImage.url}
                 alt={post.blogImage.name}
               />
               <h5>{post.publishDate}</h5>
@@ -49,7 +49,7 @@ function RegularView() {
                 }}
               >
                 <img
-                  src={"http://167.172.156.209:1337" + post.blogImage.url}
+                  src={"https://strapi.tellor.io" + post.blogImage.url}
                   alt={post.blogImage.name}
                 />
                 <h5>{post.publishDate}</h5>
@@ -73,7 +73,7 @@ function RegularView() {
                 }}
               >
                 <img
-                  src={"http://167.172.156.209:1337" + post.blogImage.url}
+                  src={"https://strapi.tellor.io" + post.blogImage.url}
                   alt={post.blogImage.name}
                 />
                 <h5>{post.publishDate}</h5>

@@ -22,7 +22,7 @@ export const getStrapiData = () => (dispatch) => {
     //dispatch request
     dispatch(getStrapiBlog());
     //fetch blog data
-    fetch("http://167.172.156.209:1337/blog-posts")
+    fetch("https://strapi.tellor.io/blog-posts")
       .then((response) => response.json())
       .then((data) => {
         //data formatting
@@ -49,7 +49,7 @@ export const getStrapiData = () => (dispatch) => {
     //dispatch request
     dispatch(getStrapiTidbits());
     //fetch blog data
-    fetch("http://167.172.156.209:1337/tidbits")
+    fetch("https://strapi.tellor.io/tidbits")
       .then((response) => response.json())
       .then((data) => {
         //dispatch success
@@ -66,7 +66,7 @@ export const getStrapiData = () => (dispatch) => {
     //dispatch request
     dispatch(getStrapiJobs());
     //fetch blog data
-    fetch("http://167.172.156.209:1337/jobs")
+    fetch("https://strapi.tellor.io/jobs")
       .then((response) => response.json())
       .then((data) => {
         //dispatch success

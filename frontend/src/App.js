@@ -90,8 +90,8 @@ const App = (props) => {
   return (
     <>
       <Fragment>
-        <Helmet defaultTitle="Tellor Scan">
-          <meta name="description" content="Tellor Scan" />
+        <Helmet defaultTitle="Tellor">
+          <meta name="description" content="Tellor" />
         </Helmet>
         <Router>
           <HeaderNav />
