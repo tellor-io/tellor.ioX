@@ -12,11 +12,6 @@ jobs:
     steps:      
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Set outputs
-      id: vars
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-    - name: Check outputs
-      run: echo ${{ steps.vars.outputs.sha_short }}
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
@@ -26,7 +21,7 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_SERVER_IP }} >> ~/.ssh/known_hosts
     - name: Deploy code
       working-directory: frontend
-      run: rsync -avz . ${{ secrets.SSH_USER }}@${{ secrets.SSH_SERVER_IP }}:/tmp/build-${{ steps.vars.outputs.sha_short }}/
+      run: rsync -avz . ${{ secrets.SSH_USER }}@${{ secrets.SSH_SERVER_IP }}:/tmp/build-${{ GITHUB_SHA }}/
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
@@ -35,12 +30,12 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          echo "REACT_APP_TWITTER_BEARER_TOKEN=${{ secrets.REACT_APP_TWITTER_BEARER_TOKEN }}" >> /tmp/build-${{ steps.vars.outputs.sha_short }}/.env
-          echo "REACT_APP_DISCORD_URL=${{ secrets.REACT_APP_DISCORD_URL }}" >> /tmp/build-${{ steps.vars.outputs.sha_short }}/.env
-          echo "REACT_APP_GITHUB_TOKEN=${{ secrets.REACT_APP_GITHUB_TOKEN }}" >> /tmp/build-${{ steps.vars.outputs.sha_short }}/.env
-          cd /tmp/build-${{ steps.vars.outputs.sha_short }}/
-          docker build -t "tellorx-website:${{ steps.vars.outputs.sha_short }}" /tmp/build-${{ steps.vars.outputs.sha_short }}/
+          echo "REACT_APP_TWITTER_BEARER_TOKEN=${{ secrets.REACT_APP_TWITTER_BEARER_TOKEN }}" >> /tmp/build-${{ GITHUB_SHA }}/.env
+          echo "REACT_APP_DISCORD_URL=${{ secrets.REACT_APP_DISCORD_URL }}" >> /tmp/build-${{ GITHUB_SHA }}/.env
+          echo "REACT_APP_GITHUB_TOKEN=${{ secrets.REACT_APP_GITHUB_TOKEN }}" >> /tmp/build-${{ GITHUB_SHA }}/.env
+          cd /tmp/build-${{ GITHUB_SHA }}/
+          docker build -t "tellorx-website:${{ GITHUB_SHA }}" /tmp/build-${{ GITHUB_SHA }}/
           docker kill $(docker ps -q)
           docker rm $(docker ps -a -q)
-          docker run -p "3000:3000" -d "tellorx-website:${{ steps.vars.outputs.sha_short }}"
-          rm -rf /tmp/build-${{ steps.vars.outputs.sha_short }}/
+          docker run -p "3000:3000" -d "tellorx-website:${{ GITHUB_SHA }}"
+          rm -rf /tmp/build-${{ GITHUB_SHA }}/
