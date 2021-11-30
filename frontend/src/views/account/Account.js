@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 
 import Connected from 'components/account/connected/Connected'
 import Unconnected  from 'components/account/unconnected/Unconnected'
-import { truncateAddr } from 'utils/helpers';
+import AccountHeader  from 'components/account/accountHeader/AccountHeader'
 import { UserContext } from 'contexts/User';
 import { fromWei } from 'utils/helpers';
 
@@ -17,79 +17,111 @@ const Account = () => {
 
     const [account, setAccount] = useState({
         address: '',
-        addressHidden: '',
-        avatar: Avatar,
         trb: 0,
     });
 
-    const [showConnected, setShowConnected] = useState(false);
+
+    // const [showConnected, setShowConnected] = useState(false);
+    const [IsCurrentUser, setIsCurrentUser] = useState(false);
     const [isReporter, setIsReporter] = useState(false);
     const [reporting, setReporting] = useState({});
     const [history, setHistory] = useState([]);
     const [activities, setActivities] = useState([]);
  
+
+
+
+    useEffect(() => {
+        console.log('urlAddress: ', urlAddress)
+        //if logged in and address matches url then send to connected
+        if (urlAddress) {
+                //set user account
+            setAccount({
+                address: urlAddress,
+                trb: 'tbd',
+            })
+        }
+    },[urlAddress])
+
+
     useEffect(() => {
         console.log('urlAddress: ', urlAddress)
         //if logged in and address matches url then send to connected
         if (currentUser && currentUser.address == urlAddress) {
-            currentUser.contracts.balanceOf(currentUser.address).then(result => {
-                let balance = fromWei(result)
-                //set user account
-                setAccount({
-                    address: currentUser.address,
-                    addressHidden: truncateAddr(currentUser.address),
-                    avatar: Avatar,
-                    trb: balance,
-                })
-                //if user is not a reporter
-                if (balance < 100) {
-                    //TODO: set total report events if any 
-                    setReporting({
-                        earned: balance,
-                        current: "ETH/USD",
-                        total: 0,
-                        lastReported: "4 days ago"
-                    });
-                    //TODO : set History if any
-                    //setHistory();
-                    
-                } else {
-                    //if user is a reporter 
-                    setIsReporter(true);
-                    //TODO : add real history
-                    setHistory(sampleHistory);
-                }
+            setIsCurrentUser({
+                IsCurrentUser: true
             })
-
             //set activity fields
-            //TODO: use real data
-            //setActivities(sampleActivities);
             setActivities([]);
-            setShowConnected(true);
-        } else {
-            //else set up unconnected display
-            //TODO: add clicked account
-            setAccount({
-                address: urlAddress,
-                addressHidden: (urlAddress.substring(0,6) + '...' + urlAddress.substring(urlAddress.length - 4)),//truncateAddr(urlAddress),
-                avatar: Avatar,
-                trb: 0,
-            })
-            //TODO : set reporter data
-            setIsReporter(false);
-            setReporting({
-                earned: 102,
-                current: "ETH/USD",
-                total: 88,
-                lastReported: "4 days ago"
-            });
-            //TODO : add real history
-            //setHistory(sampleHistory);
-            //TODO: use real data
-            setActivities(sampleActivities);
-            
         }
     },[currentUser, urlAddress])
+
+
+
+
+
+    // useEffect(() => {
+    //     console.log('urlAddress: ', urlAddress)
+    //     //if logged in and address matches url then send to connected
+    //     if (currentUser && currentUser.address == urlAddress) {
+    //         currentUser.contracts.balanceOf(currentUser.address).then(result => {
+    //             let balance = fromWei(result)
+    //             //set user account
+    //             setAccount({
+    //                 address: currentUser.address,
+    //                 addressHidden: truncateAddr(currentUser.address),
+    //                 avatar: Avatar,
+    //                 trb: balance,
+    //             })
+    //             //if user is not a reporter
+    //             if (balance < 100) {
+    //                 //TODO: set total report events if any 
+    //                 setReporting({
+    //                     earned: balance,
+    //                     current: "ETH/USD",
+    //                     total: 0,
+    //                     lastReported: "4 days ago"
+    //                 });
+    //                 //TODO : set History if any
+    //                 //setHistory();
+                    
+    //             } else {
+    //                 //if user is a reporter 
+    //                 setIsReporter(true);
+    //                 //TODO : add real history
+    //                 setHistory(sampleHistory);
+    //             }
+    //         })
+
+    //         //set activity fields
+    //         //TODO: use real data
+    //         //setActivities(sampleActivities);
+    //         setActivities([]);
+    //         setShowConnected(true);
+    //     } else {
+    //         //else set up unconnected display
+    //         //TODO: add clicked account
+    //         setAccount({
+    //             address: urlAddress,
+    //             addressHidden: (urlAddress.substring(0,6) + '...' + urlAddress.substring(urlAddress.length - 4)),//truncateAddr(urlAddress),
+    //             avatar: Avatar,
+    //             trb: 0,
+    //         })
+    //         //TODO : set reporter data
+    //         setIsReporter(false);
+    //         setReporting({
+    //             earned: 102,
+    //             current: "ETH/USD",
+    //             total: 88,
+    //             lastReported: "4 days ago"
+    //         });
+    //         //TODO : add real history
+    //         //setHistory(sampleHistory);
+    //         //TODO: use real data
+    //         setActivities(sampleActivities);
+            
+    //     }
+    // },[currentUser, urlAddress])
 
     const sampleHistory = [
         {   
@@ -223,7 +255,12 @@ const Account = () => {
 
     return (
         <div className="viewContainer">
-            { showConnected
+
+            <AccountHeader 
+                account={account}
+                IsCurrentUser={IsCurrentUser} />
+
+            {/* { showConnected
                 ? <Connected 
                     account={account} 
                     reporting={reporting}
@@ -236,7 +273,7 @@ const Account = () => {
                     history={history}
                     activities={activities}
                     isReporter={isReporter}/>
-            }
+            } */}
         </div>
     )
 }

@@ -12,6 +12,7 @@ import Blog from "views/blog/Blog";
 import BlogPostView from "views/blogPost/BlogPostView";
 import Live from "views/live/Live";
 import Account from "views/account/Account";
+import NotFound from "views/notfound/NotFound";
 
 const Routes = ({ events }) => (
   <Switch>
@@ -26,6 +27,7 @@ const Routes = ({ events }) => (
     <Route path="/blog" exact render={() => <Blog />} />
     <Route path="/blog/:path" exact render={() => <BlogPostView />} />
     <Route path="/live" exact render={() => <Live />} />
+    {/* <Route path="*" component={NotFound} /> */}
     <Route path="/account/address/:address" exact render={() => <Account />} />
   </Switch>
 );

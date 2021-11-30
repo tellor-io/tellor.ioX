@@ -9,10 +9,19 @@
     .graphic {
         width: 100%;
         margin: 2% 0 4% 0;
+        @media (max-width: 669px) {
+        width: 270px;
+        margin: 2% 0 60px 0;
+        }
     }
     &__option {
         padding-bottom: 5%;
         @include leftrow;
+        @media (max-width: 669px) {
+            @include leftcolumn;
+
+        }
+
         img {
             width: 80px;
             margin: 30px 50px 0 0 ;
@@ -35,8 +44,8 @@
         padding: 20% 12% ;
         &__option {
             img {
-                width: 40px;
-                margin: 30px 20px 0 0 ;
+                width: 60px;
+                margin: 40px 20px 0 0 ;
             }
         }
         .links {

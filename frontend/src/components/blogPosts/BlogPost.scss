@@ -6,7 +6,7 @@
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  padding: 100px 320px 35px;
+  padding: 100px 22vw 35px 22vw;
 
   img {
     width: 800px;
@@ -46,12 +46,13 @@
       font-weight: 600;
       line-height: 24px !important;
       margin: 0;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     p {
       font-size: 20px !important;
       font-weight: 300;
-      line-height: 24px !important;
+      line-height: 28px !important;
+      margin-bottom: 50px;
     }
     a {
       color: #262626;

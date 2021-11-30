@@ -7,6 +7,9 @@ import {ReactComponent as TelliotIcon} from 'assets/telliot.svg';
 import { Button } from 'antd';
 
 export default function TforTelliot() {
+    const downloadUrl = 'https://github.com/tellor-io/pytelliot ';
+    const docUrl = 'https://tellor-io.github.io/pytelliot/';
+    
     return (
         <div className="TforTelliot">
             <div className="TforTelliot__illustration">
@@ -16,7 +19,7 @@ export default function TforTelliot() {
                 <h2>T is for Telliot</h2>
                 <p>Telliot is the software for data reporters to interact with the Tellor oracle. You can download the latest version to your computer and get started in just a few minutes.</p>
                 <div className="TforTelliot__cta">
-                    <Button type="large" className="bigbutton"><TelliotIcon />download Telliot v1.2.8</Button>
+                    <Button type="large" className="bigbutton" onClick={() => window.open(downloadUrl)}><TelliotIcon />download Telliot v1.2.8</Button>
                     <Link to="/becomereporter">learn more</Link>
                 </div>
             </div>

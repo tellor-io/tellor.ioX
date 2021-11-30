@@ -122,14 +122,14 @@ const Footer = () => {
             <a href="/usetellor">use tellor</a>
             <a href="/howitworks">how the oracle works</a>
             <a href="/requestnew">find data points</a>
-            <a href="/live">live on tellorscan</a>
+            {/* <a href="/live">live on tellorscan</a> */}
           </div>
           <div className="Column__Small">
             <h2>Get Involved</h2>
             <a href="/becomereporter">become a data reporter</a>
             <a href="/getinvolved">join the community</a>
             <a href="/trb">TRB token</a>
-            <a href="/live">connect &amp; vote</a>
+            {/* <a href="/live">connect &amp; vote</a> */}
           </div>
           <div className="Column__Small">
             <h2>About Tellor</h2>
