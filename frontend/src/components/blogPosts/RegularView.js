@@ -26,12 +26,10 @@ function RegularView() {
                 },
               }}
             >
-              <div className="hero__imgholder">
-                <img
-                  src={"http://167.172.156.209:1337" + post.blogImage.url}
-                  alt={post.blogImage.name}
-                />
-              </div>
+              <img
+                src={"http://167.172.156.209:1337" + post.blogImage.url}
+                alt={post.blogImage.name}
+              />
               <h5>{post.publishDate}</h5>
               <h1>{titleFormatter(post.title)}</h1>
             </Link>
@@ -51,12 +49,10 @@ function RegularView() {
                   },
                 }}
               >
-                <div className="subhero__innerDivs__imgholder">
-                  <img
-                    src={"http://167.172.156.209:1337" + post.blogImage.url}
-                    alt={post.blogImage.name}
-                  />
-                </div>
+                <img
+                  src={"http://167.172.156.209:1337" + post.blogImage.url}
+                  alt={post.blogImage.name}
+                />
                 <h5>{post.publishDate}</h5>
                 <h1>{titleFormatter(post.title)}</h1>
               </Link>

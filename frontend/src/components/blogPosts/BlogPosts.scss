@@ -3,13 +3,19 @@
 .BlogPosts__Container {
   width: 100%;
   height: 100%;
+  @include centeredcolumn;
   background-color: white;
 }
 .filters {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 100px 145px 35px;
+  padding: 100px 0 35px;
+  width: 100%;
+  max-width: 1150px;
+  @media (max-width: 669px) {
+    padding: 40px 0 35px;
+  }
 }
 .dropdown {
   @include centeredrow;
@@ -58,29 +64,48 @@
 }
 
 .BlogPosts {
-  padding: 0px 10vw;
-  display: flex;
-  flex-direction: column;
+  @include centeredcolumn;
 }
 
 .topRow {
   @include leftrow;
   align-items: flex-start;
   width: 100%;
+  max-width: 1150px;
+  @media (max-width: 1200px) {
+    min-width: unset;
+  }
+  @media (max-width: 669px) {
+    @include leftcolumn;
+    width: 90%;
+  }
+
 .hero {
   display: flex;
   flex-direction: column;
   margin-bottom: 60px;
   flex: 1;
-  &__imgholder {
+  @media (max-width: 1200px) {
+    width: 30vw;
+    flex:unset;
+    margin: 0 2vw 0 0;
+  }
+  @media (max-width: 669px) {
+    width: 100%;
+    margin: 0;
+  }
+  img {
+    object-fit: cover;
     max-width: 660px;
+    width: 100%;
     height: 442px;
     border: 1px solid #c4c4c4;
     margin-bottom: 25px;
-    overflow:hidden;
-    @include centeredrow;
-    img {
-      height: 100%;
+    @media (max-width: 1200px) {
+      height: 202px;
+    }
+    @media (max-width: 900px) {
+      height: 140px;
     }
   }
   h5 {
@@ -88,6 +113,10 @@
   }
   h1 {
     width: 85%;
+    @media (max-width: 669px) {
+      width: 100%;
+      margin-bottom: 40px;
+    }
   }
   &:hover {
     cursor: pointer;
@@ -98,21 +127,38 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  @media (max-width: 1200px) {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 62vw;
+    justify-content: space-between;
+  }
+  @media (max-width: 669px) {
+    width: 100%;
+    @include leftcolumn;
+  }
 }
 
 .subhero__innerDivs {
   width: 430px;
-
-  &__imgholder {
-    width: 430px;
+  @media (max-width: 1200px) {
+    width: 30vw;
+  }
+  @media (max-width: 669px) {
+    width: 100%;
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
     height: 129px;
+    @media (max-width: 1200px) {
+      height: 202px;
+    }
+    @media (max-width: 900px) {
+      height: 140px;
+    }
     border: 1px solid #c4c4c4;
     margin-bottom: 15px;
-    overflow: hidden;
-    @include centeredrow;
-    img {
-      width: 100%;
-    }
   }
   h5 {
     margin-bottom: 13px;
@@ -132,22 +178,40 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
+  max-width: 1150px;
+  @media (max-width: 1200px) {
+    width: 94vw;
+  }
   @media (max-width: 669px) {
     flex-direction: column;
+    width: 90%;
   }
-
 }
 
 .posts__innerDivs {
   width: 30%;
-
+    @media (max-width: 1200px) {
+    width: 30vw;
+  }
+  @media (max-width: 669px) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
   img {
-    width: 363px;
+    width: 100%;
     height: 202px;
     border: 1px solid #c4c4c4;
-    object-fit: contain;
     margin-bottom: 15px;
+    object-fit: cover;
+    @media (max-width: 900px) {
+      height: 140px;
+    }
+    @media (max-width: 669px) {
+      width: 100%;
+    }
+
   }
   h5 {
     margin-bottom: 13px;
@@ -163,12 +227,14 @@
 }
 
 .LoadMore__Container {
-  @include centeredrow();
+  @include centeredrow;
   padding: 90px 50px 160px;
+  width: 100%;
 
   .LoadMore__Button {
     @include centeredrow;
-    width: 369px;
+    width: 100%;
+    max-width: 369px;
     height: 74px;
     border: 1px solid #262626;
     border-bottom: 2px solid #262626;
