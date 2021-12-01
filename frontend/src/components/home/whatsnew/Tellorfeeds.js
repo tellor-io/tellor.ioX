@@ -186,7 +186,7 @@ export default function Tellorfeeds() {
                 @WeAreTellor
               </a>
               <p ref={twitterDateRef}>
-                {prevTweet ? `\u00A0- ${prevTweet.formattedDate}` : ""}
+                {prevTweet ? `\u00A0- ${prevTweet.formattedDate}` : " "}
               </p>
             </div>
             <a
