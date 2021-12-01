@@ -35,7 +35,7 @@ export default function HomeDatapoints() {
             use tellor’s datapoints
           </Button>
         </Link>
-        <Link to="/requestnew">
+        <Link to="/usingoracle">
           <Button size="large" className="bigbutton fxw">
             request new datapoint
           </Button>

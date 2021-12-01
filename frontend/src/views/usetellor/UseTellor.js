@@ -16,8 +16,8 @@ const UseTellor = () => {
   return (
     <div className="viewContainer">
       <UseInProjects />
-      <SampleUsing />
       <ForSmartContracts />
+      <SampleUsing />
       <WhiteButtonPanel
         title="Stuck implementing Tellor?"
         leftBtnText="ask the community *"

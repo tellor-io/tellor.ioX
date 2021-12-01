@@ -1,33 +1,33 @@
-@import '../../../style/index.scss';
+@import "../../../style/index.scss";
 
 .InvolvedIntro {
-    .icon {
-        margin-right: 15px
+  .icon {
+    margin-right: 15px;
+  }
+
+  &__intro {
+    @include sidepaddings;
+    width: 100%;
+    padding-top: 60px;
+    @media (max-width: 840px) {
+      padding-top: 30px;
     }
-
-    &__intro {
-        @include sidepaddings;
-        width: 100%;
-        padding-top: 60px;
-        @media (max-width: 840px) {
-          padding-top: 30px;
-        }
-        button {
-            margin: 2% 0;
-        }
-        .page-text {
-            padding-top: 30px;
-        }
+    button {
+      margin: 2% 0;
     }
-
-
-    &__body {
-        @include leftcolumn;
-        &__btncontainer {
-            width: 100%;
-            
-            @include sidepaddings;
-        }
-
+    .page-text {
+      padding-top: 30px;
     }
+  }
+
+  &__body {
+    @include leftcolumn;
+    &__btncontainer {
+      width: 100%;
+      a {
+        text-decoration: none;
+      }
+      @include sidepaddings;
+    }
+  }
 }

@@ -16,7 +16,8 @@ const BecomeReporter = () => {
   return (
     <div className="viewContainer">
       <Intro />
-      <GettingStarted />
+      <HowItWorks />
+      {/* <GettingStarted /> */}
       <WhiteButtonPanel
         title="Stuck becoming a data reporter?"
         leftBtnText="ask the community *"

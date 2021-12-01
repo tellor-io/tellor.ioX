@@ -122,7 +122,7 @@ const Footer = () => {
             <h2>Get Started</h2>
             <a href="/usetellor">use tellor</a>
             <a href="/howitworks">how the oracle works</a>
-            <a href="/requestnew">find data points</a>
+            <a href="/usingoracle">find data points</a>
             {/* <a href="/live">live on tellorscan</a> */}
           </div>
           <div className="Column__Small">

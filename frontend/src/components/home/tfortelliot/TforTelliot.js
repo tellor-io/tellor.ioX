@@ -29,7 +29,7 @@ export default function TforTelliot() {
             onClick={() => window.open(downloadUrl)}
           >
             <TelliotIcon />
-            Get Started
+            get started
           </Button>
           <Link to="/becomereporter">learn more</Link>
         </div>
