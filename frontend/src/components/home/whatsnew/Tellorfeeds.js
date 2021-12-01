@@ -42,9 +42,13 @@ export default function Tellorfeeds() {
   const twitterTextRef = useRef();
   //Media Query
   const isMobileHeader = useMediaQuery({ query: "(max-width: 600px)" });
-  const commitHelper = Object.keys(mostRecentGithubEvent).length>1 && mostRecentGithubEvent.actorAndDate.split(" - ");
+  const commitHelper =
+    Object.keys(mostRecentGithubEvent).length > 1 &&
+    mostRecentGithubEvent.actorAndDate.split(" - ");
   const latestCommit = `Last commit ${commitHelper[1]}`;
-  const latestTweet = `Last tweet ${mostRecentTweet.length>1 && mostRecentTweet[indexer].formattedDate}`;
+  const latestTweet = `Last tweet ${
+    mostRecentTweet.length > 1 && mostRecentTweet[indexer].formattedDate
+  }`;
 
   useEffect(() => {
     if (currGithubEvent && prevGithubEvent) {
@@ -182,9 +186,7 @@ export default function Tellorfeeds() {
                 @WeAreTellor
               </a>
               <p ref={twitterDateRef}>
-                {prevTweet
-                  ? `\u00A0- ${prevTweet.formattedDate}`
-                  : "\u00A0 Loading..."}
+                {prevTweet ? `\u00A0- ${prevTweet.formattedDate}` : " "}
               </p>
             </div>
             <a
