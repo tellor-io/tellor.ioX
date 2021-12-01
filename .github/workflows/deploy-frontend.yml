@@ -22,7 +22,7 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_SERVER_IP }} >> ~/.ssh/known_hosts
     - name: Deploy code
       working-directory: frontend
-      run: rsync -avz . ${{ secrets.SSH_USER }}@${{ secrets.SSH_SERVER_IP }}:/tmp/build-latest/
+      run: rsync -avz . ${{ secrets.SSH_USER }}@${{ secrets.SSH_SERVER_IP }}:/tmp/build/
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
@@ -31,10 +31,13 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          echo "REACT_APP_TWITTER_BEARER_TOKEN=${{ secrets.REACT_APP_TWITTER_BEARER_TOKEN }}" >> /tmp/build-latest/.env
-          echo "REACT_APP_DISCORD_URL=${{ secrets.REACT_APP_DISCORD_URL }}" >> /tmp/build-latest/.env
-          echo "REACT_APP_GITHUB_TOKEN=${{ secrets.REACT_APP_GITHUB_TOKEN }}" >> /tmp/build-latest/.env
-          cd /tmp/build-latest/
-          docker build -t "tellorx-website:latest" /tmp/build-latest/
-          docker run -p "3000:3000" -d "tellorx-website:latest"
-          rm -rf /tmp/build-latest/
+          SHA=$(echo $RANDOM | md5sum | head -c 20)
+          echo "REACT_APP_TWITTER_BEARER_TOKEN=${{ secrets.REACT_APP_TWITTER_BEARER_TOKEN }}" >> /tmp/build/.env
+          echo "REACT_APP_DISCORD_URL=${{ secrets.REACT_APP_DISCORD_URL }}" >> /tmp/build/.env
+          echo "REACT_APP_GITHUB_TOKEN=${{ secrets.REACT_APP_GITHUB_TOKEN }}" >> /tmp/build/.env
+          cd /tmp/build/
+          docker build -t "tellorx-website:${SHA}" /tmp/build/
+          docker kill $(docker ps -q)
+          docker rm $(docker ps -a -q)
+          docker run -p "3000:3000" -d "tellorx-website:${SHA}"
+          rm -rf /tmp/build/
