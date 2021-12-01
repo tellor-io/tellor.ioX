@@ -10,7 +10,6 @@ export default function HomeDatapoints() {
   const [homeDataPoints, setHomeDataPoints] = useState([]);
   const [dataPointsTotal, setDataPointsTotal] = useState(0);
   const eventsFromRedux = useSelector((state) => state.graphEvents.eventsData);
-  console.log("FROM COMPONENT", eventsFromRedux);
 
   useEffect(() => {
     if (eventsFromRedux) {
@@ -22,10 +21,13 @@ export default function HomeDatapoints() {
   return (
     <div className="HomeDatapoints">
       <div className="Datapoints">
-        {homeDataPoints &&
+        {homeDataPoints.length > 1 ? (
           homeDataPoints.map((data, i) => {
             return <Datapoint key={i} data={data} />;
-          })}
+          })
+        ) : (
+          <p>(Connect to see events)</p>
+        )}
       </div>
       <div className="btns">
         <Link to="/usetellor">

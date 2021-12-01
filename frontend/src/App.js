@@ -59,29 +59,31 @@ const App = (props) => {
   } = props;
 
   useEffect(() => {
-    startGetPrices(currentNetwork);
     startStrapiData();
     startCoinGecko();
     startGitHub();
     startTwitter();
-    console.log("DATA IN USE EFFECT", data);
+  }, []);
+
+  useEffect(() => {
+    startGetPrices(currentNetwork);
     startGetEvents(loading, error, data);
   }, [currentNetwork, data]);
 
-  useEffect(() => {
-    if (votes && votes.disputes) {
-      let count = 0;
-      votes.disputes.forEach((v, i) => {
-        if (v.inVoteWindow) {
-          count = count + 1;
-        }
-      });
-      setDisputes(votes.disputes);
-      setDisputesReady(true);
-    } else {
-      setDisputesReady(true);
-    }
-  }, [votes, currentUser]);
+  // useEffect(() => {
+  //   if (votes && votes.disputes) {
+  //     let count = 0;
+  //     votes.disputes.forEach((v, i) => {
+  //       if (v.inVoteWindow) {
+  //         count = count + 1;
+  //       }
+  //     });
+  //     setDisputes(votes.disputes);
+  //     setDisputesReady(true);
+  //   } else {
+  //     setDisputesReady(true);
+  //   }
+  // }, [votes, currentUser]);
 
   // console.log("events:::", events);
   // console.log("prices:::", prices);
