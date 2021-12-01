@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./AboutIntro.scss";
 import HeaderDesc from "components/shared/HeaderDesc/HeaderDesc";
 
 const AboutIntro = () => {
-  //Makes page load at top
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  useEffect(() => {
+    //Makes page load at top
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   const content = [
     {
       title: "Unstoppable oracle",
