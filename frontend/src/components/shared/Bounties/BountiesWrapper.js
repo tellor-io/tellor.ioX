@@ -3,42 +3,37 @@ import Bounties from "./Bounties";
 import "./BountiesWrapper.scss";
 import { ReactComponent as Swoosh } from "assets/Swoosh.svg";
 import PropTypes from "prop-types";
-import { useMediaQuery } from 'react-responsive';
-
+import { useMediaQuery } from "react-responsive";
 
 export default function BountiesWrapper(props) {
   const [toggle, setToggle] = useState(false);
-  const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
+  const isMobileHeader = useMediaQuery({ query: "(max-width: 840px)" });
 
-  const { 
-    hideHeader,
-    darkBackground,
-    hidePadding 
-  } = props;
+  const { hideHeader, darkBackground, hidePadding } = props;
 
   //dynamic className
   const classType = darkBackground ? "BountiesWrapperDark" : "BountiesWrapper";
   const padding = hidePadding ? "no-padding" : "padding";
 
   return (
-    <div className={`${classType}  ${padding}`}>
+    <div id="bounties" className={`${classType}  ${padding}`}>
       {/* show or hide header */}
       {!hideHeader && (
         <div className={`${classType}__title`}>
           <div className="firstDiv">
-              <h1>Earn TRB</h1>
-              <Swoosh />
-              {isMobileHeader?<h1>,</h1>:null}
+            <h1>Earn TRB</h1>
+            <Swoosh />
+            {isMobileHeader ? <h1>,</h1> : null}
           </div>
-          <h1>{isMobileHeader?null:","} grab a bounty!</h1>
+          <h1>{isMobileHeader ? null : ","} grab a bounty!</h1>
         </div>
       )}
       <Bounties darkBackground={darkBackground} />
       <div className={`${classType}__desc`}>
         <p>
-          The Tellor Bounties program is a way to reward developers who help us
-          build out Tellor. We have a dev fund that&apos;s for developing Tellor
-          and we plan to use it!
+          The Tellor Bounties program is a way to reward developers who help
+          build Tellor. We have a dev fund that&apos;s for developing Tellor and
+          we plan to use it!
         </p>
         <a onClick={() => setToggle(!toggle)}>read ground rules</a>
       </div>
@@ -96,5 +91,5 @@ export default function BountiesWrapper(props) {
 BountiesWrapper.propTypes = {
   hideHeader: PropTypes.bool,
   darkBackground: PropTypes.bool,
-  hidePadding: PropTypes.bool
+  hidePadding: PropTypes.bool,
 };

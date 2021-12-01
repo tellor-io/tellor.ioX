@@ -1,11 +1,10 @@
-@import '../../../style/index.scss';
+@import "../../../style/index.scss";
 
 .GetTRB {
-    @include leftcolumn;
-    width: 100%;
-    padding: 12% 0;
-    @media (max-width: 840px) {
-        padding: 0 0 90px 0;
-    }
-
-}  
+  @include leftcolumn;
+  width: 100%;
+  padding-bottom: 5%;
+  @media (max-width: 840px) {
+    padding: 0 0 90px 0;
+  }
+}

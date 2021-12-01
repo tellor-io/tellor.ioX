@@ -51,9 +51,18 @@ const AboutIntro = () => {
       </div>
       <div className="AboutIntro__founders">
         <h2 className="page-header-small">Founders</h2>
-        <a className="page-text">Nick Fett - CTO</a>
-        <a className="page-text">Brenda Loya - CEO</a>
-        <a className="page-text">Michael Zemrose - CSO</a>
+        <a
+          href="https://www.linkedin.com/in/nicholas-fett/"
+          className="page-text"
+        >
+          Nick Fett - CTO
+        </a>
+        <a href="https://www.linkedin.com/in/brendaloya/" className="page-text">
+          Brenda Loya - CEO
+        </a>
+        <a href="https://www.linkedin.com/in/zemrose/" className="page-text">
+          Michael Zemrose - CSO
+        </a>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-@import '../../../style/index.scss';
+@import "../../../style/index.scss";
 
 .RequestIntro {
   @include leftcolumn;
@@ -8,24 +8,40 @@
   @media (max-width: 840px) {
     padding-top: 30px;
   }
-    h1 {
-        max-width: 800px;
-    }
+  h1 {
+    max-width: 800px;
+  }
   &__desc {
     padding-top: 30px;
+    h1,
+    h2 {
+      color: white;
+    }
     p {
-        padding-top: 10px;
+      padding-top: 10px;
     }
   }
- 
+  &__buttons {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2% 0;
+    button {
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
   &__actions {
     @include centeredcolumn;
-        padding-top: 30px;
-        @media (max-width: 840px) {
-          width: 100%;
-        }
-        img {
-            margin-right: 20px;
-        }
+    padding-top: 30px;
+    @media (max-width: 840px) {
+      width: 100%;
+    }
+    img {
+      margin-right: 20px;
+    }
   }
 }

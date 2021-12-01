@@ -5,7 +5,7 @@ import videoplaceholder from "assets/video_placeholder.png";
 
 const SampleUsing = () => {
   const githubrepo = "tellor-io/usingtellor";
-  const docs = "https://docs.tellor.io/tellor/integration/usingtellor";
+  const docs = "https://tellor-io.github.io/telliot-core/";
 
   return (
     <div className="SampleUsing">
@@ -16,11 +16,11 @@ const SampleUsing = () => {
                 4. button and github link
             */}
       <div className="SampleUsing__intro">
-        <h2 className="page-header-small">sampleUsingTellor</h2>
-        {/* <p className="page-text">
-                    Lorem ipsum solor sit amet, consectetur adipiscing elit. Nullam semper efficitur cursus. Nam pellentesque ac sem a tempor. 
-                    Nunc lorem lorem, sollicitudin vel cursus quis, maximus et metus. Nulla faucibus pellentesque blandit.
-                </p> */}
+        <h2 className="page-header-small">Setting up Tellor</h2>
+        <p className="page-text">
+          Tellor is completely open source, and can be set up using the
+          instructions in our docs and by watching the video walkthrough below.
+        </p>
       </div>
       <div className="SampleUsing__video">
         <iframe

@@ -25,7 +25,7 @@ const RequestDatapoints = () => {
   return (
     <div className="RequestDatapoints">
       <div className="Datapoints">
-        <p className="popular-points">Most popular datapoints:</p>
+        <p className="popular-points">Most recent datapoints:</p>
         {eventsFromRedux &&
           eventsFromRedux.map((data, i) => {
             if (open) {

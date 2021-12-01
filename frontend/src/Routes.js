@@ -20,7 +20,7 @@ const Routes = ({ events }) => (
     <Route path="/usetellor" exact render={() => <UseTellor />} />
     <Route path="/trb" exact render={() => <TRB />} />
     <Route path="/becomereporter" exact render={() => <BecomeReporter />} />
-    <Route path="/requestnew" exact render={() => <RequestNew />} />
+    <Route path="/usingoracle" exact render={() => <RequestNew />} />
     <Route path="/abouttellor" exact render={() => <AboutTellor />} />
     <Route path="/getinvolved" exact render={() => <GetInvolved />} />
     <Route path="/howitworks" exact render={() => <HowItWorks />} />

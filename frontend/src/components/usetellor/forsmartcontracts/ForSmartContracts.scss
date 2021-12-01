@@ -1,78 +1,77 @@
-@import '../../../style/index.scss';
+@import "../../../style/index.scss";
 
 .ForSmart {
-    @include leftcolumn;
-    @include sidepaddings;
+  @include leftcolumn;
+  @include sidepaddings;
+  width: 100%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: white;
+  @media (max-width: 840px) {
+    padding-top: 0;
+    padding-bottom: 90px;
+  }
+  &__code {
+    margin-top: 3.5%;
     width: 100%;
-    padding-top: 6%;
-    padding-bottom: 6%;
-    color: white;
+    overflow-x: scroll;
+    font-size: 0.875rem;
+    line-height: 1.35rem;
     @media (max-width: 840px) {
-        padding-top: 0;
-        padding-bottom: 90px;
+      font-size: 0.815rem;
+      line-height: 1.25rem;
     }
-    &__code {
-        margin-top: 3.5%;
-        width: 100%;
-        overflow-x: scroll;
-        font-size: 0.875rem;
-        line-height: 1.35rem;
-        @media (max-width: 840px) {
-            font-size: 0.815rem;
-            line-height: 1.25rem;
-        }
-        code {
-            width: 900px;
-            background-color: #202020;
-            padding: 20px;
-            display: block;
-        }
-        .code-import{
-            padding: 30px 40px;
-        }
-        .single-indent {
-            padding: 0 40px;
-            margin: 0px;
-        }
-        .double-indent {
-            padding: 0 40px 0 60px;
-            margin: 0px;
-        }
-        .triple-indent {
-            padding: 0 40px 0 80px;
-            margin: 0px;
-        }
-        .code-function {
-            padding: 20px 40px 0px 40px;
-            margin: 0px;
-        }
-        .ending-brace {
-            padding: 0 40px 30px 40px;
-            margin: 0px;
-        }
-        .highlight {
-            position: absolute;
-            background-color: #2DFC9F;
-            width: 3px;
-            height: 22px;
-            left: 12%;
-        }
+    code {
+      width: 900px;
+      background-color: #202020;
+      padding: 20px;
+      display: block;
+    }
+    .code-import {
+      padding: 30px 40px;
+    }
+    .single-indent {
+      padding: 0 40px;
+      margin: 0px;
+    }
+    .double-indent {
+      padding: 0 40px 0 60px;
+      margin: 0px;
+    }
+    .triple-indent {
+      padding: 0 40px 0 80px;
+      margin: 0px;
+    }
+    .code-function {
+      padding: 20px 40px 0px 40px;
+      margin: 0px;
+    }
+    .ending-brace {
+      padding: 0 40px 30px 40px;
+      margin: 0px;
+    }
+    .highlight {
+      position: absolute;
+      background-color: #2dfc9f;
+      width: 3px;
+      height: 22px;
+      left: 12%;
+    }
+  }
+  &__actions {
+    @include page_text_actions;
 
+    button {
+      background-color: $background;
+      color: white;
+      border: 1px solid white;
+      border-bottom: 2px solid white;
+      border-radius: 0;
+      margin-right: 50px;
+      cursor: pointer;
+      @media (max-width: 840px) {
+        margin-right: 0px;
+      }
     }
-    &__actions {
-        @include page_text_actions;
-
-        button {
-            background-color: $background;
-            color: white;
-            border: 1px solid white;
-            border-bottom: 2px solid white;
-            border-radius: 0;
-            margin-right: 50px;
-            cursor:pointer;
-            @media (max-width: 840px) {
-                margin-right: 0px;
-            }
-        }
-    }
+  }
 }

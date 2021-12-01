@@ -7,6 +7,13 @@
   padding: 1% 12%;
 }
 
+#bounties {
+  scroll-margin-top: 200px;
+  @media (max-width: 840px) {
+    scroll-margin-top: 80px;
+  }
+}
+
 .BountiesWrapper {
   @include leftcolumn;
   width: 100%;
@@ -32,8 +39,7 @@
     }
     @media (max-width: 840px) {
       @include centeredcolumn;
-
-  }
+    }
   }
   &__desc {
     padding: 6% 0 2% 0;
@@ -59,66 +65,66 @@
   &__collapse {
     background-color: white;
     @media (max-width: 840px) {
-        padding: 70px 10%;
+      padding: 70px 10%;
     }
 
     &__title {
-        @include centeredrow;
-        width: 100%;
-        margin: 0 0 40px 0;
-        h1 {   
-            font-size: 1.625rem;
-            margin: 4px 0 0 0;
-        }
-        svg {
-            width: 40px;
-            margin: 0 10px 0 16px;
-        }
-        .firstDiv {
-            @include centeredrow;
-        }
-        @media (max-width: 840px) {
-          @include centeredcolumn;
-
+      @include centeredrow;
+      width: 100%;
+      margin: 0 0 40px 0;
+      h1 {
+        font-size: 1.625rem;
+        margin: 4px 0 0 0;
       }
-    
-        @media (max-width: 840px) {
-            @include centeredcolumn;
+      svg {
+        width: 40px;
+        margin: 0 10px 0 16px;
+      }
+      .firstDiv {
+        @include centeredrow;
+      }
+      @media (max-width: 840px) {
+        @include centeredcolumn;
+      }
 
-        }
-
+      @media (max-width: 840px) {
+        @include centeredcolumn;
+      }
     }
     &__desc {
-        padding: 6% 0 2% 0;
-        width: 100%;
-        p {
-            @include leftrow;
-            max-width: 700px;
-            margin: 0;
-            @include sixteenpxfont;
-            font-weight: 200;
-        }
-        a {
-            @include rightrow;
-            color: $background;
-        }
-        a:hover {
-            color: $real-tellor-green;
-        }
-        a:visited {
-            color: $background;
-        }
+      padding: 6% 0 2% 0;
+      width: 100%;
+      p {
+        @include leftrow;
+        max-width: 700px;
+        margin: 0;
+        @include sixteenpxfont;
+        font-weight: 200;
+      }
+      a {
+        @include rightrow;
+        color: $background;
+      }
+      a:hover {
+        color: $real-tellor-green;
+      }
+      a:visited {
+        color: $background;
+      }
     }
     &__collapse {
-        background-color: white;
-        padding: 3% 0;
-        width: 100%;
-        p {
-            @include leftrow;
-            margin: 0;
-            @include sixteenpxfont;
-            font-weight: 200;
-        }
+      background-color: white;
+      padding: 3% 0;
+      width: 100%;
+      p {
+        @include leftrow;
+        margin: 0;
+        @include sixteenpxfont;
+        font-weight: 200;
+      }
+    }
+    h3 {
+      margin-top: 10px;
     }
     p {
       margin: 0;
@@ -134,20 +140,19 @@
   }
 }
 
-
 .BountiesWrapperDark {
   @include leftcolumn;
   width: 100%;
   //padding: 1% 12%;
- 
+
   background-color: $background;
   &__desc {
     padding-top: 70px;
     padding-bottom: 0;
     @media (max-width: 840px) {
-        padding-top: 50px;
-        padding-bottom: 30px;
-      }
+      padding-top: 50px;
+      padding-bottom: 30px;
+    }
     width: 100%;
     p {
       @include leftrow;
@@ -171,43 +176,46 @@
   &__collapse {
     background-color: $background;
     &__desc {
-        padding-top: 70px;
-        padding-bottom: 0;
-        @media (max-width: 840px) {
-            padding-top: 50px;
-            padding-bottom: 30px;
-          }
-        width: 100%;
-        p {
-            @include leftrow;
-            max-width: 700px;
-            margin: 0;
-            @include sixteenpxfont;
-            font-weight: 200;
-            color: white;
-        }
-        a {
-            @include rightrow;
-            color: white;
-        }
-        a:hover {
-            color: $real-tellor-green;
-        }
-        a:visited {
-            color: $background;
-        }
+      padding-top: 70px;
+      padding-bottom: 0;
+      @media (max-width: 840px) {
+        padding-top: 50px;
+        padding-bottom: 30px;
+      }
+      width: 100%;
+      p {
+        @include leftrow;
+        max-width: 700px;
+        margin: 0;
+        @include sixteenpxfont;
+        font-weight: 200;
+        color: white;
+      }
+      a {
+        @include rightrow;
+        color: white;
+      }
+      a:hover {
+        color: $real-tellor-green;
+      }
+      a:visited {
+        color: $background;
+      }
     }
     &__collapse {
-        background-color: $background;
-        padding: 3% 0;
-        width: 100%;
-        p {
-            @include leftrow;
-            margin: 0;
-            @include sixteenpxfont;
-            font-weight: 200;
-            color: white;
-        }
+      background-color: $background;
+      padding: 3% 0;
+      width: 100%;
+      p {
+        @include leftrow;
+        margin: 0;
+        @include sixteenpxfont;
+        font-weight: 200;
+        color: white;
+      }
+    }
+    h2 {
+      color: white;
     }
     h3 {
       color: white;
