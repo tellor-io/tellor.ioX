@@ -4,6 +4,11 @@ import "./AboutIntro.scss";
 import HeaderDesc from "components/shared/HeaderDesc/HeaderDesc";
 
 const AboutIntro = () => {
+  //Makes page load at top
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
   const content = [
     {
       title: "Unstoppable oracle",
@@ -42,9 +47,7 @@ const AboutIntro = () => {
         />
       </div>
       <div className="AboutIntro__founders">
-        <h2 id="jobs" className="page-header-small">
-          Founders
-        </h2>
+        <h2 className="page-header-small">Founders</h2>
         <a className="page-text">Nick Fett - CTO</a>
         <a className="page-text">Brenda Loya - CEO</a>
         <a className="page-text">Michael Zemrose - CSO</a>

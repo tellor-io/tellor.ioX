@@ -10,7 +10,7 @@ const Jobs = () => {
   const jobPostings = useSelector((state) => state.strapiData.jobs);
 
   return (
-    <div className="Jobs">
+    <div id="jobs" className="Jobs">
       {/* panel intro */}
       <div className="Jobs__intro">
         <h2 className="page-header-small-black">Jobs</h2>
