@@ -1,5 +1,12 @@
 @import "../../../style/index.scss";
 
+#jobs {
+  scroll-margin-top: 200px;
+  @media (max-width: 840px) {
+    scroll-margin-top: 80px;
+  }
+}
+
 .Jobs {
   @include leftcolumn;
   width: 100%;

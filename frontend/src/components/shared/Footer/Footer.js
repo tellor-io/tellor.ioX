@@ -6,13 +6,13 @@ import { ReactComponent as Refresher } from "assets/refresh.svg";
 import { ReactComponent as Github } from "../../../assets/Github.svg";
 import { ReactComponent as Twitter } from "../../../assets/Twitter.svg";
 import { ReactComponent as Discord } from "../../../assets/discord_icon_blue.svg";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
 
 const Footer = () => {
   const [refresherClass, setRefresherClass] = useState();
   const [nmbr, setNmbr] = useState(0);
-  const isMobileHeader = useMediaQuery({query: '(max-width: 840px)'});
+  const isMobileHeader = useMediaQuery({ query: "(max-width: 840px)" });
 
   const tidbits = [];
   //Redux
@@ -46,6 +46,12 @@ const Footer = () => {
     };
   };
 
+  const handleAnchor = () => {
+    if (location.hash.length !== 0) {
+      window.scrollTo(window.scrollX, window.scrollY - 100);
+    }
+  };
+
   return (
     <div className="Footer">
       {/* {isMobileHeader?
@@ -71,24 +77,20 @@ const Footer = () => {
       </div>
       <div className="Footer__Bottom">
         <div className="Column__Big">
-        <div className="BrandLink_and_Socials__Container">
-        <div className="BrandLink__Container">
-            <div className="BrandLink">
-              <Link to="/">
-                <div>
-                  <span className="logo">tellor</span>
-                </div>
-                <div className="baseline">
-                  <span>
-                    unstoppable
-                  </span>
-                  <span>
-                    oracle
-                  </span>
-                </div>
-              </Link>
-            </div>
-            <p>&copy; 2021 tellor.io</p>
+          <div className="BrandLink_and_Socials__Container">
+            <div className="BrandLink__Container">
+              <div className="BrandLink">
+                <Link to="/">
+                  <div>
+                    <span className="logo">tellor</span>
+                  </div>
+                  <div className="baseline">
+                    <span>unstoppable</span>
+                    <span>oracle</span>
+                  </div>
+                </Link>
+              </div>
+              <p>&copy; 2021 tellor.io</p>
             </div>
             <div className="Social__Container">
               <a
@@ -114,7 +116,6 @@ const Footer = () => {
               </a>
             </div>
           </div>
-
         </div>
         <div className="Columns__Small">
           <div className="Column__Small">
@@ -134,7 +135,9 @@ const Footer = () => {
           <div className="Column__Small">
             <h2>About Tellor</h2>
             <a href="/abouttellor">our story</a>
-            <a href="/abouttellor/#jobs">careers</a>
+            <a href="/abouttellor/#jobs" onClick={handleAnchor}>
+              careers
+            </a>
             <a href="/blog">blog</a>
           </div>
         </div>
