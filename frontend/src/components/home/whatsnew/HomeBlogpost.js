@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./HomeBlogpost.scss";
 
 export default function HomeBlogpost() {
   const history = useHistory();
+  //Redux State
   const allBlogs = useSelector((state) => state.strapiData.blogPosts);
-  const mostRecent = allBlogs[0];
+  //Component State
+  const [mostRecent, setMostRecent] = useState({});
+
+  useEffect(() => {
+    if (allBlogs) {
+      if (allBlogs[0].title.length > 50) {
+        allBlogs[0].shortTitle = allBlogs[0].title.substring(0, 50) + " ...";
+      }
+      setMostRecent(allBlogs[0]);
+    }
+    return () => {
+      setMostRecent({});
+    };
+  }, [allBlogs]);
 
   return (
     <div className="HomeBlogpost" onClick={() => history.push("/blog")}>
       <div className="HomeBlogpost__image">
         <img
           src={
-            mostRecent
+            Object.keys(mostRecent).length > 1
               ? "https://strapi.tellor.io" + mostRecent.blogImage.url
               : ""
           }
@@ -22,7 +36,13 @@ export default function HomeBlogpost() {
       </div>
       <div className="HomeBlogpost__txt">
         <p>Blogpost</p>
-        <h4>{mostRecent ? mostRecent.title : ""}</h4>
+        <h4>
+          {Object.keys(mostRecent).length > 1
+            ? mostRecent.shortTitle
+              ? mostRecent.shortTitle
+              : mostRecent.title
+            : ""}
+        </h4>
       </div>
     </div>
   );

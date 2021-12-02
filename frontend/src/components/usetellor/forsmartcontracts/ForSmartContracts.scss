@@ -28,7 +28,11 @@
       display: block;
     }
     .code-import {
-      padding: 30px 40px;
+      padding: 30px 40px 10px 40px;
+    }
+    .special-indent {
+      padding: 0 20px;
+      margin: 0px;
     }
     .single-indent {
       padding: 0 40px;
