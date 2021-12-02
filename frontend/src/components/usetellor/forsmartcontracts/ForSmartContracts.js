@@ -36,7 +36,7 @@ const ForSmartContracts = () => {
           <pre className="code-function">
             <div className="highlight" />
             function getLastValue(uint256 _requestId) public view returns (bool
-            ifRetrieve,)
+            ifRetrieve,
           </pre>
           <div className="highlight" />
           <pre className="double-indent">
