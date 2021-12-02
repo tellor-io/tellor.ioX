@@ -58,9 +58,9 @@ export const getEvents = (loading, error, data) => (dispatch) => {
           clone.realQueryData = {};
           clone.realQueryData.name = "N/A";
         }
-
         return clone;
       });
+      // console.log("GRAPH: ", newEvents[0]);
       dispatch(getReporterEventsSuccess(newEvents));
     }
 
