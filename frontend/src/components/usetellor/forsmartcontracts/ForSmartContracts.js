@@ -16,18 +16,17 @@ const ForSmartContracts = () => {
       </div>
       <div className="ForSmart__code">
         <code>
-          <pre className="code-import ">
+          <pre className="code-import">
             <div className="highlight" />
             import './UsingTellor.sol';
           </pre>
-
           <div className="highlight" />
           <pre className="single-indent">
             contract YourContract is UsingTellor{"{"}
           </pre>
           <div className="highlight" />
           <pre className="double-indent">
-            constructor(address payable _userContract)
+            constructor(address payable _tellorContract)
             UsingTellor(_tellorContract) {"{"}
           </pre>
           <div className="highlight" />
