@@ -28,7 +28,7 @@ const ForSmartContracts = () => {
           <div className="highlight" />
           <pre className="double-indent">
             constructor(address payable _userContract)
-            UsingTellor(_userContract) {"{"}
+            UsingTellor(_tellorContract) {"{"}
           </pre>
           <div className="highlight" />
           <pre className="double-indent">{"}"}</pre>
