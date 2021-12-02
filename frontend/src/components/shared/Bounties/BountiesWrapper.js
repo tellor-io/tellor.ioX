@@ -51,15 +51,15 @@ export default function BountiesWrapper(props) {
             to you and the bounty is yours!
             <br />
             If you want to help someone else working on one not available, send
-            me an email at:{" "}
+            us an email at:{" "}
             <span>
               <a href="mailto:nfett@tellor.io">nfett@tellor.io</a>
             </span>{" "}
-            and I&apos;ll see if it&apos;s a fit.
+            and we&apos;ll see if it&apos;s a fit.
             <br />
             If you&apos;re building something else that&apos;s open source and
-            fits with our mission...tell me to add it and lets keep building
-            this out.
+            fits with our mission...tell us to add it and let&apos;s keep
+            building this out.
           </p>
           <h3>What this is NOT.</h3>
           <p>
@@ -69,11 +69,11 @@ export default function BountiesWrapper(props) {
             development need.
             <br />
             The rewards should be seen as just bonuses for helping to build out
-            Tellor, not nessecarily a salary or a fair market value for the
+            Tellor, not necessarily a salary or a fair market value for the
             work.
             <br />
             It&apos;s also not some anonymous thing. If you want the reward, you
-            have to let me know you&apos;re working on it. Hell, let discord and
+            have to let us know you&apos;re working on it. Hell, let discord and
             the Tellor channel know you&apos;re on it. We want you to work on it
             alone, with people, and with the team.
           </p>
