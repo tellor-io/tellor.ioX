@@ -28,11 +28,15 @@ export default function Bounties(props) {
   useEffect(() => {
     const bountiesUrl =
       "https://api.sheety.co/ed9240fc3b351479d6da738838e4133d/tellorBountiesProgram/bounties";
-    fetch(bountiesUrl)
-      .then((response) => response.json())
-      .then((result) => {
-        dataHelper(result.bounties);
-      });
+    try {
+      fetch(bountiesUrl)
+        .then((response) => response.json())
+        .then((result) => {
+          dataHelper(result.bounties);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   //DataHelper function to get Sheety API data into proper form for the AntD Table

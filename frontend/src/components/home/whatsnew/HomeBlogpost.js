@@ -11,7 +11,7 @@ export default function HomeBlogpost() {
   const [mostRecent, setMostRecent] = useState({});
 
   useEffect(() => {
-    if (allBlogs) {
+    if (allBlogs[0]) {
       if (allBlogs[0].title.length > 50) {
         allBlogs[0].shortTitle = allBlogs[0].title.substring(0, 50) + " ...";
       }
