@@ -27,25 +27,31 @@ const ForSmartContracts = () => {
           </pre>
           <div className="highlight" />
           <pre className="double-indent">
-            constructor(addresss _userContract) UsingTellor(_userContract)
-            public {"{"}
+            constructor(address payable _userContract)
+            UsingTellor(_userContract) {"{"}
           </pre>
           <div className="highlight" />
           <pre className="double-indent">{"}"}</pre>
           <div className="highlight" />
           <pre className="code-function">
             <div className="highlight" />
-            function getLastValue(uint256 _requestId) public view returns (bool
-            ifRetrieve,)
+            <pre className="special-indent">
+              function getLastValue(bytes32 _queryId)
+            </pre>
+            <div className="highlight" />
+            <pre className="single-indent">public</pre>
+            <div className="highlight" />
+            <pre className="single-indent">view</pre>
+            <div className="highlight" />
+            <pre className="single-indent">
+              returns (bool ifRetrieve, bytes memory value, uint256
+              _timestampRetrieved)
+            </pre>
           </pre>
           <div className="highlight" />
-          <pre className="double-indent">
-            uint256 value, uint256 _timestampeRetrieved) {"{"}
-          </pre>
+          <pre className="double-indent">{"{"}</pre>
           <div className="highlight" />
-          <pre className="triple-indent">
-            return getCurrentValue(_requestId);
-          </pre>
+          <pre className="triple-indent">return getCurrentValue(_queryId);</pre>
           <div className="highlight" />
           <pre className="double-indent">{"}"}</pre>
           <div className="highlight" />
