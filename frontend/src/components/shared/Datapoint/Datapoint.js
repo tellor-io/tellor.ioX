@@ -3,13 +3,13 @@ import "./Datapoint.scss";
 import { truncateAddr } from "utils/helpers";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-TimeAgo.addDefaultLocale(en);
+TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 export default function Datapoint({ data }) {
-  const timeToUse = data._time ? data._time : data.timestamp;
+  const timeToUse = data ? data._time : "1638490975";
   //Globals
   const time = timeAgo.format(new Date(timeToUse * 1000), "round");
 
@@ -27,26 +27,14 @@ export default function Datapoint({ data }) {
               >
                 {truncateAddr(data._reporter)}
               </a> */}
-              <Link to={"account/address/"+data._reporter}>{truncateAddr(data._reporter)}</Link>
+              <Link to={"account/address/" + data._reporter}>
+                {truncateAddr(data._reporter)}
+              </Link>
             </p>
-            <h4>
-              {data.realQueryData.type === "LegacyRequest"
-                ? `Legacy ${data.realQueryData.legacy_name}`
-                : data.realQueryData.name}
-            </h4>
+            <h4>{data.reportedValueName}</h4>
           </div>
           <div className="Datapoint__right">
-            <h2>
-              {(data.realQueryData.name &&
-                data.realQueryData.name.includes("USD")) ||
-              (data.realQueryData.legacy_name &&
-                data.realQueryData.legacy_name.includes("USD"))
-                ? `${new Intl.NumberFormat("en-EN", {
-                    style: "currency",
-                    currency: "USD",
-                  }).format(data.realValue / 1000000)}`
-                : data.realValue}
-            </h2>
+            <h2>{data.reportedValue}</h2>
           </div>
         </div>
       ) : (

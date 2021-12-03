@@ -18,14 +18,13 @@ export default function HomeCurrentReporters() {
   useEffect(() => {
     if (eventsFromRedux) {
       const formattedData = eventsFromRedux.map((event) => {
-        return {
-          reporter: event._reporter,
-          time: event._time,
-          symbols:
-            event.realQueryData.type === "LegacyRequest"
-              ? `Legacy ${event.realQueryData.legacy_name}`
-              : event.realQueryData.name,
-        };
+        if (event) {
+          return {
+            reporter: event.reporter,
+            time: event._time,
+            symbols: event.reportedValueName,
+          };
+        }
       });
       setHomeCurrentReporters(formattedData);
     }
@@ -96,13 +95,14 @@ export default function HomeCurrentReporters() {
         </div>
         <div className="chains">
           <Chains />
-          {isSmallestSize ? (
-            <div className="chains__twolinks">
-              {/* <Link to="/becomereporter">reporters</Link>
+          {
+            isSmallestSize ? (
+              <div className="chains__twolinks">
+                {/* <Link to="/becomereporter">reporters</Link>
               <Link to="/howitworks">chains</Link> */}
-            </div>
-          ) : null
-          // <Link to="/howitworks">chains</Link>
+              </div>
+            ) : null
+            // <Link to="/howitworks">chains</Link>
           }
         </div>
       </div>
