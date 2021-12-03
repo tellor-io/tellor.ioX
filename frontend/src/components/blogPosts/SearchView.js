@@ -1,6 +1,8 @@
 import React from "react";
 //Redux
 import { useSelector } from "react-redux";
+//React Router
+import { Link } from "react-router-dom";
 //Helpers
 import { titleFormatter } from "./blogPostsHelpers";
 
@@ -15,14 +17,23 @@ function SearchView({ searchBar }) {
           .filter((post) => post.title.includes(searchBar.search))
           .map((post) => {
             return (
-              <div className="posts__innerDivs" key={post.id}>
+              <Link
+                className="posts__innerDivs"
+                key={post.id}
+                to={{
+                  pathname: `/blog/${post.postUrl}`,
+                  state: {
+                    post: post,
+                  },
+                }}
+              >
                 <img
                   src={"https://strapi.tellor.io" + post.blogImage.url}
                   alt={post.blogImage.name}
                 />
                 <h5>{post.publishDate}</h5>
                 <h1>{titleFormatter(post.title)}</h1>
-              </div>
+              </Link>
             );
           })}
       </div>
