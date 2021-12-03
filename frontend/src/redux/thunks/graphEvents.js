@@ -6,28 +6,15 @@ import {
 
 import { psrLookup } from "../../utils/psrLookup";
 import Web3 from "web3";
+import { parseReportEntities } from "./graphEventHelpers";
 
 export const getEvents = (loading, error, data) => (dispatch) => {
   try {
     //fetch data
     const web3 = new Web3(window.ethereum);
 
-    // const parseReportEntities = (reportEntities) =>
-    //   reportEntities.map((event) => {
-    //     const something = {
-    //       ...event,
-    //       realValue: parseInt(Number(event._value), 10),
-    //       _reporter: web3.utils.toChecksumAddress(event._reporter),
-    //       queryData: queryDataParsers[queryData?.type || "Default"](
-    //         event._queryData
-    //       ),
-    //     };
-    //     console.log("REWORK", something);
-    //     return something;
-    //   });
-
     if (data?.reportEntities) {
-      // parseReportEntities(data.reportEntities);
+      parseReportEntities(data.reportEntities);
       let newEvents = data.reportEntities.map((event) => {
         let clone = JSON.parse(JSON.stringify(event));
         clone.realValue = parseInt(Number(event._value), 10);
