@@ -1,18 +1,18 @@
 ### Development
 
-2. Go to folder 'frontend'
+1. Go to folder 'frontend'
 
    `cd frontend`
 
-3. Install dependencies
+2. Install dependencies
 
    `npm install`
 
-4. Start the server
+3. Start the server
 
    `npm start`
 
-5. Open a browser: http://localhost:3000
+4. Open a browser: http://localhost:3000
 
 [BELOW IS FROM PREVIOUS VERSION:]
 
