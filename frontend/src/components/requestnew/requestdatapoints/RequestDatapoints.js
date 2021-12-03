@@ -6,15 +6,28 @@ import { useSelector } from "react-redux";
 
 const RequestDatapoints = () => {
   const [open, setOpen] = useState(false);
+  const [events, setEvents] = useState([]);
   const [datapointsTotal, setDatapointsTotal] = useState(0);
   const [linkText, setLinkText] = useState("");
   const eventsFromRedux = useSelector((state) => state.graphEvents.eventsData);
 
   useEffect(() => {
     if (eventsFromRedux) {
-      setLinkText(open ? "see less..." : `see all (${eventsFromRedux.length})`);
-      setDatapointsTotal(eventsFromRedux.length);
+      let eventsArray = [];
+      eventsFromRedux.map((event) => {
+        if (event) {
+          eventsArray.push(event);
+        }
+      });
+      setEvents(eventsArray);
+      setLinkText(open ? "see less..." : `see all (${eventsArray.length})`);
+      setDatapointsTotal(eventsArray.length);
     }
+    return () => {
+      setEvents([]);
+      setLinkText("");
+      setDatapointsTotal(0);
+    };
   }, [eventsFromRedux, open]);
 
   //toggle data point visibility
@@ -26,15 +39,14 @@ const RequestDatapoints = () => {
     <div className="RequestDatapoints">
       <div className="Datapoints">
         <p className="popular-points">Most recent datapoints:</p>
-        {eventsFromRedux &&
-          eventsFromRedux.map((data, i) => {
-            if (open) {
-              //only show all datapoints if open
-              return <Datapoint key={i} data={data} />;
-            } else if (i < 3 && !open) {
-              return <Datapoint key={i} data={data} />;
-            }
-          })}
+        {events?.map((data, i) => {
+          if (open) {
+            //only show all datapoints if open
+            return <Datapoint key={i} data={data} />;
+          } else if (i < 3 && !open) {
+            return <Datapoint key={i} data={data} />;
+          }
+        })}
       </div>
       {/* only show dropdown if more than 3 datapoints */}
       {datapointsTotal > 3 && (
