@@ -159,7 +159,12 @@ export default function Bounties(props) {
   return (
     <div className={classType}>
       <Table
-        pagination={{ pageSize: 5, showLessItems: true }}
+        pagination={{
+          defaultPageSize: 5,
+          showLessItems: true,
+          pageSizeOptions: [10, 20, 50],
+          showSizeChanger: true,
+        }}
         columns={isMobile ? columns_mobile : columns}
         onRow={(record) => {
           return {

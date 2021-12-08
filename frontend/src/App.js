@@ -8,7 +8,7 @@ import Footer from "components/shared/Footer/Footer";
 import GraphFetch from "components/shared/GraphFetch";
 import { NetworkContext } from "contexts/Network";
 import { UserContext } from "contexts/User";
-import { GET_ALL_REPORTER_EVENTS } from "utils/queries";
+import { GET_ALL_REPORTER_EVENTS, GET_ALL_VOTE_EVENTS } from "utils/queries";
 import { ApolloClient, useQuery } from "@apollo/client";
 import { cache } from "utils/cache";
 import { chains } from "utils/chains";
@@ -21,28 +21,45 @@ import {
   getGithubInfo,
   getTwitterInfo,
   getEvents,
+  getVotes,
 } from "redux/thunks";
 
-let clientM = new ApolloClient({
-  uri: chains[1].subgraphURL,
+//Graph Reporter Event Apollo Queries
+let clientMEvents = new ApolloClient({
+  uri: chains[1].subgraphEventsURL,
   cache: cache,
 });
-let clientR = new ApolloClient({
-  uri: chains[4].subgraphURL,
+let clientREvents = new ApolloClient({
+  uri: chains[4].subgraphEventsURL,
+  cache: cache,
+});
+//Graph Vote Event Apollo Queries
+let clientMVote = new ApolloClient({
+  uri: chains[1].subgraphVotesURL,
+  cache: cache,
+});
+let clientRVote = new ApolloClient({
+  uri: chains[4].subgraphVotesURL,
   cache: cache,
 });
 
 const App = (props) => {
-  const [events, setEvents] = useState();
-  const [votes, setVotes] = useState();
+  // const [events, setEvents] = useState();
+  // const [votes, setVotes] = useState();
   const [currentNetwork] = useContext(NetworkContext);
-  const [disputes, setDisputes] = useState();
-  const [disputesReady, setDisputesReady] = useState(false);
+  // const [disputes, setDisputes] = useState();
+  // const [disputesReady, setDisputesReady] = useState(false);
 
   const [currentUser] = useContext(UserContext);
 
-  const { loading, error, data } = useQuery(GET_ALL_REPORTER_EVENTS, {
-    client: +currentNetwork === 1 ? clientM : clientR,
+  const eventsData = useQuery(GET_ALL_REPORTER_EVENTS, {
+    client: +currentNetwork === 1 ? clientMEvents : clientREvents,
+    fetchPolicy: "network-only",
+    pollInterval: 5000,
+  });
+
+  const votesData = useQuery(GET_ALL_VOTE_EVENTS, {
+    client: +currentNetwork === 1 ? clientMVote : clientRVote,
     fetchPolicy: "network-only",
     pollInterval: 5000,
   });
@@ -56,6 +73,7 @@ const App = (props) => {
     startGitHub,
     startTwitter,
     startGetEvents,
+    startGetVotes,
   } = props;
 
   useEffect(() => {
@@ -66,9 +84,11 @@ const App = (props) => {
   }, []);
 
   useEffect(() => {
+    console.log(currentNetwork);
     startGetPrices(currentNetwork);
-    startGetEvents(loading, error, data);
-  }, [currentNetwork, data]);
+    startGetEvents(eventsData.loading, eventsData.error, eventsData.data);
+    startGetVotes(votesData.loading, votesData.error, votesData.data);
+  }, [currentNetwork, eventsData.data, votesData.data]);
 
   // useEffect(() => {
   //   if (votes && votes.disputes) {
@@ -124,6 +144,8 @@ const mapDispatchToProps = (dispatch) => ({
   startTwitter: () => dispatch(getTwitterInfo()),
   startGetEvents: (loading, error, data) =>
     dispatch(getEvents(loading, error, data)),
+  startGetVotes: (loading, error, data) =>
+    dispatch(getVotes(loading, error, data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -19,3 +19,24 @@ export const getReporterEventsFailure = (error) => {
     error,
   };
 };
+//get vote events
+export const GET_VOTE_EVENTS = "GET_VOTE_EVENTS";
+export const getVoteEvents = () => {
+  return {
+    type: GET_VOTE_EVENTS,
+  };
+};
+export const GET_VOTE_EVENTS_SUCCESS = "GET_VOTE_EVENTS_SUCCESS";
+export const getVoteEventsSuccess = (data) => {
+  return {
+    type: GET_VOTE_EVENTS_SUCCESS,
+    data,
+  };
+};
+export const GET_VOTE_EVENTS_FAILURE = "GET_VOTE_EVENTS_FAILURE";
+export const getVoteEventsFailure = (error) => {
+  return {
+    type: GET_VOTE_EVENTS_FAILURE,
+    error,
+  };
+};

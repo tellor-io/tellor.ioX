@@ -14,7 +14,7 @@ const HowItWorks = () => {
     <div className="viewContainer">
       <LiveHeader />
       <VoteItems />
-      {/* <LiveTables /> */}
+      <LiveTables />
     </div>
   );
 };

@@ -66,8 +66,8 @@ export const queryDataParsers = {
       case "btc":
         event.reportedValueName = `${
           event.newQueryData.price_type
-            ? event.newQueryData.price_type.charAt(0).toUpperCase() +
-              event.newQueryData.price_type.slice(1)
+            ? event.newQueryData.type.charAt(0).toUpperCase() +
+              event.newQueryData.type.slice(1)
             : ""
         } ${
           event.newQueryData.coin ? event.newQueryData.coin.toUpperCase() : ""
@@ -87,6 +87,35 @@ export const queryDataParsers = {
         return event;
     }
   },
+  SpotPrice: (event) => {
+    switch (event.newQueryData.asset) {
+      case "wampl":
+        event.reportedValueName = `${
+          event.newQueryData.type
+            ? event.newQueryData.type
+            : "No queryData type"
+        } ${
+          event.newQueryData.asset
+            ? event.newQueryData.asset.toUpperCase()
+            : "No queryData asset"
+        }/${
+          event.newQueryData.currency
+            ? event.newQueryData.currency.toUpperCase()
+            : ""
+        }`;
+        event.reportedValue = event.value
+          ? new Intl.NumberFormat("en-EN", {
+              style: "currency",
+              currency: "USD",
+            }).format(event.value / eighteenDecimals)
+          : "No Value";
+        return event;
+      default:
+        event.reportedValueName = "New SpotPrice Type";
+        event.reportedValue = "0";
+        return event;
+    }
+  },
   Default: (event) => {
     switch (event.queryId) {
       case 8:
@@ -96,7 +125,7 @@ export const queryDataParsers = {
           event._queryData.charAt(0).toUpperCase() + event._queryData.slice(1);
         return event;
       default:
-        event.reportedValueName = "New QueryData w/out JSON";
+        event.reportedValueName = "New QueryType";
         event.reportedValue = "0";
         return event;
     }

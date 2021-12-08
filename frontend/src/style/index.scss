@@ -103,9 +103,8 @@ $real-tellor-green: #20f092;
   padding-top: 60px;
   @media (max-width: 840px) {
     padding-top: 30px;
-  } 
+  }
 }
-
 
 @mixin page_text_actions {
   padding-top: 50px;
@@ -118,7 +117,6 @@ $real-tellor-green: #20f092;
     padding: 30px 0;
   }
 }
-
 
 body {
   background-color: $background;
@@ -207,7 +205,6 @@ h6 {
     color: rgba(#ffffff, 0.2);
   }
 }
-
 
 // --- Ant Overrides ---
 
@@ -353,11 +350,17 @@ button {
     color: $tellor-green;
   }
 }
-.ant-pagination-item-active:focus-visible, .ant-pagination-item-active:hover {
+.ant-pagination-item-active:focus-visible,
+.ant-pagination-item-active:hover {
   border-color: $background;
 }
 
-.ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
+.ant-pagination-jump-prev
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis,
+.ant-pagination-jump-next
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis {
   @include twelvepxfont;
   font-family: "Inconsolata", monospace;
   color: $background;
@@ -369,6 +372,23 @@ button {
   border: none;
   background: none;
   color: $darkestgrey;
+}
+
+.ant-pagination-options-size-changer {
+  border-color: $background;
+  color: $background;
+}
+.ant-select-item-option-content {
+  color: $background;
+}
+.ant-select-single .ant-select-open .ant-select-selection-item {
+  color: $background !important;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border: 1px solid $background;
+}
+.ant-select-arrow {
+  color: $background;
 }
 
 /* Button extra's */
@@ -414,7 +434,6 @@ button {
   @media (max-width: 1024px) {
     min-width: unset !important;
   }
-
 }
 
 // Migration specifics (by Bennisan)
@@ -648,7 +667,7 @@ button {
   border-radius: 0;
   margin-right: 20px;
   margin-bottom: 30px;
-  cursor:pointer;
+  cursor: pointer;
   height: 64px;
   box-sizing: border-box;
   @media (max-width: 840px) {
@@ -672,7 +691,7 @@ button {
   border-bottom: 2px solid $background;
   border-radius: 0;
   margin-right: 20px;
-  cursor:pointer;
+  cursor: pointer;
   height: 74px;
   box-sizing: border-box;
   @media (max-width: 840px) {
