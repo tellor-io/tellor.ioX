@@ -5,7 +5,7 @@ import videoplaceholder from "assets/video_placeholder.png";
 
 const SampleUsing = () => {
   const githubrepo = "tellor-io/usingtellor";
-  const docs = "https://tellor-io.github.io/telliot-core/";
+  const docs = "https://docs.tellor.io/tellor/integration/introduction";
 
   return (
     <div className="SampleUsing">
