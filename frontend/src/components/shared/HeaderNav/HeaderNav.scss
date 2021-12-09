@@ -1,7 +1,9 @@
 @import "../../../style/index.scss";
 
 .Header {
-  @include leftcolumn;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
   box-sizing: border-box;
   padding: 56px 60px 20px 104px;
   width: 100vw;
