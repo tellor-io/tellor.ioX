@@ -1,10 +1,10 @@
 import React from "react";
 import "./SampleUsing.scss";
 import { ReactComponent as Github } from "assets/Github.svg";
-import videoplaceholder from "assets/video_placeholder.png";
+// import videoplaceholder from "assets/video_placeholder.png";
 
 const SampleUsing = () => {
-  const githubrepo = "tellor-io/usingtellor";
+  const githubrepo = "tellor-io/sampleUsingTellor";
   const docs = "https://docs.tellor.io/tellor/integration/introduction";
 
   return (
