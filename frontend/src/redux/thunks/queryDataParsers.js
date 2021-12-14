@@ -6,21 +6,21 @@ export const queryDataParsers = {
   LegacyRequest: (event) => {
     switch (event.queryId) {
       case 1:
-        event.reportedValueName = `Legacy ${psrLookup[event.queryId].name}`;
+        event.reportedValueName = psrLookup[event.queryId].name;
         event.reportedValue = new Intl.NumberFormat("en-EN", {
           style: "currency",
           currency: "USD",
         }).format(event.value / 1000000);
         return event;
       case 2:
-        event.reportedValueName = `Legacy ${psrLookup[event.queryId].name}`;
+        event.reportedValueName = psrLookup[event.queryId].name;
         event.reportedValue = new Intl.NumberFormat("en-EN", {
           style: "currency",
           currency: "USD",
         }).format(event.value / 1000000);
         return event;
       case 10:
-        event.reportedValueName = `Legacy ${psrLookup[event.queryId].name}`;
+        event.reportedValueName = psrLookup[event.queryId].name;
         event.reportedValue =
           event.value.toString().length > 17
             ? new Intl.NumberFormat("en-EN", {
@@ -33,7 +33,7 @@ export const queryDataParsers = {
               }).format(event.value / 1000000);
         return event;
       case 41:
-        event.reportedValueName = `Legacy ${psrLookup[event.queryId].name}`;
+        event.reportedValueName = psrLookup[event.queryId].name;
         event.reportedValue =
           event.value.toString().length > 18
             ? (event.value / eighteenDecimals).toString()
@@ -42,14 +42,14 @@ export const queryDataParsers = {
             : "*" + event.value.toString();
         return event;
       case 50:
-        event.reportedValueName = `Legacy ${psrLookup[event.queryId].name}`;
+        event.reportedValueName = psrLookup[event.queryId].name;
         event.reportedValue = new Intl.NumberFormat("en-EN", {
           style: "currency",
           currency: "USD",
         }).format(event.value / 1000000);
         return event;
       case 59:
-        event.reportedValueName = `Legacy ${psrLookup[event.queryId].name}`;
+        event.reportedValueName = psrLookup[event.queryId].name;
         event.reportedValue = new Intl.NumberFormat("en-EN", {
           style: "currency",
           currency: "JPY",
