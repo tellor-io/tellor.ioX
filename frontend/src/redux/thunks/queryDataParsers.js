@@ -87,6 +87,35 @@ export const queryDataParsers = {
         return event;
     }
   },
+  SpotPrice: (event) => {
+    switch (event.newQueryData.asset) {
+      case "wampl":
+        event.reportedValueName = `${
+          event.newQueryData.type
+            ? event.newQueryData.type
+            : "No queryData type"
+        } ${
+          event.newQueryData.asset
+            ? event.newQueryData.asset.toUpperCase()
+            : "No queryData asset"
+        }/${
+          event.newQueryData.currency
+            ? event.newQueryData.currency.toUpperCase()
+            : ""
+        }`;
+        event.reportedValue = event.value
+          ? new Intl.NumberFormat("en-EN", {
+              style: "currency",
+              currency: "USD",
+            }).format(event.value / eighteenDecimals)
+          : "No Value";
+        return event;
+      default:
+        event.reportedValueName = "New SpotPrice Type";
+        event.reportedValue = "0";
+        return event;
+    }
+  },
   Default: (event) => {
     switch (event.queryId) {
       case 8:
