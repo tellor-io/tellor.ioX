@@ -143,18 +143,18 @@ export default function Bounties(props) {
     },
   ];
 
-  const addtoClaimerPanels = (e) => {
-    const arr = [...claimerPanels];
-    if (arr.includes(e)) {
-      const index = arr.indexOf(e);
-      if (index > -1) {
-        arr.splice(index, 1);
-      }
-    } else {
-      arr.push(e);
-    }
-    setPanelsArr(arr);
-  };
+  // const addtoClaimerPanels = (e) => {
+  //   const arr = [...claimerPanels];
+  //   if (arr.includes(e)) {
+  //     const index = arr.indexOf(e);
+  //     if (index > -1) {
+  //       arr.splice(index, 1);
+  //     }
+  //   } else {
+  //     arr.push(e);
+  //   }
+  //   setPanelsArr(arr);
+  // };
 
   return (
     <div className={classType}>
@@ -203,11 +203,14 @@ export default function Bounties(props) {
                       </p>
                     ) : null}
                   </div>
-                  <Button
-                    id="claimModalButton"
-                    onClick={() => addtoClaimerPanels(i)}
-                  >
-                    {claimerPanels.includes(i) ? "Close" : "Claim this bounty"}
+                  <Button id="claimModalButton">
+                    <a
+                      href="https://discord.com/channels/461602746336935936/927598061746790400"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Claim Bounty
+                    </a>
                   </Button>
                 </div>
 
@@ -252,11 +255,14 @@ export default function Bounties(props) {
                       </p>
                     ) : null}
                   </div>
-                  <Button
-                    id="claimModalButton"
-                    onClick={() => addtoClaimerPanels(i)}
-                  >
-                    {claimerPanels.includes(i) ? "Close" : "Claim this bounty"}
+                  <Button id="claimModalButton">
+                    <a
+                      href="https://discord.com/channels/461602746336935936/927598061746790400"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Claim Bounty
+                    </a>
                   </Button>
                 </div>
                 <div className="claimForm">
